@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617BC3D20B3F25D00F7A8C8 /* Utils.m */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		0619CF8C20B2E233004CFDC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8B20B2E233004CFDC9 /* ViewController.m */; };
 		0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF8D20B2E233004CFDC9 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 		0619CFA120B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFA020B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m */; };
 		0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */; };
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
+		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
+		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0617BC3C20B3F25D00F7A8C8 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		0617BC3D20B3F25D00F7A8C8 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Faveo Service Desk Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CF8720B2E233004CFDC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0619CF8820B2E233004CFDC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,6 +58,12 @@
 		0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
 		0619CFAD20B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = servicdeskPro.png; sourceTree = "<group>"; };
+		0619CFBF20B31064004CFDC9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		0619CFC020B31064004CFDC9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColors.h"; sourceTree = "<group>"; };
+		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
+		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,13 +92,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		061051FB2199898B7BA13F2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */,
+				673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		0619CF7B20B2E233004CFDC9 = {
 			isa = PBXGroup;
 			children = (
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
+				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
 				0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
 				0619CF8520B2E233004CFDC9 /* Products */,
+				061051FB2199898B7BA13F2B /* Pods */,
+				E75D6D508A14F90D4C829D76 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +129,8 @@
 			children = (
 				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
 				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
+				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
+				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
 				0619CF8A20B2E233004CFDC9 /* ViewController.h */,
 				0619CF8B20B2E233004CFDC9 /* ViewController.m */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
@@ -135,6 +161,24 @@
 			path = "Faveo Service Desk ProUITests";
 			sourceTree = "<group>";
 		};
+		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
+				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
+				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0619CFB020B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk Pro" */;
 			buildPhases = (
+				CF11872CA209807CAB98F998 /* [CP] Check Pods Manifest.lock */,
 				0619CF8020B2E233004CFDC9 /* Sources */,
 				0619CF8120B2E233004CFDC9 /* Frameworks */,
 				0619CF8220B2E233004CFDC9 /* Resources */,
+				6E159F1E6D3F3B77373023AA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +307,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6E159F1E6D3F3B77373023AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF11872CA209807CAB98F998 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Faveo Service Desk Pro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0619CF8020B2E233004CFDC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,6 +354,8 @@
 				0619CF8C20B2E233004CFDC9 /* ViewController.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
+				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
+				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +522,7 @@
 		};
 		0619CFB120B2E234004CFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +540,7 @@
 		};
 		0619CFB220B2E234004CFDC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
