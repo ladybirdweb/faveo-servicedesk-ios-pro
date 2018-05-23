@@ -27,9 +27,9 @@
 
 -(void)showAlertWithMessage:(NSString*)message sendViewController:(UIViewController *)viewController;
 
--(BOOL)compareDates:(NSString*)date1;
--(NSString *)getLocalDateTimeFromUTC:(NSString *)strDate;
--(NSString *)getLocalDateTimeFromUTCDueDate:(NSString *)strDate;
+//-(BOOL)compareDates:(NSString*)date1;
+//-(NSString *)getLocalDateTimeFromUTC:(NSString *)strDate;
+//-(NSString *)getLocalDateTimeFromUTCDueDate:(NSString *)strDate;
 
 
 
