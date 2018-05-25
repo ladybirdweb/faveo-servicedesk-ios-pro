@@ -74,7 +74,7 @@
 
 - (IBAction)loginButtonMethod:(id)sender {
     
-    ViewController *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"id"];
+    ViewController *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"InboxID"];
     [self.navigationController pushViewController:inboxVC animated:YES];
     //[self.navigationController popViewControllerAnimated:YES];
     [[self navigationController] setNavigationBarHidden:NO];

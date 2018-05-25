@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "LeftMenuViewController.h"
+
 
 @interface ViewController ()
 
@@ -19,10 +21,11 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+#pragma mark - SlideNavigationController Methods
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
 }
 
 

@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "LeftMenuViewController.h"
+#import "ViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
-
+{
+    UIStoryboard *mainStoryboard;
+}
 @end
 
 @implementation AppDelegate
@@ -17,6 +22,42 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+     mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loginSuccess"]) {
+        NSLog(@"Login Done!!!");
+        
+        ViewController *inbox=[mainStoryboard instantiateViewControllerWithIdentifier:@"InboxID"];
+        SlideNavigationController *slide = [[SlideNavigationController alloc] initWithRootViewController:inbox];
+        slide.navigationBar.translucent = NO;
+        
+        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
+        
+        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = slide;
+        [self.window makeKeyAndVisible];
+        
+    }else{
+        NSLog(@"Not Login!!!");
+        LoginViewController  *homeScreen = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+        
+        SlideNavigationController *slide = [[SlideNavigationController alloc] initWithRootViewController:homeScreen];
+        slide.navigationBar.translucent = NO;
+        
+        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
+        
+        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = slide;
+        [self.window makeKeyAndVisible];
+    }
+    
     return YES;
 }
 

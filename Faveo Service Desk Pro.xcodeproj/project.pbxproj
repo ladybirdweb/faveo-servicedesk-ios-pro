@@ -25,6 +25,15 @@
 		0638D40120B7ED8F00A0DD5F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */; };
 		0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40220B7ED9A00A0DD5F /* UIKit.framework */; };
 		0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40420B7EDA500A0DD5F /* UserNotifications.framework */; };
+		0638D41820B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D40A20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.m */; };
+		0638D41920B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D40C20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.m */; };
+		0638D41A20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D40E20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		0638D41B20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D41020B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.m */; };
+		0638D41C20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D41220B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		0638D41D20B8051A00A0DD5F /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D41420B8051A00A0DD5F /* menu-button.png */; };
+		0638D41E20B8051A00A0DD5F /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D41520B8051A00A0DD5F /* menu-button@2x.png */; };
+		0638D41F20B8051A00A0DD5F /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D41720B8051A00A0DD5F /* SlideNavigationController.m */; };
+		0638D42220B805A400A0DD5F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D42020B805A300A0DD5F /* LeftMenuViewController.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +85,23 @@
 		0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0638D40220B7ED9A00A0DD5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0638D40420B7EDA500A0DD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		0638D40820B8051A00A0DD5F /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		0638D40920B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		0638D40A20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		0638D40B20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		0638D40C20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		0638D40D20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		0638D40E20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		0638D40F20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		0638D41020B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		0638D41120B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		0638D41220B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		0638D41420B8051A00A0DD5F /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		0638D41520B8051A00A0DD5F /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
+		0638D41620B8051A00A0DD5F /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		0638D41720B8051A00A0DD5F /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		0638D42020B805A300A0DD5F /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		0638D42120B805A400A0DD5F /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +176,8 @@
 			children = (
 				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
 				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
+				0638D42120B805A400A0DD5F /* LeftMenuViewController.h */,
+				0638D42020B805A300A0DD5F /* LeftMenuViewController.m */,
 				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
 				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
 				0619CF8A20B2E233004CFDC9 /* ViewController.h */,
@@ -184,6 +212,7 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0638D40620B8051A00A0DD5F /* SideMenuViewController */,
 				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
 				0623C2A920B52AA700A52087 /* logo.png */,
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
@@ -192,6 +221,44 @@
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
 			);
 			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		0638D40620B8051A00A0DD5F /* SideMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0638D40720B8051A00A0DD5F /* Animations */,
+				0638D41320B8051A00A0DD5F /* Assets */,
+				0638D41620B8051A00A0DD5F /* SlideNavigationController.h */,
+				0638D41720B8051A00A0DD5F /* SlideNavigationController.m */,
+			);
+			path = SideMenuViewController;
+			sourceTree = "<group>";
+		};
+		0638D40720B8051A00A0DD5F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				0638D40820B8051A00A0DD5F /* SlideNavigationContorllerAnimator.h */,
+				0638D40920B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.h */,
+				0638D40A20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.m */,
+				0638D40B20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.h */,
+				0638D40C20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.m */,
+				0638D40D20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				0638D40E20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				0638D40F20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.h */,
+				0638D41020B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.m */,
+				0638D41120B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				0638D41220B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		0638D41320B8051A00A0DD5F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0638D41420B8051A00A0DD5F /* menu-button.png */,
+				0638D41520B8051A00A0DD5F /* menu-button@2x.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
@@ -315,6 +382,8 @@
 			files = (
 				0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */,
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
+				0638D41D20B8051A00A0DD5F /* menu-button.png in Resources */,
+				0638D41E20B8051A00A0DD5F /* menu-button@2x.png in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
@@ -381,11 +450,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0638D41F20B8051A00A0DD5F /* SlideNavigationController.m in Sources */,
+				0638D41820B8051A00A0DD5F /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				0619CF8C20B2E233004CFDC9 /* ViewController.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
+				0638D41A20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
+				0638D41920B8051A00A0DD5F /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				0638D41C20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				0638D42220B805A400A0DD5F /* LeftMenuViewController.m in Sources */,
+				0638D41B20B8051A00A0DD5F /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +653,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
