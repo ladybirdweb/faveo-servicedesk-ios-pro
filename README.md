@@ -3,7 +3,7 @@ Faveo Service Desk Pro iOS app
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd7645d3e23f484db29a07599ca1ecf6)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ladybirdweb/faveo-helpdesk-ios-pro&amp;utm_campaign=Badge_Grade)
 
-Faveo iOS app works along with Faveo Service Desk Pro edition web application. This app will also be available on Apple store and can be installed directly from there. To use this app on your phone/tablet you must have Faveo Helpdesk Pro web application installed on your server.
+Faveo iOS app works along with Faveo Service Desk Pro edition web application. This app will also be available on Apple store and can be installed directly from there. To use this app on your phone/tablet you must have Faveo Service Desk Pro web application installed on your server.
 
 Faveo iOS app is designed & developed by <a href="http://www.ladybirdweb.com/" target="_blank">Ladybird Web Solution Pvt Ltd</a>.
 
