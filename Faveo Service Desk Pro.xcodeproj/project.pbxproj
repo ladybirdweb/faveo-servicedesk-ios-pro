@@ -8,16 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617BC3D20B3F25D00F7A8C8 /* Utils.m */; };
-		061803A720B6B70400DA0533 /* NaviagtionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803A620B6B70400DA0533 /* NaviagtionController.m */; };
-		061803B520B6B75900DA0533 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803AA20B6B75900DA0533 /* RECommonFunctions.m */; };
-		061803B620B6B75900DA0533 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803AC20B6B75900DA0533 /* REFrostedContainerViewController.m */; };
-		061803B720B6B75900DA0533 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803AE20B6B75900DA0533 /* REFrostedViewController.m */; };
-		061803B820B6B75900DA0533 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803B020B6B75900DA0533 /* UIImage+REFrostedViewController.m */; };
-		061803B920B6B75900DA0533 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803B220B6B75900DA0533 /* UIView+REFrostedViewController.m */; };
-		061803BA20B6B75900DA0533 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803B420B6B75900DA0533 /* UIViewController+REFrostedViewController.m */; };
-		061803BD20B6B82B00DA0533 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803BC20B6B82B00DA0533 /* RootViewController.m */; };
-		061803C020B6BB9800DA0533 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803BF20B6BB9800DA0533 /* SideMenuViewController.m */; };
-		061803C320B6BCF100DA0533 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 061803C220B6BCF100DA0533 /* DetailViewController.m */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		0619CF8C20B2E233004CFDC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8B20B2E233004CFDC9 /* ViewController.m */; };
 		0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF8D20B2E233004CFDC9 /* Main.storyboard */; };
@@ -29,8 +19,12 @@
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
 		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
 		0623C2AA20B52AA700A52087 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0623C2A920B52AA700A52087 /* logo.png */; };
-		0623C2AE20B562B400A52087 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623C2AD20B562B400A52087 /* InboxViewController.m */; };
-		0623C2B220B5645500A52087 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623C2B120B5645500A52087 /* NSDate+NVTimeAgo.m */; };
+		0638D3FB20B7ED6900A0DD5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FA20B7ED6900A0DD5F /* AVKit.framework */; };
+		0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FC20B7ED7400A0DD5F /* Foundation.framework */; };
+		0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */; };
+		0638D40120B7ED8F00A0DD5F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */; };
+		0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40220B7ED9A00A0DD5F /* UIKit.framework */; };
+		0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40420B7EDA500A0DD5F /* UserNotifications.framework */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -54,26 +48,6 @@
 /* Begin PBXFileReference section */
 		0617BC3C20B3F25D00F7A8C8 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		0617BC3D20B3F25D00F7A8C8 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		061803A520B6B70400DA0533 /* NaviagtionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaviagtionController.h; sourceTree = "<group>"; };
-		061803A620B6B70400DA0533 /* NaviagtionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaviagtionController.m; sourceTree = "<group>"; };
-		061803A920B6B75900DA0533 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
-		061803AA20B6B75900DA0533 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
-		061803AB20B6B75900DA0533 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
-		061803AC20B6B75900DA0533 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
-		061803AD20B6B75900DA0533 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
-		061803AE20B6B75900DA0533 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
-		061803AF20B6B75900DA0533 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
-		061803B020B6B75900DA0533 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
-		061803B120B6B75900DA0533 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
-		061803B220B6B75900DA0533 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
-		061803B320B6B75900DA0533 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
-		061803B420B6B75900DA0533 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
-		061803BB20B6B82B00DA0533 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		061803BC20B6B82B00DA0533 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		061803BE20B6BB9800DA0533 /* SideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
-		061803BF20B6BB9800DA0533 /* SideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
-		061803C120B6BCF100DA0533 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		061803C220B6BCF100DA0533 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Faveo Service Desk Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CF8720B2E233004CFDC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0619CF8820B2E233004CFDC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,10 +70,12 @@
 		0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColors.h"; sourceTree = "<group>"; };
 		0623C2A920B52AA700A52087 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0623C2AB20B5513100A52087 /* AppConstanst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstanst.h; sourceTree = "<group>"; };
-		0623C2AC20B562B400A52087 /* InboxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxViewController.h; sourceTree = "<group>"; };
-		0623C2AD20B562B400A52087 /* InboxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxViewController.m; sourceTree = "<group>"; };
-		0623C2B020B5645500A52087 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
-		0623C2B120B5645500A52087 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
+		0638D3FA20B7ED6900A0DD5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		0638D3FC20B7ED7400A0DD5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0638D40220B7ED9A00A0DD5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0638D40420B7EDA500A0DD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */,
+				0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */,
+				0638D40120B7ED8F00A0DD5F /* SystemConfiguration.framework in Frameworks */,
+				0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */,
+				0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */,
+				0638D3FB20B7ED6900A0DD5F /* AVKit.framework in Frameworks */,
 				3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,25 +122,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		061803A820B6B75900DA0533 /* REFrostedViewController */ = {
-			isa = PBXGroup;
-			children = (
-				061803A920B6B75900DA0533 /* RECommonFunctions.h */,
-				061803AA20B6B75900DA0533 /* RECommonFunctions.m */,
-				061803AB20B6B75900DA0533 /* REFrostedContainerViewController.h */,
-				061803AC20B6B75900DA0533 /* REFrostedContainerViewController.m */,
-				061803AD20B6B75900DA0533 /* REFrostedViewController.h */,
-				061803AE20B6B75900DA0533 /* REFrostedViewController.m */,
-				061803AF20B6B75900DA0533 /* UIImage+REFrostedViewController.h */,
-				061803B020B6B75900DA0533 /* UIImage+REFrostedViewController.m */,
-				061803B120B6B75900DA0533 /* UIView+REFrostedViewController.h */,
-				061803B220B6B75900DA0533 /* UIView+REFrostedViewController.m */,
-				061803B320B6B75900DA0533 /* UIViewController+REFrostedViewController.h */,
-				061803B420B6B75900DA0533 /* UIViewController+REFrostedViewController.m */,
-			);
-			path = REFrostedViewController;
-			sourceTree = "<group>";
-		};
 		0619CF7B20B2E233004CFDC9 = {
 			isa = PBXGroup;
 			children = (
@@ -187,28 +150,15 @@
 			children = (
 				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
 				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
-				061803BB20B6B82B00DA0533 /* RootViewController.h */,
-				061803BC20B6B82B00DA0533 /* RootViewController.m */,
-				061803A520B6B70400DA0533 /* NaviagtionController.h */,
-				061803A620B6B70400DA0533 /* NaviagtionController.m */,
-				061803BE20B6BB9800DA0533 /* SideMenuViewController.h */,
-				061803BF20B6BB9800DA0533 /* SideMenuViewController.m */,
 				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
 				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
-				0623C2AC20B562B400A52087 /* InboxViewController.h */,
-				0623C2AD20B562B400A52087 /* InboxViewController.m */,
-				061803C120B6BCF100DA0533 /* DetailViewController.h */,
-				061803C220B6BCF100DA0533 /* DetailViewController.m */,
 				0619CF8A20B2E233004CFDC9 /* ViewController.h */,
 				0619CF8B20B2E233004CFDC9 /* ViewController.m */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
-				0623C2A920B52AA700A52087 /* logo.png */,
-				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
-				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
+				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
 				0619CF9520B2E234004CFDC9 /* Info.plist */,
 				0619CF9620B2E234004CFDC9 /* main.m */,
-				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 			);
 			path = "Faveo Service Desk Pro";
 			sourceTree = "<group>";
@@ -234,8 +184,9 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				061803A820B6B75900DA0533 /* REFrostedViewController */,
-				0623C2AF20B5645500A52087 /* NSDate-Time-Ago */,
+				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
+				0623C2A920B52AA700A52087 /* logo.png */,
+				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
 				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
@@ -243,18 +194,15 @@
 			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
-		0623C2AF20B5645500A52087 /* NSDate-Time-Ago */ = {
-			isa = PBXGroup;
-			children = (
-				0623C2B020B5645500A52087 /* NSDate+NVTimeAgo.h */,
-				0623C2B120B5645500A52087 /* NSDate+NVTimeAgo.m */,
-			);
-			path = "NSDate-Time-Ago";
-			sourceTree = "<group>";
-		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0638D40420B7EDA500A0DD5F /* UserNotifications.framework */,
+				0638D40220B7ED9A00A0DD5F /* UIKit.framework */,
+				0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */,
+				0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */,
+				0638D3FC20B7ED7400A0DD5F /* Foundation.framework */,
+				0638D3FA20B7ED6900A0DD5F /* AVKit.framework */,
 				0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */,
 			);
 			name = Frameworks;
@@ -433,23 +381,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0623C2B220B5645500A52087 /* NSDate+NVTimeAgo.m in Sources */,
-				061803B520B6B75900DA0533 /* RECommonFunctions.m in Sources */,
-				061803C320B6BCF100DA0533 /* DetailViewController.m in Sources */,
 				0619CF8C20B2E233004CFDC9 /* ViewController.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
-				061803B920B6B75900DA0533 /* UIView+REFrostedViewController.m in Sources */,
-				061803B720B6B75900DA0533 /* REFrostedViewController.m in Sources */,
-				061803B620B6B75900DA0533 /* REFrostedContainerViewController.m in Sources */,
-				061803B820B6B75900DA0533 /* UIImage+REFrostedViewController.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
-				061803A720B6B70400DA0533 /* NaviagtionController.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
-				061803C020B6BB9800DA0533 /* SideMenuViewController.m in Sources */,
-				061803BA20B6B75900DA0533 /* UIViewController+REFrostedViewController.m in Sources */,
-				0623C2AE20B562B400A52087 /* InboxViewController.m in Sources */,
-				061803BD20B6B82B00DA0533 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,13 +558,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ladybirdwebsolutions.FaveoServiceDeskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -640,13 +577,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ladybirdwebsolutions.FaveoServiceDeskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

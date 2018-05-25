@@ -9,12 +9,11 @@
 #import "LoginViewController.h"
 #import "UIColor+HexColors.h"
 #import "Utils.h"
-#import "InboxViewController.h"
+#import "ViewController.h"
 
 @interface LoginViewController ()
 {
     Utils *utils;
-    NSUserDefaults *userdefaults;
 }
 @end
 
@@ -25,7 +24,7 @@
     // Do any additional setup after loading the view.
     
      utils=[[Utils alloc]init];
-     userdefaults=[NSUserDefaults standardUserDefaults];
+
     
     _servicdeskUrlLabel.textColor = [UIColor colorFromHexString:@"049BE5"];
     _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
@@ -75,17 +74,9 @@
 
 - (IBAction)loginButtonMethod:(id)sender {
     
-    [self->userdefaults setBool:YES forKey:@"loginSuccess"];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-    InboxViewController *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"inboxID"];
+    ViewController *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"id"];
     [self.navigationController pushViewController:inboxVC animated:YES];
     //[self.navigationController popViewControllerAnimated:YES];
     [[self navigationController] setNavigationBarHidden:NO];
-        
-    });
-
 }
-
 @end

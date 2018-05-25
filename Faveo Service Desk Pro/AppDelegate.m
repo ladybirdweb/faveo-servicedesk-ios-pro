@@ -7,20 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "InboxViewController.h"
-#import "NaviagtionController.h"
-#import "SideMenuViewController.h"
-#import "LoginViewController.h"
-#import "RootViewController.h"
-#import "REFrostedViewController.h"
-
-
-//@import Firebase;
 
 @interface AppDelegate ()
-{
-    UIStoryboard *mainStoryboard;
-}
+
 @end
 
 @implementation AppDelegate
@@ -28,46 +17,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-  //  [FIRApp configure];
-    
-    
-    
-    mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loginSuccess"]) {
-        NSLog(@"Login Done!!!");
-        
-        // Instantiating Inbox view controller when App starts (If already Logged in an user)
-        InboxViewController *inboxVC=[mainStoryboard  instantiateViewControllerWithIdentifier:@"inboxID"];
-        
-        NaviagtionController *nav = [[NaviagtionController alloc] initWithRootViewController:inboxVC];
-        
-        // Initialise side-menu view controller
-        SideMenuViewController *menuController = [[SideMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-
-        // Create frosted view controller
-        REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:nav menuViewController:menuController];
-        frostedViewController.direction = REFrostedViewControllerDirectionLeft;
-        
-        // Make it a root controller
-        self.window.rootViewController = frostedViewController;
-        
-    }
-    else{
-        // If not Logged in then instantiate with login page (Enter URL view)
-        LoginViewController *loginVC=[mainStoryboard  instantiateViewControllerWithIdentifier:@"inboxID"];
-        
-        NaviagtionController *nav = [[NaviagtionController alloc] initWithRootViewController:loginVC];
-        nav.navigationBar.translucent = NO;
-        
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.window.rootViewController = nav;
-        [self.window makeKeyAndVisible];
-    }
-    
-    
-    
     return YES;
 }
 
