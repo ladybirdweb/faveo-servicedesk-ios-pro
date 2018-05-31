@@ -34,6 +34,7 @@
 		0638D41E20B8051A00A0DD5F /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D41520B8051A00A0DD5F /* menu-button@2x.png */; };
 		0638D41F20B8051A00A0DD5F /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D41720B8051A00A0DD5F /* SlideNavigationController.m */; };
 		0638D42220B805A400A0DD5F /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0638D42020B805A300A0DD5F /* LeftMenuViewController.m */; };
+		0638D42620B82A0D00A0DD5F /* admin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D42520B82A0D00A0DD5F /* admin.png */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		0638D41720B8051A00A0DD5F /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
 		0638D42020B805A300A0DD5F /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		0638D42120B805A400A0DD5F /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		0638D42520B82A0D00A0DD5F /* admin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = admin.png; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
 				0619CF8A20B2E233004CFDC9 /* ViewController.h */,
 				0619CF8B20B2E233004CFDC9 /* ViewController.m */,
+				0638D42520B82A0D00A0DD5F /* admin.png */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
@@ -385,6 +388,7 @@
 				0638D41D20B8051A00A0DD5F /* menu-button.png in Resources */,
 				0638D41E20B8051A00A0DD5F /* menu-button@2x.png in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
+				0638D42620B82A0D00A0DD5F /* admin.png in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 			);

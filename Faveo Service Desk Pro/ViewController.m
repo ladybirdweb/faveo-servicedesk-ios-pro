@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"Inbox");
     // Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -40,8 +40,6 @@
 	
 	self.tableView.separatorColor = [UIColor lightGrayColor];
 	
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"leftMenu.jpg"]];
-	self.tableView.backgroundView = imageView;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
