@@ -9,7 +9,8 @@
 #import "LoginViewController.h"
 #import "UIColor+HexColors.h"
 #import "Utils.h"
-#import "ViewController.h"
+
+#import "InboxView.h"
 
 @interface LoginViewController ()
 {
@@ -75,7 +76,8 @@
 
 - (IBAction)loginButtonMethod:(id)sender {
     [userdefaults setBool:YES forKey:@"loginSuccess"];
-    ViewController *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"InboxID"];
+    
+    InboxView *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"id1"];
     [self.navigationController pushViewController:inboxVC animated:YES];
     //[self.navigationController popViewControllerAnimated:YES];
     [[self navigationController] setNavigationBarHidden:NO];

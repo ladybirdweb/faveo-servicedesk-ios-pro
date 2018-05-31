@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Items</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Create Ticket</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>getquote</string>
+			<key>image</key>
+			<string>Messages</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Request Item</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>home</string>
+			<key>image</key>
+			<string>Invite</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Ticket List</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>equity</string>
+			<key>image</key>
+			<string>Company</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Inbox Tickets</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>indices</string>
+					<key>image</key>
+					<string>Favorite</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Closed Tickets</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>gainers</string>
+					<key>image</key>
+					<string>Ratings</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Trash Tickets</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>turnover</string>
+					<key>image</key>
+					<string>News</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Service Desk</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>sme</string>
+			<key>image</key>
+			<string>Jobs</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Starred</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>sme_marketwatch</string>
+					<key>image</key>
+					<string>Starred</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Applied</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>sme_marketstats</string>
+					<key>image</key>
+					<string>Advance</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>User List</string>
+			<key>level</key>
+			<string>0</string>
+			<key>id</key>
+			<string>aboutus</string>
+			<key>image</key>
+			<string>People</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Settings</string>
+			<key>level</key>
+			<string>0</string>
+			<key>id</key>
+			<string>settings</string>
+			<key>image</key>
+			<string>Settings</string>
+		</dict>
+	</array>
+</dict>
+</plist>
