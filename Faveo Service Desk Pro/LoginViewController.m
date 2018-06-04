@@ -75,11 +75,12 @@
 }
 
 - (IBAction)loginButtonMethod:(id)sender {
-    [userdefaults setObject:@"TRUE" forKey:@"loginSuccess"];
+    
+    [self->userdefaults setBool:YES forKey:@"loginSuccess"];
+    [userdefaults synchronize];
     
     InboxView *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"id1"];
     [self.navigationController pushViewController:inboxVC animated:YES];
-    //[self.navigationController popViewControllerAnimated:YES];
     [[self navigationController] setNavigationBarHidden:NO];
 }
 @end

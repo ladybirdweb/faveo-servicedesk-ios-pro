@@ -10,7 +10,7 @@
 			<key>level</key>
 			<integer>0</integer>
 			<key>id</key>
-			<string>getquote</string>
+			<string>CreateTicketId</string>
 			<key>image</key>
 			<string>Messages</string>
 		</dict>
@@ -37,33 +37,63 @@
 			<array>
 				<dict>
 					<key>Name</key>
-					<string>Inbox Tickets</string>
+					<string>Inbox</string>
 					<key>level</key>
 					<integer>1</integer>
 					<key>id</key>
-					<string>indices</string>
-					<key>image</key>
-					<string>Favorite</string>
-				</dict>
-				<dict>
-					<key>Name</key>
-					<string>Closed Tickets</string>
-					<key>level</key>
-					<integer>1</integer>
-					<key>id</key>
-					<string>gainers</string>
+					<string>InboxId</string>
 					<key>image</key>
 					<string>Ratings</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Trash Tickets</string>
+					<string>My Tickets</string>
 					<key>level</key>
 					<integer>1</integer>
 					<key>id</key>
-					<string>turnover</string>
+					<string>MyTicketsId</string>
+					<key>image</key>
+					<string>Ratings</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Unassigned</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>UnassignedId</string>
 					<key>image</key>
 					<string>News</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Unapproved</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>UnapprovedId</string>
+					<key>image</key>
+					<string>Ratings</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Closed</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>ClosedId</string>
+					<key>image</key>
+					<string>Ratings</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Trash</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>TrashId</string>
+					<key>image</key>
+					<string>Ratings</string>
 				</dict>
 			</array>
 		</dict>
@@ -102,11 +132,11 @@
 		</dict>
 		<dict>
 			<key>Name</key>
-			<string>User List</string>
+			<string>Users List</string>
 			<key>level</key>
-			<string>0</string>
+			<integer>0</integer>
 			<key>id</key>
-			<string>aboutus</string>
+			<string>UsersListId</string>
 			<key>image</key>
 			<string>People</string>
 		</dict>
@@ -114,11 +144,34 @@
 			<key>Name</key>
 			<string>Settings</string>
 			<key>level</key>
-			<string>0</string>
+			<integer>0</integer>
 			<key>id</key>
 			<string>settings</string>
 			<key>image</key>
 			<string>Settings</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>About us</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>AboutUsId</string>
+					<key>image</key>
+					<string>Settings</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Logout</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>LogoutId</string>
+					<key>image</key>
+					<string>Settings</string>
+				</dict>
+			</array>
 		</dict>
 	</array>
 </dict>

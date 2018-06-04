@@ -29,92 +29,44 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
     userDefaults=[NSUserDefaults standardUserDefaults];
     mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     
     
-    NSString * str= [userDefaults objectForKey:@"loginSuccess"];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loginSuccess"]) {
+        NSLog(@"Login Done!!!");
+
+        
+        InboxView *homeVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"id1"];
+        
+        SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:homeVC];
+       
+        
+        ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+        
+        // Initialize SWRevealViewController and set it as |rootViewController|
+        SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
     
-    if([str isEqualToString:@"TRUE"])
-    {
-         InboxView *inbox=[mainStoryboard instantiateViewControllerWithIdentifier:@"id1"];
-        
-       // SWRevealViewController * revealNav=[[SWRevealViewController alloc]init];
-        
-        SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inbox];
-      //  slide.navigationBar.translucent = NO;
-        
-        
-//        slide.navigationController = revealNav;
-        
-          ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"sideMenu"];
-        
-       
-       
-      //  navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
          self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-         self.window.rootViewController = slide;
-         //self.window.rootViewController = slide;
+         self.window.rootViewController = vc;
          [self.window makeKeyAndVisible];
         
     }
     else{
+
         
-        LoginViewController *vc= [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+        LoginViewController *loginVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
+        UINavigationController* navLogin = [[UINavigationController alloc] initWithRootViewController:loginVC];
         
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.window.rootViewController = vc;
-        
+        // Using UINavigationController here because you use
+        // pushViewController:animated: method in loginButton:
+        self.window.rootViewController = navLogin;
         [self.window makeKeyAndVisible];
-    }
- //   SWRevealViewController * revealView = [[SWRevealViewController alloc]init];
-    
-//     mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-//    
 
-    
-//    
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loginSuccess"]) {
-//        NSLog(@"Login Done!!!");
-//
-//        InboxView *inbox=[mainStoryboard instantiateViewControllerWithIdentifier:@"id1"];
-//        
-////        SlideNavigationController *slide = [[SlideNavigationController alloc] initWithRootViewController:inbox];
-//    //    slide.navigationBar.translucent = NO;
-//
-//        
-//        ExpandableTableViewController *leftMenu = (ExpandableTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"sideMenu"];
-//        
-//        SWRevealViewController * swReal=[[SWRevealViewController alloc]init];
-//      UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: inbox];
-//        
-//        [swReal setFrontViewController:navController];
-////        [revealView setFrontViewController:inbox];
-////        [revealView revealToggleAnimated:YES];
-//       // [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        self.window.rootViewController = leftMenu;
-//        
-//        [self.window makeKeyAndVisible];
-//
-//    }
-//    }else{
-//        NSLog(@"Not Login!!!");
-//        LoginViewController  *homeScreen = [mainStoryboard instantiateViewControllerWithIdentifier:@"Login"];
-////
-////        SlideNavigationController *slide = [[SlideNavigationController alloc] initWithRootViewController:homeScreen];
-////        slide.navigationBar.translucent = NO;
-////
-////        LeftMenuViewController *leftMenu = (LeftMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftMenuViewController"];
-////
-////        [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-////        [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//        self.window.rootViewController = homeScreen;
-//        [self.window makeKeyAndVisible];
-//  }
+    }
+
     
     return YES;
 }

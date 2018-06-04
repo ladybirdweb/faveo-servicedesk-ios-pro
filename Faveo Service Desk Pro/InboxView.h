@@ -13,4 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
+
+- (IBAction)testAction:(id)sender;
+
 @end
