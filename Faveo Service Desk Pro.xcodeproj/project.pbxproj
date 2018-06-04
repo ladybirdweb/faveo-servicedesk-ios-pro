@@ -59,6 +59,13 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
+		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
+		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
+		06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479E20C57274000783C8 /* UnassignedTickets.m */; };
+		06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A120C5729F000783C8 /* UnApprovedTickets.m */; };
+		06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A420C5732A000783C8 /* ClosedTickets.m */; };
+		06D647A820C5733E000783C8 /* TrashTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A720C5733E000783C8 /* TrashTickets.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +157,19 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
+		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
+		06D6479A20C5725B000783C8 /* MyTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTickets.h; sourceTree = "<group>"; };
+		06D6479B20C5725B000783C8 /* MyTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTickets.m; sourceTree = "<group>"; };
+		06D6479D20C57274000783C8 /* UnassignedTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnassignedTickets.h; sourceTree = "<group>"; };
+		06D6479E20C57274000783C8 /* UnassignedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnassignedTickets.m; sourceTree = "<group>"; };
+		06D647A020C5729F000783C8 /* UnApprovedTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnApprovedTickets.h; sourceTree = "<group>"; };
+		06D647A120C5729F000783C8 /* UnApprovedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnApprovedTickets.m; sourceTree = "<group>"; };
+		06D647A320C5732A000783C8 /* ClosedTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClosedTickets.h; sourceTree = "<group>"; };
+		06D647A420C5732A000783C8 /* ClosedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClosedTickets.m; sourceTree = "<group>"; };
+		06D647A620C5733E000783C8 /* TrashTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashTickets.h; sourceTree = "<group>"; };
+		06D647A720C5733E000783C8 /* TrashTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashTickets.m; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +219,7 @@
 		0619CF7B20B2E233004CFDC9 = {
 			isa = PBXGroup;
 			children = (
+				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
@@ -222,21 +243,22 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
+				06D6478020C56BFC000783C8 /* AppDelegate */,
+				06D6478120C56C18000783C8 /* Login */,
+				06D6477F20C56BE8000783C8 /* Tickets */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
-				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
-				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
-				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
-				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
+				0650290B20BFFB3E007E90E2 /* InboxView.h */,
+				0650290C20BFFB3E007E90E2 /* InboxView.m */,
+				0650290E20BFFB4E007E90E2 /* OtherView.h */,
+				0650290F20BFFB4E007E90E2 /* OtherView.m */,
 				0638D42520B82A0D00A0DD5F /* admin.png */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
 				0619CF9520B2E234004CFDC9 /* Info.plist */,
 				0619CF9620B2E234004CFDC9 /* main.m */,
-				0650290B20BFFB3E007E90E2 /* InboxView.h */,
-				0650290C20BFFB3E007E90E2 /* InboxView.m */,
-				0650290E20BFFB4E007E90E2 /* OtherView.h */,
-				0650290F20BFFB4E007E90E2 /* OtherView.m */,
+				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
+				0623C2A920B52AA700A52087 /* logo.png */,
 			);
 			path = "Faveo Service Desk Pro";
 			sourceTree = "<group>";
@@ -262,8 +284,6 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
-				0623C2A920B52AA700A52087 /* logo.png */,
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
 				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
@@ -322,6 +342,43 @@
 				0650298E20BFFD4A007E90E2 /* home_menu.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		06D6477F20C56BE8000783C8 /* Tickets */ = {
+			isa = PBXGroup;
+			children = (
+				06D6479720C5724B000783C8 /* InboxTickets.h */,
+				06D6479820C5724B000783C8 /* InboxTickets.m */,
+				06D6479A20C5725B000783C8 /* MyTickets.h */,
+				06D6479B20C5725B000783C8 /* MyTickets.m */,
+				06D6479D20C57274000783C8 /* UnassignedTickets.h */,
+				06D6479E20C57274000783C8 /* UnassignedTickets.m */,
+				06D647A020C5729F000783C8 /* UnApprovedTickets.h */,
+				06D647A120C5729F000783C8 /* UnApprovedTickets.m */,
+				06D647A320C5732A000783C8 /* ClosedTickets.h */,
+				06D647A420C5732A000783C8 /* ClosedTickets.m */,
+				06D647A620C5733E000783C8 /* TrashTickets.h */,
+				06D647A720C5733E000783C8 /* TrashTickets.m */,
+			);
+			path = Tickets;
+			sourceTree = "<group>";
+		};
+		06D6478020C56BFC000783C8 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
+				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		06D6478120C56C18000783C8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
+				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
@@ -468,6 +525,7 @@
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
 				065029A620BFFD51007E90E2 /* Invite.png in Resources */,
 				065029A020BFFD51007E90E2 /* Background.png in Resources */,
+				06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */,
 				065029B220BFFD51007E90E2 /* Invite@2x.png in Resources */,
 				065029B420BFFD51007E90E2 /* Advance@2x.png in Resources */,
 				0650290420BFEE34007E90E2 /* enData.plist in Resources */,
@@ -540,15 +598,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0650290D20BFFB3E007E90E2 /* InboxView.m in Sources */,
+				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
 				0650291020BFFB4E007E90E2 /* OtherView.m in Sources */,
+				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
+				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
+				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
+				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
+				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

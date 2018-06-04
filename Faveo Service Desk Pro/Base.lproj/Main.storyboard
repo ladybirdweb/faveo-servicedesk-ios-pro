@@ -252,49 +252,6 @@
             </objects>
             <point key="canvasLocation" x="1386" y="-484"/>
         </scene>
-        <!--Inbox-->
-        <scene sceneID="HIr-0b-wLP">
-            <objects>
-                <viewController storyboardIdentifier="id1" id="eqq-bo-Glo" customClass="InboxView" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CiO-0R-V9b"/>
-                        <viewControllerLayoutGuide type="bottom" id="MgN-1O-FOa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NaH-hT-HTu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inbox View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rO9-XP-p9G">
-                                <rect key="frame" x="118" y="212" width="178" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjk-Am-NqS">
-                                <rect key="frame" x="118" y="333" width="174" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test"/>
-                                <connections>
-                                    <action selector="testAction:" destination="eqq-bo-Glo" eventType="touchUpInside" id="7uY-tb-d6S"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Inbox" id="VHV-Jg-3Bk">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Hrb-Fj-qa3"/>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="sidebarButton" destination="Hrb-Fj-qa3" id="bM9-DY-7CP"/>
-                        <outlet property="testButton" destination="pjk-Am-NqS" id="ZLW-mF-Jwg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EcJ-Km-VHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2234.7826086956525" y="-484.23913043478262"/>
-        </scene>
         <!--Other-->
         <scene sceneID="kWl-t2-sdy">
             <objects>
@@ -327,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkd-dZ-WMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3264" y="-484"/>
+            <point key="canvasLocation" x="425" y="421"/>
         </scene>
         <!--Expandable Table View Controller-->
         <scene sceneID="HwV-7u-ffT">
@@ -343,7 +300,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suraj Khan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBf-dw-Ght">
-                                    <rect key="frame" x="110" y="120" width="90" height="21"/>
+                                    <rect key="frame" x="109.66666666666669" y="120" width="90" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="es7-og-ElC"/>
                                     </constraints>
@@ -352,17 +309,17 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.google.co.in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDk-UX-hIi">
-                                    <rect key="frame" x="74" y="139" width="182" height="21"/>
+                                    <rect key="frame" x="74" y="139" width="206" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="HUd-Ox-664"/>
-                                        <constraint firstAttribute="width" constant="182" id="jlV-Uj-drH"/>
+                                        <constraint firstAttribute="width" constant="206" id="jlV-Uj-drH"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                     <color key="textColor" red="0.2333597791" green="0.39311650139999998" blue="0.66074810610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="aH4-1U-4DO">
-                                    <rect key="frame" x="110" y="15" width="105" height="104"/>
+                                    <rect key="frame" x="109.66666666666669" y="15" width="105" height="104"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="105" id="9Zx-Iy-65g"/>
                                     </constraints>
@@ -371,7 +328,7 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="aH4-1U-4DO" firstAttribute="top" secondItem="LiB-mp-o1d" secondAttribute="top" constant="15" id="7ZW-kA-PHk"/>
-                                <constraint firstItem="sDk-UX-hIi" firstAttribute="trailing" secondItem="jBf-dw-Ght" secondAttribute="trailing" constant="56.5" id="8ix-W4-6vD"/>
+                                <constraint firstItem="sDk-UX-hIi" firstAttribute="trailing" secondItem="jBf-dw-Ght" secondAttribute="trailing" constant="80.333333333333314" id="8ix-W4-6vD"/>
                                 <constraint firstItem="jBf-dw-Ght" firstAttribute="top" secondItem="aH4-1U-4DO" secondAttribute="bottom" constant="1" id="E3S-an-Ogk"/>
                                 <constraint firstAttribute="bottom" secondItem="jBf-dw-Ght" secondAttribute="bottom" constant="19" id="bEd-dV-jck"/>
                                 <constraint firstAttribute="bottom" secondItem="sDk-UX-hIi" secondAttribute="bottom" id="bgr-Dr-iP0"/>
@@ -428,6 +385,138 @@
             </objects>
             <point key="canvasLocation" x="-539" y="387"/>
         </scene>
+        <!--Inbox-->
+        <scene sceneID="VbK-yk-i2O">
+            <objects>
+                <viewController storyboardIdentifier="InboxId" id="kES-8d-CEb" customClass="InboxTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UEh-Wj-8w3"/>
+                        <viewControllerLayoutGuide type="bottom" id="hhe-Bj-7Rk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VGx-a0-SpY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Inbox" id="CF7-fK-vHd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="8Sd-g8-nFh"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5c6-qg-ngG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2235" y="-484"/>
+        </scene>
+        <!--My Tickets-->
+        <scene sceneID="NiU-6D-RL8">
+            <objects>
+                <viewController storyboardIdentifier="myTicketsId" id="Pu9-3H-4k4" customClass="MyTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wtb-f3-3Vz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZcI-DS-uHf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YSH-ci-wuI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Tickets" id="gtu-zb-e4d">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="PSL-tr-Onx"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VT5-ae-qUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3119" y="-484"/>
+        </scene>
+        <!--Unassigned Tickets-->
+        <scene sceneID="nNn-6u-pI2">
+            <objects>
+                <viewController storyboardIdentifier="unAssignedId" id="Zw4-C4-ROv" customClass="UnassignedTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Trz-1n-gYJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="mxQ-GJ-Igt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H65-fa-bmX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Unassigned Tickets" id="UUa-W4-REm">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="RVe-Bf-jSy"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rB5-D8-qEI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3949" y="-484"/>
+        </scene>
+        <!--Unapproved Tickets-->
+        <scene sceneID="pHf-nX-NP6">
+            <objects>
+                <viewController storyboardIdentifier="unApprovedId" id="y6d-0u-ILD" customClass="UnApprovedTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QTv-xs-GIr"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFA-iI-C4r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fj8-8L-BTI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Unapproved Tickets" id="msW-y0-v9c">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="z3c-6e-Ta8"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I24-lH-qor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4816" y="-484"/>
+        </scene>
+        <!--Closed Tickets-->
+        <scene sceneID="rDV-5z-bW1">
+            <objects>
+                <viewController storyboardIdentifier="closedId" id="CcV-O0-3Jp" customClass="ClosedTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8g8-Jo-goF"/>
+                        <viewControllerLayoutGuide type="bottom" id="9HD-Ul-F4M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ITf-1d-Fy5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Closed Tickets" id="Lyq-1g-imf">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="e9Z-pw-ryh"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZXM-tr-5uB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5697" y="-484"/>
+        </scene>
+        <!--Trash Tickets-->
+        <scene sceneID="19I-OL-kgQ">
+            <objects>
+                <viewController storyboardIdentifier="trashId" id="22I-St-Bko" customClass="TrashTickets" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q8e-iv-KKC"/>
+                        <viewControllerLayoutGuide type="bottom" id="doe-IQ-N8o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dpi-cO-5Vs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trash Tickets" id="kME-JE-xJi">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-button copy" id="Vhv-Vj-aIb"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpQ-ao-xCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6696" y="-484"/>
+        </scene>
         <!--Sample Navigation-->
         <scene sceneID="7gR-j5-f25">
             <objects>
@@ -471,6 +560,7 @@
     </scenes>
     <resources>
         <image name="Avatar.png" width="225" height="225"/>
+        <image name="menu-button copy" width="24" height="24"/>
         <image name="servicdeskPro.png" width="1024" height="1024"/>
         <image name="url" width="24" height="24"/>
     </resources>
