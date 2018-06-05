@@ -10,9 +10,10 @@
 #import "LoginViewController.h"
 
 #import "ExpandableTableViewController.h"
-#import "LoginViewController.h"
-#import "InboxView.h"
 #import "SWRevealViewController.h"
+#import "LoginViewController.h"
+#import "InboxTickets.h"
+
 
 #import "SampleNavigation.h"
 
@@ -37,9 +38,9 @@
         NSLog(@"Login Done!!!");
 
         
-        InboxView *homeVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"id1"];
+        InboxTickets *inboxVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
         
-        SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:homeVC];
+        SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
        
         
         ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"sideMenu"];

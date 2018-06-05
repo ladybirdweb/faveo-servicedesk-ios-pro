@@ -7,6 +7,7 @@
 //
 
 #import "InboxTickets.h"
+#import "SWRevealViewController.h"
 
 @interface InboxTickets ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _sidebarButton.target = self.revealViewController;
+    _sidebarButton.action = @selector(revealToggle:);
+    
 }
 
 - (void)didReceiveMemoryWarning {

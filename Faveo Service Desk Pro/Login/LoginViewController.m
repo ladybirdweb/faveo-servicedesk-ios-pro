@@ -10,7 +10,7 @@
 #import "UIColor+HexColors.h"
 #import "Utils.h"
 
-#import "InboxView.h"
+#import "InboxTickets.h"
 
 @interface LoginViewController ()
 {
@@ -79,7 +79,7 @@
     [self->userdefaults setBool:YES forKey:@"loginSuccess"];
     [userdefaults synchronize];
     
-    InboxView *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"id1"];
+    InboxTickets *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"inboxId"];
     [self.navigationController pushViewController:inboxVC animated:YES];
     [[self navigationController] setNavigationBarHidden:NO];
 }

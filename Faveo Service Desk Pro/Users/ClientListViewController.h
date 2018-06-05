@@ -1,20 +1,19 @@
 //
-//  InboxView.h
+//  ClientListViewController.h
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 31/05/18.
+//  Created by Mallikarjun on 05/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface InboxView : UIViewController
+@interface ClientListViewController : UIViewController
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
-@property (weak, nonatomic) IBOutlet UIButton *testButton;
 
-- (IBAction)testAction:(id)sender;
+
 
 @end

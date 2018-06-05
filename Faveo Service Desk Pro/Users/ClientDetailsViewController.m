@@ -1,18 +1,18 @@
 //
-//  UnassignedTicketsView.m
+//  ClientDetailsViewController.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 04/06/18.
+//  Created by Mallikarjun on 05/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "UnassignedTickets.h"
+#import "ClientDetailsViewController.h"
 
-@interface UnassignedTickets ()
+@interface ClientDetailsViewController ()
 
 @end
 
-@implementation UnassignedTickets
+@implementation ClientDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

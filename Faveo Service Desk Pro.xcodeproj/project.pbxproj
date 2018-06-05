@@ -18,6 +18,11 @@
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
 		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
 		0623C2AA20B52AA700A52087 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0623C2A920B52AA700A52087 /* logo.png */; };
+		0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95020C66E1800191A7D /* AboutUsViewController.m */; };
+		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
+		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
+		0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95A20C6759900191A7D /* ClientFilterView.m */; };
+		0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */; };
 		0638D3FB20B7ED6900A0DD5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FA20B7ED6900A0DD5F /* AVKit.framework */; };
 		0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FC20B7ED7400A0DD5F /* Foundation.framework */; };
 		0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */; };
@@ -30,8 +35,6 @@
 		0650290420BFEE34007E90E2 /* enData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0650290020BFEE33007E90E2 /* enData.plist */; };
 		0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290120BFEE34007E90E2 /* ExpandableTableAppDelegate.m */; };
 		0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290820BFF5C0007E90E2 /* ExpandableTableViewController.m */; };
-		0650290D20BFFB3E007E90E2 /* InboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290C20BFFB3E007E90E2 /* InboxView.m */; };
-		0650291020BFFB4E007E90E2 /* OtherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290F20BFFB4E007E90E2 /* OtherView.m */; };
 		0650299E20BFFD51007E90E2 /* Starred.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298420BFFD45007E90E2 /* Starred.png */; };
 		0650299F20BFFD51007E90E2 /* Company.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298520BFFD46007E90E2 /* Company.png */; };
 		065029A020BFFD51007E90E2 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298620BFFD46007E90E2 /* Background.png */; };
@@ -109,6 +112,16 @@
 		0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColors.h"; sourceTree = "<group>"; };
 		0623C2A920B52AA700A52087 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0623C2AB20B5513100A52087 /* AppConstanst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstanst.h; sourceTree = "<group>"; };
+		0630D94F20C66E1800191A7D /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		0630D95020C66E1800191A7D /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		0630D95320C6754A00191A7D /* ClientListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientListViewController.h; sourceTree = "<group>"; };
+		0630D95420C6754A00191A7D /* ClientListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientListViewController.m; sourceTree = "<group>"; };
+		0630D95620C6755C00191A7D /* ClientDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientDetailsViewController.h; sourceTree = "<group>"; };
+		0630D95720C6755C00191A7D /* ClientDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientDetailsViewController.m; sourceTree = "<group>"; };
+		0630D95920C6759900191A7D /* ClientFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientFilterView.h; sourceTree = "<group>"; };
+		0630D95A20C6759900191A7D /* ClientFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientFilterView.m; sourceTree = "<group>"; };
+		0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientEditDetailsView.h; sourceTree = "<group>"; };
+		0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientEditDetailsView.m; sourceTree = "<group>"; };
 		0638D3FA20B7ED6900A0DD5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0638D3FC20B7ED7400A0DD5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,10 +138,6 @@
 		0650290120BFEE34007E90E2 /* ExpandableTableAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableAppDelegate.m; sourceTree = "<group>"; };
 		0650290820BFF5C0007E90E2 /* ExpandableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableTableViewController.m; path = "../../../../Certificates & Icons/Do not Delete/ExpandableTableViewExample123/ExpandableList/ExpandableTableViewController.m"; sourceTree = "<group>"; };
 		0650290920BFF5C1007E90E2 /* ExpandableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableTableViewController.h; path = "../../../../Certificates & Icons/Do not Delete/ExpandableTableViewExample123/ExpandableList/ExpandableTableViewController.h"; sourceTree = "<group>"; };
-		0650290B20BFFB3E007E90E2 /* InboxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxView.h; sourceTree = "<group>"; };
-		0650290C20BFFB3E007E90E2 /* InboxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxView.m; sourceTree = "<group>"; };
-		0650290E20BFFB4E007E90E2 /* OtherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherView.h; sourceTree = "<group>"; };
-		0650290F20BFFB4E007E90E2 /* OtherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherView.m; sourceTree = "<group>"; };
 		0650298420BFFD45007E90E2 /* Starred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starred.png; sourceTree = "<group>"; };
 		0650298520BFFD46007E90E2 /* Company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Company.png; sourceTree = "<group>"; };
 		0650298620BFFD46007E90E2 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -219,7 +228,6 @@
 		0619CF7B20B2E233004CFDC9 = {
 			isa = PBXGroup;
 			children = (
-				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
@@ -243,14 +251,12 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
+				0630D95220C674F000191A7D /* Users */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
+				0630D94E20C66DFC00191A7D /* About us */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
-				0650290B20BFFB3E007E90E2 /* InboxView.h */,
-				0650290C20BFFB3E007E90E2 /* InboxView.m */,
-				0650290E20BFFB4E007E90E2 /* OtherView.h */,
-				0650290F20BFFB4E007E90E2 /* OtherView.m */,
 				0638D42520B82A0D00A0DD5F /* admin.png */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
@@ -292,11 +298,36 @@
 			path = "Helper Classes";
 			sourceTree = "<group>";
 		};
+		0630D94E20C66DFC00191A7D /* About us */ = {
+			isa = PBXGroup;
+			children = (
+				0630D94F20C66E1800191A7D /* AboutUsViewController.h */,
+				0630D95020C66E1800191A7D /* AboutUsViewController.m */,
+			);
+			path = "About us";
+			sourceTree = "<group>";
+		};
+		0630D95220C674F000191A7D /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				0630D95320C6754A00191A7D /* ClientListViewController.h */,
+				0630D95420C6754A00191A7D /* ClientListViewController.m */,
+				0630D95920C6759900191A7D /* ClientFilterView.h */,
+				0630D95A20C6759900191A7D /* ClientFilterView.m */,
+				0630D95620C6755C00191A7D /* ClientDetailsViewController.h */,
+				0630D95720C6755C00191A7D /* ClientDetailsViewController.m */,
+				0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */,
+				0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
 		0650290720BFEF96007E90E2 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
 				0650298320BFFD2E007E90E2 /* Images */,
 				0650290020BFEE33007E90E2 /* enData.plist */,
+				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				065028F920BFE3C0007E90E2 /* SWRevealViewController.h */,
 				065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */,
 				065028FE20BFEE33007E90E2 /* ExpandableTableAppDelegate.h */,
@@ -597,21 +628,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0650290D20BFFB3E007E90E2 /* InboxView.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
+				0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
-				0650291020BFFB4E007E90E2 /* OtherView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
+				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
+				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
+				0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
+				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);

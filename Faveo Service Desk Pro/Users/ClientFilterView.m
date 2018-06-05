@@ -1,18 +1,18 @@
 //
-//  UnassignedTicketsView.m
+//  ClientFilterView.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 04/06/18.
+//  Created by Mallikarjun on 05/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "UnassignedTickets.h"
+#import "ClientFilterView.h"
 
-@interface UnassignedTickets ()
+@interface ClientFilterView ()
 
 @end
 
-@implementation UnassignedTickets
+@implementation ClientFilterView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,7 +23,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 @end
