@@ -23,6 +23,9 @@
 		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
 		0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95A20C6759900191A7D /* ClientFilterView.m */; };
 		0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */; };
+		0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96120C69A1200191A7D /* GlobalVariables.m */; };
+		0630D96820C6A30D00191A7D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96620C6A30D00191A7D /* Reachability.m */; };
+		0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96B20C6A7CD00191A7D /* MyWebservices.m */; };
 		0638D3FB20B7ED6900A0DD5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FA20B7ED6900A0DD5F /* AVKit.framework */; };
 		0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FC20B7ED7400A0DD5F /* Foundation.framework */; };
 		0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */; };
@@ -122,6 +125,12 @@
 		0630D95A20C6759900191A7D /* ClientFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientFilterView.m; sourceTree = "<group>"; };
 		0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientEditDetailsView.h; sourceTree = "<group>"; };
 		0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientEditDetailsView.m; sourceTree = "<group>"; };
+		0630D96020C69A1200191A7D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
+		0630D96120C69A1200191A7D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		0630D96620C6A30D00191A7D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0630D96720C6A30D00191A7D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0630D96A20C6A7CD00191A7D /* MyWebservices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWebservices.h; sourceTree = "<group>"; };
+		0630D96B20C6A7CD00191A7D /* MyWebservices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWebservices.m; sourceTree = "<group>"; };
 		0638D3FA20B7ED6900A0DD5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0638D3FC20B7ED7400A0DD5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -251,12 +260,13 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
-				0630D95220C674F000191A7D /* Users */,
+				0630D96920C6A79C00191A7D /* WebServices */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
+				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
+				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
-				0650290720BFEF96007E90E2 /* SideMenu */,
 				0638D42520B82A0D00A0DD5F /* admin.png */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
@@ -291,9 +301,10 @@
 			isa = PBXGroup;
 			children = (
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
-				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
-				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
+				0630D96520C6A2F700191A7D /* Reachability */,
+				0630D96320C6A25C00191A7D /* Utils */,
+				0630D96420C6A26B00191A7D /* GlobalVariables */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -320,6 +331,42 @@
 				0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */,
 			);
 			path = Users;
+			sourceTree = "<group>";
+		};
+		0630D96320C6A25C00191A7D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
+				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0630D96420C6A26B00191A7D /* GlobalVariables */ = {
+			isa = PBXGroup;
+			children = (
+				0630D96020C69A1200191A7D /* GlobalVariables.h */,
+				0630D96120C69A1200191A7D /* GlobalVariables.m */,
+			);
+			path = GlobalVariables;
+			sourceTree = "<group>";
+		};
+		0630D96520C6A2F700191A7D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				0630D96720C6A30D00191A7D /* Reachability.h */,
+				0630D96620C6A30D00191A7D /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		0630D96920C6A79C00191A7D /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				0630D96A20C6A7CD00191A7D /* MyWebservices.h */,
+				0630D96B20C6A7CD00191A7D /* MyWebservices.m */,
+			);
+			path = WebServices;
 			sourceTree = "<group>";
 		};
 		0650290720BFEF96007E90E2 /* SideMenu */ = {
@@ -631,6 +678,7 @@
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
+				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
@@ -642,7 +690,9 @@
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
 				0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */,
+				0630D96820C6A30D00191A7D /* Reachability.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
+				0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
