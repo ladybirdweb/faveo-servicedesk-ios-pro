@@ -14,8 +14,15 @@
 #import "AppConstanst.h"
 #import "MyWebservices.h"
 #import "InboxTickets.h"
+#import "SampleNavigation.h"
+#import "ExpandableTableViewController.h"
+#import "SWRevealViewController.h"
+#import "SVProgressHUD.h"
+#import "RMessage.h"
+#import "RMessageView.h"
 
-@interface LoginViewController ()<UITextFieldDelegate>
+
+@interface LoginViewController ()<UITextFieldDelegate,RMessageProtocol>
 {
     Utils *utils;
     NSUserDefaults *userdefaults;
@@ -36,6 +43,9 @@
      utils=[[Utils alloc]init];
      userdefaults=[NSUserDefaults standardUserDefaults];
      globalVariables=[GlobalVariables sharedInstance];
+    
+    // to set black background color mask for Progress view
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     // done button on keyboard was not working so here is solution
     [self.urlTextfield setDelegate:self];
@@ -106,6 +116,8 @@
 
 - (IBAction)urlNextButtonAction:(id)sender {
     
+    [SVProgressHUD showWithStatus:@"Verifying URL"];
+    
     [self URLValidationMethod];
 }
 
@@ -117,6 +129,7 @@
     if (self.urlTextfield.text.length==0){
         
         [utils showAlertWithMessage:@"Please Enter the URL" sendViewController:self];
+        [SVProgressHUD dismiss];
         
     }
     else{
@@ -132,13 +145,31 @@
             
             if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
             {
+                [SVProgressHUD dismiss];
                 
-                //                [RMessage
-                //                 showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
-                //                 subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it.", nil)
-                //                 type:RMessageTypeError
-                //                 customTypeName:nil
-                //                 callback:nil];
+//                                [RMessage
+//                                 showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
+//                                 subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it.", nil)
+//                                 type:RMessageTypeError
+//                                 customTypeName:nil
+//                                 callback:nil];
+                
+                if (self.navigationController.navigationBarHidden) {
+                    [self.navigationController setNavigationBarHidden:NO];
+                }
+                
+                [RMessage showNotificationInViewController:self.navigationController
+                                                     title:NSLocalizedString(@"Something failed", nil)
+                                                  subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it.", nil)
+                                                 iconImage:nil
+                                                      type:RMessageTypeError
+                                            customTypeName:nil
+                                                  duration:RMessageDurationAutomatic
+                                                  callback:nil
+                                               buttonTitle:nil
+                                            buttonCallback:nil
+                                                atPosition:RMessagePositionNavBarOverlay
+                                      canBeDismissedByUser:YES];
                 
             }
             else{
@@ -181,7 +212,7 @@
                                 break;
                         }
                         
-                        // [[AppDelegate sharedAppdelegate] hideProgressView];
+                        [SVProgressHUD dismiss];
                         
                         [self->utils showAlertWithMessage:self->errorMsg sendViewController:self];
                         
@@ -196,6 +227,7 @@
                             if (statusCode == 404) {
                                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                                 //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                                [SVProgressHUD dismiss];
                                 [self->utils showAlertWithMessage:@"The requested URL was not found on this server." sendViewController:self];
                                 return;
                             }
@@ -205,10 +237,12 @@
                                 
                                 [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
                                 //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                                [SVProgressHUD dismiss];
                             }
                             else if (statusCode == 401 || statusCode == 400) {
                                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                                 // [[AppDelegate sharedAppdelegate] hideProgressView];
+                                   [SVProgressHUD dismiss];
                                 [self->utils showAlertWithMessage: NSLocalizedString(@"API is disabled in web, please enable it from Admin panel.", nil) sendViewController:self];
                                 //[utils showAlertWithMessage:@"Wrong Username or Password" sendViewController:self];
                                 return;
@@ -216,6 +250,7 @@
                             else if (statusCode == 500) {
                                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                                 //   [[AppDelegate sharedAppdelegate] hideProgressView];
+                                     [SVProgressHUD dismiss];
                                 [self->utils showAlertWithMessage: NSLocalizedString(@"Internal Server Error. Something has gone wrong on the website's server", nil) sendViewController:self];
                                 //[utils showAlertWithMessage:@"Wrong Username or Password" sendViewController:self];
                                 return;
@@ -223,6 +258,7 @@
                             else{
                                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                                 //   [[AppDelegate sharedAppdelegate] hideProgressView];
+                                     [SVProgressHUD dismiss];
                                 [self->utils showAlertWithMessage:@"Unknown Error!" sendViewController:self];
                                 return;
                             }
@@ -243,6 +279,7 @@
                             {
                                 [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
                                 //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                                    [SVProgressHUD dismiss];
                                 
                             }
                             
@@ -263,6 +300,7 @@
                         }else{
                             
                             //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                                [SVProgressHUD dismiss];
                             
                             [self->utils showAlertWithMessage:NSLocalizedString(@"Error - Please Check Your Helpdesk URL",nil)sendViewController:self];
                         }
@@ -271,6 +309,7 @@
                         NSLog( @"Name: %@", exception.name);
                         NSLog( @"Reason: %@", exception.reason );
                         [self->utils showAlertWithMessage:exception.name sendViewController:self];
+                        [SVProgressHUD dismiss];
                         
                         return;
                     }
@@ -282,6 +321,7 @@
                     
                     NSLog(@"Got response %@ with error %@.\n", response, error);
                     // [[AppDelegate sharedAppdelegate] hideProgressView];
+                       [SVProgressHUD dismiss];
                 }]resume];
             }
             
@@ -314,6 +354,7 @@
             if (error || [msg containsString:@"Error"]) {
                 
               //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                  [SVProgressHUD dismiss];
                 
                 if (msg) {
                     if([msg isEqualToString:@"Error-402"])
@@ -344,12 +385,15 @@
                     [self->utils showAlertWithMessage:@"Your HELPDESK URL is not verified. This URL is not found in FAVEO HELPDESK BILLING." sendViewController:self];
                     
                   //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                      [SVProgressHUD dismiss];
                 }
                 else if([resultMsg isEqualToString:@"success"])
                 {
+                    
                     NSLog(@"Billing successful!");
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        
+                      [SVProgressHUD dismiss];
+                      
                         
 //                        [RMessage showNotificationWithTitle:NSLocalizedString(@"Success", nil)
 //                                                   subtitle:NSLocalizedString(@"URL Verified successfully !", nil)
@@ -357,10 +401,29 @@
 //                                             customTypeName:nil
 //                                                   callback:nil];
                         
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"Success", nil)
+                                                          subtitle:NSLocalizedString(@"URL Verified successfully !", nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+                        
+                        
                         [self.companyURLview setHidden:YES];
                         [self.loginView setHidden:NO];
                         [self->utils viewSlideInFromRightToLeft:self.loginView];
                     //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                       
                         
                     });
                     [self->userdefaults setObject:[self->baseURL stringByAppendingString:@"api/v1/"] forKey:@"companyURL"];
@@ -371,6 +434,7 @@
                     [self->utils showAlertWithMessage:@"Something went wrong in Billing. Please try later." sendViewController:self];
                     
                //     [[AppDelegate sharedAppdelegate] hideProgressView];
+                      [SVProgressHUD dismiss];
                 }
                 
             }
@@ -381,6 +445,7 @@
         NSLog( @"Name: %@", exception.name);
         NSLog( @"Reason: %@", exception.reason );
         [utils showAlertWithMessage:exception.name sendViewController:self];
+        [SVProgressHUD dismiss];
         
         return;
     }
@@ -426,10 +491,28 @@
 //             customTypeName:nil
 //             callback:nil];
             
+            if (self.navigationController.navigationBarHidden) {
+                [self.navigationController setNavigationBarHidden:NO];
+            }
+            
+            [RMessage showNotificationInViewController:self.navigationController
+                                                 title:NSLocalizedString(@"Something failed", nil)
+                                              subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it.", nil)
+                                             iconImage:nil
+                                                  type:RMessageTypeError
+                                        customTypeName:nil
+                                              duration:RMessageDurationAutomatic
+                                              callback:nil
+                                           buttonTitle:nil
+                                        buttonCallback:nil
+                                            atPosition:RMessagePositionNavBarOverlay
+                                  canBeDismissedByUser:YES];
+            
             
         }else{
             
           //  [[AppDelegate sharedAppdelegate] showProgressView];
+              [SVProgressHUD showWithStatus:@"Please wait"];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
             // NSString *params=[NSString string];
@@ -465,6 +548,7 @@
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                         //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                               [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"The requested URL was not found on this server." sendViewController:self];
                         }
                         
@@ -472,12 +556,14 @@
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                         //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                               [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"The request method is known by the server but has been disabled and cannot be used." sendViewController:self];
                         }
                         else if(statusCode == 500)
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                         //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                               [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"Internal Server Error. Something has gone wrong on the website's server." sendViewController:self];
                         }
                         
@@ -502,11 +588,13 @@
                     {
                         [self->utils showAlertWithMessage:@"Invalid Credentials.Enter valid username or password" sendViewController:self];
                        // [[AppDelegate sharedAppdelegate] hideProgressView];
+                           [SVProgressHUD dismiss];
                     }
                     else if([msg isEqualToString:@"API disabled"])
                     {
                         [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
                       //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                           [SVProgressHUD dismiss];
                     }
                     
                 }
@@ -550,6 +638,7 @@
                             }
                             
                             
+                             dispatch_async(dispatch_get_main_queue(), ^{
                             [self->userdefaults setObject:profileName forKey:@"profile_name"];
                             [self->userdefaults setObject:self->baseURL forKey:@"baseURL"];
                             [self->userdefaults setObject:self.userNameTextField.text forKey:@"username"];
@@ -558,23 +647,56 @@
                             [self->userdefaults setBool:YES forKey:@"loginSuccess"];
                             [self->userdefaults synchronize];
                             
+                            });
+                            
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 
                                 if([userRole isEqualToString:@"admin"] || [userRole isEqualToString:@"agent"]){
                                     
 //                                    [RKDropdownAlert title:NSLocalizedString(@"Welcome.",nil) message:NSLocalizedString(@"You have logged in successfully.",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:SUCCESS_COLOR] textColor:[UIColor whiteColor]];
 //
+                                    if (self.navigationController.navigationBarHidden) {
+                                        [self.navigationController setNavigationBarHidden:NO];
+                                    }
                                     
+                                    [RMessage showNotificationInViewController:self.navigationController
+                                                                         title:NSLocalizedString(@"Welcome.",nil)
+                                                                      subtitle:NSLocalizedString(@"You have logged in successfully.",nil)
+                                                                     iconImage:nil
+                                                                          type:RMessageTypeSuccess
+                                                                customTypeName:nil
+                                                                      duration:RMessageDurationAutomatic
+                                                                      callback:nil
+                                                                   buttonTitle:nil
+                                                                buttonCallback:nil
+                                                                    atPosition:RMessagePositionNavBarOverlay
+                                                          canBeDismissedByUser:YES];
                                     
-                                   // [self sendDeviceToken];
-                                 //   [[AppDelegate sharedAppdelegate] hideProgressView];
-                                    InboxTickets *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"inboxId"];
-                                    [self.navigationController pushViewController:inboxVC animated:YES];
-                                    [[self navigationController] setNavigationBarHidden:NO];
+                                
+                                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                    
+                                    InboxTickets *inboxVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                                    
+                                   SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                                
+                                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                                    
+                                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+                                    
+                                     [self presentViewController:vc animated:YES completion:nil];
+                                    
+                                   // [self.navigationController pushViewController:inboxVC animated:YES];
+                                  
+                                
+                                    
                                 }else
                                 {
                                     [self->utils showAlertWithMessage:@"Invalid entry for user. This app is used by Agent and Admin only." sendViewController:self];
                                    // [[AppDelegate sharedAppdelegate] hideProgressView];
+                                       [SVProgressHUD dismiss];
+                                    
+                                    
+                               
                                 }
                             });
                             
@@ -588,6 +710,7 @@
                         
                         [self->utils showAlertWithMessage:@"Whoops! Something went Wrong! Please try again." sendViewController:self];
                        // [[AppDelegate sharedAppdelegate] hideProgressView];
+                           [SVProgressHUD dismiss];
                         
                     }
                 

@@ -7,6 +7,8 @@
 //
 
 #import "UnApprovedTickets.h"
+#import "Reachability.h"
+
 
 @interface UnApprovedTickets ()
 

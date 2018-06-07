@@ -8,8 +8,12 @@
 
 #import "InboxTickets.h"
 #import "SWRevealViewController.h"
+#import "SVProgressHUD.h"
+#import "RMessage.h"
+#import "RMessageView.h"
+#import "Reachability.h"
 
-@interface InboxTickets ()
+@interface InboxTickets () <RMessageProtocol>
 
 @end
 
@@ -21,6 +25,7 @@
     
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
+    [SVProgressHUD dismiss];
     
 }
 

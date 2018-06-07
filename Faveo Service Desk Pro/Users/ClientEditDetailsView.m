@@ -7,6 +7,8 @@
 //
 
 #import "ClientEditDetailsView.h"
+#import "Reachability.h"
+
 
 @interface ClientEditDetailsView ()
 

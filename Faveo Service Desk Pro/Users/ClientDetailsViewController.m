@@ -7,6 +7,7 @@
 //
 
 #import "ClientDetailsViewController.h"
+#import "Reachability.h"
 
 @interface ClientDetailsViewController ()
 

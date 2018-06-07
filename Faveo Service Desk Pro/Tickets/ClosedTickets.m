@@ -7,6 +7,8 @@
 //
 
 #import "ClosedTickets.h"
+#import "Reachability.h"
+
 
 @interface ClosedTickets ()
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */; };
+		060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460520C9273500EDA6B8 /* LoadingTableViewCell.m */; };
+		060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F460620C9273500EDA6B8 /* LoadingTableViewCell.xib */; };
+		060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460A20C927C300EDA6B8 /* UIImageView+Letters.m */; };
+		060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F460D20C9318F00EDA6B8 /* OpenCloseTableViewCell.xib */; };
+		060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460F20C9318F00EDA6B8 /* OpenCloseTableViewCell.m */; };
+		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617BC3D20B3F25D00F7A8C8 /* Utils.m */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF8D20B2E233004CFDC9 /* Main.storyboard */; };
@@ -21,11 +28,12 @@
 		0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95020C66E1800191A7D /* AboutUsViewController.m */; };
 		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
 		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
-		0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95A20C6759900191A7D /* ClientFilterView.m */; };
 		0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */; };
 		0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96120C69A1200191A7D /* GlobalVariables.m */; };
 		0630D96820C6A30D00191A7D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96620C6A30D00191A7D /* Reachability.m */; };
 		0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96B20C6A7CD00191A7D /* MyWebservices.m */; };
+		0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0632102220C7E26100F9235D /* ClientListTableViewCell.m */; };
+		0632102620C7E26200F9235D /* ClientListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0632102320C7E26200F9235D /* ClientListTableViewCell.xib */; };
 		0638D3FB20B7ED6900A0DD5F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FA20B7ED6900A0DD5F /* AVKit.framework */; };
 		0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FC20B7ED7400A0DD5F /* Foundation.framework */; };
 		0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */; };
@@ -93,6 +101,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060F460020C91D3400EDA6B8 /* AWNavigationMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWNavigationMenuItem.h; sourceTree = "<group>"; };
+		060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWNavigationMenuItem.m; sourceTree = "<group>"; };
+		060F460420C9273500EDA6B8 /* LoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingTableViewCell.h; sourceTree = "<group>"; };
+		060F460520C9273500EDA6B8 /* LoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingTableViewCell.m; sourceTree = "<group>"; };
+		060F460620C9273500EDA6B8 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		060F460920C927C300EDA6B8 /* UIImageView+Letters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Letters.h"; sourceTree = "<group>"; };
+		060F460A20C927C300EDA6B8 /* UIImageView+Letters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Letters.m"; sourceTree = "<group>"; };
+		060F460D20C9318F00EDA6B8 /* OpenCloseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenCloseTableViewCell.xib; sourceTree = "<group>"; };
+		060F460E20C9318F00EDA6B8 /* OpenCloseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCloseTableViewCell.h; sourceTree = "<group>"; };
+		060F460F20C9318F00EDA6B8 /* OpenCloseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenCloseTableViewCell.m; sourceTree = "<group>"; };
+		060F461220C942B500EDA6B8 /* ClientFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientFilter.h; sourceTree = "<group>"; };
+		060F461320C942B600EDA6B8 /* ClientFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientFilter.m; sourceTree = "<group>"; };
 		0617BC3C20B3F25D00F7A8C8 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		0617BC3D20B3F25D00F7A8C8 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Faveo Service Desk Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,8 +141,6 @@
 		0630D95420C6754A00191A7D /* ClientListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientListViewController.m; sourceTree = "<group>"; };
 		0630D95620C6755C00191A7D /* ClientDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientDetailsViewController.h; sourceTree = "<group>"; };
 		0630D95720C6755C00191A7D /* ClientDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientDetailsViewController.m; sourceTree = "<group>"; };
-		0630D95920C6759900191A7D /* ClientFilterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientFilterView.h; sourceTree = "<group>"; };
-		0630D95A20C6759900191A7D /* ClientFilterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientFilterView.m; sourceTree = "<group>"; };
 		0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientEditDetailsView.h; sourceTree = "<group>"; };
 		0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientEditDetailsView.m; sourceTree = "<group>"; };
 		0630D96020C69A1200191A7D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
@@ -131,6 +149,9 @@
 		0630D96720C6A30D00191A7D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0630D96A20C6A7CD00191A7D /* MyWebservices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWebservices.h; sourceTree = "<group>"; };
 		0630D96B20C6A7CD00191A7D /* MyWebservices.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWebservices.m; sourceTree = "<group>"; };
+		0632102220C7E26100F9235D /* ClientListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientListTableViewCell.m; sourceTree = "<group>"; };
+		0632102320C7E26200F9235D /* ClientListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientListTableViewCell.xib; sourceTree = "<group>"; };
+		0632102420C7E26200F9235D /* ClientListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientListTableViewCell.h; sourceTree = "<group>"; };
 		0638D3FA20B7ED6900A0DD5F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0638D3FC20B7ED7400A0DD5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0638D3FE20B7ED7E00A0DD5F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,6 +246,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060F460320C91D4800EDA6B8 /* NavigationMenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				060F460020C91D3400EDA6B8 /* AWNavigationMenuItem.h */,
+				060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */,
+			);
+			path = NavigationMenuItem;
+			sourceTree = "<group>";
+		};
+		060F460C20C927D100EDA6B8 /* UIImageView+Letters */ = {
+			isa = PBXGroup;
+			children = (
+				060F460920C927C300EDA6B8 /* UIImageView+Letters.h */,
+				060F460A20C927C300EDA6B8 /* UIImageView+Letters.m */,
+			);
+			path = "UIImageView+Letters";
+			sourceTree = "<group>";
+		};
 		061051FB2199898B7BA13F2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
-				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
 				0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
 				0619CF8520B2E233004CFDC9 /* Products */,
@@ -260,14 +298,14 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
-				0630D96920C6A79C00191A7D /* WebServices */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
+				0630D96920C6A79C00191A7D /* WebServices */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
-				0638D42520B82A0D00A0DD5F /* admin.png */,
+				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
@@ -275,6 +313,8 @@
 				0619CF9620B2E234004CFDC9 /* main.m */,
 				0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */,
 				0623C2A920B52AA700A52087 /* logo.png */,
+				0638D42520B82A0D00A0DD5F /* admin.png */,
+				0632102120C7E23800F9235D /* Xib Files */,
 			);
 			path = "Faveo Service Desk Pro";
 			sourceTree = "<group>";
@@ -302,6 +342,8 @@
 			children = (
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
+				060F460C20C927D100EDA6B8 /* UIImageView+Letters */,
+				060F460320C91D4800EDA6B8 /* NavigationMenuItem */,
 				0630D96520C6A2F700191A7D /* Reachability */,
 				0630D96320C6A25C00191A7D /* Utils */,
 				0630D96420C6A26B00191A7D /* GlobalVariables */,
@@ -323,8 +365,8 @@
 			children = (
 				0630D95320C6754A00191A7D /* ClientListViewController.h */,
 				0630D95420C6754A00191A7D /* ClientListViewController.m */,
-				0630D95920C6759900191A7D /* ClientFilterView.h */,
-				0630D95A20C6759900191A7D /* ClientFilterView.m */,
+				060F461220C942B500EDA6B8 /* ClientFilter.h */,
+				060F461320C942B600EDA6B8 /* ClientFilter.m */,
 				0630D95620C6755C00191A7D /* ClientDetailsViewController.h */,
 				0630D95720C6755C00191A7D /* ClientDetailsViewController.m */,
 				0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */,
@@ -367,6 +409,22 @@
 				0630D96B20C6A7CD00191A7D /* MyWebservices.m */,
 			);
 			path = WebServices;
+			sourceTree = "<group>";
+		};
+		0632102120C7E23800F9235D /* Xib Files */ = {
+			isa = PBXGroup;
+			children = (
+				060F460420C9273500EDA6B8 /* LoadingTableViewCell.h */,
+				060F460520C9273500EDA6B8 /* LoadingTableViewCell.m */,
+				060F460620C9273500EDA6B8 /* LoadingTableViewCell.xib */,
+				0632102420C7E26200F9235D /* ClientListTableViewCell.h */,
+				0632102220C7E26100F9235D /* ClientListTableViewCell.m */,
+				0632102320C7E26200F9235D /* ClientListTableViewCell.xib */,
+				060F460E20C9318F00EDA6B8 /* OpenCloseTableViewCell.h */,
+				060F460F20C9318F00EDA6B8 /* OpenCloseTableViewCell.m */,
+				060F460D20C9318F00EDA6B8 /* OpenCloseTableViewCell.xib */,
+			);
+			path = "Xib Files";
 			sourceTree = "<group>";
 		};
 		0650290720BFEF96007E90E2 /* SideMenu */ = {
@@ -589,6 +647,7 @@
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
 				065029B520BFFD51007E90E2 /* Starred@2x.png in Resources */,
+				0632102620C7E26200F9235D /* ClientListTableViewCell.xib in Resources */,
 				065029AC20BFFD51007E90E2 /* Messages.png in Resources */,
 				0650299F20BFFD51007E90E2 /* Company.png in Resources */,
 				065029A220BFFD51007E90E2 /* Messages@2x.png in Resources */,
@@ -596,6 +655,7 @@
 				065029AE20BFFD51007E90E2 /* People.png in Resources */,
 				0650299E20BFFD51007E90E2 /* Starred.png in Resources */,
 				0638D42620B82A0D00A0DD5F /* admin.png in Resources */,
+				060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */,
 				065029A420BFFD51007E90E2 /* News.png in Resources */,
 				065029B020BFFD51007E90E2 /* People@2x.png in Resources */,
 				065029B120BFFD51007E90E2 /* menu_img.png in Resources */,
@@ -607,6 +667,7 @@
 				065029B220BFFD51007E90E2 /* Invite@2x.png in Resources */,
 				065029B420BFFD51007E90E2 /* Advance@2x.png in Resources */,
 				0650290420BFEE34007E90E2 /* enData.plist in Resources */,
+				060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */,
 				065029AB20BFFD51007E90E2 /* Ratings.png in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 				065029AA20BFFD51007E90E2 /* Jobs.png in Resources */,
@@ -640,10 +701,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/RMessage/RMessage/Resources/RMessageView.xib",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/RMessageDefaultDesign.json",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RMessageView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundErrorIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundErrorIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccessIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundSuccessIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarningIcon.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationBackgroundWarningIcon@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationButtonBackground.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NotificationButtonBackground@2x.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RMessageDefaultDesign.json",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -676,13 +759,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
-				0630D95B20C6759900191A7D /* ClientFilterView.m in Sources */,
+				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
+				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
+				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
@@ -693,10 +778,13 @@
 				0630D96820C6A30D00191A7D /* Reachability.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
 				0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */,
+				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
+				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
+				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,6 +955,7 @@
 			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
@@ -875,8 +964,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"HexColors\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"PPTopMostController\"",
+					"-l\"RMessage\"",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ladybirdwebsolutions.FaveoServiceDeskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -886,6 +992,7 @@
 			baseConfigurationReference = 673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
@@ -894,8 +1001,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"HexColors\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"PPTopMostController\"",
+					"-l\"RMessage\"",
+					"-l\"SVProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ladybirdwebsolutions.FaveoServiceDeskPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

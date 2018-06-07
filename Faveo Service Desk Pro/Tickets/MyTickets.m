@@ -7,6 +7,9 @@
 //
 
 #import "MyTickets.h"
+#import "Reachability.h"
+
+
 
 @interface MyTickets ()
 

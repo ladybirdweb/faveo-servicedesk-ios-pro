@@ -7,6 +7,8 @@
 //
 
 #import "TrashTickets.h"
+#import "Reachability.h"
+
 
 @interface TrashTickets ()
 
