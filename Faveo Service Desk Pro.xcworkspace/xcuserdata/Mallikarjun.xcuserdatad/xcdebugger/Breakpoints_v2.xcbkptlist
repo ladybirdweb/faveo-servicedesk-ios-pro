@@ -19,5 +19,53 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/Users/ClientEditDetailsView.m"
+            timestampString = "550069122.699971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-doneSubmitMethod"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[ClientEditDetailsView doneSubmitMethod]_block_invoke"
+                  moduleName = "Faveo Service Desk Pro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Mallikarjun/Desktop/7%20June%20SericeDesk/Faveo%20Service%20Desk%20Pro/Faveo%20Service%20Desk%20Pro/Users/ClientEditDetailsView.m"
+                  timestampString = "550066843.140288"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "3327">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_"
+                  moduleName = "Faveo Service Desk Pro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Mallikarjun/Desktop/7%20June%20SericeDesk/Faveo%20Service%20Desk%20Pro/Faveo%20Service%20Desk%20Pro/Users/ClientEditDetailsView.m"
+                  timestampString = "550066843.145156"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

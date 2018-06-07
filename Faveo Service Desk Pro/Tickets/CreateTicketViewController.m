@@ -1,43 +1,32 @@
 //
-//  InboxTicketsViewController.m
+//  CreateTicketViewController.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 04/06/18.
+//  Created by Mallikarjun on 07/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "InboxTickets.h"
+#import "CreateTicketViewController.h"
 #import "SWRevealViewController.h"
-#import "SVProgressHUD.h"
-#import "RMessage.h"
-#import "RMessageView.h"
-#import "Reachability.h"
 
-@interface InboxTickets () <RMessageProtocol>
+@interface CreateTicketViewController ()
 
 @end
 
-@implementation InboxTickets
+@implementation CreateTicketViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  
     
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
-    [SVProgressHUD dismiss];
-    
-   
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 
 @end

@@ -10,4 +10,19 @@
 
 @interface ClientEditDetailsView : UITableViewController
 
+
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
+- (IBAction)submitButtonAction:(id)sender;
+
+
+
 @end
