@@ -627,6 +627,7 @@
     
     globalVariables.customerFromView=@"normalView";
     globalVariables.userImageFromUserList= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"profile_pic"]];
+     globalVariables.ActiveDeactiveStateOfUser1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"is_delete"]];
     
     globalVariables.userRoleFromUserList=[finaldic objectForKey:@"role"];
     

@@ -8,6 +8,8 @@ pod 'SVProgressHUD'
 
 pod "RMessage"
 
+pod 'SDWebImage', '~> 4.0'
+
   # ignore all warnings from all pods
     inhibit_all_warnings!
 

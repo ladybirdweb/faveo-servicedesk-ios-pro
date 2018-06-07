@@ -72,6 +72,16 @@
     self.menuItem.dataSource = self;
     self.menuItem.delegate = self;
     
+    
+    UIButton *search =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [search setImage:[UIImage imageNamed:@"search1"] forState:UIControlStateNormal];
+    [search addTarget:self action:@selector(searchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [search setFrame:CGRectMake(46, 0, 32, 32)];
+    UIView *rightBarButtonItems = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 76, 32)];
+    [rightBarButtonItems addSubview:search];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
+    
     // to show side menu-menu
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
@@ -82,6 +92,14 @@
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Getting users",nil)];
 
     [self reload];
+    
+}
+
+- (IBAction)searchButtonClicked {
+    
+    //    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
+    //    [self.navigationController pushViewController:search animated:YES];
+    //
     
 }
 
@@ -589,7 +607,7 @@
     
     globalVariables.userStateFromUserList= [finaldic objectForKey:@"active"];
     globalVariables.mobilecodeFromUserList= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"mobile_code"]]; //compnayUser1
-    
+     globalVariables.ActiveDeactiveStateOfUser1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"is_delete"]];
     globalVariables.customerFromView=@"normalView";
     globalVariables.userImageFromUserList= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"profile_pic"]];
     

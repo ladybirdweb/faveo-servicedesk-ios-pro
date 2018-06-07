@@ -1168,6 +1168,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hT5-IM-VLc" id="dFj-W2-vm4"/>
+                                    <outlet property="delegate" destination="hT5-IM-VLc" id="qVc-QA-MEE"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1181,6 +1185,16 @@
                             <constraint firstItem="RjK-Wo-zkS" firstAttribute="top" secondItem="MsQ-00-26a" secondAttribute="bottom" constant="9" id="xC2-3U-HT0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clientNameLabel" destination="OM3-cA-J8s" id="cUr-1B-Kvo"/>
+                        <outlet property="emailLabel" destination="U2N-AV-HsP" id="sMs-XQ-T2w"/>
+                        <outlet property="mobileLabel" destination="8OZ-GV-AGd" id="qat-bN-SNO"/>
+                        <outlet property="phoneLabel" destination="vsj-Ll-JdW" id="GCh-1N-T7f"/>
+                        <outlet property="profileImageView" destination="nca-dc-3Aj" id="EMP-95-tMr"/>
+                        <outlet property="rolLabel" destination="CWR-w5-mSg" id="75j-7L-q9y"/>
+                        <outlet property="tableView" destination="RjK-Wo-zkS" id="d5n-Nu-KHI"/>
+                        <outlet property="testingLAbel" destination="vX7-SD-UQh" id="DRz-yf-ojm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kx6-fT-H7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

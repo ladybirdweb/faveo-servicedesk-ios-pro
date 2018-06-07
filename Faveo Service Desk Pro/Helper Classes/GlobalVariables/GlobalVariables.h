@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSString *customerFromView;
 @property (strong, nonatomic) NSString *userImageFromUserList;
 @property (strong, nonatomic) NSString *userRoleFromUserList;
+@property (strong, nonatomic) NSString *ActiveDeactiveStateOfUser1;
 
 @property (strong, nonatomic) NSString *nameInCilent;
 
