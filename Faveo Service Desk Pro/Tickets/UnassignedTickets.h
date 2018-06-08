@@ -10,4 +10,12 @@
 
 @interface UnassignedTickets : UIViewController
 
+
+//side menu outlet
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) NSInteger page;
+
 @end

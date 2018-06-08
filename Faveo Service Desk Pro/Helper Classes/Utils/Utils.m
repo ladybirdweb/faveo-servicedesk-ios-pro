@@ -8,6 +8,8 @@
 
 #import "Utils.h"
 #import "AppConstanst.h"
+#import "NSDate+NVTimeAgo.h"
+
 
 @implementation Utils
 
@@ -126,6 +128,72 @@
     [viewController presentViewController:alertController animated:YES completion:nil];
     
 }
+
+
+-(NSString *)getLocalDateTimeFromUTC:(NSString *)strDate
+{
+    NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];
+    [dtFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    NSDate *aDate = [dtFormat dateFromString:strDate];
+    
+    [dtFormat setDateFormat:@"d MMM yyyy HH:mm"];
+    [dtFormat setTimeZone:[NSTimeZone systemTimeZone]];
+    NSString * fg=[dtFormat stringFromDate:aDate];
+    
+    
+    //    TTTTimeIntervalFormatter *timeIntervalFormatter = [[TTTTimeIntervalFormatter alloc] init];
+    //   return [timeIntervalFormatter stringForTimeIntervalFromDate:aDate toDate:[NSDate date]];
+    
+    return [[dtFormat dateFromString:fg] formattedAsTimeAgo];
+    
+}
+
+-(NSString *)getLocalDateTimeFromUTCDueDate:(NSString *)strDate
+{
+    NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];
+    [dtFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    NSDate *aDate = [dtFormat dateFromString:strDate];
+    
+    [dtFormat setDateFormat:@"d MMM yyyy HH:mm"];
+    [dtFormat setTimeZone:[NSTimeZone systemTimeZone]];
+    NSString *fg=[dtFormat stringFromDate:aDate];
+    
+    return fg;
+    
+    
+}
+
+-(BOOL)compareDates:(NSString*)strDate{
+    
+    NSDateFormatter *dtFormat = [[NSDateFormatter alloc] init];
+    [dtFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    NSDate *date1 = [dtFormat dateFromString:strDate];
+    
+    NSDate *todayDate = [NSDate date]; //Get todays date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // here we create NSDateFormatter object for change the Format of date.
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *date2=[dateFormatter dateFromString:[dateFormatter stringFromDate:todayDate]];
+    
+    if ([date1 compare:date2] == NSOrderedDescending) {
+        NSLog(@"date1 is later than date2");
+        return NO;
+        
+    } else if ([date1 compare:date2] == NSOrderedAscending) {
+        NSLog(@"date1 is earlier than date2");
+        return YES;
+        
+    } else {
+        NSLog(@"dates are the same");
+        return NO;
+        
+    }
+    
+}
+
 
 
 @end

@@ -420,70 +420,70 @@
 }
 
 
-//-(void)getNextPageURLInbox:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
-//
-//    _userDefaults=[NSUserDefaults standardUserDefaults];
-//    globalVariables=[GlobalVariables sharedInstance];
-//
-//    NSLog(@"page isssss : %@",pageInt);
-//
-//    if([globalVariables.filterId isEqualToString:@"INBOXFilter"])
-//    {
-//        NSString *urlAAA= [url stringByAppendingString:@"&page="];
-//        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
-//
-//        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//
-//    } else if([globalVariables.sortCondition isEqualToString:@"INBOX"])
-//    {
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * showInbox = @"inbox";
-//        NSString * Alldeparatments=@"All";
-//
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//
-//        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
-//
-//        NSString*appendedURL;
-//        appendedURL = [url222 stringByAppendingString:sortContiionValue];
-//        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//    else{
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * showInbox = @"inbox";
-//        NSString * Alldeparatments=@"All";
-//
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//
-//        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//
-//}
+-(void)getNextPageURLInbox:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+
+    NSLog(@"page isssss : %@",pageInt);
+
+    if([globalVariables.filterId isEqualToString:@"INBOXFilter"])
+    {
+        NSString *urlAAA= [url stringByAppendingString:@"&page="];
+        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
+
+        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+
+    } else if([globalVariables.sortCondition isEqualToString:@"INBOX"])
+    {
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * showInbox = @"inbox";
+        NSString * Alldeparatments=@"All";
+
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+
+        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
+
+        NSString*appendedURL;
+        appendedURL = [url222 stringByAppendingString:sortContiionValue];
+        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+    else{
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * showInbox = @"inbox";
+        NSString * Alldeparatments=@"All";
+
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+
+        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+
+}
 
 
 -(void)getNextPageURLInboxSearchResults:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block
@@ -537,250 +537,250 @@
 }
 
 
-//-(void)getNextPageURLUnassigned:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
-//    _userDefaults=[NSUserDefaults standardUserDefaults];
-//    globalVariables=[GlobalVariables sharedInstance];
-//
-//    NSLog(@"page isssss : %@",pageInt);
-//
-//    if([globalVariables.filterId isEqualToString:@"UNASSIGNEDFilter"])
-//    {
-//        NSString *urlAAA= [url stringByAppendingString:@"&page="];
-//        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
-//
-//        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//
-//    }else if([globalVariables.sortCondition isEqualToString:@"UNASSIGNED"])
-//    {
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * showInbox = @"inbox";
-//        NSString * Alldeparatments=@"All";
-//        NSString * assigned = [NSString stringWithFormat:@"%i",0];
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@&assigned=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt,assigned];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
-//
-//        NSString*appendedURL;
-//        appendedURL = [url222 stringByAppendingString:sortContiionValue];
-//        NSLog(@"Append url is : %@",appendedURL);
-//        NSLog(@"Append url is : %@",appendedURL);
-//        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//    else{
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * showInbox = @"inbox";
-//        NSString * Alldeparatments=@"All";
-//        NSString * assigned = [NSString stringWithFormat:@"%i",0];
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@&assigned=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt,assigned];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//
-//}
+-(void)getNextPageURLUnassigned:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+
+    NSLog(@"page isssss : %@",pageInt);
+
+    if([globalVariables.filterId isEqualToString:@"UNASSIGNEDFilter"])
+    {
+        NSString *urlAAA= [url stringByAppendingString:@"&page="];
+        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
+
+        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+
+    }else if([globalVariables.sortCondition isEqualToString:@"UNASSIGNED"])
+    {
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * showInbox = @"inbox";
+        NSString * Alldeparatments=@"All";
+        NSString * assigned = [NSString stringWithFormat:@"%i",0];
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@&assigned=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt,assigned];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
+
+        NSString*appendedURL;
+        appendedURL = [url222 stringByAppendingString:sortContiionValue];
+        NSLog(@"Append url is : %@",appendedURL);
+        NSLog(@"Append url is : %@",appendedURL);
+        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+    else{
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * showInbox = @"inbox";
+        NSString * Alldeparatments=@"All";
+        NSString * assigned = [NSString stringWithFormat:@"%i",0];
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@&assigned=%@",url,[_userDefaults objectForKey:@"token"],apiValue,showInbox,Alldeparatments,pageInt,assigned];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+
+}
 
 
-//-(void)getNextPageURLMyTickets:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
-//    _userDefaults=[NSUserDefaults standardUserDefaults];
-//    globalVariables=[GlobalVariables sharedInstance];
-//
-//    NSLog(@"page isssss : %@",pageInt);
-//
-//    if([globalVariables.filterId isEqualToString:@"MYTICKETSFilter"])
-//    {
-//        NSString *urlAAA= [url stringByAppendingString:@"&page="];
-//        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
-//
-//        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//
-//    } else if([globalVariables.sortCondition isEqualToString:@"MYTICKETS"])
-//    {
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * MyTickets = @"mytickets";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,MyTickets,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//
-//        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
-//
-//        NSString*appendedURL;
-//        appendedURL = [url222 stringByAppendingString:sortContiionValue];
-//        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//    else{
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * MyTickets = @"mytickets";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,MyTickets,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//
-//}
+-(void)getNextPageURLMyTickets:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
 
-//-(void)getNextPageURLClosed:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
-//    _userDefaults=[NSUserDefaults standardUserDefaults];
-//    globalVariables=[GlobalVariables sharedInstance];
-//
-//    NSLog(@"page isssss : %@",pageInt);
-//
-//    if([globalVariables.filterId isEqualToString:@"CLOSEDFilter"])
-//    {
-//        NSString *urlAAA= [url stringByAppendingString:@"&page="];
-//        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
-//
-//        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//
-//    } else  if([globalVariables.sortCondition isEqualToString:@"CLOSED"])
-//    {
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * closedTickets = @"closed";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,closedTickets,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//
-//        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
-//
-//        NSString*appendedURL;
-//        appendedURL = [url222 stringByAppendingString:sortContiionValue];
-//        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//    else{
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * closedTickets = @"closed";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,closedTickets,Alldeparatments,pageInt];
-//
-//        NSLog(@"urlssss i sssss : %@",url222);
-//
-//        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//
-//
-//}
+    NSLog(@"page isssss : %@",pageInt);
 
-//-(void)getNextPageURLTrash:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
-//    _userDefaults=[NSUserDefaults standardUserDefaults];
-//    globalVariables=[GlobalVariables sharedInstance];
-//
-//    NSLog(@"page isssss : %@",pageInt);
-//
-//    if([globalVariables.filterId isEqualToString:@"TRASHFilter"])
-//    {
-//        NSString *urlAAA= [url stringByAppendingString:@"&page="];
-//        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
-//
-//        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//
-//    } else if([globalVariables.sortCondition isEqualToString:@"TRASH"])
-//    {
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * TrashTickets = @"trash";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,TrashTickets,Alldeparatments,pageInt];
-//
-//        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
-//
-//        NSString*appendedURL;
-//        appendedURL = [url222 stringByAppendingString:sortContiionValue];
-//        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }else{
-//
-//        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
-//        NSString * TrashTickets = @"trash";
-//        NSString * Alldeparatments=@"All";
-//
-//        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,TrashTickets,Alldeparatments,pageInt];
-//
-//
-//        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                block(error,json,msg);
-//            });
-//
-//        }];
-//    }
-//
-//
-//}
+    if([globalVariables.filterId isEqualToString:@"MYTICKETSFilter"])
+    {
+        NSString *urlAAA= [url stringByAppendingString:@"&page="];
+        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
+
+        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+
+    } else if([globalVariables.sortCondition isEqualToString:@"MYTICKETS"])
+    {
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * MyTickets = @"mytickets";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,MyTickets,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+
+        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
+
+        NSString*appendedURL;
+        appendedURL = [url222 stringByAppendingString:sortContiionValue];
+        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+    else{
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * MyTickets = @"mytickets";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,MyTickets,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+
+}
+
+-(void)getNextPageURLClosed:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+
+    NSLog(@"page isssss : %@",pageInt);
+
+    if([globalVariables.filterId isEqualToString:@"CLOSEDFilter"])
+    {
+        NSString *urlAAA= [url stringByAppendingString:@"&page="];
+        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
+
+        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+
+    } else  if([globalVariables.sortCondition isEqualToString:@"CLOSED"])
+    {
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * closedTickets = @"closed";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,closedTickets,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+
+        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
+
+        NSString*appendedURL;
+        appendedURL = [url222 stringByAppendingString:sortContiionValue];
+        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+    else{
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * closedTickets = @"closed";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,closedTickets,Alldeparatments,pageInt];
+
+        NSLog(@"urlssss i sssss : %@",url222);
+
+        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+
+
+}
+
+-(void)getNextPageURLTrash:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+
+    NSLog(@"page isssss : %@",pageInt);
+
+    if([globalVariables.filterId isEqualToString:@"TRASHFilter"])
+    {
+        NSString *urlAAA= [url stringByAppendingString:@"&page="];
+        NSString *urlBBB= [urlAAA stringByAppendingString:pageInt];
+
+        [self httpResponseGET:urlBBB parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+
+    } else if([globalVariables.sortCondition isEqualToString:@"TRASH"])
+    {
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * TrashTickets = @"trash";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,TrashTickets,Alldeparatments,pageInt];
+
+        NSString *sortContiionValue= [NSString stringWithFormat:@"%@",globalVariables.sortCondtionValueToSendWebServices];
+
+        NSString*appendedURL;
+        appendedURL = [url222 stringByAppendingString:sortContiionValue];
+        [self httpResponseGET:appendedURL parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }else{
+
+        NSString * apiValue=[NSString stringWithFormat:@"%i",1];
+        NSString * TrashTickets = @"trash";
+        NSString * Alldeparatments=@"All";
+
+        NSString *url222= [NSString stringWithFormat:@"%@?token=%@&api=%@&show=%@&departments=%@&page=%@",url,[_userDefaults objectForKey:@"token"],apiValue,TrashTickets,Alldeparatments,pageInt];
+
+
+        [self httpResponseGET:url222 parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(error,json,msg);
+            });
+
+        }];
+    }
+
+
+}
 
 -(void)getNextPageUSERFilter:(NSString*)url callbackHandler:(callbackHandler)block{
     

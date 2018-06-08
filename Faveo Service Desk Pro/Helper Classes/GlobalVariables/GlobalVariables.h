@@ -40,4 +40,21 @@
 
 
 
+// ticket counts
+
+@property (strong, nonatomic) NSString *OpenCount;
+@property (strong, nonatomic) NSString *ClosedCount;
+@property (strong, nonatomic) NSString *DeletedCount;
+@property (strong, nonatomic) NSString *UnassignedCount;
+@property (strong, nonatomic) NSString *MyticketsCount;
+@property (strong, nonatomic) NSString *UnaprovedCount;
+
+
+// filter and sorting
+
+@property (strong, nonatomic) NSString *filterId;
+@property (strong, nonatomic) NSString *sortCondition;
+@property (strong, nonatomic) NSString *sortCondtionValueToSendWebServices;
+
+
 @end

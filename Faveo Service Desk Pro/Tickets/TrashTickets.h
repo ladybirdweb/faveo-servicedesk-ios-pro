@@ -10,4 +10,12 @@
 
 @interface TrashTickets : UIViewController
 
+//side menu outlet
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
+
+
+
