@@ -30,6 +30,12 @@
 		0623809520CA448500257395 /* TicketTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623809220CA448500257395 /* TicketTableViewCell.m */; };
 		0623809620CA448500257395 /* TicketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0623809420CA448500257395 /* TicketTableViewCell.xib */; };
 		0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623809A20CA636D00257395 /* NSDate+NVTimeAgo.m */; };
+		0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623809D20CA84A000257395 /* TicketDetailViewController.m */; };
+		062380A120CA84D700257395 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A020CA84D700257395 /* ConversationViewController.m */; };
+		062380A420CA84F000257395 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A320CA84F000257395 /* DetailViewController.m */; };
+		062380A720CA852200257395 /* EditTicketDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A620CA852200257395 /* EditTicketDetails.m */; };
+		062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A820CA9B7F00257395 /* ConversationTableViewCell.m */; };
+		062380AC20CA9B8000257395 /* ConversationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */; };
 		0623C2AA20B52AA700A52087 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0623C2A920B52AA700A52087 /* logo.png */; };
 		0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95020C66E1800191A7D /* AboutUsViewController.m */; };
 		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
@@ -149,6 +155,17 @@
 		0623809420CA448500257395 /* TicketTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketTableViewCell.xib; sourceTree = "<group>"; };
 		0623809920CA636D00257395 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
 		0623809A20CA636D00257395 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
+		0623809C20CA84A000257395 /* TicketDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketDetailViewController.h; sourceTree = "<group>"; };
+		0623809D20CA84A000257395 /* TicketDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketDetailViewController.m; sourceTree = "<group>"; };
+		0623809F20CA84D700257395 /* ConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		062380A020CA84D700257395 /* ConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
+		062380A220CA84F000257395 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		062380A320CA84F000257395 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		062380A520CA852200257395 /* EditTicketDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTicketDetails.h; sourceTree = "<group>"; };
+		062380A620CA852200257395 /* EditTicketDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTicketDetails.m; sourceTree = "<group>"; };
+		062380A820CA9B7F00257395 /* ConversationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationTableViewCell.m; sourceTree = "<group>"; };
+		062380A920CA9B7F00257395 /* ConversationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationTableViewCell.h; sourceTree = "<group>"; };
+		062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationTableViewCell.xib; sourceTree = "<group>"; };
 		0623C2A920B52AA700A52087 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0623C2AB20B5513100A52087 /* AppConstanst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstanst.h; sourceTree = "<group>"; };
 		0630D94F20C66E1800191A7D /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
@@ -443,6 +460,9 @@
 				0623809320CA448500257395 /* TicketTableViewCell.h */,
 				0623809220CA448500257395 /* TicketTableViewCell.m */,
 				0623809420CA448500257395 /* TicketTableViewCell.xib */,
+				062380A920CA9B7F00257395 /* ConversationTableViewCell.h */,
+				062380A820CA9B7F00257395 /* ConversationTableViewCell.m */,
+				062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */,
 				060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */,
 				060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */,
 				060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */,
@@ -529,6 +549,14 @@
 				06D647A420C5732A000783C8 /* ClosedTickets.m */,
 				06D647A620C5733E000783C8 /* TrashTickets.h */,
 				06D647A720C5733E000783C8 /* TrashTickets.m */,
+				0623809C20CA84A000257395 /* TicketDetailViewController.h */,
+				0623809D20CA84A000257395 /* TicketDetailViewController.m */,
+				0623809F20CA84D700257395 /* ConversationViewController.h */,
+				062380A020CA84D700257395 /* ConversationViewController.m */,
+				062380A220CA84F000257395 /* DetailViewController.h */,
+				062380A320CA84F000257395 /* DetailViewController.m */,
+				062380A520CA852200257395 /* EditTicketDetails.h */,
+				062380A620CA852200257395 /* EditTicketDetails.m */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -690,6 +718,7 @@
 				065029A520BFFD51007E90E2 /* Company@2x.png in Resources */,
 				065029AE20BFFD51007E90E2 /* People.png in Resources */,
 				0650299E20BFFD51007E90E2 /* Starred.png in Resources */,
+				062380AC20CA9B8000257395 /* ConversationTableViewCell.xib in Resources */,
 				0638D42620B82A0D00A0DD5F /* admin.png in Resources */,
 				060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */,
 				065029A420BFFD51007E90E2 /* News.png in Resources */,
@@ -814,16 +843,21 @@
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
 				0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */,
 				0630D96820C6A30D00191A7D /* Reachability.m in Sources */,
+				062380A420CA84F000257395 /* DetailViewController.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
+				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
 				0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
 				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
+				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
+				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
+				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);

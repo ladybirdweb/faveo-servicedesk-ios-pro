@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UnassignedTickets : UIViewController
+@interface UnassignedTickets : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 //side menu outlet

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClosedTickets : UIViewController
+@interface ClosedTickets : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 //side menu outlet
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) NSInteger page;
 
 @end

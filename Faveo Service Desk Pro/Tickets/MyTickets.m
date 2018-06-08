@@ -20,7 +20,7 @@
 #import "LoadingTableViewCell.h"
 #import "UIColor+HexColors.h"
 #import "UIImageView+Letters.h"
-
+#import "TicketDetailViewController.h"
 
 @interface MyTickets ()<RMessageProtocol>
 {
@@ -984,27 +984,26 @@
         
     }else{
         
+        TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
         
-//        TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketDetailVCID"];
-//
-//
-//        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-//
-//        //iD  ticket id
-//        globalVariables.iD=[finaldic objectForKey:@"id"];
-//        globalVariables.Ticket_status=[finaldic objectForKey:@"status"];
-//        globalVariables.ticket_number=[finaldic objectForKey:@"ticket_number"];
-//        globalVariables.ticketStatusBool=@"ticketView";
-//
-//
-//        NSDictionary *customerDict=[finaldic objectForKey:@"from"];
-//
-//        globalVariables.First_name=[customerDict objectForKey:@"first_name"];
-//        globalVariables.Last_name=[customerDict objectForKey:@"last_name"];
-//        globalVariables.userIdFromInbox=[customerDict objectForKey:@"id"];
-//
-//
-//        [self.navigationController pushViewController:td animated:YES];
+        
+        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
+        
+        //iD  ticket id
+        globalVariables.ticketId=[finaldic objectForKey:@"id"];
+        globalVariables.ticketStatus=[finaldic objectForKey:@"status"];
+        globalVariables.ticketNumber=[finaldic objectForKey:@"ticket_number"];
+        globalVariables.ticketStatusBool=@"ticketView";
+        
+        
+        NSDictionary *customerDict=[finaldic objectForKey:@"from"];
+        
+        globalVariables.firstNameFromTicket=[customerDict objectForKey:@"first_name"];
+        globalVariables.lastNameFromTicket=[customerDict objectForKey:@"last_name"];
+        globalVariables.userIdFromTicket=[customerDict objectForKey:@"id"];
+        
+        
+        [self.navigationController pushViewController:td animated:YES];
         
         
     }

@@ -17,6 +17,16 @@
 @property (strong, nonatomic) NSString *roleFromAuthenticateAPI;
 
 
+// ticket information
+
+@property (strong, nonatomic) NSNumber *ticketId;
+@property (strong, nonatomic) NSString *ticketStatus;
+@property (strong, nonatomic) NSString *ticketNumber;
+@property (strong, nonatomic) NSString *ticketStatusBool;
+@property (strong, nonatomic) NSString *firstNameFromTicket;
+@property (strong, nonatomic) NSString *lastNameFromTicket;
+@property (strong, nonatomic) NSString *userIdFromTicket;
+
 
 //user for user filter option at user list
 @property (strong, nonatomic) NSString *userFilterId;
@@ -55,6 +65,9 @@
 @property (strong, nonatomic) NSString *filterId;
 @property (strong, nonatomic) NSString *sortCondition;
 @property (strong, nonatomic) NSString *sortCondtionValueToSendWebServices;
+
+
+@property (strong, nonatomic) NSMutableArray *attachArrayFromConversation;
 
 
 @end

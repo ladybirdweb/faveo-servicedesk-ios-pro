@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyTickets : UIViewController
+@interface MyTickets : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 //side menu outlet
