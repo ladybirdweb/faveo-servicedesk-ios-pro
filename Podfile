@@ -8,6 +8,8 @@ pod 'SVProgressHUD'
 
 pod "RMessage"
 
+pod 'ActionSheetPicker-3.0'
+
 pod 'SDWebImage', '~> 4.0'
 
   # ignore all warnings from all pods

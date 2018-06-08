@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.3.0)
   - HexColors (4.0.0)
   - IQKeyboardManager (5.0.7)
   - PPTopMostController (0.0.1)
@@ -11,6 +12,7 @@ PODS:
   - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - IQKeyboardManager
   - RMessage
   - SDWebImage (~> 4.0)
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - ActionSheetPicker-3.0
     - HexColors
     - IQKeyboardManager
     - PPTopMostController
@@ -26,6 +29,7 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   PPTopMostController: 4e6f1e5f8c645bdcc74cd837a20f607ff262c048
@@ -33,6 +37,6 @@ SPEC CHECKSUMS:
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: 9d61e68644ce2d8a06041cc943b7da4f3718eb4c
+PODFILE CHECKSUM: 82286830cd3edae57284c6e9bbe494c75eec8c1f
 
 COCOAPODS: 1.5.0
