@@ -16,7 +16,6 @@
 		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */; };
 		060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */; };
-		0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0617BC3D20B3F25D00F7A8C8 /* Utils.m */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF8D20B2E233004CFDC9 /* Main.storyboard */; };
 		0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9020B2E234004CFDC9 /* Assets.xcassets */; };
@@ -41,7 +40,6 @@
 		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
 		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
 		0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */; };
-		0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96120C69A1200191A7D /* GlobalVariables.m */; };
 		0630D96820C6A30D00191A7D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96620C6A30D00191A7D /* Reachability.m */; };
 		0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D96B20C6A7CD00191A7D /* MyWebservices.m */; };
 		0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0632102220C7E26100F9235D /* ClientListTableViewCell.m */; };
@@ -85,6 +83,15 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAC20CBA4ED000D834D /* LGPlusButton.m */; };
+		06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */; };
+		06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */; };
+		06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */; };
+		06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB820CBA76D000D834D /* ReplyTicketViewController.m */; };
+		06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DBB20CBA782000D834D /* InternalNoteViewController.m */; };
+		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
+		0676605F20CBBD93000D834D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
+		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
 		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
 		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
@@ -128,8 +135,6 @@
 		060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
-		0617BC3C20B3F25D00F7A8C8 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		0617BC3D20B3F25D00F7A8C8 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Faveo Service Desk Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CF8720B2E233004CFDC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0619CF8820B2E233004CFDC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -176,8 +181,6 @@
 		0630D95720C6755C00191A7D /* ClientDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientDetailsViewController.m; sourceTree = "<group>"; };
 		0630D95C20C675EB00191A7D /* ClientEditDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientEditDetailsView.h; sourceTree = "<group>"; };
 		0630D95D20C675EB00191A7D /* ClientEditDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientEditDetailsView.m; sourceTree = "<group>"; };
-		0630D96020C69A1200191A7D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
-		0630D96120C69A1200191A7D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		0630D96620C6A30D00191A7D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0630D96720C6A30D00191A7D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0630D96A20C6A7CD00191A7D /* MyWebservices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWebservices.h; sourceTree = "<group>"; };
@@ -229,6 +232,24 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		06765DAB20CBA4ED000D834D /* LGPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButton.h; sourceTree = "<group>"; };
+		06765DAC20CBA4ED000D834D /* LGPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButton.m; sourceTree = "<group>"; };
+		06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonDescription.h; sourceTree = "<group>"; };
+		06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonDescription.m; sourceTree = "<group>"; };
+		06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsView.h; sourceTree = "<group>"; };
+		06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsView.m; sourceTree = "<group>"; };
+		06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsViewShared.h; sourceTree = "<group>"; };
+		06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsViewShared.m; sourceTree = "<group>"; };
+		06765DB720CBA76D000D834D /* ReplyTicketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyTicketViewController.h; sourceTree = "<group>"; };
+		06765DB820CBA76D000D834D /* ReplyTicketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyTicketViewController.m; sourceTree = "<group>"; };
+		06765DBA20CBA782000D834D /* InternalNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternalNoteViewController.h; sourceTree = "<group>"; };
+		06765DBB20CBA782000D834D /* InternalNoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InternalNoteViewController.m; sourceTree = "<group>"; };
+		0676605720CBBC78000D834D /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
+		0676605820CBBC79000D834D /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
+		0676605D20CBBD93000D834D /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		0676605E20CBBD93000D834D /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		0676606320CBBF22000D834D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
+		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
 		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
@@ -375,6 +396,11 @@
 			children = (
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
+				0676605720CBBC78000D834D /* FTPopOverMenu.h */,
+				0676605820CBBC79000D834D /* FTPopOverMenu.m */,
+				0676606320CBBF22000D834D /* GlobalVariables.h */,
+				0676606420CBBF22000D834D /* GlobalVariables.m */,
+				06765DAA20CBA4ED000D834D /* LGPlusButtonsView */,
 				0623809820CA636D00257395 /* NSDate-Time-Ago */,
 				060F460C20C927D100EDA6B8 /* UIImageView+Letters */,
 				060F460320C91D4800EDA6B8 /* NavigationMenuItem */,
@@ -421,8 +447,8 @@
 		0630D96320C6A25C00191A7D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0617BC3C20B3F25D00F7A8C8 /* Utils.h */,
-				0617BC3D20B3F25D00F7A8C8 /* Utils.m */,
+				0676605D20CBBD93000D834D /* Utils.h */,
+				0676605E20CBBD93000D834D /* Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -430,8 +456,6 @@
 		0630D96420C6A26B00191A7D /* GlobalVariables */ = {
 			isa = PBXGroup;
 			children = (
-				0630D96020C69A1200191A7D /* GlobalVariables.h */,
-				0630D96120C69A1200191A7D /* GlobalVariables.m */,
 			);
 			path = GlobalVariables;
 			sourceTree = "<group>";
@@ -532,6 +556,21 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		06765DAA20CBA4ED000D834D /* LGPlusButtonsView */ = {
+			isa = PBXGroup;
+			children = (
+				06765DAB20CBA4ED000D834D /* LGPlusButton.h */,
+				06765DAC20CBA4ED000D834D /* LGPlusButton.m */,
+				06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */,
+				06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */,
+				06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */,
+				06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */,
+				06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */,
+				06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */,
+			);
+			path = LGPlusButtonsView;
+			sourceTree = "<group>";
+		};
 		06D6477F20C56BE8000783C8 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +596,10 @@
 				062380A320CA84F000257395 /* DetailViewController.m */,
 				062380A520CA852200257395 /* EditTicketDetails.h */,
 				062380A620CA852200257395 /* EditTicketDetails.m */,
+				06765DB720CBA76D000D834D /* ReplyTicketViewController.h */,
+				06765DB820CBA76D000D834D /* ReplyTicketViewController.m */,
+				06765DBA20CBA782000D834D /* InternalNoteViewController.h */,
+				06765DBB20CBA782000D834D /* InternalNoteViewController.m */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -680,6 +723,15 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				de,
+				es,
+				fr,
+				it,
+				nb,
+				nl,
+				"pt-PT",
+				ru,
 			);
 			mainGroup = 0619CF7B20B2E233004CFDC9;
 			productRefGroup = 0619CF8520B2E233004CFDC9 /* Products */;
@@ -824,6 +876,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0623809120CA3BE000257395 /* CreateTicketView.m in Sources */,
+				06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */,
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
@@ -832,11 +885,13 @@
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
-				0617BC3E20B3F25D00F7A8C8 /* Utils.m in Sources */,
+				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
+				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
+				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
 				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
@@ -846,13 +901,16 @@
 				062380A420CA84F000257395 /* DetailViewController.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
 				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
-				0630D96220C69A1200191A7D /* GlobalVariables.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
+				06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */,
+				0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
 				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
+				06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */,
+				0676605F20CBBD93000D834D /* Utils.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
@@ -860,6 +918,7 @@
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
+				06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@
 
 + (BOOL)validateUrl: (NSString *) url {
     
-
+    
     NSURL* urls = [NSURL URLWithString:url];
     if (urls == nil) {
         

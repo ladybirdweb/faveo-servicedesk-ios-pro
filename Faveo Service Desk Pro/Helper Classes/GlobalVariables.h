@@ -18,8 +18,9 @@
 
 
 // ticket information
-
+//ticketId NSNumber
 @property (strong, nonatomic) NSNumber *ticketId;
+
 @property (strong, nonatomic) NSString *ticketStatus;
 @property (strong, nonatomic) NSString *ticketNumber;
 @property (strong, nonatomic) NSString *ticketStatusBool;
@@ -67,7 +68,16 @@
 @property (strong, nonatomic) NSString *sortCondtionValueToSendWebServices;
 
 
+// cc
+@property (strong, nonatomic) NSString *ccCount;
+@property (strong, nonatomic) NSArray *collaboratorListArray;
+@property (strong, nonatomic) NSArray *ccListArray1;
+
+
 @property (strong, nonatomic) NSMutableArray *attachArrayFromConversation;
+
+
+
 
 
 @end

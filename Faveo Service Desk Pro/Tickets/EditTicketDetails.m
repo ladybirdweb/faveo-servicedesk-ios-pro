@@ -95,7 +95,7 @@
     
     _saveButton.backgroundColor= [UIColor colorFromHexString:@"00aeef"];
      self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
-
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];

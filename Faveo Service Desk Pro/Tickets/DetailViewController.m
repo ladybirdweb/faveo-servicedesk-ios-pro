@@ -48,6 +48,16 @@
     
     self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
     
+    _priorityTextField.userInteractionEnabled = NO;
+    _helptopicTextField.userInteractionEnabled = NO;
+    _nameTextField.userInteractionEnabled = NO;
+    _ticketTypeTextField.userInteractionEnabled = NO;
+    _assigneeTextField.userInteractionEnabled = NO;
+    _dueDateTextField.userInteractionEnabled = NO;
+    _createdTextField.userInteractionEnabled = NO;
+    _lastResponseTextField.userInteractionEnabled = NO;
+    _sourceTextField.userInteractionEnabled = NO;
+    _emailTextField.userInteractionEnabled = NO;
     
 }
 
@@ -380,38 +390,41 @@
     return NO;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
 
 //This method the delegate if the specified text should be changed.
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
+   
     
-    if(textField==_helptopicTextField)
-    {
-        return NO;
-    }
+    return NO;
     
-    if(textField==_ticketTypeTextField)
-    {
-        return NO;
-    }
-    
-    if(textField==_priorityTextField)
-    {
-        return NO;
-    }
-    
-    if(textField==_assigneeTextField)
-    {
-        return NO;
-    }
-    
-    
-    return YES;
+//    if(textField==_helptopicTextField)
+//    {
+//        return NO;
+//    }
+//
+//    if(textField==_ticketTypeTextField)
+//    {
+//        return NO;
+//    }
+//
+//    if(textField==_priorityTextField)
+//    {
+//        return NO;
+//    }
+//
+//    if(textField==_assigneeTextField)
+//    {
+//        return NO;
+//    }
+//
+//
+//    return YES;
 }
 
 
