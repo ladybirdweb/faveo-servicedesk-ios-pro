@@ -51,6 +51,26 @@
 		0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40220B7ED9A00A0DD5F /* UIKit.framework */; };
 		0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40420B7EDA500A0DD5F /* UserNotifications.framework */; };
 		0638D42620B82A0D00A0DD5F /* admin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D42520B82A0D00A0DD5F /* admin.png */; };
+		064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */; };
+		064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408F220CE58ED00A5DB3B /* userSearchDataCell.m */; };
+		064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408F820CE5BD900A5DB3B /* AddRequester.m */; };
+		064408FB20CE6E4300A5DB3B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064408FA20CE6E4300A5DB3B /* QuartzCore.framework */; };
+		064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408FD20CE725600A5DB3B /* AttachmentViewController.m */; };
+		0644090120CE729C00A5DB3B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644090020CE729C00A5DB3B /* CloudKit.framework */; };
+		0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090320CE753800A5DB3B /* attachmentListShowTableCell.m */; };
+		0644090620CE753800A5DB3B /* attachmentListShowTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0644090420CE753800A5DB3B /* attachmentListShowTableCell.xib */; };
+		0644090920CE757900A5DB3B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090720CE757800A5DB3B /* NSData+Base64.m */; };
+		0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090B20CE823700A5DB3B /* AddCCViewController.m */; };
+		0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090E20CE827A00A5DB3B /* ViewCCViewController.m */; };
+		0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644091820CE891D00A5DB3B /* BIZPopupViewController.m */; };
+		0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644091B20CE891D00A5DB3B /* SampleTable.m */; };
+		0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644091D20CE891D00A5DB3B /* SampleTableCellTableViewCell.m */; };
+		0644092D20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0644091E20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib */; };
+		0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092120CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m */; };
+		0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092320CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m */; };
+		0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092520CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m */; };
+		0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092920CE891D00A5DB3B /* UIViewController+BIZChildViewController.m */; };
 		065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */; };
 		0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */; };
 		0650290420BFEE34007E90E2 /* enData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0650290020BFEE33007E90E2 /* enData.plist */; };
@@ -195,6 +215,43 @@
 		0638D40220B7ED9A00A0DD5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0638D40420B7EDA500A0DD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		0638D42520B82A0D00A0DD5F /* admin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = admin.png; sourceTree = "<group>"; };
+		064408ED20CE58EB00A5DB3B /* attachmentListShowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attachmentListShowTableCell.h; sourceTree = "<group>"; };
+		064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSearchDataCell.xib; sourceTree = "<group>"; };
+		064408F020CE58EC00A5DB3B /* userSearchDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSearchDataCell.h; sourceTree = "<group>"; };
+		064408F220CE58ED00A5DB3B /* userSearchDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSearchDataCell.m; sourceTree = "<group>"; };
+		064408F720CE5BD900A5DB3B /* AddRequester.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRequester.h; sourceTree = "<group>"; };
+		064408F820CE5BD900A5DB3B /* AddRequester.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRequester.m; sourceTree = "<group>"; };
+		064408FA20CE6E4300A5DB3B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		064408FC20CE725600A5DB3B /* AttachmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttachmentViewController.h; sourceTree = "<group>"; };
+		064408FD20CE725600A5DB3B /* AttachmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttachmentViewController.m; sourceTree = "<group>"; };
+		064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Faveo Service Desk Pro.entitlements"; sourceTree = "<group>"; };
+		0644090020CE729C00A5DB3B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		0644090320CE753800A5DB3B /* attachmentListShowTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = attachmentListShowTableCell.m; path = "../../../../Certificates & Icons/Do not Delete/21 may/faveo-helpdesk-ios-pro/Faveo Helpdesk Pro/attachmentListShowTableCell.m"; sourceTree = "<group>"; };
+		0644090420CE753800A5DB3B /* attachmentListShowTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = attachmentListShowTableCell.xib; path = "../../../../Certificates & Icons/Do not Delete/21 may/faveo-helpdesk-ios-pro/Faveo Helpdesk Pro/attachmentListShowTableCell.xib"; sourceTree = "<group>"; };
+		0644090720CE757800A5DB3B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		0644090820CE757900A5DB3B /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		0644090A20CE823700A5DB3B /* AddCCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCCViewController.h; sourceTree = "<group>"; };
+		0644090B20CE823700A5DB3B /* AddCCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCCViewController.m; sourceTree = "<group>"; };
+		0644090D20CE827A00A5DB3B /* ViewCCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewCCViewController.h; sourceTree = "<group>"; };
+		0644090E20CE827A00A5DB3B /* ViewCCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewCCViewController.m; sourceTree = "<group>"; };
+		0644091720CE891D00A5DB3B /* BIZPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIZPopupViewController.h; sourceTree = "<group>"; };
+		0644091820CE891D00A5DB3B /* BIZPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIZPopupViewController.m; sourceTree = "<group>"; };
+		0644091920CE891D00A5DB3B /* BIZPopupViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIZPopupViewControllerDelegate.h; sourceTree = "<group>"; };
+		0644091A20CE891D00A5DB3B /* SampleTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTable.h; sourceTree = "<group>"; };
+		0644091B20CE891D00A5DB3B /* SampleTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTable.m; sourceTree = "<group>"; };
+		0644091C20CE891D00A5DB3B /* SampleTableCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableCellTableViewCell.h; sourceTree = "<group>"; };
+		0644091D20CE891D00A5DB3B /* SampleTableCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableCellTableViewCell.m; sourceTree = "<group>"; };
+		0644091E20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableCellTableViewCell.xib; sourceTree = "<group>"; };
+		0644092020CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		0644092120CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		0644092220CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		0644092320CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		0644092420CE891D00A5DB3B /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		0644092520CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		0644092620CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		0644092820CE891D00A5DB3B /* UIViewController+BIZChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BIZChildViewController.h"; sourceTree = "<group>"; };
+		0644092920CE891D00A5DB3B /* UIViewController+BIZChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BIZChildViewController.m"; sourceTree = "<group>"; };
 		065028F920BFE3C0007E90E2 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableViewCell.m; sourceTree = "<group>"; };
@@ -273,8 +330,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064408FB20CE6E4300A5DB3B /* QuartzCore.framework in Frameworks */,
 				0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */,
 				0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */,
+				0644090120CE729C00A5DB3B /* CloudKit.framework in Frameworks */,
 				0638D40120B7ED8F00A0DD5F /* SystemConfiguration.framework in Frameworks */,
 				0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */,
 				0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */,
@@ -352,6 +411,7 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
+				064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
 				0630D96920C6A79C00191A7D /* WebServices */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
@@ -394,8 +454,11 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0644091620CE891D00A5DB3B /* TableViewPopUp */,
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
+				0644090820CE757900A5DB3B /* NSData+Base64.h */,
+				0644090720CE757800A5DB3B /* NSData+Base64.m */,
 				0676605720CBBC78000D834D /* FTPopOverMenu.h */,
 				0676605820CBBC79000D834D /* FTPopOverMenu.m */,
 				0676606320CBBF22000D834D /* GlobalVariables.h */,
@@ -499,8 +562,47 @@
 				060F460E20C9318F00EDA6B8 /* OpenCloseTableViewCell.h */,
 				060F460F20C9318F00EDA6B8 /* OpenCloseTableViewCell.m */,
 				060F460D20C9318F00EDA6B8 /* OpenCloseTableViewCell.xib */,
+				064408ED20CE58EB00A5DB3B /* attachmentListShowTableCell.h */,
+				0644090320CE753800A5DB3B /* attachmentListShowTableCell.m */,
+				0644090420CE753800A5DB3B /* attachmentListShowTableCell.xib */,
+				064408F020CE58EC00A5DB3B /* userSearchDataCell.h */,
+				064408F220CE58ED00A5DB3B /* userSearchDataCell.m */,
+				064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */,
 			);
 			path = "Xib Files";
+			sourceTree = "<group>";
+		};
+		0644091620CE891D00A5DB3B /* TableViewPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				0644091720CE891D00A5DB3B /* BIZPopupViewController.h */,
+				0644091820CE891D00A5DB3B /* BIZPopupViewController.m */,
+				0644091920CE891D00A5DB3B /* BIZPopupViewControllerDelegate.h */,
+				0644091A20CE891D00A5DB3B /* SampleTable.h */,
+				0644091B20CE891D00A5DB3B /* SampleTable.m */,
+				0644091C20CE891D00A5DB3B /* SampleTableCellTableViewCell.h */,
+				0644091D20CE891D00A5DB3B /* SampleTableCellTableViewCell.m */,
+				0644091E20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib */,
+				0644091F20CE891D00A5DB3B /* TPKeyboardAvoiding */,
+				0644092820CE891D00A5DB3B /* UIViewController+BIZChildViewController.h */,
+				0644092920CE891D00A5DB3B /* UIViewController+BIZChildViewController.m */,
+			);
+			path = TableViewPopUp;
+			sourceTree = "<group>";
+		};
+		0644091F20CE891D00A5DB3B /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				0644092020CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.h */,
+				0644092120CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m */,
+				0644092220CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.h */,
+				0644092320CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m */,
+				0644092420CE891D00A5DB3B /* TPKeyboardAvoidingTableView.h */,
+				0644092520CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m */,
+				0644092620CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
 		0650290720BFEF96007E90E2 /* SideMenu */ = {
@@ -576,6 +678,8 @@
 			children = (
 				0623808F20CA3BE000257395 /* CreateTicketView.h */,
 				0623809020CA3BE000257395 /* CreateTicketView.m */,
+				064408F720CE5BD900A5DB3B /* AddRequester.h */,
+				064408F820CE5BD900A5DB3B /* AddRequester.m */,
 				06D6479720C5724B000783C8 /* InboxTickets.h */,
 				06D6479820C5724B000783C8 /* InboxTickets.m */,
 				06D6479A20C5725B000783C8 /* MyTickets.h */,
@@ -600,6 +704,8 @@
 				06765DB820CBA76D000D834D /* ReplyTicketViewController.m */,
 				06765DBA20CBA782000D834D /* InternalNoteViewController.h */,
 				06765DBB20CBA782000D834D /* InternalNoteViewController.m */,
+				064408FC20CE725600A5DB3B /* AttachmentViewController.h */,
+				064408FD20CE725600A5DB3B /* AttachmentViewController.m */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -618,6 +724,10 @@
 			children = (
 				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
 				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
+				0644090A20CE823700A5DB3B /* AddCCViewController.h */,
+				0644090B20CE823700A5DB3B /* AddCCViewController.m */,
+				0644090D20CE827A00A5DB3B /* ViewCCViewController.h */,
+				0644090E20CE827A00A5DB3B /* ViewCCViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -625,6 +735,8 @@
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0644090020CE729C00A5DB3B /* CloudKit.framework */,
+				064408FA20CE6E4300A5DB3B /* QuartzCore.framework */,
 				0638D40420B7EDA500A0DD5F /* UserNotifications.framework */,
 				0638D40220B7ED9A00A0DD5F /* UIKit.framework */,
 				0638D40020B7ED8F00A0DD5F /* SystemConfiguration.framework */,
@@ -705,6 +817,14 @@
 				TargetAttributes = {
 					0619CF8320B2E233004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					0619CF9B20B2E234004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -758,6 +878,7 @@
 				065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */,
 				065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */,
 				065029AD20BFFD51007E90E2 /* Settings.png in Resources */,
+				0644092D20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib in Resources */,
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
@@ -785,10 +906,12 @@
 				065029B420BFFD51007E90E2 /* Advance@2x.png in Resources */,
 				0650290420BFEE34007E90E2 /* enData.plist in Resources */,
 				060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */,
+				0644090620CE753800A5DB3B /* attachmentListShowTableCell.xib in Resources */,
 				065029AB20BFFD51007E90E2 /* Ratings.png in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 				065029AA20BFFD51007E90E2 /* Jobs.png in Resources */,
 				065029A920BFFD51007E90E2 /* Settings@2x.png in Resources */,
+				064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */,
 				065029A720BFFD51007E90E2 /* Avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,17 +1003,25 @@
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
+				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
+				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
+				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
+				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
+				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
+				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
+				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
+				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
 				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
 				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
@@ -899,21 +1030,28 @@
 				0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */,
 				0630D96820C6A30D00191A7D /* Reachability.m in Sources */,
 				062380A420CA84F000257395 /* DetailViewController.m in Sources */,
+				0644090920CE757900A5DB3B /* NSData+Base64.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
 				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
+				064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
 				06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */,
+				0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */,
 				0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
 				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
+				0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */,
 				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
 				06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */,
 				0676605F20CBBD93000D834D /* Utils.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
+				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
+				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
@@ -1088,6 +1226,7 @@
 			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Faveo Service Desk Pro/Faveo Service Desk Pro.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
@@ -1125,6 +1264,7 @@
 			baseConfigurationReference = 673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Faveo Service Desk Pro/Faveo Service Desk Pro.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;

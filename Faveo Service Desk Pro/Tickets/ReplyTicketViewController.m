@@ -16,8 +16,13 @@
 #import "Reachability.h"
 #import "RMessage.h"
 #import "RMessageView.h"
+#import <HSAttachmentPicker/HSAttachmentPicker.h>
+#import "AddCCViewController.h"
+#import "ViewCCViewController.h"
+#import "BIZPopupViewController.h"
 
-@interface ReplyTicketViewController ()<RMessageProtocol,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
+
+@interface ReplyTicketViewController ()<RMessageProtocol,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -27,7 +32,7 @@
     
     NSArray  * ccListArray;
     
-    // HSAttachmentPicker *_menu;
+     HSAttachmentPicker *_menu;
     
     NSData *attachNSData;
     NSString *file123;
@@ -131,8 +136,8 @@
 -(void)clickedOnCCSubButton
 {
     
-//    addCCView *cc1=[self.storyboard instantiateViewControllerWithIdentifier:@"addCCViewId"];
-//    [self.navigationController pushViewController:cc1 animated:YES];
+    AddCCViewController *cc1=[self.storyboard instantiateViewControllerWithIdentifier:@"addCCId"];
+    [self.navigationController pushViewController:cc1 animated:YES];
     
 }
 
@@ -144,10 +149,10 @@
     if ([ccListArray count] > 0) {
         globalVariables.ccListArray1=ccListArray;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        ViewCCList *smallViewController = [storyboard instantiateViewControllerWithIdentifier:@"ccListID"];
-//
-//        BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:smallViewController contentSize:CGSizeMake(300, 300)];
- //      [self presentViewController:popupViewController animated:NO completion:nil];
+        ViewCCViewController *smallViewController = [storyboard instantiateViewControllerWithIdentifier:@"viewCCId"];
+
+        BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:smallViewController contentSize:CGSizeMake(300, 300)];
+       [self presentViewController:popupViewController animated:NO completion:nil];
     }
     else{
         
@@ -295,15 +300,225 @@
 }
 
 // Here attachment picker will initialize
-//-(void)addAttachmentPickerButton
-//{
-//    _menu = [[HSAttachmentPicker alloc] init];
-//    _menu.delegate = self;
-//    [_menu showAttachmentMenu];
-//
-//}
+-(void)addAttachmentPickerButton
+{
+    _menu = [[HSAttachmentPicker alloc] init];
+    _menu.delegate = self;
+    [_menu showAttachmentMenu];
+
+}
 
 
+//After clicking attachment button, attachment picker is ready to display
+- (void)attachmentPickerMenu:(HSAttachmentPicker * _Nonnull)menu showController:(UIViewController * _Nonnull)controller completion:(void (^ _Nullable)(void))completion {
+    UIPopoverPresentationController *popover = controller.popoverPresentationController;
+    if (popover != nil) {
+        popover.permittedArrowDirections = UIPopoverArrowDirectionUp;
+        //  popover.sourceView = self.openPickerButton;
+    }
+    [self presentViewController:controller animated:true completion:completion];
+}
+
+// It will show error message, if any error is occured while selecting or displying picker
+- (void)attachmentPickerMenu:(HSAttachmentPicker * _Nonnull)menu showErrorMessage:(NSString * _Nonnull)errorMessage {
+    NSLog(@"%@", errorMessage);
+}
+
+
+// here actaul picker called, here it will show picker view and we can select attachment and after selecting file it will print file name and with its size
+- (void)attachmentPickerMenu:(HSAttachmentPicker * _Nonnull)menu upload:(NSData * _Nonnull)data filename:(NSString * _Nonnull)filename image:(UIImage * _Nullable)image {
+    
+    NSLog(@"File Name : %@", filename);
+    NSLog(@"File name : %@",filename);
+    
+    file123=filename;
+    attachNSData=data;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self->_fileSize123.text=[NSString stringWithFormat:@" %.2f MB",(float)data.length/1024.0f/1024.0f];
+        
+        
+        
+        //  base64Encoded = [data base64EncodedStringWithOptions:0];
+        // printf("NSDATA Attachemnt : %s\n", [base64Encoded UTF8String]);
+        
+        
+        self->_fileName123.text=filename;
+        
+        if([filename hasSuffix:@".doc"] || [filename hasSuffix:@".DOC"])
+        {
+            self->typeMime=@"application/msword";
+            self->_fileImage.image=[UIImage imageNamed:@"doc"];
+        }
+        else if([filename hasSuffix:@".pdf"] || [filename hasSuffix:@".PDF"])
+        {
+            self->typeMime=@"application/pdf";
+            self->_fileImage.image=[UIImage imageNamed:@"pdf"];
+        }
+        else if([filename hasSuffix:@".css"] || [filename hasSuffix:@".CSS"])
+        {
+            self->typeMime=@"text/css";
+            self->_fileImage.image=[UIImage imageNamed:@"css"];
+        }
+        else if([filename hasSuffix:@".csv"] || [filename hasSuffix:@".CSV"])
+        {
+            self->typeMime=@"text/csv";
+            self->_fileImage.image=[UIImage imageNamed:@"csv"];
+        }
+        else if([filename hasSuffix:@".xls"] || [filename hasSuffix:@".XLS"])
+        {
+            self->typeMime=@"application/vnd.ms-excel";
+            self->_fileImage.image=[UIImage imageNamed:@"xls"];
+        }
+        
+        else if([filename hasSuffix:@".rtf"] || [filename hasSuffix:@".RTF"])
+        {
+            self->typeMime=@"text/richtext";
+            self->_fileImage.image=[UIImage imageNamed:@"rtf"];
+        }
+        else if([filename hasSuffix:@".sql"] || [filename hasSuffix:@".SQL"])
+        {
+            self->typeMime=@"text/sql";
+            self->_fileImage.image=[UIImage imageNamed:@"sql"];
+        }
+        else if([filename hasSuffix:@".gif"] || [filename hasSuffix:@".GIF"])
+        {
+            self->typeMime=@"image/gif";
+            self->_fileImage.image=[UIImage imageNamed:@"gif2"];
+        }
+        else if([filename hasSuffix:@".ppt"] || [filename hasSuffix:@".PPT"])
+        {
+            self->typeMime=@"application/mspowerpoint";
+            self->_fileImage.image=[UIImage imageNamed:@"ppt"];
+        }
+        else if([filename hasSuffix:@".jpeg"] || [filename hasSuffix:@".JPEG"])
+        {
+            self->typeMime=@"image/jpeg";
+            self->_fileImage.image=[UIImage imageNamed:@"jpg"];
+        }
+        else if([filename hasSuffix:@".docx"] || [filename hasSuffix:@".DOCX"])
+        {
+            self->typeMime=@"application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+            self->_fileImage.image=[UIImage imageNamed:@"doc"];
+        }
+        else if([filename hasSuffix:@".pps"] || [filename hasSuffix:@".PPS"])
+        {
+            self->typeMime=@"application/vnd.ms-powerpoint";
+            self->_fileImage.image=[UIImage imageNamed:@"ppt"];
+        }
+        else if([filename hasSuffix:@".pptx"] || [filename hasSuffix:@".PPTX"])
+        {
+            self->typeMime=@"application/vnd.openxmlformats-officedocument.presentationml.presentation";
+            self->_fileImage.image=[UIImage imageNamed:@"ppt"];
+        }
+        else if([filename hasSuffix:@".jpg"] || [filename hasSuffix:@".JPG"])
+        {
+            self->typeMime=@"image/jpg";
+            self->_fileImage.image=[UIImage imageNamed:@"jpg"];
+        }
+        else if([filename hasSuffix:@".png"] || [filename hasSuffix:@".PNG"])
+        {
+            self->typeMime=@"image/png";
+            self->_fileImage.image=[UIImage imageNamed:@"png"];
+        }
+        else if([filename hasSuffix:@".ico"] || [filename hasSuffix:@".ICO"])
+        {
+            self->typeMime=@"image/x-icon";
+            self->_fileImage.image=[UIImage imageNamed:@"ico"];
+        }
+        else if([filename hasSuffix:@".txt"] || [filename hasSuffix:@".text"] || [filename hasSuffix:@".TEXT"] || [filename hasSuffix:@".com"] || [filename hasSuffix:@".f"] || [filename hasSuffix:@".hh"]  || [filename hasSuffix:@".conf"]  || [filename hasSuffix:@".f90"]  || [filename hasSuffix:@".idc"] || [filename hasSuffix:@".cxx"] || [filename hasSuffix:@".h"] || [filename hasSuffix:@".java"] || [filename hasSuffix:@".def"] || [filename hasSuffix:@".g"] || [filename hasSuffix:@".c"] || [filename hasSuffix:@".c++"] || [filename hasSuffix:@".cc"] || [filename hasSuffix:@".list"]|| [filename hasSuffix:@".log"]|| [filename hasSuffix:@".lst"] || [filename hasSuffix:@".m"] || [filename hasSuffix:@".mar"] || [filename hasSuffix:@".pl"] || [filename hasSuffix:@".sdml"])
+        {
+            self->typeMime=@"text/plain";
+            self->_fileImage.image=[UIImage imageNamed:@"txt"];
+        }
+        else if([filename hasPrefix:@".bmp"])
+        {
+            self->typeMime=@"image/bmp";
+            self->_fileImage.image=[UIImage imageNamed:@"commonImage"];
+        }
+        else if([filename hasPrefix:@".java"])
+        {
+            self->typeMime=@"application/java";
+            self->_fileImage.image=[UIImage imageNamed:@"commonImage"];
+        }
+        else if([filename hasSuffix:@".html"] || [filename hasSuffix:@".htm"] || [filename hasSuffix:@".htmls"] || [filename hasSuffix:@".HTML"] || [filename hasSuffix:@".HTM"])
+        {
+            self->typeMime=@"text/html";
+            self->_fileImage.image=[UIImage imageNamed:@"html"];
+        }
+        else  if([filename hasSuffix:@".mp3"])
+        {
+            self->typeMime=@"audio/mp3";
+            self->_fileImage.image=[UIImage imageNamed:@"mp3"];
+        }
+        else  if([filename hasSuffix:@".wav"])
+        {
+            self->typeMime=@"audio/wav";
+            self->_fileImage.image=[UIImage imageNamed:@"audioCommon"];
+        }
+        else  if([filename hasSuffix:@".aac"])
+        {
+            self->typeMime=@"audio/aac";
+            self->_fileImage.image=[UIImage imageNamed:@"audioCommon"];
+        }
+        else  if([filename hasSuffix:@".aiff"] || [filename hasSuffix:@".aif"])
+        {
+            self->typeMime=@"audio/aiff";
+            self->_fileImage.image=[UIImage imageNamed:@"audioCommon"];
+        }
+        else  if([filename hasSuffix:@".m4p"])
+        {
+            self->typeMime=@"audio/m4p";
+            self->_fileImage.image=[UIImage imageNamed:@"audioCommon"];
+        }
+        else  if([filename hasSuffix:@".mp4"])
+        {
+            self->typeMime=@"video/mp4";
+            self->_fileImage.image=[UIImage imageNamed:@"mp4"];
+        }
+        else if([filename hasSuffix:@".mov"])
+        {
+            self->typeMime=@"video/quicktime";
+            self->_fileImage.image=[UIImage imageNamed:@"mov"];
+        }
+        
+        else  if([filename hasSuffix:@".wmv"])
+        {
+            self->typeMime=@"video/x-ms-wmv";
+            self->_fileImage.image=[UIImage imageNamed:@"wmv"];
+        }
+        else if([filename hasSuffix:@".flv"])
+        {
+            self->typeMime=@"video/x-msvideo";
+            self->_fileImage.image=[UIImage imageNamed:@"flv"];
+        }
+        else if([filename hasSuffix:@".mkv"])
+        {
+            self->typeMime=@"video/mkv";
+            self->_fileImage.image=[UIImage imageNamed:@"mkv"];
+        }
+        else if([filename hasSuffix:@".avi"])
+        {
+            self->typeMime=@"video/avi";
+            self->_fileImage.image=[UIImage imageNamed:@"avi"];
+        }
+        else if([filename hasSuffix:@".zip"])
+        {
+            self->typeMime=@"application/zip";
+            self->_fileImage.image=[UIImage imageNamed:@"zip"];
+        }
+        else if([filename hasSuffix:@".rar"])
+        {
+            self->typeMime=@"application/x-rar-compressed";
+            self->_fileImage.image=[UIImage imageNamed:@"commonImage"];
+        }
+        else
+        {
+            self->_fileImage.image=[UIImage imageNamed:@"commonImage"];
+        }
+        
+    });
+}
 
 
 

@@ -10,6 +10,9 @@ pod "RMessage"
 
 pod 'ActionSheetPicker-3.0'
 
+pod "UITextField_AutoSuggestion"
+pod 'HSAttachmentPicker'
+
 pod 'SDWebImage', '~> 4.0'
 
   # ignore all warnings from all pods

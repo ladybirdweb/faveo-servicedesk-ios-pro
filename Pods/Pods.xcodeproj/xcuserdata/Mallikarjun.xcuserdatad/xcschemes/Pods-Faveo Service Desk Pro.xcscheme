@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E149D6E367E8C966B48E375609995EE"
+               BlueprintIdentifier = "3982623D671AD5BDCE96B1FB4C65F7CD"
                BuildableName = "libPods-Faveo Service Desk Pro.a"
                BlueprintName = "Pods-Faveo Service Desk Pro"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E149D6E367E8C966B48E375609995EE"
+            BlueprintIdentifier = "3982623D671AD5BDCE96B1FB4C65F7CD"
             BuildableName = "libPods-Faveo Service Desk Pro.a"
             BlueprintName = "Pods-Faveo Service Desk Pro"
             ReferencedContainer = "container:Pods.xcodeproj">

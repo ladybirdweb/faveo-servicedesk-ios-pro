@@ -50,6 +50,16 @@
 @property (strong, nonatomic) NSString *nameInCilent;
 
 
+//Add requester
+@property (strong, nonatomic) NSString *emailFromAddRequester;
+@property (strong, nonatomic) NSString *firstNameFromAddRequester;
+@property (strong, nonatomic) NSString *lastNameFromAddRequester;
+@property (strong, nonatomic) NSString *mobileNubmberFromAddRequster;
+@property (strong, nonatomic) NSString *mobileCodeFromAddRequester;
+
+
+@property (strong, nonatomic) NSMutableArray *assigneeIdArrayListToTicketCreate;
+@property (strong, nonatomic) NSMutableArray *attachArrayFromConversation;
 
 // ticket counts
 
@@ -73,8 +83,6 @@
 @property (strong, nonatomic) NSArray *collaboratorListArray;
 @property (strong, nonatomic) NSArray *ccListArray1;
 
-
-@property (strong, nonatomic) NSMutableArray *attachArrayFromConversation;
 
 
 

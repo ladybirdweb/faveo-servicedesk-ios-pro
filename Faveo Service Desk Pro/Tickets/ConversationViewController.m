@@ -18,7 +18,7 @@
 #import "RMessage.h"
 #import "RMessageView.h"
 #import "UIImageView+Letters.h"
-//#import "AttachmentViewController.h"
+#import "AttachmentViewController.h"
 #import "InboxTickets.h"
 #import "LoginViewController.h"
 #import "SVProgressHUD.h"
@@ -294,8 +294,8 @@
     attachmentArray=[finaldic objectForKey:@"attach"];
     
     
-    //    globalVariable=[GlobalVariables sharedInstance];
-    //    globalVariable.attachmentListFromConversationView=attachmentArray;
+//        globalVariable=[GlobalVariables sharedInstance];
+//        globalVariable.attachArrayFromConversation=attachmentArray;
     
     if ([attachmentArray count] != 0){
         
@@ -447,8 +447,8 @@
    [SVProgressHUD showWithStatus:@"Please wait"];
     
     globalVariable.attachArrayFromConversation=globalVariable.attachArrayFromConversation;
-//    AttachmentViewController *attach=[self.storyboard instantiateViewControllerWithIdentifier:@"attachId"];
-//    [self.navigationController pushViewController:attach animated:YES];
+    AttachmentViewController *attach=[self.storyboard instantiateViewControllerWithIdentifier:@"attachmentViewId"];
+    [self.navigationController pushViewController:attach animated:YES];
 }
 
 //This method asks the delegate for the height to use for a row in a specified location.

@@ -26,5 +26,13 @@
 - (IBAction)submitButtonAction:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *fileImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *fileName123;
+
+@property (weak, nonatomic) IBOutlet UILabel *fileSize123;
+
+
+-(void)FetchCollaboratorAssociatedwithTicket;
 
 @end
