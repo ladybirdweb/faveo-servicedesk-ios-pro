@@ -21,6 +21,7 @@
 #import "UIColor+HexColors.h"
 #import "UIImageView+Letters.h"
 #import "TicketDetailViewController.h"
+#import "NotificationViewController.h"
 
 @interface ClosedTickets () <RMessageProtocol>
 {
@@ -1033,10 +1034,14 @@
 // After clicking this method, it will navigate to notification view controller
 -(void)NotificationBtnPressed
 {
-//    NotificationViewController *not=[self.storyboard instantiateViewControllerWithIdentifier:@"Notify"];
-//
-//
-//    [self.navigationController pushViewController:not animated:YES];
+
+  //  [self hideTableViewEditMode];
+    
+    globalVariables.ticketNumber=[tempDict objectForKey:@"ticket_number"];
+    globalVariables.ticketStatus=[tempDict objectForKey:@"ticket_status_name"];
+    
+    NotificationViewController *not=[self.storyboard instantiateViewControllerWithIdentifier:@"Notify"];
+    [self.navigationController pushViewController:not animated:YES];
     
 }
 

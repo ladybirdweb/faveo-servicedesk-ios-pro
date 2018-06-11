@@ -45,7 +45,7 @@
     userDefaults=[NSUserDefaults standardUserDefaults];
     globalVariables=[GlobalVariables sharedInstance];
     
-    _clientId=[NSString stringWithFormat:@"%@",globalVariables.userIDFromUserList];
+  //  _clientId=[NSString stringWithFormat:@"%@",globalVariables.userIDFromUserList];
     
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderColor=[[UIColor hx_colorWithHexRGBAString:@"#0288D1"] CGColor];
@@ -303,8 +303,9 @@
         
     }else{
         
-        NSString *url=[NSString stringWithFormat:@"%@helpdesk/my-tickets-user?api_key=%@&ip=%@&token=%@&user_id=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],_clientId];
+        NSString *url=[NSString stringWithFormat:@"%@helpdesk/my-tickets-user?api_key=%@&ip=%@&token=%@&user_id=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.userIDFromUserList];
         NSLog(@"URL is : %@",url);
+        NSLog(@"User id is : %@",globalVariables.userIDFromUserList);
         
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];

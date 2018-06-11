@@ -21,6 +21,7 @@
 #import "UIColor+HexColors.h"
 #import "UIImageView+Letters.h"
 #import "TicketDetailViewController.h"
+#import "NotificationViewController.h"
 
 @interface InboxTickets () <RMessageProtocol>
 {
@@ -1226,13 +1227,13 @@
 -(void)NotificationBtnPressed
 
 {
-//    [self hideTableViewEditMode];
-//
-//    globalVariables.ticket_number=[tempDict objectForKey:@"ticket_number"];
-//    globalVariables.Ticket_status=[tempDict objectForKey:@"ticket_status_name"];
-//
-//    NotificationViewController *not=[self.storyboard instantiateViewControllerWithIdentifier:@"Notify"];
-//    [self.navigationController pushViewController:not animated:YES];
+    [self hideTableViewEditMode];
+
+    globalVariables.ticketNumber=[tempDict objectForKey:@"ticket_number"];
+    globalVariables.ticketStatus=[tempDict objectForKey:@"ticket_status_name"];
+
+    NotificationViewController *not=[self.storyboard instantiateViewControllerWithIdentifier:@"Notify"];
+    [self.navigationController pushViewController:not animated:YES];
     
 }
 

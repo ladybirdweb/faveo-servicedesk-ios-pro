@@ -71,6 +71,7 @@
 		0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092520CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m */; };
 		0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644092920CE891D00A5DB3B /* UIViewController+BIZChildViewController.m */; };
+		0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644093520CE8F0900A5DB3B /* NotificationViewController.m */; };
 		065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */; };
 		0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */; };
 		0650290420BFEE34007E90E2 /* enData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0650290020BFEE33007E90E2 /* enData.plist */; };
@@ -252,6 +253,8 @@
 		0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		0644092820CE891D00A5DB3B /* UIViewController+BIZChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BIZChildViewController.h"; sourceTree = "<group>"; };
 		0644092920CE891D00A5DB3B /* UIViewController+BIZChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BIZChildViewController.m"; sourceTree = "<group>"; };
+		0644093420CE8F0900A5DB3B /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		0644093520CE8F0900A5DB3B /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		065028F920BFE3C0007E90E2 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableViewCell.m; sourceTree = "<group>"; };
@@ -411,7 +414,6 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
-				064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
 				0630D96920C6A79C00191A7D /* WebServices */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
@@ -419,9 +421,11 @@
 				06D6477F20C56BE8000783C8 /* Tickets */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
+				0644093320CE8ECC00A5DB3B /* Notification */,
 				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
+				064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
 				0619CF9520B2E234004CFDC9 /* Info.plist */,
 				0619CF9620B2E234004CFDC9 /* main.m */,
@@ -603,6 +607,15 @@
 				0644092720CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
+		0644093320CE8ECC00A5DB3B /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				0644093420CE8F0900A5DB3B /* NotificationViewController.h */,
+				0644093520CE8F0900A5DB3B /* NotificationViewController.m */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		0650290720BFEF96007E90E2 /* SideMenu */ = {
@@ -1051,6 +1064,7 @@
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
 				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */,
 				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
