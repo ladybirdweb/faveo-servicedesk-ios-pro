@@ -22,6 +22,11 @@
 #import "RMessageView.h"
 
 
+@import FirebaseInstanceID;
+@import FirebaseMessaging;
+@import Firebase;
+
+
 @interface LoginViewController ()<UITextFieldDelegate,RMessageProtocol>
 {
     Utils *utils;
@@ -673,6 +678,8 @@
                                                           canBeDismissedByUser:YES];
                                     
                                 
+                                    [self sendDeviceToken];
+                                    
                                 UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                     
                                     InboxTickets *inboxVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
@@ -731,47 +738,53 @@
     return YES;
 }
 
-////it will send an token to Firebase with user details (Logged user)
-//-(void)sendDeviceToken{
-//    NSString *refreshedToken =  [[FIRInstanceID instanceID] token];
-//    NSLog(@"refreshed token  %@",refreshedToken);
-//    NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
-//    NSString *url=[NSString stringWithFormat:@"%@fcmtoken?user_id=%@&fcm_token=%@&os=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"user_id"],[[FIRInstanceID instanceID] token],@"ios"];
-//
-//    @try{
-//        MyWebservices *webservices=[MyWebservices sharedInstance];
-//        [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
-//            if (error || [msg containsString:@"Error"]) {
-//                if (msg) {
-//
-//
-//                    NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
-//                }else if(error)  {
-//                    //
-//                    NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
-//                }
-//                return ;
-//            }
-//            if (json) {
-//
-//                NSLog(@"Thread-sendAPNS-token-json-%@",json);
-//            }
-//
-//        }];
-//    }@catch (NSException *exception)
-//    {
-//        NSLog( @"Name: %@", exception.name);
-//        NSLog( @"Reason: %@", exception.reason );
-//        [utils showAlertWithMessage:exception.name sendViewController:self];
-//        return;
-//    }
-//    @finally
-//    {
-//        NSLog( @" I am in sendDeviceToken method in Login ViewController" );
-//
-//    }
-//}
-//
+//it will send an token to Firebase with user details (Logged user)
+-(void)sendDeviceToken{
+    NSString *refreshedToken =  [[FIRInstanceID instanceID] token];
+    NSLog(@"refreshed token  %@",refreshedToken);
+    NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    
+    NSString *url=[NSString stringWithFormat:@"%@fcmtoken?user_id=%@&fcm_token=%@&os=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"user_id"],[[FIRInstanceID instanceID] token],@"ios"];
+    
+    NSLog(@"URL is %@",url);
+    NSLog(@"URL is %@",url);
+    
+   
+
+    @try{
+        MyWebservices *webservices=[MyWebservices sharedInstance];
+        [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+            if (error || [msg containsString:@"Error"]) {
+                if (msg) {
+
+
+                    NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+                }else if(error)  {
+                    //
+                    NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+                }
+                return ;
+            }
+            if (json) {
+
+                NSLog(@"Thread-sendAPNS-token-json-%@",json);
+            }
+
+        }];
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        return;
+    }
+    @finally
+    {
+        NSLog( @" I am in sendDeviceToken method in Login ViewController" );
+
+    }
+}
+
 
 
 @end

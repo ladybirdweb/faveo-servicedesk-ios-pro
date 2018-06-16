@@ -302,7 +302,10 @@
         {
             plistPath = [[NSBundle mainBundle] pathForResource:@"faveoData" ofType:@"plist"];
         }
-        NSDictionary *resultDic = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+     //   NSDictionary *resultDic = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+        
+        NSDictionary *resultDic = globalVariables.dependencyDataDict;
+        
         NSLog(@"resultDic--%@",resultDic);
         
     
@@ -1583,6 +1586,8 @@
                                         atPosition:RMessagePositionNavBarOverlay
                               canBeDismissedByUser:YES];
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+        
         InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
         [self.navigationController pushViewController:inboxVC animated:YES];
         
@@ -1704,6 +1709,7 @@
                     
                     //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                     NSDictionary *resultDic = [json objectForKey:@"data"];
+                    self->globalVariables.dependencyDataDict = [json objectForKey:@"data"];
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
                     for (int i = 0; i < ticketCountArray.count; i++) {

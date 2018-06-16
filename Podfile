@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.3'
 
 target 'Faveo Service Desk Pro' do
   
@@ -12,6 +12,15 @@ pod 'ActionSheetPicker-3.0'
 
 pod "UITextField_AutoSuggestion"
 pod 'HSAttachmentPicker'
+
+pod 'Firebase'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'Firebase/Performance'
+
+pod 'Fabric'
+pod 'Crashlytics'
+
 
 pod 'SDWebImage', '~> 4.0'
 

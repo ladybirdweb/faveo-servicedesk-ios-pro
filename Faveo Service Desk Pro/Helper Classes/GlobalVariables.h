@@ -84,7 +84,8 @@
 @property (strong, nonatomic) NSArray *ccListArray1;
 
 
-
+// used to save data from dependency API
+@property (strong, nonatomic) NSDictionary *dependencyDataDict;
 
 
 

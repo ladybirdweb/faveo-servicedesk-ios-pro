@@ -16,6 +16,9 @@
 		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */; };
 		060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */; };
+		0619C47E20D3BD6800AFF505 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */; };
+		0619C48120D3CC2C00AFF505 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0619C48020D3CC2C00AFF505 /* libicucore.tbd */; };
+		0619C48320D3E68300AFF505 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0619C48220D3E68300AFF505 /* MobileCoreServices.framework */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF8D20B2E233004CFDC9 /* Main.storyboard */; };
 		0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9020B2E234004CFDC9 /* Assets.xcassets */; };
@@ -56,7 +59,6 @@
 		064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408F820CE5BD900A5DB3B /* AddRequester.m */; };
 		064408FB20CE6E4300A5DB3B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 064408FA20CE6E4300A5DB3B /* QuartzCore.framework */; };
 		064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408FD20CE725600A5DB3B /* AttachmentViewController.m */; };
-		0644090120CE729C00A5DB3B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0644090020CE729C00A5DB3B /* CloudKit.framework */; };
 		0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090320CE753800A5DB3B /* attachmentListShowTableCell.m */; };
 		0644090620CE753800A5DB3B /* attachmentListShowTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0644090420CE753800A5DB3B /* attachmentListShowTableCell.xib */; };
 		0644090920CE757900A5DB3B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0644090720CE757800A5DB3B /* NSData+Base64.m */; };
@@ -104,6 +106,8 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
+		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
 		06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAC20CBA4ED000D834D /* LGPlusButton.m */; };
 		06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */; };
 		06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */; };
@@ -156,6 +160,10 @@
 		060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Certificates & Icons/Service Desk Pro/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0619C47F20D3BD9100AFF505 /* Faveo Service Desk Pro.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Faveo Service Desk Pro.entitlements"; sourceTree = "<group>"; };
+		0619C48020D3CC2C00AFF505 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		0619C48220D3E68300AFF505 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Faveo Service Desk Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CF8720B2E233004CFDC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0619CF8820B2E233004CFDC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -225,8 +233,6 @@
 		064408FA20CE6E4300A5DB3B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		064408FC20CE725600A5DB3B /* AttachmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttachmentViewController.h; sourceTree = "<group>"; };
 		064408FD20CE725600A5DB3B /* AttachmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttachmentViewController.m; sourceTree = "<group>"; };
-		064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Faveo Service Desk Pro.entitlements"; sourceTree = "<group>"; };
-		0644090020CE729C00A5DB3B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0644090320CE753800A5DB3B /* attachmentListShowTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = attachmentListShowTableCell.m; path = "../../../../Certificates & Icons/Do not Delete/21 may/faveo-helpdesk-ios-pro/Faveo Helpdesk Pro/attachmentListShowTableCell.m"; sourceTree = "<group>"; };
 		0644090420CE753800A5DB3B /* attachmentListShowTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = attachmentListShowTableCell.xib; path = "../../../../Certificates & Icons/Do not Delete/21 may/faveo-helpdesk-ios-pro/Faveo Helpdesk Pro/attachmentListShowTableCell.xib"; sourceTree = "<group>"; };
 		0644090720CE757800A5DB3B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
@@ -292,6 +298,9 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
+		0675925220D23393009BDCCF /* TestingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingView.m; sourceTree = "<group>"; };
+		0675925420D24DE4009BDCCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		06765DAB20CBA4ED000D834D /* LGPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButton.h; sourceTree = "<group>"; };
 		06765DAC20CBA4ED000D834D /* LGPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButton.m; sourceTree = "<group>"; };
 		06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonDescription.h; sourceTree = "<group>"; };
@@ -333,10 +342,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0619C48320D3E68300AFF505 /* MobileCoreServices.framework in Frameworks */,
+				0619C48120D3CC2C00AFF505 /* libicucore.tbd in Frameworks */,
 				064408FB20CE6E4300A5DB3B /* QuartzCore.framework in Frameworks */,
 				0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */,
 				0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */,
-				0644090120CE729C00A5DB3B /* CloudKit.framework in Frameworks */,
+				0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */,
 				0638D40120B7ED8F00A0DD5F /* SystemConfiguration.framework in Frameworks */,
 				0638D3FF20B7ED7F00A0DD5F /* CoreGraphics.framework in Frameworks */,
 				0638D3FD20B7ED7400A0DD5F /* Foundation.framework in Frameworks */,
@@ -423,9 +434,10 @@
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
 				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
+				0619C47F20D3BD9100AFF505 /* Faveo Service Desk Pro.entitlements */,
+				0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
-				064408FF20CE729500A5DB3B /* Faveo Service Desk Pro.entitlements */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
 				0619CF9520B2E234004CFDC9 /* Info.plist */,
 				0619CF9620B2E234004CFDC9 /* main.m */,
@@ -717,6 +729,10 @@
 				06765DB820CBA76D000D834D /* ReplyTicketViewController.m */,
 				06765DBA20CBA782000D834D /* InternalNoteViewController.h */,
 				06765DBB20CBA782000D834D /* InternalNoteViewController.m */,
+				0644090A20CE823700A5DB3B /* AddCCViewController.h */,
+				0644090B20CE823700A5DB3B /* AddCCViewController.m */,
+				0644090D20CE827A00A5DB3B /* ViewCCViewController.h */,
+				0644090E20CE827A00A5DB3B /* ViewCCViewController.m */,
 				064408FC20CE725600A5DB3B /* AttachmentViewController.h */,
 				064408FD20CE725600A5DB3B /* AttachmentViewController.m */,
 			);
@@ -737,10 +753,8 @@
 			children = (
 				0619CFBF20B31064004CFDC9 /* LoginViewController.h */,
 				0619CFC020B31064004CFDC9 /* LoginViewController.m */,
-				0644090A20CE823700A5DB3B /* AddCCViewController.h */,
-				0644090B20CE823700A5DB3B /* AddCCViewController.m */,
-				0644090D20CE827A00A5DB3B /* ViewCCViewController.h */,
-				0644090E20CE827A00A5DB3B /* ViewCCViewController.m */,
+				0675925120D23393009BDCCF /* TestingView.h */,
+				0675925220D23393009BDCCF /* TestingView.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -748,7 +762,9 @@
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0644090020CE729C00A5DB3B /* CloudKit.framework */,
+				0619C48220D3E68300AFF505 /* MobileCoreServices.framework */,
+				0619C48020D3CC2C00AFF505 /* libicucore.tbd */,
+				0675925420D24DE4009BDCCF /* CloudKit.framework */,
 				064408FA20CE6E4300A5DB3B /* QuartzCore.framework */,
 				0638D40420B7EDA500A0DD5F /* UserNotifications.framework */,
 				0638D40220B7ED9A00A0DD5F /* UIKit.framework */,
@@ -773,6 +789,7 @@
 				0619CF8120B2E233004CFDC9 /* Frameworks */,
 				0619CF8220B2E233004CFDC9 /* Resources */,
 				6E159F1E6D3F3B77373023AA /* [CP] Copy Pods Resources */,
+				06EEBA6720D4F85500656CCB /* Fabric Script */,
 			);
 			buildRules = (
 			);
@@ -825,12 +842,15 @@
 		0619CF7C20B2E233004CFDC9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Ladybird Web Solution Pvt Ltd.";
 				TargetAttributes = {
 					0619CF8320B2E233004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -885,6 +905,7 @@
 			files = (
 				060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */,
 				0623809620CA448500257395 /* TicketTableViewCell.xib in Resources */,
+				0619C47E20D3BD6800AFF505 /* GoogleService-Info.plist in Resources */,
 				0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */,
 				065029AF20BFFD51007E90E2 /* News@2x.png in Resources */,
 				065029B320BFFD51007E90E2 /* Favorite@2x.png in Resources */,
@@ -946,6 +967,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		06EEBA6720D4F85500656CCB /* Fabric Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3d31c3fca25cb228d17bfa05856d933d97e90db1 67564a3dc39ee26711efe06322fa00b99e69a63e26e5d755afe7339b6f22ceb1";
+		};
 		6E159F1E6D3F3B77373023AA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1048,6 +1083,7 @@
 				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */,
+				0675925320D23393009BDCCF /* TestingView.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
 				06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */,
 				0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */,
@@ -1129,6 +1165,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1176,7 +1213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1187,6 +1224,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1228,7 +1266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1245,7 +1283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1283,7 +1321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8VY8B59STG;
 				INFOPLIST_FILE = "Faveo Service Desk Pro/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

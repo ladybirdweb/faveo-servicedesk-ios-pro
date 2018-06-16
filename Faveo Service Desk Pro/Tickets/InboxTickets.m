@@ -23,6 +23,11 @@
 #import "TicketDetailViewController.h"
 #import "NotificationViewController.h"
 
+
+@import FirebaseInstanceID;
+@import FirebaseMessaging;
+
+
 @interface InboxTickets () <RMessageProtocol>
 {
     
@@ -97,6 +102,8 @@
     
     [self addUIRefresh];
     
+    NSString *refreshedToken = [[FIRInstanceID instanceID] token];
+    NSLog(@"refreshed token  %@",refreshedToken);
     
     self.view.backgroundColor=[UIColor grayColor];
     //_multistageDropdownMenuView.tag=99;
@@ -466,6 +473,10 @@
                     
                     //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                     NSDictionary *resultDic = [json objectForKey:@"data"];
+                    
+                    self->globalVariables.dependencyDataDict = [json objectForKey:@"data"];
+                    
+                    
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
                     for (int i = 0; i < ticketCountArray.count; i++) {
