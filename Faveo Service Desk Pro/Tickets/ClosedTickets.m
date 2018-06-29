@@ -22,6 +22,9 @@
 #import "UIImageView+Letters.h"
 #import "TicketDetailViewController.h"
 #import "NotificationViewController.h"
+#import "TicketMergeView.h"
+#import "MultipleTicketAssignView.h"
+#import "FTPopOverMenu.h"
 
 @interface ClosedTickets () <RMessageProtocol>
 {
@@ -123,6 +126,62 @@
     //  NSString *refreshedToken = [[FIRInstanceID instanceID] token];
     //  NSLog(@"refreshed token  %@",refreshedToken);
     
+    
+    //To set Gesture on Tableview for multiselection
+    count1=0;
+    selectedArray = [[NSMutableArray alloc] init];
+    selectedSubjectArray = [[NSMutableArray alloc] init];
+    selectedTicketOwner = [[NSMutableArray alloc] init];
+    
+    self.tableView.allowsMultipleSelectionDuringEditing = true;
+    UILongPressGestureRecognizer *lpGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(EditTableView:)];
+    [lpGesture setMinimumPressDuration:1];
+    [self.tableView addGestureRecognizer:lpGesture];
+    
+    
+    navbar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0,0, self.view.frame.size.width,50)];
+    
+    UIImage *image1 = [UIImage imageNamed:@"merg111"];
+    UIImage *image2 = [UIImage imageNamed:@"x1"];
+    
+    // UINavigationItem* navItem = [[UINavigationItem alloc] initWithTitle:@"Assign"];
+    UINavigationItem* navItem = [[UINavigationItem alloc] init];
+    // self.navigationItem.titleView = myImageView;
+    
+    UIImage *image5 = [UIImage imageNamed:@"merge2a"];
+    //chnaging size of img
+    CGRect rect = CGRectMake(0,0,26,26);
+    UIGraphicsBeginImageContext( rect.size );
+    [image5 drawInRect:rect];
+    UIImage *picture1 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *imageData = UIImagePNGRepresentation(picture1);
+    UIImage *img3=[UIImage imageWithData:imageData];
+    
+    UIImageView* img = [[UIImageView alloc] initWithImage:img3];
+    
+    //giving action to image
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [img setUserInteractionEnabled:YES];
+    [img addGestureRecognizer:singleTap];
+    
+    
+    navItem.titleView = img;
+    
+    
+    UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithImage:image1 style:UIBarButtonItemStylePlain  target:self action:@selector(MergeButtonClicked)];
+    navItem.leftBarButtonItem = button1;
+    
+    
+    UIBarButtonItem *button2 = [[UIBarButtonItem alloc] initWithImage:image2 style:UIBarButtonItemStylePlain  target:self action:@selector(onNavButtonTapped:event:)];
+    navItem.rightBarButtonItem = button2;
+    
+    [navbar setItems:@[navItem]];
+    [self.navigationController.navigationBar addSubview:navbar];
+    
+    navbar.hidden=YES;
+    
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
@@ -132,9 +191,140 @@
     
 }
 
+
+//This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
+-(void)viewWillAppear:(BOOL)animated{
+    
+    if (self.selectedPath != nil) {
+        [_tableView selectRowAtIndexPath:self.selectedPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    }
+    if([globalVariables.backButtonActionFromMergeViewMenu isEqualToString:@"true"])
+    {
+        navbar.hidden=NO;
+        globalVariables.backButtonActionFromMergeViewMenu=@"false";
+    }else{
+        navbar.hidden=YES;
+        
+    }
+    [super viewWillAppear:YES];
+    [[self navigationController] setNavigationBarHidden:NO];
+    
+    
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+// This method used for implementing the feature of multiple ticket select, using this we can select and deselects the tableview rows and perform futher actions on that seleected rows.
+-(void)EditTableView:(UIGestureRecognizer*)gesture{
+    [self.tableView setEditing:YES animated:YES];
+    navbar.hidden=NO;
+    
+    // [selectedTicketOwner removeAllObjects];
+}
+
+// This method used to assign single or multiple ticket using multiple select feature
+-(void)tapDetected{
+    
+    @try{
+        NSLog(@"Clicked on Asign");
+        if (!selectedArray.count) {
+            
+            [utils showAlertWithMessage:@"Select The Tickets for Assign" sendViewController:self];
+            
+        }
+        else{
+            //selectedIDs
+            
+            globalVariables.ticketIDListForAssign=selectedIDs;
+            //
+            navbar.hidden=YES;
+            
+            MultipleTicketAssignView * vc=[self.storyboard instantiateViewControllerWithIdentifier:@"MultipleTicketAssignViewId"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        //    [[AppDelegate sharedAppdelegate] hideProgressView];
+        return;
+    }
+    @finally
+    {
+        NSLog( @" I am in clickedOnAssignButton method in Inbox ViewController" );
+        
+    }
+    
+}
+
+// This method used to merge 2 or more ticket using multiple ticket selection
+-(void)MergeButtonClicked
+{
+    NSLog(@"Clicked on merge");
+    
+    @try{
+        if (!selectedArray.count) {
+            
+            [utils showAlertWithMessage:@"Select The Tickets for Merge" sendViewController:self];
+            
+        }else if(selectedArray.count<2)
+        {
+            [utils showAlertWithMessage:@"Select 2 or more Tickets for Merge" sendViewController:self];
+        }else{
+            if(selectedArray.count>=2)
+            {
+                NSString * email1= [selectedTicketOwner objectAtIndex:0];
+                NSString * email2= [selectedTicketOwner objectAtIndex:1];
+                NSLog(@"email 1 is : %@",email1);
+                NSLog(@"email 2 is : %@",email2);
+                if(![email1 isEqualToString:email2] || ![email1 isEqualToString:[selectedTicketOwner lastObject]])
+                {
+                    [utils showAlertWithMessage:@"You can't merge these tickets because tickets from different users" sendViewController:self];
+                }
+                else{
+                    
+                    globalVariables.idList=selectedArray;
+                    globalVariables.subjectList=selectedSubjectArray;
+                    
+                    navbar.hidden=YES;
+                    
+                    TicketMergeView * merge=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketMergeViewId"];
+                    [self.navigationController pushViewController:merge animated:YES];
+                }
+                
+            }else
+            {
+                
+                [utils showAlertWithMessage:@"Select 2 or more Tickets for Merge" sendViewController:self];
+            }
+        }
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        if([exception.reason isEqualToString:@"-[NSNull isEqualToString:]: unrecognized selector sent to instance 0x1b5190878"])
+        {
+            [utils showAlertWithMessage:@"Can not merge these ticket, because this tickets having empty email." sendViewController:self];
+            //  [[AppDelegate sharedAppdelegate] hideProgressView];
+        }else{
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            //   [[AppDelegate sharedAppdelegate] hideProgressView];
+        }
+        return;
+    }
+    @finally
+    {
+        NSLog( @" I am in mergeButtonCicked method in Inbox ViewController" );
+        
+    }
 }
 
 // After clicking this navigation button, it will navigate to the ticket search view controller.
@@ -1238,6 +1428,271 @@
         }
     }
     NSLog(@"Thread-NO2-getDependencies()-closed");
+}
+
+
+// This method used to show some popuop or list which contain some menus. Here it used to change the status of ticket, after clicking this button it will show one view which contains list of status. After clicking on any row, according to its name that status will be changed.
+-(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
+{
+    NSLog(@"11111111*********111111111111");
+    
+    if (!selectedArray.count) {
+        
+        [utils showAlertWithMessage:@"Select The Tickets First For Changing Ticket Status" sendViewController:self];
+        
+    }else
+    {
+        
+#ifdef IfMethodOne
+        CGRect rect = [self.navigationController.navigationBar convertRect:[event.allTouches.anyObject view].frame toView:[[UIApplication sharedApplication] keyWindow]];
+        
+        [FTPopOverMenu showFromSenderFrame:rect
+                             withMenuArray:@[@"MenuOne",@"MenuTwo",@"MenuThree",@"MenuFour"]
+                                imageArray:@[@"Pokemon_Go_01",@"Pokemon_Go_02",@"Pokemon_Go_03",@"Pokemon_Go_04",]
+                                 doneBlock:^(NSInteger selectedIndex) {
+                                     NSLog(@"done");
+                                 } dismissBlock:^{
+                                     NSLog(@"cancel");
+                                 }];
+        
+        
+#else
+        
+        
+        //taking status names array for dependecy api
+        for (NSDictionary *dicc in self->ticketStatusArray) {
+            if ([dicc objectForKey:@"name"]) {
+                [self->statusArrayforChange addObject:[dicc objectForKey:@"name"]];
+                [self->statusIdforChange addObject:[dicc objectForKey:@"id"]];
+            }
+            
+        }
+        
+        
+        //removing duplicated status names
+        for (id obj in self->statusArrayforChange) {
+            if (![uniqueStatusNameArray containsObject:obj]) {
+                [uniqueStatusNameArray addObject:obj];
+            }
+        }
+        
+        [FTPopOverMenu showFromEvent:event
+                       withMenuArray:uniqueStatusNameArray
+                          imageArray:uniqueStatusNameArray
+                           doneBlock:^(NSInteger selectedIndex) {
+                               
+                               
+                               self->selectedStatusName=[self->uniqueStatusNameArray objectAtIndex:selectedIndex];
+                               NSLog(@"Status is : %@",self->selectedStatusName);
+                               
+                               
+                               for (NSDictionary *dic in self->ticketStatusArray)
+                               {
+                                   NSString *idOfStatus = dic[@"name"];
+                                   
+                                   if([idOfStatus isEqual:self->selectedStatusName])
+                                   {
+                                       self->selectedStatusId= dic[@"id"];
+                                       
+                                       NSLog(@"id is : %@",self->selectedStatusId);
+                                   }
+                               }
+                               
+                               if([self->selectedStatusName isEqualToString:@"Open"] || [self->selectedStatusName isEqualToString:@"open"])
+                               {
+                                   [self->utils showAlertWithMessage:NSLocalizedString(@"Ticket is Already Open",nil) sendViewController:self];
+                                   // [[AppDelegate sharedAppdelegate] hideProgressView];
+                               }
+                               else{
+                                   
+                                   [self askConfirmationForStatusChange];
+                                   
+                                   // [self changeStatusMethod:self->selectedStatusName idIs:self->selectedStatusId];
+                               }
+                               
+                           }
+                        dismissBlock:^{
+                            
+                        }];
+        
+#endif
+    }
+}
+
+-(void)askConfirmationForStatusChange
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Ticket Status"
+                                 message:@"are you sure you want to change ticket status?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add Buttons
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"No"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                    
+                                }];
+    
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"Yes"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle no, thanks button
+                                   
+                                   [self changeStatusMethod:self->selectedStatusName idIs:self->selectedStatusId];
+                                   
+                               }];
+    
+    //Add your buttons to alert controller
+    
+    [alert addAction:yesButton];
+    [alert addAction:noButton];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+// This method used to change status of ticket
+-(void)changeStatusMethod:(NSString *)nameOfStatus idIs:(NSString *)idOfStatus
+{
+    
+    NSLog(@"Status Name is : %@",nameOfStatus);
+    NSLog(@"Id is : %@",idOfStatus);
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        //connection unavailable
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+        [SVProgressHUD dismiss];
+        
+    }else{
+        
+        [SVProgressHUD showWithStatus:@"changing status"];
+        
+        if ([Utils isEmpty:selectedIDs] || [selectedIDs isEqualToString:@""] ||[selectedIDs isEqualToString:@"(null)" ] )
+        {
+            [utils showAlertWithMessage:@"Please Select The Tickets.!" sendViewController:self];
+            
+            [SVProgressHUD dismiss];
+            
+        }
+        else{
+            NSString *url= [NSString stringWithFormat:@"%@api/v2/helpdesk/status/change?api_key=%@&token=%@&ticket_id=%@&status_id=%@",[userDefaults objectForKey:@"baseURL"],API_KEY,[userDefaults objectForKey:@"token"],selectedIDs,idOfStatus];
+            NSLog(@"URL is : %@",url);
+            
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            
+            [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+                
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    if (msg) {
+                        
+                        if([msg isEqualToString:@"Error-403"])
+                        {
+                            [self->utils showAlertWithMessage:NSLocalizedString(@"Permission Denied - You don't have permission to change status. ", nil) sendViewController:self];
+                            
+                        }
+                        else{
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                            
+                        }
+                        
+                        
+                    }else if(error)  {
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                        NSLog(@"Thread-NO4-getTicketStausChange-Refresh-error == %@",error.localizedDescription);
+                        [SVProgressHUD dismiss];
+                    }
+                    
+                    return ;
+                }
+                
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    [self changeStatusMethod:self->selectedStatusName idIs:self->selectedStatusId];
+                    NSLog(@"Thread--NO4-call-postTicketStatusChange");
+                    return;
+                }
+                
+                if (json) {
+                    NSLog(@"JSON-Status-Change-Close-%@",json);
+                    
+                    
+                    if([[json objectForKey:@"message"] isKindOfClass:[NSArray class]])
+                    {
+                        [self->utils showAlertWithMessage:NSLocalizedString(@"Permission Denied - You don't have permission to change status. ", nil) sendViewController:self];
+                        [SVProgressHUD dismiss];
+                        
+                    }
+                    else{
+                        
+                        NSString * msg=[json objectForKey:@"message"];
+                        
+                        if([msg hasPrefix:@"Status changed"]){
+                            
+                            [SVProgressHUD dismiss];
+                            
+                            self->navbar.hidden=YES;
+                            
+                            if (self.navigationController.navigationBarHidden) {
+                                [self.navigationController setNavigationBarHidden:NO];
+                            }
+                            
+                            [RMessage showNotificationInViewController:self.navigationController
+                                                                 title:NSLocalizedString(@"success.", nil)
+                                                              subtitle:NSLocalizedString(@"Ticket Status Changed.", nil)
+                                                             iconImage:nil
+                                                                  type:RMessageTypeSuccess
+                                                        customTypeName:nil
+                                                              duration:RMessageDurationAutomatic
+                                                              callback:nil
+                                                           buttonTitle:nil
+                                                        buttonCallback:nil
+                                                            atPosition:RMessagePositionNavBarOverlay
+                                                  canBeDismissedByUser:YES];
+                            
+                            
+                            ClosedTickets *vc=[self.storyboard instantiateViewControllerWithIdentifier:@"closedId"];
+                            [self.navigationController pushViewController:vc animated:YES];
+                        }else
+                        {
+                            
+                            [self->utils showAlertWithMessage:NSLocalizedString(@"Permission Denied - You don't have permission to change status. ", nil) sendViewController:self];
+                            [SVProgressHUD dismiss];
+                            
+                        }
+                        
+                    }
+                }
+                
+                NSLog(@"Thread-NO5-postTicketStatusChange-closed");
+                
+            }];
+        }
+        
+    }
+    
 }
 
 

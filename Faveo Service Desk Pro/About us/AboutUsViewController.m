@@ -39,7 +39,13 @@
     
     NSURL *url = [NSURL URLWithString:@"http://www.faveohelpdesk.com/"];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
+      //  [[UIApplication sharedApplication] openURL:url];
+        //openURL:options:completionHandler:
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+            
+             NSLog(@"Open %d",success);
+            
+        }];
     }else {
         
     }
