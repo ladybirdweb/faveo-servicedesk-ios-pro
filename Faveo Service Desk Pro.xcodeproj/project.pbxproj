@@ -117,6 +117,8 @@
 		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
 		0676605F20CBBD93000D834D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
+		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
+		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
 		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
 		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
@@ -319,6 +321,10 @@
 		0676605E20CBBD93000D834D /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0676606320CBBF22000D834D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
+		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
+		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
+		06A2542D20E60B48001F8017 /* TicketMergeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketMergeView.m; sourceTree = "<group>"; };
 		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
 		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
@@ -735,6 +741,10 @@
 				0644090E20CE827A00A5DB3B /* ViewCCViewController.m */,
 				064408FC20CE725600A5DB3B /* AttachmentViewController.h */,
 				064408FD20CE725600A5DB3B /* AttachmentViewController.m */,
+				06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */,
+				06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */,
+				06A2542C20E60B48001F8017 /* TicketMergeView.h */,
+				06A2542D20E60B48001F8017 /* TicketMergeView.m */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -1059,12 +1069,14 @@
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
+				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
 				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,

@@ -1209,7 +1209,9 @@
                     }
                     else
                     {
-                        NSLog(@"Error in saveData: %@", writeError.localizedDescription);               }
+                     //   NSLog(@"Error in saveData: %@", writeError.localizedDescription);
+                        
+                    }
                     
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");

@@ -88,5 +88,15 @@
 @property (strong, nonatomic) NSDictionary *dependencyDataDict;
 
 
+//Assign
+
+@property (strong, nonatomic) NSString *backButtonActionFromMergeViewMenu;
+@property (strong, nonatomic) NSString *ticketIDListForAssign;
+
+
+// merge
+
+@property (strong, nonatomic) NSMutableArray *idList;
+@property (strong, nonatomic) NSMutableArray *subjectList;
 
 @end
