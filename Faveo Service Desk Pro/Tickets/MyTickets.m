@@ -25,6 +25,7 @@
 #import "TicketMergeView.h"
 #import "MultipleTicketAssignView.h"
 #import "FTPopOverMenu.h"
+#import "SearchViewController.h"
 
 @interface MyTickets ()<RMessageProtocol>
 {
@@ -330,10 +331,22 @@
 // After clicking this naviagtion button, it will navigate to search view controller
 - (IBAction)searchButtonClicked {
     
-//    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
-//    [self.navigationController pushViewController:search animated:YES];
-
+    [self hideTableViewEditMode];
+    
+    SearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"searchViewId"];
+    [self.navigationController pushViewController:search animated:YES];
+    
 }
+
+// hiding editing mode of table while moving to other views
+-(void)hideTableViewEditMode
+{
+    [self.tableView setEditing:NO animated:YES];
+    navbar.hidden=YES;
+    [self reloadTableView];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

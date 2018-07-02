@@ -23,6 +23,7 @@
 #import "ClientDetailsViewController.h"
 #import "UIColor+HexColors.h"
 #import "ClientFilter.h"
+#import "SearchViewController.h"
 
 @interface ClientListViewController ()<RMessageProtocol,AWNavigationMenuItemDataSource, AWNavigationMenuItemDelegate>{
 
@@ -97,10 +98,8 @@
 
 - (IBAction)searchButtonClicked {
     
-//    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
-//    [self.navigationController pushViewController:search animated:YES];
-//
-    
+    SearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"searchViewId"];
+    [self.navigationController pushViewController:search animated:YES];
 }
 
 

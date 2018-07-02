@@ -119,6 +119,8 @@
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
+		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
+		06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
 		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
 		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
@@ -325,6 +327,10 @@
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
 		06A2542D20E60B48001F8017 /* TicketMergeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketMergeView.m; sourceTree = "<group>"; };
+		06A2542F20E63412001F8017 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		06A2543020E63412001F8017 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = "<group>"; };
+		06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
 		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
 		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
@@ -485,6 +491,8 @@
 				0676605820CBBC79000D834D /* FTPopOverMenu.m */,
 				0676606320CBBF22000D834D /* GlobalVariables.h */,
 				0676606420CBBF22000D834D /* GlobalVariables.m */,
+				06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */,
+				06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */,
 				06765DAA20CBA4ED000D834D /* LGPlusButtonsView */,
 				0623809820CA636D00257395 /* NSDate-Time-Ago */,
 				060F460C20C927D100EDA6B8 /* UIImageView+Letters */,
@@ -745,6 +753,8 @@
 				06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */,
 				06A2542C20E60B48001F8017 /* TicketMergeView.h */,
 				06A2542D20E60B48001F8017 /* TicketMergeView.m */,
+				06A2542F20E63412001F8017 /* SearchViewController.h */,
+				06A2543020E63412001F8017 /* SearchViewController.m */,
 			);
 			path = Tickets;
 			sourceTree = "<group>";
@@ -1057,11 +1067,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0623809120CA3BE000257395 /* CreateTicketView.m in Sources */,
+				06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */,
 				06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */,
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,

@@ -12,7 +12,7 @@
 			<key>id</key>
 			<string>CreateTicketId</string>
 			<key>image</key>
-			<string>Messages</string>
+			<string>createTicket</string>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -32,7 +32,7 @@
 			<key>id</key>
 			<string>equity</string>
 			<key>image</key>
-			<string>Company</string>
+			<string>list2</string>
 			<key>SubItems</key>
 			<array>
 				<dict>
@@ -43,7 +43,7 @@
 					<key>id</key>
 					<string>InboxId</string>
 					<key>image</key>
-					<string>Ratings</string>
+					<string>inbox3</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -53,7 +53,7 @@
 					<key>id</key>
 					<string>MyTicketsId</string>
 					<key>image</key>
-					<string>Ratings</string>
+					<string>myTickets</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -63,7 +63,7 @@
 					<key>id</key>
 					<string>UnassignedId</string>
 					<key>image</key>
-					<string>News</string>
+					<string>unAssigned2</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -83,7 +83,7 @@
 					<key>id</key>
 					<string>ClosedId</string>
 					<key>image</key>
-					<string>Ratings</string>
+					<string>closed2</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -93,7 +93,7 @@
 					<key>id</key>
 					<string>TrashId</string>
 					<key>image</key>
-					<string>Ratings</string>
+					<string>trash3</string>
 				</dict>
 			</array>
 		</dict>
@@ -159,7 +159,7 @@
 					<key>id</key>
 					<string>AboutUsId</string>
 					<key>image</key>
-					<string>Settings</string>
+					<string>about2</string>
 				</dict>
 				<dict>
 					<key>Name</key>
@@ -169,7 +169,7 @@
 					<key>id</key>
 					<string>LogoutId</string>
 					<key>image</key>
-					<string>Settings</string>
+					<string>logout2</string>
 				</dict>
 			</array>
 		</dict>

@@ -20,6 +20,7 @@
 #import "ClientEditDetailsView.h"
 #import "UIImageView+Letters.h"
 #import "SVProgressHUD.h"
+#import "TicketDetailViewController.h"
 
 @interface ClientDetailsViewController ()<RMessageProtocol>
 {
@@ -616,24 +617,24 @@
 // This method tells the delegate that the specified row is now deselected.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketDetailVCID"];
-//    NSDictionary *finaldic=[mutableArray objectAtIndex:indexPath.row];
-//
-//
-//
-//    globalVariables.iD=[finaldic objectForKey:@"id"];
-//    globalVariables.ticket_number=[finaldic objectForKey:@"ticket_number"];
-//
-//    //globalVariables.title=[finaldic objectForKey:@"title"];  // ticket_status_name  // Ticket_status
-//
-//    globalVariables.Ticket_status= [finaldic objectForKey:@"ticket_status_name"];
-//
-//    //requesterTempDict
-//    globalVariables.First_name= [requesterTempDict objectForKey:@"first_name"];
-//    globalVariables.Last_name= [requesterTempDict objectForKey:@"last_name"];
-//
-//
-//    [self.navigationController pushViewController:td animated:YES];
+    TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+    NSDictionary *finaldic=[mutableArray objectAtIndex:indexPath.row];
+
+
+
+    globalVariables.ticketId=[finaldic objectForKey:@"id"];
+    globalVariables.ticketNumber=[finaldic objectForKey:@"ticket_number"];
+
+    //globalVariables.title=[finaldic objectForKey:@"title"];  // ticket_status_name  // Ticket_status
+
+    globalVariables.ticketStatus= [finaldic objectForKey:@"ticket_status_name"];
+
+    //requesterTempDict
+    globalVariables.firstNameFromTicket= [requesterTempDict objectForKey:@"first_name"];
+    globalVariables.lastNameFromTicket= [requesterTempDict objectForKey:@"last_name"];
+
+
+    [self.navigationController pushViewController:td animated:YES];
     
 }
 

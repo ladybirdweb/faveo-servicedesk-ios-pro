@@ -25,6 +25,7 @@
 #import "FTPopOverMenu.h"
 #import "MultipleTicketAssignView.h"
 #import "TicketMergeView.h"
+#import "SearchViewController.h"
 
 @import FirebaseInstanceID;
 @import FirebaseMessaging;
@@ -204,10 +205,10 @@
 
 - (IBAction)searchButtonClicked {
     
-//    [self hideTableViewEditMode];
-//
-//    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
-//    [self.navigationController pushViewController:search animated:YES];
+    [self hideTableViewEditMode];
+
+    SearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"searchViewId"];
+    [self.navigationController pushViewController:search animated:YES];
 
 }
 
@@ -1694,6 +1695,7 @@
     refresh.tintColor=[UIColor whiteColor];
     // refresh.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
     refresh.backgroundColor = [UIColor colorFromHexString:@"BDBDBD"];
+   // [UIColor hx_colorWithHexRGBAString:@"#BDBDBD"];
     refresh.attributedTitle =refreshing;
     [refresh addTarget:self action:@selector(reloadd) forControlEvents:UIControlEventValueChanged];
     [_tableView insertSubview:refresh atIndex:0];
