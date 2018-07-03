@@ -18,7 +18,7 @@
     
     
     NSURL* urls = [NSURL URLWithString:url];
-    if (urls == nil) {
+    if (urls == nil && ([url hasPrefix:@"http://"] || [url hasPrefix:@"https://"] )) {
         
         NSLog(@"Nope %@ is not a proper URL", url);
         return NO;

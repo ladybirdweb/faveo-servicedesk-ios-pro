@@ -22,7 +22,7 @@
 #import "BIZPopupViewController.h"
 
 
-@interface ReplyTicketViewController ()<RMessageProtocol,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
+@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -114,7 +114,6 @@
 
 -(void)removeKeyBoard
 {
-    
     [_messageTextView resignFirstResponder];
 }
 
@@ -260,9 +259,23 @@
     
 }
 
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    return NO;
+}
+
 //Asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    if (range.length == 0) {
+        if ([text isEqualToString:@"\n"]) {
+            _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
+            return NO;
+        }
+    }
+    else
+    {
+        [textView resignFirstResponder];
+    }
     
     if(textView == _messageTextView)
     {

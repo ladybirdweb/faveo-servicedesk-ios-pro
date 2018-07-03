@@ -81,6 +81,8 @@
     
     _servicdeskUrlLabel.textColor = [UIColor colorFromHexString:@"049BE5"];
     _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
+    
+    
 }
 
 
@@ -103,6 +105,8 @@
 -(void)textFieldFinished:(id)sender
 {
     [_urlTextfield resignFirstResponder];
+    [_userNameTextField resignFirstResponder];
+    [_passcodeTextField resignFirstResponder];
 }
 
 
@@ -111,8 +115,9 @@
     
     if(textField == _urlTextfield)
     {
-        [self URLValidationMethod];
         NSLog(@"Clicked on go");
+        [self URLValidationMethod];
+       
     }
     
     return YES;
@@ -121,15 +126,16 @@
 
 - (IBAction)urlNextButtonAction:(id)sender {
     
-    [SVProgressHUD showWithStatus:@"Verifying URL"];
+    [self.urlTextfield resignFirstResponder];
     
+    [SVProgressHUD showWithStatus:@"Verifying URL"];
     [self URLValidationMethod];
 }
 
 
 -(void)URLValidationMethod
 {
-    [self.urlTextfield resignFirstResponder];
+
     
     if (self.urlTextfield.text.length==0){
         
@@ -151,13 +157,7 @@
             if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
             {
                 [SVProgressHUD dismiss];
-                
-//                                [RMessage
-//                                 showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
-//                                 subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it.", nil)
-//                                 type:RMessageTypeError
-//                                 customTypeName:nil
-//                                 callback:nil];
+            
                 
                 if (self.navigationController.navigationBarHidden) {
                     [self.navigationController setNavigationBarHidden:NO];
@@ -426,6 +426,7 @@
                         
                         [self.companyURLview setHidden:YES];
                         [self.loginView setHidden:NO];
+                        [[self navigationController] setNavigationBarHidden:YES];
                         [self->utils viewSlideInFromRightToLeft:self.loginView];
                     //    [[AppDelegate sharedAppdelegate] hideProgressView];
                        
@@ -461,17 +462,7 @@
     }
 }
 
-
-
-- (IBAction)loginButtonMethod:(id)sender {
-    
-//    [self->userdefaults setBool:YES forKey:@"loginSuccess"];
-//    [userdefaults synchronize];
-//
-//    InboxTickets *inboxVC=[self.storyboard  instantiateViewControllerWithIdentifier:@"inboxId"];
-//    [self.navigationController pushViewController:inboxVC animated:YES];
-//    [[self navigationController] setNavigationBarHidden:NO];
-    
+- (IBAction)loginButtonClicked:(id)sender {
     
     if (((self.userNameTextField.text.length==0 || self.passcodeTextField.text.length==0)))
     {
@@ -489,12 +480,12 @@
         if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
         {
             
-//            [RMessage
-//             showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
-//             subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it!", nil)
-//             type:RMessageTypeError
-//             customTypeName:nil
-//             callback:nil];
+            //            [RMessage
+            //             showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
+            //             subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it!", nil)
+            //             type:RMessageTypeError
+            //             customTypeName:nil
+            //             callback:nil];
             
             if (self.navigationController.navigationBarHidden) {
                 [self.navigationController setNavigationBarHidden:NO];
@@ -516,8 +507,8 @@
             
         }else{
             
-          //  [[AppDelegate sharedAppdelegate] showProgressView];
-              [SVProgressHUD showWithStatus:@"Please wait"];
+            //  [[AppDelegate sharedAppdelegate] showProgressView];
+            [SVProgressHUD showWithStatus:@"Please wait"];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
             // NSString *params=[NSString string];
@@ -552,23 +543,23 @@
                         if(statusCode == 404)
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
-                        //    [[AppDelegate sharedAppdelegate] hideProgressView];
-                               [SVProgressHUD dismiss];
+                            //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                            [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"The requested URL was not found on this server." sendViewController:self];
                         }
                         
                         else if(statusCode == 405)
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
-                        //    [[AppDelegate sharedAppdelegate] hideProgressView];
-                               [SVProgressHUD dismiss];
+                            //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                            [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"The request method is known by the server but has been disabled and cannot be used." sendViewController:self];
                         }
                         else if(statusCode == 500)
                         {
                             NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
-                        //    [[AppDelegate sharedAppdelegate] hideProgressView];
-                               [SVProgressHUD dismiss];
+                            //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                            [SVProgressHUD dismiss];
                             [self->utils showAlertWithMessage:@"Internal Server Error. Something has gone wrong on the website's server." sendViewController:self];
                         }
                         
@@ -592,14 +583,14 @@
                     if([msg isEqualToString:@"Invalid credentials"])
                     {
                         [self->utils showAlertWithMessage:@"Invalid Credentials.Enter valid username or password" sendViewController:self];
-                       // [[AppDelegate sharedAppdelegate] hideProgressView];
-                           [SVProgressHUD dismiss];
+                        // [[AppDelegate sharedAppdelegate] hideProgressView];
+                        [SVProgressHUD dismiss];
                     }
                     else if([msg isEqualToString:@"API disabled"])
                     {
                         [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
-                      //  [[AppDelegate sharedAppdelegate] hideProgressView];
-                           [SVProgressHUD dismiss];
+                        //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                        [SVProgressHUD dismiss];
                     }
                     
                 }
@@ -643,23 +634,40 @@
                             }
                             
                             
-                             dispatch_async(dispatch_get_main_queue(), ^{
-                            [self->userdefaults setObject:profileName forKey:@"profile_name"];
-                            [self->userdefaults setObject:self->baseURL forKey:@"baseURL"];
-                            [self->userdefaults setObject:self.userNameTextField.text forKey:@"username"];
-                            
-                            [self->userdefaults setObject:self.passcodeTextField.text forKey:@"password"];
-                            [self->userdefaults setBool:YES forKey:@"loginSuccess"];
-                            [self->userdefaults synchronize];
-                            
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self->userdefaults setObject:profileName forKey:@"profile_name"];
+                                [self->userdefaults setObject:self->baseURL forKey:@"baseURL"];
+                                [self->userdefaults setObject:self.userNameTextField.text forKey:@"username"];
+                                
+                                [self->userdefaults setObject:self.passcodeTextField.text forKey:@"password"];
+                                [self->userdefaults setBool:YES forKey:@"loginSuccess"];
+                                [self->userdefaults synchronize];
+                                
                             });
                             
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 
                                 if([userRole isEqualToString:@"admin"] || [userRole isEqualToString:@"agent"]){
                                     
-//                                    [RKDropdownAlert title:NSLocalizedString(@"Welcome.",nil) message:NSLocalizedString(@"You have logged in successfully.",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:SUCCESS_COLOR] textColor:[UIColor whiteColor]];
-//
+                                    
+                                    
+                                    
+                                    [self sendDeviceToken];
+                                    
+                                    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                    
+                                    InboxTickets *inboxVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                                    
+                                    SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                                    
+                                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                                    
+                                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+                                    
+                                    [self presentViewController:vc animated:YES completion:nil];
+                                    
+                                    // [self.navigationController pushViewController:inboxVC animated:YES];
+                                    
                                     if (self.navigationController.navigationBarHidden) {
                                         [self.navigationController setNavigationBarHidden:NO];
                                     }
@@ -677,33 +685,15 @@
                                                                     atPosition:RMessagePositionNavBarOverlay
                                                           canBeDismissedByUser:YES];
                                     
-                                
-                                    [self sendDeviceToken];
-                                    
-                                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-                                    
-                                    InboxTickets *inboxVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
-                                    
-                                   SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
-                                
-                                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
-                                    
-                                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
-                                    
-                                     [self presentViewController:vc animated:YES completion:nil];
-                                    
-                                   // [self.navigationController pushViewController:inboxVC animated:YES];
-                                  
-                                
                                     
                                 }else
                                 {
                                     [self->utils showAlertWithMessage:@"Invalid entry for user. This app is used by Agent and Admin only." sendViewController:self];
-                                   // [[AppDelegate sharedAppdelegate] hideProgressView];
-                                       [SVProgressHUD dismiss];
+                                    // [[AppDelegate sharedAppdelegate] hideProgressView];
+                                    [SVProgressHUD dismiss];
                                     
                                     
-                               
+                                    
                                 }
                             });
                             
@@ -716,8 +706,8 @@
                         
                         
                         [self->utils showAlertWithMessage:@"Whoops! Something went Wrong! Please try again." sendViewController:self];
-                       // [[AppDelegate sharedAppdelegate] hideProgressView];
-                           [SVProgressHUD dismiss];
+                        // [[AppDelegate sharedAppdelegate] hideProgressView];
+                        [SVProgressHUD dismiss];
                         
                     }
                 
@@ -728,8 +718,8 @@
         
     }
     
+    
 }
-
 
 
 

@@ -15,14 +15,16 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *servicdeskUrlLabel;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextfield;
+
 @property (weak, nonatomic) IBOutlet UIButton *urlNextButton;
+
 - (IBAction)urlNextButtonAction:(id)sender;
 
 
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButtonOutlet;
 
-- (IBAction)loginButtonMethod:(id)sender;
+- (IBAction)loginButtonClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
