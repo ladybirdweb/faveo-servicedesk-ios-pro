@@ -18,7 +18,7 @@
 #import "MyWebservices.h"
 #import "AppConstanst.h"
 
-@interface ClientEditDetailsView ()<RMessageProtocol>
+@interface ClientEditDetailsView ()<RMessageProtocol,UITextFieldDelegate>
 {
     
     Utils *utils;
@@ -100,8 +100,17 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return  YES;
+}
+
 
 - (IBAction)submitButtonAction:(id)sender {
+    
+    
       [self submit];
 }
 
@@ -130,7 +139,8 @@
         
     }
     else{
-        [SVProgressHUD showWithStatus:@"Saving..."];
+        
+        [SVProgressHUD showWithStatus:@"Saving details"];
         [self doneSubmitMethod];
         
         

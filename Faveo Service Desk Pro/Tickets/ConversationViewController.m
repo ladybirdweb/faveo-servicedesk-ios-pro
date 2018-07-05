@@ -50,7 +50,7 @@
     
     selectedIndex = -1;
     
-    [SVProgressHUD showWithStatus:@"Getting Data"];
+    [SVProgressHUD showWithStatus:@"Loading details"];
     
     //[self.view addSubview:_activityIndicatorObject];
     [self addUIRefresh];

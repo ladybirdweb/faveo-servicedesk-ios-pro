@@ -1367,6 +1367,12 @@
     NSLog(@"MEME22222222222 is : %@",file123);
     NSLog(@"MEME22222222222 is : %@",file123);
     
+    
+        
+    NSLog(@"Selected CC is : %@",selectedUserEmail);
+    NSLog(@"Selected CC is : %@",selectedUserEmail);
+    
+    
     //    //NSString *urlString = @"http://www.jamboreebliss.com/sayar/public/api/v1/helpdesk/create";
     //
     NSString *urlString=[NSString stringWithFormat:@"%@helpdesk/create?token=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"]];
@@ -1420,7 +1426,9 @@
     [body appendData:[selectedUserEmail dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-    
+//    if ([myString length] == 0) {
+//        // definitely empty!
+//    }
     
     // first name parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -1485,6 +1493,8 @@
     [request setHTTPBody:body];
     
     NSLog(@"Request is : %@",request);
+    
+    
     //
     //return and test
     NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

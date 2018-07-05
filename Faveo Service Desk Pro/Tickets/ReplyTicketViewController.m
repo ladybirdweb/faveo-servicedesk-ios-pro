@@ -161,10 +161,11 @@
 }
 
 
-
 - (IBAction)submitButtonAction:(id)sender {
     
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [_messageTextView resignFirstResponder];
+    
+    [SVProgressHUD showWithStatus:@"Please wait."];
     
     if([_messageTextView.text isEqualToString:@""] || [_messageTextView.text length]==0)
     {
@@ -266,6 +267,8 @@
 //Asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    
+    
     if (range.length == 0) {
         if ([text isEqualToString:@"\n"]) {
             _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
@@ -274,8 +277,10 @@
     }
     else
     {
-        [textView resignFirstResponder];
+        [_messageTextView resignFirstResponder];
     }
+    
+    
     
     if(textView == _messageTextView)
     {

@@ -255,7 +255,7 @@
     
    // [[AppDelegate sharedAppdelegate] showProgressView];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:@"Loading details"];
     
     
     [self reload];
