@@ -40,6 +40,7 @@ typedef enum
     UITouch *touch = [touches anyObject];
     _init = [touch locationInView:self.view];
     _dragging = NO;
+    
 }
 
 
@@ -47,6 +48,7 @@ typedef enum
 {
     [super touchesMoved:touches withEvent:event];
     
+   
     if (self.state == UIGestureRecognizerStateFailed)
         return;
     

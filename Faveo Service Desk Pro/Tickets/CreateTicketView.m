@@ -103,7 +103,10 @@
     _sidebarButton.action = @selector(revealToggle:);
     
     
+    
     [self split];
+    
+    
     
     UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 316, 44)];
     UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];

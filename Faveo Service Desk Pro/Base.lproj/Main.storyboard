@@ -1364,7 +1364,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4o-k0-kwF">
-                                    <rect key="frame" x="238" y="4" width="75" height="18"/>
+                                    <rect key="frame" x="250" y="12" width="94" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -1374,16 +1374,16 @@
                             <constraints>
                                 <constraint firstItem="jBf-dw-Ght" firstAttribute="top" secondItem="aH4-1U-4DO" secondAttribute="bottom" constant="8" symbolic="YES" id="7mg-lJ-CRx"/>
                                 <constraint firstItem="sDk-UX-hIi" firstAttribute="leading" secondItem="LiB-mp-o1d" secondAttribute="leading" constant="28" id="Chi-go-PlW"/>
+                                <constraint firstAttribute="trailing" secondItem="W4o-k0-kwF" secondAttribute="trailing" constant="70" id="JT2-qW-Z3x"/>
                                 <constraint firstItem="jBf-dw-Ght" firstAttribute="centerX" secondItem="sDk-UX-hIi" secondAttribute="centerX" id="KgK-bd-1cX"/>
+                                <constraint firstItem="W4o-k0-kwF" firstAttribute="top" secondItem="aH4-1U-4DO" secondAttribute="top" id="NbS-vO-BdF"/>
                                 <constraint firstItem="sDk-UX-hIi" firstAttribute="top" secondItem="jBf-dw-Ght" secondAttribute="bottom" constant="4" id="RY3-Nb-0dk"/>
                                 <constraint firstItem="aH4-1U-4DO" firstAttribute="centerX" secondItem="jBf-dw-Ght" secondAttribute="centerX" id="Xec-Jb-pDi"/>
-                                <constraint firstAttribute="trailing" secondItem="W4o-k0-kwF" secondAttribute="trailing" constant="101" id="azg-69-AMi"/>
                                 <constraint firstAttribute="trailing" secondItem="sDk-UX-hIi" secondAttribute="trailing" constant="83" id="dvK-00-CMX"/>
-                                <constraint firstItem="W4o-k0-kwF" firstAttribute="leading" secondItem="aH4-1U-4DO" secondAttribute="trailing" constant="-4" id="kG2-S6-ajy"/>
+                                <constraint firstItem="W4o-k0-kwF" firstAttribute="leading" secondItem="aH4-1U-4DO" secondAttribute="trailing" constant="8" symbolic="YES" id="f4m-Dj-XON"/>
                                 <constraint firstItem="jBf-dw-Ght" firstAttribute="leading" secondItem="LiB-mp-o1d" secondAttribute="leading" constant="60" id="kbE-h6-qOJ"/>
                                 <constraint firstAttribute="bottom" secondItem="sDk-UX-hIi" secondAttribute="bottom" constant="12" id="kuU-Ig-UPa"/>
                                 <constraint firstItem="aH4-1U-4DO" firstAttribute="top" secondItem="LiB-mp-o1d" secondAttribute="top" constant="12" id="sHD-Aj-jaq"/>
-                                <constraint firstItem="W4o-k0-kwF" firstAttribute="top" secondItem="LiB-mp-o1d" secondAttribute="top" constant="4" id="vrT-1g-Bl5"/>
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="cjh-zg-PwZ">

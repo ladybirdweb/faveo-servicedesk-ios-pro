@@ -114,6 +114,7 @@
             [self.navigationController setNavigationBarHidden:NO];
         }
         
+        
         [RMessage showNotificationInViewController:self.navigationController
                                              title:NSLocalizedString(@"Error..!", nil)
                                           subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
@@ -130,6 +131,8 @@
         
       //  [[AppDelegate sharedAppdelegate] hideProgressView];
         [SVProgressHUD dismiss];
+        
+        
         
     }else{
         // http://jamboreebliss.com/sayar/public/api/v2/helpdesk/user/filter?api_key=&token=&role=
