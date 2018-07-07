@@ -93,9 +93,31 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Resources/RMessageView.xib"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/RMessageDefaultDesign.json"
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Resources/RMessageView.xib"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground@2x.png"
+  install_resource "${PODS_ROOT}/RMessage/RMessage/Assets/RMessageDefaultDesign.json"
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
