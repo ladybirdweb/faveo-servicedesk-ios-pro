@@ -83,6 +83,13 @@
     _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
     
     
+    
+//    _loginLabel.userInteractionEnabled=YES;
+//
+//    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loginClicked)];
+//
+//    [_loginLabel addGestureRecognizer:tap];
+    
 }
 
 
@@ -127,9 +134,9 @@
 - (IBAction)urlNextButtonAction:(id)sender {
     
     [self.urlTextfield resignFirstResponder];
-    
+
+    [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
     [SVProgressHUD showWithStatus:@"Verifying URL"];
-    [self URLValidationMethod];
 }
 
 
@@ -462,7 +469,8 @@
     }
 }
 
-- (IBAction)loginButtonClicked:(id)sender {
+
+- (IBAction)logginButtonClicked:(id)sender {
     
     if (((self.userNameTextField.text.length==0 || self.passcodeTextField.text.length==0)))
     {
@@ -719,7 +727,10 @@
     }
     
     
+    
 }
+
+
 
 
 

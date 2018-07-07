@@ -24,15 +24,16 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButtonOutlet;
 
-- (IBAction)loginButtonClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeTextField;
 
 
+- (IBAction)logginButtonClicked:(id)sender;
 
 
 
+//@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 
 
 @end
