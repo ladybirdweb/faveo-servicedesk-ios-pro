@@ -1407,12 +1407,9 @@
                         </prototypes>
                     </tableView>
                     <connections>
-                        <outlet property="companyUrlLbale" destination="sDk-UX-hIi" id="mky-TY-M3U"/>
-                        <outlet property="headerView" destination="LiB-mp-o1d" id="Oy8-Gx-Oow"/>
-                        <outlet property="menuTableView" destination="tNi-pe-2Ht" id="Bdk-0m-mjb"/>
-                        <outlet property="profileImageView" destination="aH4-1U-4DO" id="N0A-2d-JHG"/>
-                        <outlet property="roleLabel" destination="W4o-k0-kwF" id="CBN-y0-wxL"/>
-                        <outlet property="userNameLabel" destination="jBf-dw-Ght" id="eQX-D6-25O"/>
+                        <outlet property="headerView" destination="LiB-mp-o1d" id="8f2-QG-xTt"/>
+                        <outlet property="menuTableView" destination="tNi-pe-2Ht" id="Ar8-qT-KFt"/>
+                        <outlet property="profileImageView" destination="aH4-1U-4DO" id="iHF-lU-HBe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18A-Fu-gyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2613,9 +2610,6 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
-                                                            <connections>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="apm-cl-Ojx"/>
-                                                            </connections>
                                                         </textView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddCC" translatesAutoresizingMaskIntoConstraints="NO" id="vnE-fS-Lou">
                                                             <rect key="frame" x="352" y="23" width="27" height="27"/>
@@ -2679,9 +2673,6 @@
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="1YR-cb-1P4"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2738,9 +2729,6 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" keyboardType="namePhonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
-                                                            <connections>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="jZ9-iw-x2m"/>
-                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2796,9 +2784,6 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" keyboardType="namePhonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="OaD-LO-zRy" id="GhE-pm-7VX"/>
-                                                    </connections>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKJ-tk-ki3">
                                                     <rect key="frame" x="28.999999999999996" y="7" width="60.666666666666657" height="15"/>
@@ -2838,10 +2823,6 @@
                                                             <rect key="frame" x="19" y="8" width="62" height="46"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                                            <connections>
-                                                                <action selector="countryCodeClicked:" destination="OaD-LO-zRy" eventType="touchDown" id="i6T-9f-733"/>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="BgI-xA-oEs"/>
-                                                            </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN3-4A-2ID">
                                                             <rect key="frame" x="19" y="5" width="65" height="15"/>
@@ -2899,9 +2880,6 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
-                                                            <connections>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="DCx-mZ-qqc"/>
-                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3207,10 +3185,6 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="assigneeClicked:" destination="OaD-LO-zRy" eventType="touchDown" id="Lcm-qc-Fsi"/>
-                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="agj-c8-WzD"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3337,28 +3311,17 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
-                        <outlet property="addRequesterImage" destination="vnE-fS-Lou" id="rDP-Ui-llW"/>
-                        <outlet property="assigneeTextField" destination="hlP-dc-GAV" id="ldb-O4-5ms"/>
-                        <outlet property="ccTextField" destination="Zoh-HF-lJK" id="CYr-Lg-WOE"/>
-                        <outlet property="codeTextField" destination="l5d-aP-kNX" id="Bjt-wk-nhS"/>
-                        <outlet property="emailTextView" destination="IMI-P7-mSW" id="jNv-Cc-Ccx"/>
-                        <outlet property="fileImage" destination="Bna-Ru-fy3" id="tJx-jy-iZ0"/>
-                        <outlet property="fileName123" destination="iFL-YO-dLi" id="dJ4-vM-ZL6"/>
-                        <outlet property="fileSize123" destination="AWv-JQ-v4B" id="2Vp-oo-k3z"/>
-                        <outlet property="firstNameTextView" destination="LWd-Qw-gKy" id="q1R-3b-MYf"/>
                         <outlet property="helptopicTextField" destination="cPu-7d-00p" id="qL6-v6-Oo8"/>
-                        <outlet property="lastNameTextView" destination="Jnw-l3-gGg" id="z8n-nu-fbk"/>
                         <outlet property="messageTextView" destination="dRA-wN-HMe" id="fQH-fq-uIv"/>
-                        <outlet property="mobileTextView" destination="WaX-88-gSY" id="WE6-zU-OIU"/>
                         <outlet property="priorityTextField" destination="Yxp-KQ-juu" id="apE-OW-qLV"/>
-                        <outlet property="sidebarButton" destination="gbr-Ch-eyq" id="IaV-Te-207"/>
+                        <outlet property="sidebarButton" destination="gbr-Ch-eyq" id="m4o-8f-Nwv"/>
                         <outlet property="subjectTextView" destination="Rmw-uv-gAo" id="SKo-ig-RVI"/>
                         <outlet property="submitButtonOutlet" destination="vVr-dw-D6B" id="d1Y-Um-Vmk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl0-PS-MBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="1190"/>
+            <point key="canvasLocation" x="440" y="1226"/>
         </scene>
         <!--Reply Ticket View Controller-->
         <scene sceneID="Piy-dQ-toh">

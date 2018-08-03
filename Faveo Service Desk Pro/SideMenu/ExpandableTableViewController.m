@@ -1,20 +1,33 @@
 //
 //  ExpandableTableViewController.m
-//  ExpandableTable
+//  Faveo Service Desk Pro
 //
-//  Created by Tasvir H Rohila on 27/04/15.
-//  Copyright (c) 2015 Tasvir H Rohila. All rights reserved.
+//  Created by Mallikarjun on 03/08/18.
+//  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
+
 
 
 #import "ExpandableTableViewController.h"
 #import "ExpandableTableViewCell.h"
 #import "SWRevealViewController.h"
+#import "CreateTicketView.h"
+#import "InboxTickets.h"
+#import "MyTickets.h"
+#import "UnassignedTickets.h"
+#import "ClosedTickets.h"
+#import "UnApprovedTickets.h"
+#import "TrashTickets.h"
+#import "AboutUsViewController.h"
+#import "ClientListViewController.h"
+#import "TestingView.h"
 
 @interface ExpandableTableViewController ()
 
 
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
 @end
 
@@ -45,10 +58,10 @@ NSUInteger g_ExpandedCellIndex = 0;
     [self setProfileImage];
     //
     //select the data.plist as per the language set for the app
-	NSDictionary *dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"enData" ofType:@"plist"]];
-	self.items=[dict valueForKey:@"Items"];
-	self.itemsInTable=[[NSMutableArray alloc] init];
-	[self.itemsInTable addObjectsFromArray:self.items];
+    NSDictionary *dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"enData" ofType:@"plist"]];
+    self.items=[dict valueForKey:@"Items"];
+    self.itemsInTable=[[NSMutableArray alloc] init];
+    [self.itemsInTable addObjectsFromArray:self.items];
 }
 
 - (void) setTableView {
@@ -65,9 +78,9 @@ NSUInteger g_ExpandedCellIndex = 0;
 - (void) setProfileImage {
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
-   // self.profileImageView.layer.borderWidth = 3.0f;
-  //  self.profileImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-
+    // self.profileImageView.layer.borderWidth = 3.0f;
+    //  self.profileImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,7 +111,7 @@ NSUInteger g_ExpandedCellIndex = 0;
     
     //    ExpandableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     // cell.backgroundColor = TOP_HEADER_BG;
-
+    
     return cell;
 }
 
@@ -155,7 +168,7 @@ NSUInteger g_ExpandedCellIndex = 0;
     else
     {
         dic = [self.itemsInTable objectAtIndex:indexPath.row];
-    
+        
     }
     
     
@@ -183,7 +196,7 @@ NSUInteger g_ExpandedCellIndex = 0;
         //Else expand the cell to show SubItems
         else
         {
-//
+            //
             //store the location of the cell that is expanded
             NSUInteger rowIndex;
             if (g_ExpandedCellIndex < indexPath.row && numRowsCollapsed)
@@ -204,11 +217,11 @@ NSUInteger g_ExpandedCellIndex = 0;
             {
                 [arrCells addObject:[NSIndexPath indexPathForRow:rowIndex inSection:0]];
                 [self.itemsInTable insertObject:dInner atIndex:rowIndex++];
-            
+                
             }
             [self.menuTableView insertRowsAtIndexPaths:arrCells withRowAnimation:UITableViewRowAnimationTop];
             
-    
+            
         }
     }
     //Else a subItem has been clicked. We need to push the relevant view into segue
@@ -220,95 +233,119 @@ NSUInteger g_ExpandedCellIndex = 0;
         //5. sme_marketstats
         // 6. settings
         
-          NSString* strId =[dic valueForKey:@"id"];
-          NSLog(@"STR_ID : %@",strId);
-  
+        NSString* strId =[dic valueForKey:@"id"];
+        NSLog(@"STR_ID : %@",strId);
+        
         UIStoryboard * storyboard;
         UINavigationController *navController;
         
-//         if([strId isEqualToString:@"getquote"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//            CreateTicketViewController * controller = (CreateTicketViewController *)[storyboard instantiateViewControllerWithIdentifier:@"createTicketId"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//         else if([strId isEqualToString:@"indices"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//             InboxViewController * controller = (InboxViewController *)[storyboard instantiateViewControllerWithIdentifier:@"createTicketId"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//         else if([strId isEqualToString:@"gainers"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//             ClosedViewController * controller = (ClosedViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ClosedID"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//         else if([strId isEqualToString:@"turnover"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//             TrashViewController * controller = (TrashViewController *)[storyboard instantiateViewControllerWithIdentifier:@"trashID"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//         else if([strId isEqualToString:@"aboutus"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//             UserList * controller = (UserList *)[storyboard instantiateViewControllerWithIdentifier:@"userId"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//         else if([strId isEqualToString:@"settings"])
-//         {
-//             storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//             MainViewController * controller = (MainViewController *)[storyboard instantiateViewControllerWithIdentifier:@"mainView"];
-//
-//             navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//
-//             [navController setViewControllers: @[controller] animated: YES];
-//
-//         }
-//
-//
-//        [self.revealViewController setFrontViewController:navController];
-//        [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-    
+                 if([strId isEqualToString:@"CreateTicketId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-//        NSString * storyboardName = @"Main";
-//        NSString * viewControllerID = @"id3";
-//        UIStoryboard * storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-//        ViewController3 * controller = (ViewController3 *)[storyboard instantiateViewControllerWithIdentifier:viewControllerID];
-//
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: controller];
-//        [navController setViewControllers: @[controller] animated: YES];
-//        [self.revealViewController setFrontViewController:navController];
-//        [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+                   CreateTicketView  * controller = (CreateTicketView *)[storyboard instantiateViewControllerWithIdentifier:@"CreateTicketViewId"];
+        
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+        
+                     [navController setViewControllers: @[controller] animated: YES];
+        
+                 }
+                 else if([strId isEqualToString:@"InboxId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+                     InboxTickets * controller = (InboxTickets *)[storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+        
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+        
+                     [navController setViewControllers: @[controller] animated: YES];
+        
+                 }
+                 else if([strId isEqualToString:@"MyTicketsId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     MyTickets * controller = (MyTickets *)[storyboard instantiateViewControllerWithIdentifier:@"myTicketsId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"UnassignedId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     UnassignedTickets * controller = (UnassignedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"unAssignedId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"ClosedId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+                     ClosedTickets * controller = (ClosedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"closedId"];
+        
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+        
+                     [navController setViewControllers: @[controller] animated: YES];
+        
+                 }
+                 else if([strId isEqualToString:@"TrashId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+                     TrashTickets * controller = (TrashTickets *)[storyboard instantiateViewControllerWithIdentifier:@"trashId"];
+        
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+        
+                     [navController setViewControllers: @[controller] animated: YES];
+        
+                 }
+                 else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"] || [strId isEqualToString:@"sme_marketwatch"] || [strId isEqualToString:@"sme_marketstats"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+//                     UnApprovedTickets * controller = (UnApprovedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"unApprovedId"];
+        
+                     TestingView * controller = (TestingView *)[storyboard instantiateViewControllerWithIdentifier:@"testId"];
+                     
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+        
+                     [navController setViewControllers: @[controller] animated: YES];
+        
+                 }
+                 else if([strId isEqualToString:@"UsersListId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     ClientListViewController * controller = (ClientListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"clientListId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"AboutUsId"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     AboutUsViewController * controller = (AboutUsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AboutId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
 
-
+        
+                [self.revealViewController setFrontViewController:navController];
+                [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+        
         
     }
 }
@@ -316,30 +353,30 @@ NSUInteger g_ExpandedCellIndex = 0;
 
 -(void)CollapseRows:(NSArray*)ar
 {
-	for(NSDictionary *dInner in ar )
+    for(NSDictionary *dInner in ar )
     {
-		NSUInteger indexToRemove=[self.itemsInTable indexOfObjectIdenticalTo:dInner];
-		NSArray *arInner=[dInner valueForKey:@"SubItems"];
-		if(arInner && [arInner count]>0)
+        NSUInteger indexToRemove=[self.itemsInTable indexOfObjectIdenticalTo:dInner];
+        NSArray *arInner=[dInner valueForKey:@"SubItems"];
+        if(arInner && [arInner count]>0)
         {
-			[self CollapseRows:arInner];
-		}
-		
-		if([self.itemsInTable indexOfObjectIdenticalTo:dInner]!=NSNotFound)
+            [self CollapseRows:arInner];
+        }
+        
+        if([self.itemsInTable indexOfObjectIdenticalTo:dInner]!=NSNotFound)
         {
             [self.menuTableView beginUpdates];
-			[self.itemsInTable removeObjectIdenticalTo:dInner];
-			[self.menuTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:
+            [self.itemsInTable removeObjectIdenticalTo:dInner];
+            [self.menuTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:
                                                         [NSIndexPath indexPathForRow:indexToRemove inSection:0]
                                                         ]
                                       withRowAnimation:UITableViewRowAnimationLeft];
             [self.menuTableView endUpdates];
-        
+            
             
         }
-       
+        
     }
-   
+    
     
     
 }

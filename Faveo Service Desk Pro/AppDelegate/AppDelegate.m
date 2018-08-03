@@ -124,6 +124,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
         // Initialize SWRevealViewController and set it as |rootViewController|
         SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
         
+
+        
         
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController = vc;

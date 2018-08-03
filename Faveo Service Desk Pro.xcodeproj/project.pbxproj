@@ -16,7 +16,8 @@
 		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */; };
 		060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */; };
-		0619C47E20D3BD6800AFF505 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */; };
+		06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06187532211414E70078A7C5 /* ExpandableTableViewController.m */; };
+		061875352114193B0078A7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 061875342114193A0078A7C5 /* GoogleService-Info.plist */; };
 		0619C48120D3CC2C00AFF505 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0619C48020D3CC2C00AFF505 /* libicucore.tbd */; };
 		0619C48320D3E68300AFF505 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0619C48220D3E68300AFF505 /* MobileCoreServices.framework */; };
 		0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
@@ -78,7 +79,6 @@
 		0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */; };
 		0650290420BFEE34007E90E2 /* enData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0650290020BFEE33007E90E2 /* enData.plist */; };
 		0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290120BFEE34007E90E2 /* ExpandableTableAppDelegate.m */; };
-		0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0650290820BFF5C0007E90E2 /* ExpandableTableViewController.m */; };
 		0650299E20BFFD51007E90E2 /* Starred.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298420BFFD45007E90E2 /* Starred.png */; };
 		0650299F20BFFD51007E90E2 /* Company.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298520BFFD46007E90E2 /* Company.png */; };
 		065029A020BFFD51007E90E2 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650298620BFFD46007E90E2 /* Background.png */; };
@@ -164,7 +164,9 @@
 		060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
-		0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Certificates & Icons/Service Desk Pro/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		06187531211414E70078A7C5 /* ExpandableTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpandableTableViewController.h; sourceTree = "<group>"; };
+		06187532211414E70078A7C5 /* ExpandableTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableViewController.m; sourceTree = "<group>"; };
+		061875342114193A0078A7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0619C47F20D3BD9100AFF505 /* Faveo Service Desk Pro.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Faveo Service Desk Pro.entitlements"; sourceTree = "<group>"; };
 		0619C48020D3CC2C00AFF505 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		0619C48220D3E68300AFF505 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -272,8 +274,6 @@
 		065028FF20BFEE33007E90E2 /* ExpandableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableTableViewCell.h; sourceTree = "<group>"; };
 		0650290020BFEE33007E90E2 /* enData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enData.plist; sourceTree = "<group>"; };
 		0650290120BFEE34007E90E2 /* ExpandableTableAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableAppDelegate.m; sourceTree = "<group>"; };
-		0650290820BFF5C0007E90E2 /* ExpandableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandableTableViewController.m; path = "../../../../Certificates & Icons/Do not Delete/ExpandableTableViewExample123/ExpandableList/ExpandableTableViewController.m"; sourceTree = "<group>"; };
-		0650290920BFF5C1007E90E2 /* ExpandableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandableTableViewController.h; path = "../../../../Certificates & Icons/Do not Delete/ExpandableTableViewExample123/ExpandableList/ExpandableTableViewController.h"; sourceTree = "<group>"; };
 		0650298420BFFD45007E90E2 /* Starred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Starred.png; sourceTree = "<group>"; };
 		0650298520BFFD46007E90E2 /* Company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Company.png; sourceTree = "<group>"; };
 		0650298620BFFD46007E90E2 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
@@ -447,7 +447,7 @@
 				0644093320CE8ECC00A5DB3B /* Notification */,
 				0619CFBB20B30FE7004CFDC9 /* Helper Classes */,
 				0619C47F20D3BD9100AFF505 /* Faveo Service Desk Pro.entitlements */,
-				0619C47D20D3BD6800AFF505 /* GoogleService-Info.plist */,
+				061875342114193A0078A7C5 /* GoogleService-Info.plist */,
 				0619CF8D20B2E233004CFDC9 /* Main.storyboard */,
 				0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */,
 				0619CF9020B2E234004CFDC9 /* Assets.xcassets */,
@@ -656,8 +656,8 @@
 				0650290120BFEE34007E90E2 /* ExpandableTableAppDelegate.m */,
 				065028FF20BFEE33007E90E2 /* ExpandableTableViewCell.h */,
 				065028FD20BFEE32007E90E2 /* ExpandableTableViewCell.m */,
-				0650290920BFF5C1007E90E2 /* ExpandableTableViewController.h */,
-				0650290820BFF5C0007E90E2 /* ExpandableTableViewController.m */,
+				06187531211414E70078A7C5 /* ExpandableTableViewController.h */,
+				06187532211414E70078A7C5 /* ExpandableTableViewController.m */,
 				065029B820C02865007E90E2 /* SampleNavigation.h */,
 				065029B920C02865007E90E2 /* SampleNavigation.m */,
 			);
@@ -762,8 +762,8 @@
 		06D6478020C56BFC000783C8 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
 				0619CF8820B2E233004CFDC9 /* AppDelegate.m */,
+				0619CF8720B2E233004CFDC9 /* AppDelegate.h */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -925,7 +925,6 @@
 			files = (
 				060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */,
 				0623809620CA448500257395 /* TicketTableViewCell.xib in Resources */,
-				0619C47E20D3BD6800AFF505 /* GoogleService-Info.plist in Resources */,
 				0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */,
 				065029AF20BFFD51007E90E2 /* News@2x.png in Resources */,
 				065029B320BFFD51007E90E2 /* Favorite@2x.png in Resources */,
@@ -965,6 +964,7 @@
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 				065029AA20BFFD51007E90E2 /* Jobs.png in Resources */,
 				065029A920BFFD51007E90E2 /* Settings@2x.png in Resources */,
+				061875352114193B0078A7C5 /* GoogleService-Info.plist in Resources */,
 				064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */,
 				065029A720BFFD51007E90E2 /* Avatar.png in Resources */,
 			);
@@ -1095,8 +1095,8 @@
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
 				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
-				0650290A20BFF5C1007E90E2 /* ExpandableTableViewController.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
+				06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
 				0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */,

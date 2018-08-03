@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class ExpandableTableViewController;
 @interface ExpandableTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
