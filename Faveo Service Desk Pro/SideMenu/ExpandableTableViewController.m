@@ -11,18 +11,22 @@
 #import "ExpandableTableViewController.h"
 #import "ExpandableTableViewCell.h"
 #import "SWRevealViewController.h"
-#import "CreateTicketView.h"
-#import "InboxTickets.h"
 #import "MyTickets.h"
 #import "UnassignedTickets.h"
 #import "ClosedTickets.h"
-#import "UnApprovedTickets.h"
 #import "TrashTickets.h"
+#import "UnApprovedTickets.h"
 #import "AboutUsViewController.h"
 #import "ClientListViewController.h"
 #import "TestingView.h"
+#import "LoginViewController.h"
+#import "CreateTicketView.h"
+#import "InboxTickets.h"
+#import "RMessage.h"
+#import "RMessageView.h"
 
-@interface ExpandableTableViewController ()
+
+@interface ExpandableTableViewController ()<RMessageProtocol>
 
 
 
@@ -242,112 +246,156 @@ NSUInteger g_ExpandedCellIndex = 0;
                  if([strId isEqualToString:@"CreateTicketId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+
                    CreateTicketView  * controller = (CreateTicketView *)[storyboard instantiateViewControllerWithIdentifier:@"CreateTicketViewId"];
-        
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
                      [navController setViewControllers: @[controller] animated: YES];
-        
+
                  }
                  else if([strId isEqualToString:@"InboxId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+
                      InboxTickets * controller = (InboxTickets *)[storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-        
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
                      [navController setViewControllers: @[controller] animated: YES];
-        
+
                  }
                  else if([strId isEqualToString:@"MyTicketsId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                     
+
                      MyTickets * controller = (MyTickets *)[storyboard instantiateViewControllerWithIdentifier:@"myTicketsId"];
-                     
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-                     
+
                      [navController setViewControllers: @[controller] animated: YES];
-                     
+
                  }
                  else if([strId isEqualToString:@"UnassignedId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                     
+
                      UnassignedTickets * controller = (UnassignedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"unAssignedId"];
-                     
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-                     
+
                      [navController setViewControllers: @[controller] animated: YES];
-                     
+
                  }
                  else if([strId isEqualToString:@"ClosedId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+
                      ClosedTickets * controller = (ClosedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"closedId"];
-        
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
                      [navController setViewControllers: @[controller] animated: YES];
-        
+
                  }
                  else if([strId isEqualToString:@"TrashId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+
                      TrashTickets * controller = (TrashTickets *)[storyboard instantiateViewControllerWithIdentifier:@"trashId"];
-        
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
                      [navController setViewControllers: @[controller] animated: YES];
-        
+
                  }
                  else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"] || [strId isEqualToString:@"sme_marketwatch"] || [strId isEqualToString:@"sme_marketstats"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
+
 //                     UnApprovedTickets * controller = (UnApprovedTickets *)[storyboard instantiateViewControllerWithIdentifier:@"unApprovedId"];
-        
+
                      TestingView * controller = (TestingView *)[storyboard instantiateViewControllerWithIdentifier:@"testId"];
-                     
-                     
+
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-        
+
                      [navController setViewControllers: @[controller] animated: YES];
-        
+
                  }
                  else if([strId isEqualToString:@"UsersListId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                     
+
                      ClientListViewController * controller = (ClientListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"clientListId"];
-                     
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-                     
+
                      [navController setViewControllers: @[controller] animated: YES];
-                     
+
                  }
                  else if([strId isEqualToString:@"AboutUsId"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                     
+
                      AboutUsViewController * controller = (AboutUsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AboutId"];
-                     
+
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
-                     
+
                      [navController setViewControllers: @[controller] animated: YES];
+
+                 } //LogoutId
+
+                 else if([strId isEqualToString:@"LogoutId"])
+                 {
+                     [self wipeDataInLogout];
                      
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+                     
+                     if (self.navigationController.navigationBarHidden) {
+                         [self.navigationController setNavigationBarHidden:NO];
+                     }
+                     
+                     [RMessage showNotificationInViewController:self.navigationController
+                                                          title:NSLocalizedString(@" Faveo Helpdesk ", nil)
+                                                       subtitle:NSLocalizedString(@"You've logged out, successfully...!", nil)
+                                                      iconImage:nil
+                                                           type:RMessageTypeSuccess
+                                                 customTypeName:nil
+                                                       duration:RMessageDurationAutomatic
+                                                       callback:nil
+                                                    buttonTitle:nil
+                                                 buttonCallback:nil
+                                                     atPosition:RMessagePositionNavBarOverlay
+                                           canBeDismissedByUser:YES];
+                     
+                     LoginViewController * controller = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Login"];
+
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+
+                     [navController setViewControllers: @[controller] animated: YES];
+
                  }
 
-        
                 [self.revealViewController setFrontViewController:navController];
                 [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        
-        
+
+
     }
+}
+
+
+-(void)wipeDataInLogout{
+    
+   // [self sendDeviceToken];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+    
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        [cookieStorage deleteCookie:each];
+    }
+    
 }
 
 

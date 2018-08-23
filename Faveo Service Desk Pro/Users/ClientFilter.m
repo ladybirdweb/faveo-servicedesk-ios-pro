@@ -89,7 +89,7 @@
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Getting users",nil)];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Please wait",nil)];
 
     [self reload];
     
@@ -183,7 +183,7 @@
         }
         
         //        [[AppDelegate sharedAppdelegate] showProgressView];
-                  [SVProgressHUD showWithStatus:@"Please wait"];
+                  [SVProgressHUD showWithStatus:@"Loading users"];
         
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];

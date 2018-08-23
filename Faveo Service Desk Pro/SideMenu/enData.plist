@@ -67,16 +67,6 @@
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Unapproved</string>
-					<key>level</key>
-					<integer>1</integer>
-					<key>id</key>
-					<string>UnapprovedId</string>
-					<key>image</key>
-					<string>Ratings</string>
-				</dict>
-				<dict>
-					<key>Name</key>
 					<string>Closed</string>
 					<key>level</key>
 					<integer>1</integer>

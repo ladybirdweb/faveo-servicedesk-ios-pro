@@ -135,7 +135,7 @@
         
         
     }else{
-        // http://jamboreebliss.com/sayar/public/api/v2/helpdesk/user/filter?api_key=&token=&role=
+        
         if([globalVariables.userFilterId isEqualToString:@"AGENTUSERS"])
         {
             tempString=@"agent";
@@ -181,7 +181,7 @@
         }
         
         //        [[AppDelegate sharedAppdelegate] showProgressView];
-                  [SVProgressHUD showWithStatus:@"Loading ..."];
+                  [SVProgressHUD showWithStatus:@"Loading users"];
         
         
         @try{
