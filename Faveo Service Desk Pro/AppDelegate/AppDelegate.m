@@ -82,6 +82,8 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
              }];
         } else {
             // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
+           
+          
             UIUserNotificationType allNotificationTypes =
             (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
             UIUserNotificationSettings *settings =
