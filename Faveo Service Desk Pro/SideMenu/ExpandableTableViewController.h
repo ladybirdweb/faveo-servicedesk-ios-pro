@@ -1,9 +1,9 @@
 //
 //  ExpandableTableViewController.h
-//  ExpandableTable
+//  Faveo Service Desk Pro
 //
-//  Created by Tasvir H Rohila on 27/04/15.
-//  Copyright (c) 2015 Tasvir H Rohila. All rights reserved.
+//  Created by Mallikarjun on 03/08/18.
+//  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
 

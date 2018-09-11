@@ -123,7 +123,9 @@
     if(textField == _urlTextfield)
     {
         NSLog(@"Clicked on go");
-        [self URLValidationMethod];
+        [SVProgressHUD showWithStatus:@"Verifying URL"];
+        [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
+       
        
     }
     
@@ -134,9 +136,9 @@
 - (IBAction)urlNextButtonAction:(id)sender {
     
     [self.urlTextfield resignFirstResponder];
-
-    [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
     [SVProgressHUD showWithStatus:@"Verifying URL"];
+    [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
+   
 }
 
 
@@ -333,7 +335,7 @@
                     
                     NSLog(@"Got response %@ with error %@.\n", response, error);
                     // [[AppDelegate sharedAppdelegate] hideProgressView];
-                       [SVProgressHUD dismiss];
+                    //   [SVProgressHUD dismiss];
                 }]resume];
             }
             
@@ -404,7 +406,7 @@
                     
                     NSLog(@"Billing successful!");
                     dispatch_async(dispatch_get_main_queue(), ^{
-                      [SVProgressHUD dismiss];
+                      
                       
                         
 //                        [RMessage showNotificationWithTitle:NSLocalizedString(@"Success", nil)
@@ -436,6 +438,7 @@
                         [[self navigationController] setNavigationBarHidden:YES];
                         [self->utils viewSlideInFromRightToLeft:self.loginView];
                     //    [[AppDelegate sharedAppdelegate] hideProgressView];
+                        [SVProgressHUD dismiss];
                        
                         
                     });
