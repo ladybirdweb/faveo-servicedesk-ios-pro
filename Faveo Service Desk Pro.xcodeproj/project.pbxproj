@@ -117,10 +117,23 @@
 		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
 		0676605F20CBBD93000D834D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
+		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
+		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
+		068F424C21467240005CA466 /* assets.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424B21467240005CA466 /* assets.png */; };
+		068F424E2146725F005CA466 /* change.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424D2146725F005CA466 /* change.png */; };
+		068F4250214672B0005CA466 /* more32.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424F214672B0005CA466 /* more32.png */; };
+		068F425221467704005CA466 /* update-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F425121467702005CA466 /* update-50.png */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
 		06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */; };
+		06B3D997213FA274004D548E /* ProblemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D996213FA274004D548E /* ProblemDetailView.m */; };
+		06B3D99A213FB430004D548E /* AnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D999213FB430004D548E /* AnalysisView.m */; };
+		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
+		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
+		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
+		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
+		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
 		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
 		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
@@ -128,6 +141,7 @@
 		06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A120C5729F000783C8 /* UnApprovedTickets.m */; };
 		06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A420C5732A000783C8 /* ClosedTickets.m */; };
 		06D647A820C5733E000783C8 /* TrashTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A720C5733E000783C8 /* TrashTickets.m */; };
+		06E8451D213EB19000786CEB /* ProblemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8451C213EB19000786CEB /* ProblemList.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -323,6 +337,12 @@
 		0676605E20CBBD93000D834D /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0676606320CBBF22000D834D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		068F424521466C00005CA466 /* problem-ic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "problem-ic1.png"; path = "../../../../../Downloads/problem-ic1.png"; sourceTree = "<group>"; };
+		068F424921466E0C005CA466 /* all-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-list.png"; sourceTree = "<group>"; };
+		068F424B21467240005CA466 /* assets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assets.png; sourceTree = "<group>"; };
+		068F424D2146725F005CA466 /* change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change.png; sourceTree = "<group>"; };
+		068F424F214672B0005CA466 /* more32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more32.png; sourceTree = "<group>"; };
+		068F425121467702005CA466 /* update-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update-50.png"; sourceTree = "<group>"; };
 		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
@@ -331,6 +351,19 @@
 		06A2543020E63412001F8017 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = "<group>"; };
 		06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
+		06B3D995213FA274004D548E /* ProblemDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemDetailView.h; sourceTree = "<group>"; };
+		06B3D996213FA274004D548E /* ProblemDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemDetailView.m; sourceTree = "<group>"; };
+		06B3D998213FB430004D548E /* AnalysisView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisView.h; sourceTree = "<group>"; };
+		06B3D999213FB430004D548E /* AnalysisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisView.m; sourceTree = "<group>"; };
+		06B3D99B213FB74F004D548E /* ProblemDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemDetailData.h; sourceTree = "<group>"; };
+		06B3D99C213FB74F004D548E /* ProblemDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemDetailData.m; sourceTree = "<group>"; };
+		06B3D99E21400102004D548E /* CreateProblem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProblem.h; sourceTree = "<group>"; };
+		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
+		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
+		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
+		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
+		06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemTableViewCell.m; sourceTree = "<group>"; };
+		06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
 		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
 		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
@@ -344,6 +377,8 @@
 		06D647A420C5732A000783C8 /* ClosedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClosedTickets.m; sourceTree = "<group>"; };
 		06D647A620C5733E000783C8 /* TrashTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashTickets.h; sourceTree = "<group>"; };
 		06D647A720C5733E000783C8 /* TrashTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashTickets.m; sourceTree = "<group>"; };
+		06E8451B213EB19000786CEB /* ProblemList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemList.h; sourceTree = "<group>"; };
+		06E8451C213EB19000786CEB /* ProblemList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemList.m; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -442,6 +477,7 @@
 				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
+				06E8451A213EB15B00786CEB /* Problem */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
@@ -598,6 +634,9 @@
 				064408F020CE58EC00A5DB3B /* userSearchDataCell.h */,
 				064408F220CE58ED00A5DB3B /* userSearchDataCell.m */,
 				064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */,
+				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
+				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
+				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -649,6 +688,12 @@
 			children = (
 				0650298320BFFD2E007E90E2 /* Images */,
 				0650290020BFEE33007E90E2 /* enData.plist */,
+				068F424521466C00005CA466 /* problem-ic1.png */,
+				068F424921466E0C005CA466 /* all-list.png */,
+				068F424B21467240005CA466 /* assets.png */,
+				068F424D2146725F005CA466 /* change.png */,
+				068F425121467702005CA466 /* update-50.png */,
+				068F424F214672B0005CA466 /* more32.png */,
 				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				065028F920BFE3C0007E90E2 /* SWRevealViewController.h */,
 				065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */,
@@ -777,6 +822,25 @@
 				0675925220D23393009BDCCF /* TestingView.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		06E8451A213EB15B00786CEB /* Problem */ = {
+			isa = PBXGroup;
+			children = (
+				06B3D99E21400102004D548E /* CreateProblem.h */,
+				06B3D99F21400102004D548E /* CreateProblem.m */,
+				06E8451B213EB19000786CEB /* ProblemList.h */,
+				06E8451C213EB19000786CEB /* ProblemList.m */,
+				06B3D995213FA274004D548E /* ProblemDetailView.h */,
+				06B3D996213FA274004D548E /* ProblemDetailView.m */,
+				06B3D998213FB430004D548E /* AnalysisView.h */,
+				06B3D999213FB430004D548E /* AnalysisView.m */,
+				06B3D99B213FB74F004D548E /* ProblemDetailData.h */,
+				06B3D99C213FB74F004D548E /* ProblemDetailData.m */,
+				06B3D9A12140013F004D548E /* EditProblemDetails.h */,
+				06B3D9A22140013F004D548E /* EditProblemDetails.m */,
+			);
+			path = Problem;
 			sourceTree = "<group>";
 		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
@@ -923,6 +987,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068F424C21467240005CA466 /* assets.png in Resources */,
 				060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */,
 				0623809620CA448500257395 /* TicketTableViewCell.xib in Resources */,
 				0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */,
@@ -933,6 +998,7 @@
 				065029AD20BFFD51007E90E2 /* Settings.png in Resources */,
 				0644092D20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib in Resources */,
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
+				068F4250214672B0005CA466 /* more32.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
@@ -953,19 +1019,24 @@
 				065029A120BFFD51007E90E2 /* Favorite.png in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
 				065029A620BFFD51007E90E2 /* Invite.png in Resources */,
+				06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */,
+				068F424621466C00005CA466 /* problem-ic1.png in Resources */,
 				065029A020BFFD51007E90E2 /* Background.png in Resources */,
 				06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */,
 				065029B220BFFD51007E90E2 /* Invite@2x.png in Resources */,
 				065029B420BFFD51007E90E2 /* Advance@2x.png in Resources */,
 				0650290420BFEE34007E90E2 /* enData.plist in Resources */,
+				068F425221467704005CA466 /* update-50.png in Resources */,
 				060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */,
 				0644090620CE753800A5DB3B /* attachmentListShowTableCell.xib in Resources */,
+				068F424E2146725F005CA466 /* change.png in Resources */,
 				065029AB20BFFD51007E90E2 /* Ratings.png in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 				065029AA20BFFD51007E90E2 /* Jobs.png in Resources */,
 				065029A920BFFD51007E90E2 /* Settings@2x.png in Resources */,
 				061875352114193B0078A7C5 /* GoogleService-Info.plist in Resources */,
 				064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */,
+				068F424A21466E0C005CA466 /* all-list.png in Resources */,
 				065029A720BFFD51007E90E2 /* Avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1075,6 +1146,7 @@
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
+				06B3D99A213FB430004D548E /* AnalysisView.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
@@ -1083,9 +1155,11 @@
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
 				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
+				06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */,
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
+				06B3D997213FA274004D548E /* ProblemDetailView.m in Sources */,
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
@@ -1095,7 +1169,11 @@
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
 				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
+				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
+				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
+				06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */,
+				06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */,
 				06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,

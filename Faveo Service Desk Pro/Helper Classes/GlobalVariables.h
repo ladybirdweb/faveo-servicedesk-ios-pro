@@ -99,4 +99,17 @@
 @property (strong, nonatomic) NSMutableArray *idList;
 @property (strong, nonatomic) NSMutableArray *subjectList;
 
+
+//problem
+@property (strong, nonatomic) NSNumber *problemId;
+
+
+// priority color
+@property (strong, nonatomic) NSString *priorityColorLowForProblemsList;
+@property (strong, nonatomic) NSString *priorityColorNormalProblemsList;
+@property (strong, nonatomic) NSString *priorityColorHighProblemsList;
+@property (strong, nonatomic) NSString *priorityColorEmergencyProblemsList;
+
+
+
 @end

@@ -1545,12 +1545,38 @@
             //priority color
              NSDictionary *priorityDict=[finaldic objectForKey:@"priority"];
             
+            
             NSString *rawString=[priorityDict objectForKey:@"color"];
+            NSString *nameOfPriority=[priorityDict objectForKey:@"name"];
             
             NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
             
-             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:color] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:color] CGColor];
             
+            if([nameOfPriority isEqualToString:@"Low"]){
+                
+                NSString *rawString=[priorityDict objectForKey:@"color"];
+                NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                globalVariables.priorityColorLowForProblemsList = color;
+            }
+            else if([nameOfPriority isEqualToString:@"Normal"]){
+                
+                NSString *rawString=[priorityDict objectForKey:@"color"];
+                NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                globalVariables.priorityColorNormalProblemsList = color;
+            }
+            else if([nameOfPriority isEqualToString:@"High"]){
+                    
+                    NSString *rawString=[priorityDict objectForKey:@"color"];
+                    NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                    globalVariables.priorityColorHighProblemsList = color;
+                }
+            else if([nameOfPriority isEqualToString:@"Emergency"]){
+                    
+                    NSString *rawString=[priorityDict objectForKey:@"color"];
+                    NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                    globalVariables.priorityColorEmergencyProblemsList = color;
+                }
             
             
         }@catch (NSException *exception)

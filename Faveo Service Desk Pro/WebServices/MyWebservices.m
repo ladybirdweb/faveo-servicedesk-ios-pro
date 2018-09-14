@@ -893,6 +893,25 @@
     
 }
 
+-(void)getNextPageURLProblemsList:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+    
+    NSLog(@"page isssss : %@",pageInt);
+
+    NSString *urlNew= [NSString stringWithFormat:@"%@?token=%@&page=%@",url,[_userDefaults objectForKey:@"token"],pageInt];
+    
+    
+    [self httpResponseGET:urlNew parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block(error,json,msg);
+        });
+        
+    }];
+    
+}
+
 -(void)callPATCHAPIWithAPIName:(NSString *)urlString
                      parameter:(id)parameter
                callbackHandler:(callbackHandler)block{

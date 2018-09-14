@@ -24,7 +24,8 @@
 #import "InboxTickets.h"
 #import "RMessage.h"
 #import "RMessageView.h"
-
+#import "ProblemList.h"
+#import "CreateProblem.h"
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
 
@@ -309,7 +310,29 @@ NSUInteger g_ExpandedCellIndex = 0;
                      [navController setViewControllers: @[controller] animated: YES];
 
                  }
-                 else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"] || [strId isEqualToString:@"sme_marketwatch"] || [strId isEqualToString:@"sme_marketstats"])
+                 else if([strId isEqualToString:@"sme_marketwatch"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     ProblemList * controller = (ProblemList *)[storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"sme_marketstats"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     CreateProblem * controller = (CreateProblem *)[storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 

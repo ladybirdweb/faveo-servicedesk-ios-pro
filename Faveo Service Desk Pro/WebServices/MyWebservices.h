@@ -52,6 +52,6 @@ typedef void (^ApiResponse)(NSError* , id);
 
 -(void)getNextPageUSERFilter:(NSString*)url  callbackHandler:(callbackHandler)block;
 
-
+-(void)getNextPageURLProblemsList:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block;
 
 @end
