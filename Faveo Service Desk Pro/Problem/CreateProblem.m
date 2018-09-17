@@ -88,10 +88,15 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     
-    [self getMetaDataForProblem];
+  //  [self getMetaDataForProblem];
     
     self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+     [self getMetaDataForProblem];
 }
 
 -(void)getMetaDataForProblem{
@@ -747,7 +752,7 @@
     
     
     NSString * locationId=[NSString stringWithFormat:@"%@",location_id];
-    // dept parameter
+    // loca parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"location_type_id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[locationId dataUsingEncoding:NSUTF8StringEncoding]];
@@ -755,7 +760,7 @@
     
     
     NSString * assignId=[NSString stringWithFormat:@"%@",assigned_id];
-    // dept parameter
+    // assigned parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"assigned_id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[assignId dataUsingEncoding:NSUTF8StringEncoding]];

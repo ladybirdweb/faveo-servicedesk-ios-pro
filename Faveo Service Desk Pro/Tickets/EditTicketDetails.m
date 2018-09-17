@@ -766,6 +766,7 @@
                               canBeDismissedByUser:YES];
         
     }else{
+        
         if (_typeTextField.text.length!=0) {
             type_id=[NSNumber numberWithInteger:1+[_typeArray indexOfObject:_typeTextField.text]];
         }else type_id=0;

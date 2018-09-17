@@ -18,6 +18,7 @@
 #import "ProblemDetailView.h"
 #import "UIColor+HexColors.h"
 #import "HexColors.h"
+#import "EditProblemDetails.h"
 
 @interface ProblemDetailView ()
 {
@@ -66,6 +67,10 @@
 -(void)editProblem{
     
     NSLog(@"Clicked....!");
+    
+    EditProblemDetails *editProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"EditProblemDetailsId"];
+    [self.navigationController pushViewController:editProblem animated:YES];
+    
 }
 
 

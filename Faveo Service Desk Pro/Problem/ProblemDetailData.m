@@ -267,13 +267,27 @@
                     NSDictionary *locationDict = [problemList objectForKey:@"location_type_id"];
                     
                    // NSString * locationId = [locationDict objectForKey:@"id"];
-                    NSString * locationName = [locationDict objectForKey:@"title"];
                    
-                    if (![Utils isEmpty:locationName] || ![locationName isEqualToString:@""]){
+                    if ( [locationDict count] == 0 ) {
                         
-                        self->_locationTextField.text = locationName;
+                        self->_locationTextField.text = @"No data";
                     }
-                    else self->_locationTextField.text = @"No data";
+                    else {
+                        
+                        NSString * locationName = [locationDict objectForKey:@"title"];
+                        
+                        if (![Utils isEmpty:locationName] || ![locationName isEqualToString:@""]){
+                            
+                            self->_locationTextField.text = locationName;
+                        }
+                        
+                    }
+                    
+                    
+                   
+                   
+                    
+    
                     
                     
                     [SVProgressHUD dismiss];

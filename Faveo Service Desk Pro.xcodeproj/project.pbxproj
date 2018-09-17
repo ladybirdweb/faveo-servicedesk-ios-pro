@@ -119,10 +119,6 @@
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
 		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
-		068F424C21467240005CA466 /* assets.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424B21467240005CA466 /* assets.png */; };
-		068F424E2146725F005CA466 /* change.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424D2146725F005CA466 /* change.png */; };
-		068F4250214672B0005CA466 /* more32.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424F214672B0005CA466 /* more32.png */; };
-		068F425221467704005CA466 /* update-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F425121467702005CA466 /* update-50.png */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
@@ -339,10 +335,6 @@
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		068F424521466C00005CA466 /* problem-ic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "problem-ic1.png"; path = "../../../../../Downloads/problem-ic1.png"; sourceTree = "<group>"; };
 		068F424921466E0C005CA466 /* all-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-list.png"; sourceTree = "<group>"; };
-		068F424B21467240005CA466 /* assets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assets.png; sourceTree = "<group>"; };
-		068F424D2146725F005CA466 /* change.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change.png; sourceTree = "<group>"; };
-		068F424F214672B0005CA466 /* more32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more32.png; sourceTree = "<group>"; };
-		068F425121467702005CA466 /* update-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "update-50.png"; sourceTree = "<group>"; };
 		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
@@ -690,10 +682,6 @@
 				0650290020BFEE33007E90E2 /* enData.plist */,
 				068F424521466C00005CA466 /* problem-ic1.png */,
 				068F424921466E0C005CA466 /* all-list.png */,
-				068F424B21467240005CA466 /* assets.png */,
-				068F424D2146725F005CA466 /* change.png */,
-				068F425121467702005CA466 /* update-50.png */,
-				068F424F214672B0005CA466 /* more32.png */,
 				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				065028F920BFE3C0007E90E2 /* SWRevealViewController.h */,
 				065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */,
@@ -987,7 +975,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068F424C21467240005CA466 /* assets.png in Resources */,
 				060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */,
 				0623809620CA448500257395 /* TicketTableViewCell.xib in Resources */,
 				0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */,
@@ -998,7 +985,6 @@
 				065029AD20BFFD51007E90E2 /* Settings.png in Resources */,
 				0644092D20CE891D00A5DB3B /* SampleTableCellTableViewCell.xib in Resources */,
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
-				068F4250214672B0005CA466 /* more32.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
@@ -1026,10 +1012,8 @@
 				065029B220BFFD51007E90E2 /* Invite@2x.png in Resources */,
 				065029B420BFFD51007E90E2 /* Advance@2x.png in Resources */,
 				0650290420BFEE34007E90E2 /* enData.plist in Resources */,
-				068F425221467704005CA466 /* update-50.png in Resources */,
 				060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */,
 				0644090620CE753800A5DB3B /* attachmentListShowTableCell.xib in Resources */,
-				068F424E2146725F005CA466 /* change.png in Resources */,
 				065029AB20BFFD51007E90E2 /* Ratings.png in Resources */,
 				0619CF8F20B2E233004CFDC9 /* Main.storyboard in Resources */,
 				065029AA20BFFD51007E90E2 /* Jobs.png in Resources */,
@@ -1297,8 +1281,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1356,9 +1342,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
