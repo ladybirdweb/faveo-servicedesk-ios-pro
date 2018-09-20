@@ -22,4 +22,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *problemDetails;
 
+@property (weak, nonatomic) IBOutlet UITabBarItem *ticketBarItem;
+
+@property (weak, nonatomic) IBOutlet UITabBarItem *assetBarItem;
+
+
 @end

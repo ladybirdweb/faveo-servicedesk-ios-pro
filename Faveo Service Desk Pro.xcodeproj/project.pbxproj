@@ -106,6 +106,7 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A6C312153B2740050EDA2 /* LPSemiModalView.m */; };
 		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
 		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
 		06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAC20CBA4ED000D834D /* LGPlusButton.m */; };
@@ -312,6 +313,8 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		066A6C302153B2730050EDA2 /* LPSemiModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSemiModalView.h; sourceTree = "<group>"; };
+		066A6C312153B2740050EDA2 /* LPSemiModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSemiModalView.m; sourceTree = "<group>"; };
 		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
 		0675925220D23393009BDCCF /* TestingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingView.m; sourceTree = "<group>"; };
 		0675925420D24DE4009BDCCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -510,6 +513,7 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				066A6C2F2153B2610050EDA2 /* LPSemiModalView */,
 				0644091620CE891D00A5DB3B /* TableViewPopUp */,
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
@@ -728,6 +732,16 @@
 				0650298E20BFFD4A007E90E2 /* home_menu.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		066A6C2F2153B2610050EDA2 /* LPSemiModalView */ = {
+			isa = PBXGroup;
+			children = (
+				066A6C302153B2730050EDA2 /* LPSemiModalView.h */,
+				066A6C312153B2740050EDA2 /* LPSemiModalView.m */,
+			);
+			name = LPSemiModalView;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		06765DAA20CBA4ED000D834D /* LGPlusButtonsView */ = {
@@ -1166,6 +1180,7 @@
 				062380A420CA84F000257395 /* DetailViewController.m in Sources */,
 				0644090920CE757900A5DB3B /* NSData+Base64.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
+				066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */,
 				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */,
