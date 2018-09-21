@@ -106,6 +106,8 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		0653B9D921551CEB00DE5C5E /* AssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */; };
+		0653B9DA21551CEB00DE5C5E /* AssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */; };
 		066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A6C312153B2740050EDA2 /* LPSemiModalView.m */; };
 		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
 		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
@@ -313,6 +315,9 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		0653B9D621551CEB00DE5C5E /* AssetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetTableViewCell.h; sourceTree = "<group>"; };
+		0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetTableViewCell.m; sourceTree = "<group>"; };
+		0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTableViewCell.xib; sourceTree = "<group>"; };
 		066A6C302153B2730050EDA2 /* LPSemiModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSemiModalView.h; sourceTree = "<group>"; };
 		066A6C312153B2740050EDA2 /* LPSemiModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSemiModalView.m; sourceTree = "<group>"; };
 		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
@@ -633,6 +638,9 @@
 				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
 				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
 				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
+				0653B9D621551CEB00DE5C5E /* AssetTableViewCell.h */,
+				0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */,
+				0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -1015,6 +1023,7 @@
 				060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */,
 				065029A420BFFD51007E90E2 /* News.png in Resources */,
 				065029B020BFFD51007E90E2 /* People@2x.png in Resources */,
+				0653B9DA21551CEB00DE5C5E /* AssetTableViewCell.xib in Resources */,
 				065029B120BFFD51007E90E2 /* menu_img.png in Resources */,
 				065029A120BFFD51007E90E2 /* Favorite.png in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
@@ -1161,6 +1170,7 @@
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
+				0653B9D921551CEB00DE5C5E /* AssetTableViewCell.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
