@@ -21,6 +21,7 @@
 #import "EditProblemDetails.h"
 #import "LPSemiModalView.h"
 
+
 @interface ProblemDetailView ()<UITabBarDelegate>
 {
     
@@ -29,6 +30,9 @@
     GlobalVariables *globalVariables;
     
 }
+
+@property (nonatomic, strong) LPSemiModalView *normalModalView;
+
 
 @property (nonatomic) int count1;
 
@@ -61,11 +65,72 @@
     
     self.currentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AnalysisViewId"];
     self.currentViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+   
     
     [self addChildViewController:self.currentViewController];
     [self addSubview:self.currentViewController.view toView:self.containerView];
     
     
+    
+    
+    self.normalModalView = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 150) andBaseViewController:self];
+    //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
+    
+    
+
+    
+    UILabel *label0;
+    UILabel *label1;
+    UILabel *label2;
+    
+    //  x  y    w   h
+    label0=[[UILabel alloc]initWithFrame:CGRectMake(10, 10, 200, 13)];
+    label1=[[UILabel alloc]initWithFrame:CGRectMake(53, 50, 150, 40)];//Set frame of label in your viewcontroller.
+    label2=[[UILabel alloc]initWithFrame:CGRectMake(53, 90, 150, 40)];
+    
+    
+    [label1 setText:@"New Change"];//Set text in label.
+    [label2 setText:@"Existing Change"];
+    [label0 setText:@"MANAGE CHANGE"];
+    
+    [label0 setTextColor:[UIColor colorFromHexString:@"CCCCCC"]];
+    [label1 setTextColor:[UIColor blackColor]];//Set text color in label.
+    [label2 setTextColor:[UIColor blackColor]];
+    
+    [label0 setTextAlignment:NSTextAlignmentLeft];
+    [label1 setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    [label1 setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    
+    [label1 setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];//Set line adjustment.
+    [label1 setLineBreakMode:NSLineBreakByCharWrapping];//Set linebreaking mode..
+    // [label setNumberOfLines:1];//Set number of lines in label.
+    
+    [self.normalModalView.contentView addSubview:label0];
+    [self.normalModalView.contentView addSubview:label1];
+    [self.normalModalView.contentView addSubview:label2];
+    
+    
+    
+    UIImageView *imageview1 = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(16, 59, 25, 25)];
+    [imageview1 setImage:[UIImage imageNamed:@"ticket1"]];
+    [imageview1 setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView.contentView addSubview:imageview1];
+    
+    UIImageView *imageview2 = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(16, 98, 25, 25)];
+    [imageview2 setImage:[UIImage imageNamed:@"ticket1"]];
+    [imageview2 setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView.contentView addSubview:imageview2];
+    
+    
+    self.normalModalView.narrowedOff = YES;
+    //below line is the most important line, if you do not write below line then top view and the view below navigation bar will show in balck color, aslo an segemented control also shown in black color. So what I am doing here, I am changing the background color of modal view so that when I come to problem detail page, I can able to see normal screen.
+    self.normalModalView.backgroundColor = [UIColor whiteColor];
+    
+  //  [self.view addSubview:self.normalModalView.contentView];
+
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -301,6 +366,10 @@
     if(item.tag == 1) {
         //your code for tab item 1
         NSLog(@"clicked on 1");
+        
+         [self.normalModalView open];
+    
+        
     }
     else if(item.tag == 2) {
         //your code for tab item 2

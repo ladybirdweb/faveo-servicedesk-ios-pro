@@ -39,7 +39,7 @@
     globalVariables=[GlobalVariables sharedInstance];
     
     
-    [self addUIRefresh];
+  //  [self addUIRefresh];
     
     
 }

@@ -44,7 +44,7 @@
         }
         self.closeControl.userInteractionEnabled = YES;
         [UIView animateWithDuration:0.5f animations:^{
-            self.maskImageView.alpha = 0.5;
+            self.maskImageView.alpha = 0.0;
             self.contentView.frame = CGRectMake(0,
                                                 [[UIScreen mainScreen] bounds].size.height - self.contentView.bounds.size.height,
                                                 self.contentView.frame.size.width,
@@ -69,7 +69,7 @@
         }
         self.closeControl.userInteractionEnabled = YES;
         [UIView animateWithDuration:0.25f animations:^{
-            self.maskImageView.alpha = 0.25;
+            self.maskImageView.alpha = 0.5;
             self.contentView.frame = CGRectMake(0,
                                                 [[UIScreen mainScreen] bounds].size.height - self.contentView.bounds.size.height,
                                                 self.contentView.frame.size.width,
@@ -229,9 +229,9 @@
 {
     if (!_contentView) {
         UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                                    self.frame.size.height,
-                                                                    self.frame.size.width,
-                                                                    self.frame.size.height)];
+                                                                       self.frame.size.height,
+                                                                       self.frame.size.width,
+                                                                       self.frame.size.height)];
         contentView.backgroundColor = [UIColor whiteColor];
         self.contentView = contentView;
     }

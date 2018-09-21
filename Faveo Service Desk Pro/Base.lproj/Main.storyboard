@@ -156,6 +156,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#PRB-12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVS-nf-d6t">
+                                <rect key="frame" x="153" y="33" width="96" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="Mdp-Be-iG9"/>
+                                    <constraint firstAttribute="height" constant="25" id="eRx-Id-3Z5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oUp-t5-b36">
                                 <rect key="frame" x="0.0" y="66" width="414" height="29"/>
                                 <segments>
@@ -195,18 +205,8 @@
                                     <outlet property="delegate" destination="eGl-6K-Obk" id="pUH-Se-WjQ"/>
                                 </connections>
                             </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#PRB-12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVS-nf-d6t">
-                                <rect key="frame" x="153" y="33" width="96" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="96" id="Mdp-Be-iG9"/>
-                                    <constraint firstAttribute="height" constant="25" id="eRx-Id-3Z5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ODz-p5-x3g" firstAttribute="leading" secondItem="pFb-CQ-mHX" secondAttribute="leading" id="FKV-h8-XhC"/>
                             <constraint firstAttribute="trailing" secondItem="oUp-t5-b36" secondAttribute="trailing" id="JQ6-xC-kho"/>
@@ -222,6 +222,7 @@
                             <constraint firstItem="oUp-t5-b36" firstAttribute="leading" secondItem="pFb-CQ-mHX" secondAttribute="leading" id="rga-ko-cU5"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="assetBarItem" destination="qcI-J1-gsm" id="Wvu-TI-a1f"/>
                         <outlet property="containerView" destination="3F1-b1-L8l" id="L7G-S9-Qb5"/>
