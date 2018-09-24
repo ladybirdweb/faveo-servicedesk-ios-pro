@@ -29,6 +29,8 @@
     Utils *utils;
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
+    NSMutableArray * assetArray;
+    NSMutableArray * ticketArray;
     
 }
 
@@ -36,6 +38,7 @@
 @property (nonatomic, strong) LPSemiModalView *normalModalView2;
 @property (nonatomic, strong) LPSemiModalView *normalModalView3;
 @property (nonatomic, strong) LPSemiModalView *normalModalView4;
+@property (nonatomic, strong) LPSemiModalView *normalModalView5;
 
 //It is used to show table view as a modal for displaying tickets and assets
 @property (strong, nonatomic) UITableView *tableView1;
@@ -49,6 +52,8 @@
 @implementation ProblemDetailView
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -59,6 +64,9 @@
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
     globalVariables=[GlobalVariables sharedInstance];
+    
+    assetArray=[[NSMutableArray alloc]init];
+    ticketArray=[[NSMutableArray alloc]init];
     
     UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [editButton setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
@@ -93,7 +101,7 @@
     _tableView1.delegate = self;
     _tableView1.dataSource = self;
     
-    _tableView1.backgroundColor = [UIColor lightGrayColor];
+   // _tableView1.backgroundColor = [UIColor lightGrayColor];
     
     // add to canvas
     [self.normalModalView1.contentView addSubview:_tableView1];
@@ -101,11 +109,13 @@
     
     // creating header
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(1, 50, 276, 45)];
-    headerView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+   // headerView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    headerView.backgroundColor = [UIColor lightGrayColor];
     
     UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(8, 13, 300, 24)];
     labelView.text = @"Asssociated Tickets";
-    labelView.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+  //  labelView.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+    labelView.textColor = [UIColor whiteColor];
     
     [headerView addSubview:labelView];
     _tableView1.tableHeaderView = headerView;
@@ -134,7 +144,7 @@
     _tableView2.delegate = self;
     _tableView2.dataSource = self;
     
-    _tableView2.backgroundColor = [UIColor lightGrayColor];
+  //  _tableView2.backgroundColor = [UIColor lightGrayColor];
     
     // add to canvas
     [self.normalModalView2.contentView addSubview:_tableView2];
@@ -142,11 +152,13 @@
     
     // creating header
     UIView *headerView2 = [[UIView alloc] initWithFrame:CGRectMake(1, 50, 276, 45)];
-    headerView2.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+   // headerView2.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    headerView2.backgroundColor = [UIColor lightGrayColor];
     
     UILabel *labelView2 = [[UILabel alloc] initWithFrame:CGRectMake(8, 13, 300, 24)];
     labelView2.text = @"Asssociated Tickets";
-    labelView2.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+   // labelView2.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+    labelView2.textColor = [UIColor whiteColor];
     
     [headerView2 addSubview:labelView2];
     _tableView2.tableHeaderView = headerView2;
@@ -158,10 +170,10 @@
     self.normalModalView2.backgroundColor = [UIColor whiteColor];
     
     
-    // ************** end modal view for showing tickets ***********************
+    // ************** end modal view 2 for showing tickets ***********************
     
     
-    // **************** modal view for change ******************************
+    // **************** modal view 3 for change ******************************
     
     self.normalModalView3 = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 150) andBaseViewController:self];
     //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
@@ -201,20 +213,20 @@
     
     UIImageView *imageview1 = [[UIImageView alloc]
                                initWithFrame:CGRectMake(16, 59, 25, 25)];
-    [imageview1 setImage:[UIImage imageNamed:@"ticket1"]];
+    [imageview1 setImage:[UIImage imageNamed:@"create_ticket"]];
     [imageview1 setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView3.contentView addSubview:imageview1];
     
     UIImageView *imageview2 = [[UIImageView alloc]
                                initWithFrame:CGRectMake(16, 98, 25, 25)];
-    [imageview2 setImage:[UIImage imageNamed:@"ticket1"]];
+    [imageview2 setImage:[UIImage imageNamed:@"AddCC"]];
     [imageview2 setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView3.contentView addSubview:imageview2];
     
     
     self.normalModalView3.narrowedOff = YES;
     //below line is the most important line, if you do not write below line then top view and the view below navigation bar will show in balck color, aslo an segemented control also shown in black color. So what I am doing here, I am changing the background color of modal view so that when I come to problem detail page, I can able to see normal screen.
-    self.normalModalView3.backgroundColor = [UIColor lightGrayColor];
+  //  self.normalModalView3.backgroundColor = [UIColor whiteColor];
     
    // **************** end modal view 3 for change *************************************
     
@@ -270,36 +282,112 @@
     
     
     UIImageView *imageview11 = [[UIImageView alloc]
-                               initWithFrame:CGRectMake(21, 59, 25, 25)];
-    [imageview11 setImage:[UIImage imageNamed:@"one"]];
+                               initWithFrame:CGRectMake(21, 59, 23, 23)];
+    [imageview11 setImage:[UIImage imageNamed:@"rootCause"]];
     [imageview11 setContentMode:UIViewContentModeScaleAspectFit];
-    [self.normalModalView3.contentView addSubview:imageview1];
+    [self.normalModalView4.contentView addSubview:imageview11];
     
     UIImageView *imageview22 = [[UIImageView alloc]
-                               initWithFrame:CGRectMake(21, 98, 25, 25)];
-    [imageview22 setImage:[UIImage imageNamed:@"one"]];
+                               initWithFrame:CGRectMake(24, 100, 20, 20)];
+    [imageview22 setImage:[UIImage imageNamed:@"impact"]];
     [imageview22 setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView4.contentView addSubview:imageview22];
     
     UIImageView *imageview33 = [[UIImageView alloc]
                                initWithFrame:CGRectMake(21, 140, 25, 25)];
-    [imageview33 setImage:[UIImage imageNamed:@"one"]];
+    [imageview33 setImage:[UIImage imageNamed:@"symptoms"]];
     [imageview33 setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView4.contentView addSubview:imageview33];
     
     UIImageView *imageview44 = [[UIImageView alloc]
-                               initWithFrame:CGRectMake(21, 178, 25, 25)];
-    [imageview44 setImage:[UIImage imageNamed:@"one"]];
+                               initWithFrame:CGRectMake(21, 178, 28, 28)];
+    [imageview44 setImage:[UIImage imageNamed:@"solution"]];
     [imageview44 setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView4.contentView addSubview:imageview44];
     
     
     self.normalModalView4.narrowedOff = YES;
-    self.normalModalView4.backgroundColor = [UIColor lightGrayColor];
+  //  self.normalModalView4.backgroundColor = [UIColor whiteColor];
     
     
    //***************** end modal view 4 ************************************************
 
+   //***************** modal view 5 for more ************************************************
+    
+    //self.title = @"LPSemiModalView";
+    self.normalModalView5 = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 190) andBaseViewController:self];
+    //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
+    
+    UILabel *label0A;
+    UILabel *label1A;
+    UILabel *label2A;
+    UILabel *label3A;
+    
+    
+                                                   //  x  y    w   h
+    label0A=[[UILabel alloc]initWithFrame:CGRectMake(15, 15, 200, 13)];
+    label1A=[[UILabel alloc]initWithFrame:CGRectMake(58, 50, 150, 40)];//Set frame of label in your viewcontroller.
+    label2A=[[UILabel alloc]initWithFrame:CGRectMake(58, 90, 150, 40)];
+    label3A=[[UILabel alloc]initWithFrame:CGRectMake(58, 130, 150, 40)];
+    
+    
+    
+    [label1A setText:@"Edit"];//Set text in label.
+    [label2A setText:@"Close"];
+    [label3A setText:@"Delete"];
+    
+    [label0A setText:@"..."];
+    
+    [label0A setTextColor:[UIColor colorFromHexString:@"CCCCCC"]];
+    [label1A setTextColor:[UIColor blackColor]];//Set text color in label.
+    [label2A setTextColor:[UIColor blackColor]];
+    [label3A setTextColor:[UIColor blackColor]];
+    
+    
+    [label0A setTextAlignment:NSTextAlignmentLeft];
+    [label1A setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    [label2A setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    [label3A setTextAlignment:NSTextAlignmentLeft];
+    
+    
+    [label1A setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];//Set line adjustment.
+    [label1A setLineBreakMode:NSLineBreakByCharWrapping];//Set linebreaking mode..
+    // [label setNumberOfLines:1];//Set number of lines in label.
+    
+    [self.normalModalView5.contentView addSubview:label0A];
+    [self.normalModalView5.contentView addSubview:label1A];
+    [self.normalModalView5.contentView addSubview:label2A];
+    [self.normalModalView5.contentView addSubview:label3A];
+    
+    
+    
+    
+    UIImageView *imageview1A = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(21, 59, 25, 25)];
+    [imageview1A setImage:[UIImage imageNamed:@"pencileEdit"]];
+    [imageview1A setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView5.contentView addSubview:imageview1A];
+    
+    UIImageView *imageview2A = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(21, 98, 25, 25)];
+    [imageview2A setImage:[UIImage imageNamed:@"closeticket2"]];
+    [imageview2A setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView5.contentView addSubview:imageview2A];
+    
+    UIImageView *imageview3A = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(21, 140, 25, 25)];
+    [imageview3A setImage:[UIImage imageNamed:@"trash2"]];
+    [imageview3A setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView5.contentView addSubview:imageview3A];
+    
+    
+    
+    
+    self.normalModalView5.narrowedOff = YES;
+  //  self.normalModalView4.backgroundColor = [UIColor whiteColor];
+    
+    //************* end modal view 5 for more **********************************************
+    
     
 }
 
@@ -494,13 +582,15 @@
                     
                    NSDictionary *problemList=[json objectForKey:@"data"];
                   
-                   NSArray * assetArray = [problemList objectForKey:@"asset"];
+                    self->assetArray = [problemList objectForKey:@"asset"];
                     
                   //NSLog(@"Values of count is : %lu",(unsigned long)[assetArray count]);
                     
                   //showing asset count
-                  self->_assetBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[assetArray count]];
+                    self->_assetBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->assetArray count]];
                     
+                    
+                 //  self->ticketArray = [problemList objectForKey:@"tickets"];
                  //showing ticket count
                  // self->_ticketBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[ticketArray count]];
                     self->_ticketBarItem.badgeValue=@"0";
@@ -562,9 +652,11 @@
     else if(item.tag == 5) {
         //your code for tab item 5
         NSLog(@"clicked on 5");
+        [self.normalModalView5 open];
     }else{
         
         NSLog(@"something went wrong");
+        
     }
 }
 
@@ -573,13 +665,20 @@
 // number of section(s), now I assume there is only 1 section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
 {
+    
     return 1;
+    
 }
 
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    if(theTableView == _tableView1){
+    
+        return 5;
+    }
+   
+    return [assetArray count];
 }
 
 
@@ -612,7 +711,9 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AssetTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-
+   
+     NSLog(@"Asset Array is : %@",assetArray);
+    
     cell.assetIdLabel.text = @"#AST-12";
     cell.assetTitleLabel.text = @"This is Manish Laptop";
 
