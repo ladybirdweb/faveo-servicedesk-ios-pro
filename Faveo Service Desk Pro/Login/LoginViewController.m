@@ -630,6 +630,8 @@
                             
                             NSString * userRole=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"role"]];
                             
+                            NSString * userEmail = [NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"email"]];
+                            [self->userdefaults setObject:userEmail forKey:@"userEmail"];
                             
                             
                             

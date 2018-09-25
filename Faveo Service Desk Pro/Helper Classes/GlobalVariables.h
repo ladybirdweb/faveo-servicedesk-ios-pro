@@ -110,6 +110,8 @@
 @property (strong, nonatomic) NSString *priorityColorHighProblemsList;
 @property (strong, nonatomic) NSString *priorityColorEmergencyProblemsList;
 
+@property (strong, nonatomic) NSMutableArray *asstArray;
+@property (strong, nonatomic) NSMutableArray *ticketArray;
 
 
 @end

@@ -26,9 +26,14 @@
 #import "RMessageView.h"
 #import "ProblemList.h"
 #import "CreateProblem.h"
+#import "UIImageView+Letters.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
-
+{
+     NSUserDefaults *userDefaults;
+}
 
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -61,6 +66,10 @@ NSUInteger g_ExpandedCellIndex = 0;
     
     [self setTableView];
     [self setProfileImage];
+    
+    
+    userDefaults=[NSUserDefaults standardUserDefaults];
+    
     //
     //select the data.plist as per the language set for the app
     NSDictionary *dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"enData" ofType:@"plist"]];
@@ -81,10 +90,28 @@ NSUInteger g_ExpandedCellIndex = 0;
 }
 
 - (void) setProfileImage {
+    
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
     // self.profileImageView.layer.borderWidth = 3.0f;
     //  self.profileImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
+    if([[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".jpg"] || [[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".jpeg"] || [[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".png"] )
+    {
+        [_profileImageView sd_setImageWithURL:[NSURL URLWithString:[userDefaults objectForKey:@"profile_pic"]]
+                              placeholderImage:[UIImage imageNamed:@"default_pic.png"]];
+    }else
+    {
+        //   NSString * name = [NSString];
+        NSString * name = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"profile_name"]];
+        [_profileImageView setImageWithString:[name substringToIndex:2] color:nil ];
+    }
+    
+    
+    
+    _userNameLabel.text = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"profile_name"]];
+    _userEmailLabel.text = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"userEmail"]];
+    
     
 }
 

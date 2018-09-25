@@ -17,4 +17,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 
 //@property (nonatomic, retain) MainViewController *mainViewController;
+
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userEmailLabel;
+
 @end

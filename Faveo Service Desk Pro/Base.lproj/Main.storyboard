@@ -1979,6 +1979,8 @@
                         <outlet property="headerView" destination="LiB-mp-o1d" id="8f2-QG-xTt"/>
                         <outlet property="menuTableView" destination="tNi-pe-2Ht" id="Ar8-qT-KFt"/>
                         <outlet property="profileImageView" destination="aH4-1U-4DO" id="iHF-lU-HBe"/>
+                        <outlet property="userEmailLabel" destination="piD-GF-9Hd" id="Wjr-B5-Wvt"/>
+                        <outlet property="userNameLabel" destination="jBf-dw-Ght" id="WP5-Qb-0Jh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18A-Fu-gyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6418,9 +6420,6 @@
                                             <constraint firstAttribute="height" constant="33" id="cvm-AI-lAa"/>
                                         </constraints>
                                         <state key="normal" image="ic_forward"/>
-                                        <connections>
-                                            <action selector="urlNextButtonAction:" destination="Lqu-lE-63t" eventType="touchUpInside" id="NAv-6o-hMc"/>
-                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g http://faveohelpdesk.com/support" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yKq-5U-p9c">
                                         <rect key="frame" x="32" y="31" width="319" height="30"/>
@@ -6531,9 +6530,6 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="logginButtonClicked:" destination="Lqu-lE-63t" eventType="touchUpInside" id="ZHK-V3-1zS"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6574,15 +6570,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="uOs-Bc-0mN"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="companyURLview" destination="ZJn-Ap-kz5" id="g1t-ZJ-Gde"/>
-                        <outlet property="loginButtonOutlet" destination="oHG-Io-NmE" id="2N7-iA-UTD"/>
-                        <outlet property="loginView" destination="Co7-H6-XLI" id="4Uq-Ob-SnP"/>
-                        <outlet property="passcodeTextField" destination="V8o-ZU-ITy" id="etI-OU-2IS"/>
-                        <outlet property="servicdeskUrlLabel" destination="cg3-pk-udc" id="QKe-CS-5LV"/>
-                        <outlet property="urlTextfield" destination="yKq-5U-p9c" id="E2Z-0h-g95"/>
-                        <outlet property="userNameTextField" destination="nh3-u6-pH3" id="qaf-RT-Y1M"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBP-DW-PFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
