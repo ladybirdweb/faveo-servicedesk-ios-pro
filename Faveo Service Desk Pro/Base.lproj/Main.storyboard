@@ -77,7 +77,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LH9-9w-CXX">
-                                <rect key="frame" x="0.0" y="93" width="414" height="635"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="594"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACZN-2015-0002015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MT-ah-2yM">
                                 <rect key="frame" x="0.0" y="35" width="131" height="21"/>
@@ -112,13 +112,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wy5-fm-zQf">
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="eqp-B7-zCq"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="Asset" image="tabBar2" id="iaz-Rg-JC3"/>
+                                    <tabBarItem tag="2" title="Problem" image="problemLogo" id="6kX-SP-ncH"/>
+                                    <tabBarItem tag="3" title="Reply" image="reply1" id="hGw-1s-8VW"/>
+                                    <tabBarItem tag="4" title="Internal Note" image="note3" id="1nF-VS-XOr"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="FFA-Tf-3fj" id="Dvw-ix-ZcJ"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QfL-mM-XA8" firstAttribute="top" secondItem="LH9-9w-CXX" secondAttribute="bottom" constant="8" id="3HE-UP-h0i"/>
+                            <constraint firstItem="wy5-fm-zQf" firstAttribute="top" secondItem="LH9-9w-CXX" secondAttribute="bottom" id="2hr-op-Pvx"/>
                             <constraint firstAttribute="trailing" secondItem="kLG-Hk-XVi" secondAttribute="trailing" id="5e6-r5-dEm"/>
                             <constraint firstAttribute="trailing" secondItem="LH9-9w-CXX" secondAttribute="trailing" id="5ti-fQ-2mk"/>
                             <constraint firstItem="B5r-tK-5eB" firstAttribute="centerX" secondItem="AdW-MD-4P5" secondAttribute="centerX" constant="4.5" id="6G7-Yl-pdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="wy5-fm-zQf" secondAttribute="trailing" id="7Aa-6d-bxS"/>
                             <constraint firstItem="RNO-4r-h1h" firstAttribute="leading" secondItem="B5r-tK-5eB" secondAttribute="trailing" constant="13" id="8fc-zP-Ydl"/>
                             <constraint firstItem="kLG-Hk-XVi" firstAttribute="leading" secondItem="AdW-MD-4P5" secondAttribute="leading" id="MWq-7J-zYZ"/>
                             <constraint firstItem="LH9-9w-CXX" firstAttribute="leading" secondItem="AdW-MD-4P5" secondAttribute="leading" id="QTt-he-pHF"/>
@@ -126,6 +143,8 @@
                             <constraint firstItem="B5r-tK-5eB" firstAttribute="top" secondItem="2C8-yP-xNL" secondAttribute="bottom" constant="14" id="cXm-db-uyu"/>
                             <constraint firstItem="RNO-4r-h1h" firstAttribute="baseline" secondItem="4MT-ah-2yM" secondAttribute="baseline" id="hpP-H0-gXh"/>
                             <constraint firstItem="kLG-Hk-XVi" firstAttribute="top" secondItem="B5r-tK-5eB" secondAttribute="bottom" constant="7" id="iM6-Qe-mId"/>
+                            <constraint firstItem="QfL-mM-XA8" firstAttribute="top" secondItem="wy5-fm-zQf" secondAttribute="bottom" id="liM-mc-LhF"/>
+                            <constraint firstItem="wy5-fm-zQf" firstAttribute="leading" secondItem="AdW-MD-4P5" secondAttribute="leading" id="lpa-au-Gkd"/>
                             <constraint firstItem="RNO-4r-h1h" firstAttribute="centerY" secondItem="4MT-ah-2yM" secondAttribute="centerY" id="nqR-cH-OVh"/>
                             <constraint firstItem="4MT-ah-2yM" firstAttribute="leading" secondItem="AdW-MD-4P5" secondAttribute="leadingMargin" constant="-20" id="tFV-nI-3pI"/>
                             <constraint firstItem="kLG-Hk-XVi" firstAttribute="top" secondItem="4MT-ah-2yM" secondAttribute="bottom" constant="6" id="vtD-bY-kuL"/>
@@ -133,8 +152,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="asstetTabBarItem" destination="iaz-Rg-JC3" id="MuG-vC-e2x"/>
                         <outlet property="containerView" destination="LH9-9w-CXX" id="ndA-cR-4B6"/>
+                        <outlet property="internalNoteTabBarItem" destination="1nF-VS-XOr" id="9Jn-RF-Co5"/>
                         <outlet property="nameLabel" destination="B5r-tK-5eB" id="6B2-00-Gny"/>
+                        <outlet property="problemTabBarItem" destination="6kX-SP-ncH" id="ewH-Cx-hph"/>
+                        <outlet property="replyTabBarItem" destination="hGw-1s-8VW" id="UpW-h8-d41"/>
                         <outlet property="segmentedControl" destination="kLG-Hk-XVi" id="2mu-cS-D6w"/>
                         <outlet property="statusLabel" destination="RNO-4r-h1h" id="P1c-Ta-GFA"/>
                         <outlet property="ticketLabel" destination="4MT-ah-2yM" id="Ylb-Nu-0X6"/>
@@ -6420,6 +6443,9 @@
                                             <constraint firstAttribute="height" constant="33" id="cvm-AI-lAa"/>
                                         </constraints>
                                         <state key="normal" image="ic_forward"/>
+                                        <connections>
+                                            <action selector="urlNextButtonAction:" destination="Lqu-lE-63t" eventType="touchUpInside" id="hEf-4I-jML"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g http://faveohelpdesk.com/support" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yKq-5U-p9c">
                                         <rect key="frame" x="32" y="31" width="319" height="30"/>
@@ -6530,6 +6556,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="logginButtonClicked:" destination="Lqu-lE-63t" eventType="touchUpInside" id="90r-6z-NuY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6570,6 +6599,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="uOs-Bc-0mN"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="companyURLview" destination="ZJn-Ap-kz5" id="JE8-wb-VfB"/>
+                        <outlet property="loginButtonOutlet" destination="oHG-Io-NmE" id="vQf-kA-rte"/>
+                        <outlet property="loginView" destination="Co7-H6-XLI" id="s4s-c0-iSd"/>
+                        <outlet property="passcodeTextField" destination="V8o-ZU-ITy" id="Tpz-Me-EPj"/>
+                        <outlet property="servicdeskUrlLabel" destination="cg3-pk-udc" id="aHh-gB-uf9"/>
+                        <outlet property="urlNextButton" destination="v7a-IM-dY0" id="ssv-yK-TnM"/>
+                        <outlet property="urlTextfield" destination="yKq-5U-p9c" id="hpH-Hz-0vO"/>
+                        <outlet property="userNameTextField" destination="nh3-u6-pH3" id="q9Q-6C-or0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBP-DW-PFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6953,6 +6992,9 @@
         <image name="menu-button" width="22" height="17"/>
         <image name="mobile" width="512" height="512"/>
         <image name="msg1" width="512" height="512"/>
+        <image name="note3" width="24" height="24"/>
+        <image name="problemLogo" width="26" height="26"/>
+        <image name="reply1" width="24" height="24"/>
         <image name="servicdeskPro.png" width="1024" height="1024"/>
         <image name="tabBar2" width="24" height="24"/>
         <image name="tabBar3" width="24" height="24"/>

@@ -137,6 +137,16 @@
                     NSString *role123=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"role"]];//role
                     NSLog(@"Role from Web Services class : %@",role123);
                     
+                     NSString *userEmail=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"email"]];
+                    [self->_userDefaults setObject:userEmail forKey:@"userEmail"];
+                    
+                     NSString *userProfilePic=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"profile_pic"]];
+                    [self->_userDefaults setObject:userProfilePic forKey:@"profile_pic"];
+                    
+                    NSString *profileName = [NSString stringWithFormat:@"%@ %@",[userDetailsDict objectForKey:@"first_name"],[userDetailsDict objectForKey:@"last_name"]];
+                    [self->_userDefaults setObject:profileName forKey:@"profile_name"];
+                    
+                    
                     self->globalVariables.roleFromAuthenticateAPI=role123;
                     [self->_userDefaults setObject:role123 forKey:@"msgFromRefreshToken"];
                     

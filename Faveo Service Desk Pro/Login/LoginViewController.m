@@ -80,7 +80,7 @@
   //  [self.passcodeTextField addPasswordField];
     
     _servicdeskUrlLabel.textColor = [UIColor colorFromHexString:@"049BE5"];
-    _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
+//    _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
     
     
     

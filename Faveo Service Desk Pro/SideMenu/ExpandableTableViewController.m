@@ -91,6 +91,8 @@ NSUInteger g_ExpandedCellIndex = 0;
 
 - (void) setProfileImage {
     
+    userDefaults=[NSUserDefaults standardUserDefaults];
+    
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
     // self.profileImageView.layer.borderWidth = 3.0f;

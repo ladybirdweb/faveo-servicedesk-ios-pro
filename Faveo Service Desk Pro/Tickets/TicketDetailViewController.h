@@ -27,4 +27,12 @@
 - (IBAction)indexChanged:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UITabBarItem *asstetTabBarItem;
+
+@property (weak, nonatomic) IBOutlet UITabBarItem *problemTabBarItem;
+
+@property (weak, nonatomic) IBOutlet UITabBarItem *replyTabBarItem;
+@property (weak, nonatomic) IBOutlet UITabBarItem *internalNoteTabBarItem;
+
+
 @end

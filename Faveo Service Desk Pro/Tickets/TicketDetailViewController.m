@@ -27,7 +27,8 @@
 #import "InboxTickets.h"
 
 
-@interface TicketDetailViewController () <RMessageProtocol>{
+@interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate>{
+    
     Utils *utils;
     NSUserDefaults *userDefaults;
     UITextField *textFieldCc;
@@ -151,7 +152,7 @@
     
     [super viewWillAppear:animated];
     
-    [self floatingButton];
+   // [self floatingButton];
 }
 
 // After clicking this button, it will nviagte to edit ticket view controller
@@ -163,6 +164,49 @@
     [self.navigationController pushViewController:edit animated:YES];
     
 }
+
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    if(item.tag == 1) {
+        //your code for tab item 1
+        NSLog(@"clicked on 1");
+        
+     //   [self.normalModalView1 open];
+        
+    }
+    else if(item.tag == 2) {
+        //your code for tab item 2
+        NSLog(@"clicked on 2");
+        //NSLog(@"Array is : %@",globalVariables.asstArray);
+      //  [self.normalModalView2 open];
+        
+    }
+    else if(item.tag == 3) {
+        //your code for tab item 3
+        NSLog(@"clicked on 3");
+        
+        ReplyTicketViewController *reply=[self.storyboard instantiateViewControllerWithIdentifier:@"replyTicketViewId"];
+        [self.navigationController pushViewController:reply animated:YES];
+        
+        
+       // [self.normalModalView3 open];
+    }
+    else if(item.tag == 4) {
+        //your code for tab item 4
+        NSLog(@"clicked on 4");
+        
+        InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
+        [self.navigationController pushViewController:note animated:YES];
+        
+     //   [self.normalModalView4 open];
+    }
+    else{
+        
+        NSLog(@"something went wrong");
+        
+    }
+}
+
 
 
 -(void)floatingButton
