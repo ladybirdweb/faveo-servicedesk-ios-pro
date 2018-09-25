@@ -106,15 +106,11 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
-		0653B9D921551CEB00DE5C5E /* AssetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */; };
-		0653B9DA21551CEB00DE5C5E /* AssetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */; };
+		0653B9DA21551CEB00DE5C5E /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0653B9D821551CEB00DE5C5E /* AssetCell.xib */; };
+		0667370D215A362A0088719E /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667370C215A362A0088719E /* AssetCell.m */; };
 		066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A6C312153B2740050EDA2 /* LPSemiModalView.m */; };
 		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
 		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
-		06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAC20CBA4ED000D834D /* LGPlusButton.m */; };
-		06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */; };
-		06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */; };
-		06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */; };
 		06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB820CBA76D000D834D /* ReplyTicketViewController.m */; };
 		06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DBB20CBA782000D834D /* InternalNoteViewController.m */; };
 		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
@@ -315,22 +311,14 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
-		0653B9D621551CEB00DE5C5E /* AssetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetTableViewCell.h; sourceTree = "<group>"; };
-		0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetTableViewCell.m; sourceTree = "<group>"; };
-		0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetTableViewCell.xib; sourceTree = "<group>"; };
+		0653B9D821551CEB00DE5C5E /* AssetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCell.xib; sourceTree = "<group>"; };
+		0667370B215A362A0088719E /* AssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
+		0667370C215A362A0088719E /* AssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
 		066A6C302153B2730050EDA2 /* LPSemiModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSemiModalView.h; sourceTree = "<group>"; };
 		066A6C312153B2740050EDA2 /* LPSemiModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSemiModalView.m; sourceTree = "<group>"; };
 		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
 		0675925220D23393009BDCCF /* TestingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingView.m; sourceTree = "<group>"; };
 		0675925420D24DE4009BDCCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		06765DAB20CBA4ED000D834D /* LGPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButton.h; sourceTree = "<group>"; };
-		06765DAC20CBA4ED000D834D /* LGPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButton.m; sourceTree = "<group>"; };
-		06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonDescription.h; sourceTree = "<group>"; };
-		06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonDescription.m; sourceTree = "<group>"; };
-		06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsView.h; sourceTree = "<group>"; };
-		06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsView.m; sourceTree = "<group>"; };
-		06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsViewShared.h; sourceTree = "<group>"; };
-		06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsViewShared.m; sourceTree = "<group>"; };
 		06765DB720CBA76D000D834D /* ReplyTicketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyTicketViewController.h; sourceTree = "<group>"; };
 		06765DB820CBA76D000D834D /* ReplyTicketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyTicketViewController.m; sourceTree = "<group>"; };
 		06765DBA20CBA782000D834D /* InternalNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternalNoteViewController.h; sourceTree = "<group>"; };
@@ -530,7 +518,6 @@
 				0676606420CBBF22000D834D /* GlobalVariables.m */,
 				06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */,
 				06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */,
-				06765DAA20CBA4ED000D834D /* LGPlusButtonsView */,
 				0623809820CA636D00257395 /* NSDate-Time-Ago */,
 				060F460C20C927D100EDA6B8 /* UIImageView+Letters */,
 				060F460320C91D4800EDA6B8 /* NavigationMenuItem */,
@@ -638,9 +625,9 @@
 				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
 				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
 				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
-				0653B9D621551CEB00DE5C5E /* AssetTableViewCell.h */,
-				0653B9D721551CEB00DE5C5E /* AssetTableViewCell.m */,
-				0653B9D821551CEB00DE5C5E /* AssetTableViewCell.xib */,
+				0667370B215A362A0088719E /* AssetCell.h */,
+				0667370C215A362A0088719E /* AssetCell.m */,
+				0653B9D821551CEB00DE5C5E /* AssetCell.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -750,21 +737,6 @@
 			);
 			name = LPSemiModalView;
 			path = "New Group";
-			sourceTree = "<group>";
-		};
-		06765DAA20CBA4ED000D834D /* LGPlusButtonsView */ = {
-			isa = PBXGroup;
-			children = (
-				06765DAB20CBA4ED000D834D /* LGPlusButton.h */,
-				06765DAC20CBA4ED000D834D /* LGPlusButton.m */,
-				06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */,
-				06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */,
-				06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */,
-				06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */,
-				06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */,
-				06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */,
-			);
-			path = LGPlusButtonsView;
 			sourceTree = "<group>";
 		};
 		06D6477F20C56BE8000783C8 /* Tickets */ = {
@@ -1023,7 +995,7 @@
 				060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */,
 				065029A420BFFD51007E90E2 /* News.png in Resources */,
 				065029B020BFFD51007E90E2 /* People@2x.png in Resources */,
-				0653B9DA21551CEB00DE5C5E /* AssetTableViewCell.xib in Resources */,
+				0653B9DA21551CEB00DE5C5E /* AssetCell.xib in Resources */,
 				065029B120BFFD51007E90E2 /* menu_img.png in Resources */,
 				065029A120BFFD51007E90E2 /* Favorite.png in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
@@ -1148,6 +1120,7 @@
 				06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */,
 				06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */,
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
+				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -1170,13 +1143,11 @@
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
-				0653B9D921551CEB00DE5C5E /* AssetTableViewCell.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
-				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
 				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
 				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
@@ -1196,7 +1167,6 @@
 				064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */,
 				0675925320D23393009BDCCF /* TestingView.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
-				06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */,
 				0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */,
 				0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
@@ -1204,7 +1174,6 @@
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */,
 				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
-				06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */,
 				0676605F20CBBD93000D834D /* Utils.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
@@ -1217,7 +1186,6 @@
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
-				06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

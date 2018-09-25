@@ -15,9 +15,8 @@
 #import "GlobalVariables.h"
 #import "RMessage.h"
 #import "RMessageView.h"
-//#import "NotificationViewController.h"
 #import "FTPopOverMenu.h"
-#import "LGPlusButtonsView.h"
+#import "UIColor+HexColors.h"
 #import "ConversationViewController.h"
 #import "EditTicketDetails.h"
 #import "ReplyTicketViewController.h"
@@ -25,9 +24,11 @@
 #import "LoginViewController.h"
 #import "SVProgressHUD.h"
 #import "InboxTickets.h"
+#import "LPSemiModalView.h"
+#import "AssetCell.h"
 
 
-@interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate>{
+@interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -49,9 +50,12 @@
     NSString *selectedStatusId;
 }
 
+@property (nonatomic, strong) LPSemiModalView *normalModalView1;
+@property (nonatomic, strong) LPSemiModalView *normalModalView2;
 
-@property (strong, nonatomic) LGPlusButtonsView *plusButtonsViewMain;
+@property (strong, nonatomic) UITableView *tableView1;
 
+@property (nonatomic) int count1;
 
 @end
 
@@ -101,6 +105,116 @@
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
     NSLog(@"Ticket Id isssss : %@",globalVariables.ticketId);
+    
+    
+    
+    
+    // ************** modal view 1 for showing assets ************************
+    
+    self.normalModalView1 = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 230) andBaseViewController:self];
+    //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
+    
+    
+    // init table view
+    _tableView1 = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
+    // must set delegate & dataSource, otherwise the the table will be empty and not responsive
+    _tableView1.delegate = self;
+    _tableView1.dataSource = self;
+    
+    // _tableView1.backgroundColor = [UIColor lightGrayColor];
+    
+    // add to canvas
+    [self.normalModalView1.contentView addSubview:_tableView1];
+    
+    
+    // creating header
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(1, 50, 276, 45)];
+    // headerView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    headerView.backgroundColor = [UIColor lightGrayColor];
+    
+    UILabel *labelView = [[UILabel alloc] initWithFrame:CGRectMake(8, 13, 300, 24)];
+    labelView.text = @"Asssociated Assets";
+    //  labelView.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+    labelView.textColor = [UIColor whiteColor];
+    
+    [headerView addSubview:labelView];
+    _tableView1.tableHeaderView = headerView;
+    
+    // end creating header
+    
+    
+    self.normalModalView1.narrowedOff = YES;
+    self.normalModalView1.backgroundColor = [UIColor whiteColor];
+    
+    
+   // ************** end modal view 1 for showing assets ***********************
+    
+   // **************** modal view 2 for problem ********************************
+    
+    self.normalModalView2 = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 150) andBaseViewController:self];
+    //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
+    
+    
+    UILabel *label0;
+    UILabel *label1;
+    UILabel *label2;
+    
+    //  x  y    w   h
+    label0=[[UILabel alloc]initWithFrame:CGRectMake(10, 10, 220, 13)];
+    label1=[[UILabel alloc]initWithFrame:CGRectMake(53, 50, 220, 40)];//Set frame of label in your viewcontroller.
+    label2=[[UILabel alloc]initWithFrame:CGRectMake(53, 90, 220, 40)];
+    
+    
+    [label1 setText:@"Attach New Problem"];//Set text in label.
+    [label2 setText:@"Attach Existing Problem"];
+    [label0 setText:@"..."];
+    
+    label1.userInteractionEnabled = YES;
+    label2.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer * tapGesture1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(attachNewProblemClicked)];
+    UITapGestureRecognizer * tapGesture2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(attachExistingProblemClicked)];
+    
+    [label1 addGestureRecognizer:tapGesture1];
+    [label2 addGestureRecognizer:tapGesture2];
+    
+    [label0 setTextColor:[UIColor colorFromHexString:@"CCCCCC"]];
+    [label1 setTextColor:[UIColor blackColor]];//Set text color in label.
+    [label2 setTextColor:[UIColor blackColor]];
+    
+    [label0 setTextAlignment:NSTextAlignmentLeft];
+    [label1 setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    [label1 setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
+    
+    [label1 setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];//Set line adjustment.
+    [label1 setLineBreakMode:NSLineBreakByCharWrapping];//Set linebreaking mode..
+    // [label setNumberOfLines:1];//Set number of lines in label.
+    
+    [self.normalModalView2.contentView addSubview:label0];
+    [self.normalModalView2.contentView addSubview:label1];
+    [self.normalModalView2.contentView addSubview:label2];
+    
+    
+    
+    UIImageView *imageview1 = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(16, 59, 25, 25)];
+    [imageview1 setImage:[UIImage imageNamed:@"create_ticket"]];
+    [imageview1 setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView2.contentView addSubview:imageview1];
+    
+    UIImageView *imageview2 = [[UIImageView alloc]
+                               initWithFrame:CGRectMake(16, 98, 25, 25)];
+    [imageview2 setImage:[UIImage imageNamed:@"AddCC"]];
+    [imageview2 setContentMode:UIViewContentModeScaleAspectFit];
+    [self.normalModalView2.contentView addSubview:imageview2];
+    
+    
+    self.normalModalView2.narrowedOff = YES;
+   
+    // **************** end modal view 2 for problem *************************************
+    
+    
     
     if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"Invalid credentials"])
     {
@@ -152,7 +266,7 @@
     
     [super viewWillAppear:animated];
     
-   // [self floatingButton];
+   
 }
 
 // After clicking this button, it will nviagte to edit ticket view controller
@@ -171,14 +285,15 @@
         //your code for tab item 1
         NSLog(@"clicked on 1");
         
-     //   [self.normalModalView1 open];
+        [self.normalModalView1 open];
         
     }
     else if(item.tag == 2) {
         //your code for tab item 2
         NSLog(@"clicked on 2");
         //NSLog(@"Array is : %@",globalVariables.asstArray);
-      //  [self.normalModalView2 open];
+        
+        [self.normalModalView2 open];
         
     }
     else if(item.tag == 3) {
@@ -188,8 +303,6 @@
         ReplyTicketViewController *reply=[self.storyboard instantiateViewControllerWithIdentifier:@"replyTicketViewId"];
         [self.navigationController pushViewController:reply animated:YES];
         
-        
-       // [self.normalModalView3 open];
     }
     else if(item.tag == 4) {
         //your code for tab item 4
@@ -198,7 +311,6 @@
         InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
         [self.navigationController pushViewController:note animated:YES];
         
-     //   [self.normalModalView4 open];
     }
     else{
         
@@ -207,106 +319,6 @@
     }
 }
 
-
-
--(void)floatingButton
-{
-
-    _plusButtonsViewMain = [LGPlusButtonsView plusButtonsViewWithNumberOfButtons:3
-                                                         firstButtonIsPlusButton:YES
-                                                                   showAfterInit:YES
-                                                                   actionHandler:^(LGPlusButtonsView *plusButtonView, NSString *title, NSString *description, NSUInteger index)
-                            {
-                                if(index==1)
-                                {
-                                    NSLog(@"One Index : Reply Pressed");
-
-                                
-                                    plusButtonView.hidden=YES;
-
-                                    ReplyTicketViewController *reply=[self.storyboard instantiateViewControllerWithIdentifier:@"replyTicketViewId"];
-                                    [self.navigationController pushViewController:reply animated:YES];
-
-                                }
-                                if(index==2)
-                                {
-                                    NSLog(@"Two Index : Internal Pressed");
-                                
-                                    plusButtonView.hidden=YES;
-
-
-                                    InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
-                                    [self.navigationController pushViewController:note animated:YES];
-                                }
-
-
-
-                            }];
-
-
-    _plusButtonsViewMain.coverColor = [UIColor colorWithWhite:1.f alpha:0.7];
-    // _plusButtonsViewMain.coverColor = [UIColor clearColor];
-    _plusButtonsViewMain.position = LGPlusButtonsViewPositionBottomRight;
-    _plusButtonsViewMain.plusButtonAnimationType = LGPlusButtonAnimationTypeRotate;
-
-    [_plusButtonsViewMain setButtonsTitles:@[@"+", @"", @""] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setDescriptionsTexts:@[@"", NSLocalizedString(@"Ticket Reply", nil), NSLocalizedString(@"Internal Notes", nil)]];
-    [_plusButtonsViewMain setButtonsImages:@[[NSNull new], [UIImage imageNamed:@"reply1"], [UIImage imageNamed:@"note3"]]
-                                  forState:UIControlStateNormal
-                            forOrientation:LGPlusButtonsViewOrientationAll];
-
-    [_plusButtonsViewMain setButtonsAdjustsImageWhenHighlighted:NO];
-
-    [_plusButtonsViewMain setButtonsBackgroundColor:[UIColor colorWithRed:0.f green:0.5 blue:1.f alpha:1.f] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setButtonsBackgroundColor:[UIColor colorWithRed:0.2 green:0.6 blue:1.f alpha:1.f] forState:UIControlStateHighlighted];
-    [_plusButtonsViewMain setButtonsBackgroundColor:[UIColor colorWithRed:0.2 green:0.6 blue:1.f alpha:1.f] forState:UIControlStateHighlighted|UIControlStateSelected];
-
-    [_plusButtonsViewMain setButtonsSize:CGSizeMake(44.f, 44.f) forOrientation:LGPlusButtonsViewOrientationAll];
-    [_plusButtonsViewMain setButtonsLayerCornerRadius:44.f/2.f forOrientation:LGPlusButtonsViewOrientationAll];
-    [_plusButtonsViewMain setButtonsTitleFont:[UIFont boldSystemFontOfSize:24.f] forOrientation:LGPlusButtonsViewOrientationAll];
-    [_plusButtonsViewMain setButtonsLayerShadowColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.f]];
-    [_plusButtonsViewMain setButtonsLayerShadowOpacity:0.5];
-    [_plusButtonsViewMain setButtonsLayerShadowRadius:3.f];
-    [_plusButtonsViewMain setButtonsLayerShadowOffset:CGSizeMake(0.f, 2.f)];
-
-    [_plusButtonsViewMain setButtonAtIndex:0 size:CGSizeMake(56.f, 56.f)
-                            forOrientation:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGPlusButtonsViewOrientationPortrait : LGPlusButtonsViewOrientationAll)];
-    [_plusButtonsViewMain setButtonAtIndex:0 layerCornerRadius:56.f/2.f
-                            forOrientation:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGPlusButtonsViewOrientationPortrait : LGPlusButtonsViewOrientationAll)];
-    [_plusButtonsViewMain setButtonAtIndex:0 titleFont:[UIFont systemFontOfSize:40.f]
-                            forOrientation:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGPlusButtonsViewOrientationPortrait : LGPlusButtonsViewOrientationAll)];
-    [_plusButtonsViewMain setButtonAtIndex:0 titleOffset:CGPointMake(0.f, -3.f) forOrientation:LGPlusButtonsViewOrientationAll];
-
-    //  [_plusButtonsViewMain setButtonAtIndex:1 backgroundColor:[UIColor colorWithRed:1.f green:0.f blue:0.5 alpha:1.f] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setButtonAtIndex:1 backgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setButtonAtIndex:1 backgroundColor:[UIColor colorWithRed:0.f green:0 blue:0 alpha:0.f] forState:UIControlStateHighlighted];
-    //  [_plusButtonsViewMain setButtonAtIndex:2 backgroundColor:[UIColor colorWithRed:1.f green:0.5 blue:0.f alpha:1.f] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setButtonAtIndex:2 backgroundColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_plusButtonsViewMain setButtonAtIndex:2 backgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.f] forState:UIControlStateHighlighted];
-
-    [_plusButtonsViewMain setDescriptionsBackgroundColor:[UIColor whiteColor]];
-    [_plusButtonsViewMain setDescriptionsTextColor:[UIColor blackColor]];
-    [_plusButtonsViewMain setDescriptionsLayerShadowColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.f]];
-    [_plusButtonsViewMain setDescriptionsLayerShadowOpacity:0.25];
-    [_plusButtonsViewMain setDescriptionsLayerShadowRadius:1.f];
-    [_plusButtonsViewMain setDescriptionsLayerShadowOffset:CGSizeMake(0.f, 1.f)];
-    [_plusButtonsViewMain setDescriptionsLayerCornerRadius:6.f forOrientation:LGPlusButtonsViewOrientationAll];
-    [_plusButtonsViewMain setDescriptionsContentEdgeInsets:UIEdgeInsetsMake(4.f, 8.f, 4.f, 8.f) forOrientation:LGPlusButtonsViewOrientationAll];
-
-    for (NSUInteger i=1; i<=2; i++)
-        [_plusButtonsViewMain setButtonAtIndex:i offset:CGPointMake(-6.f, 0.f)
-                                forOrientation:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? LGPlusButtonsViewOrientationPortrait : LGPlusButtonsViewOrientationAll)];
-
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        [_plusButtonsViewMain setButtonAtIndex:0 titleOffset:CGPointMake(0.f, -2.f) forOrientation:LGPlusButtonsViewOrientationLandscape];
-        [_plusButtonsViewMain setButtonAtIndex:0 titleFont:[UIFont systemFontOfSize:32.f] forOrientation:LGPlusButtonsViewOrientationLandscape];
-    }
-
-    [self.view addSubview:_plusButtonsViewMain];
-
-
-}
 
 
 - (void)addSubview:(UIView *)subView toView:(UIView*)parentView {
@@ -878,6 +890,87 @@
     
 }
 
+
+
+
+
+#pragma mark - UITableViewDataSource
+// number of section(s), now I assume there is only 1 section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
+{
+    
+    return 1;
+    
+}
+
+// number of row in the section, I assume there is only 1 row
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
+{
+    
+   //     return [globalVariables.asstArray count];
+      return 3;
+}
+
+
+// the cell will be returned to the tableView
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    
+    AssetCell *cell = [theTableView dequeueReusableCellWithIdentifier:@"assetCellID"];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AssetCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    //     NSLog(@"Asset Array is : %@",globalVariables.asstArray);
+    //
+    //    NSDictionary * assetDict = [globalVariables.asstArray objectAtIndex:indexPath.row];
+    //
+    //    NSString * id1 = [assetDict objectForKey:@"id"];
+    //    NSString *name = [assetDict objectForKey:@"name"];
+    
+    //    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
+    //    cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
+    
+    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
+    cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
+    
+    return cell;
+    
+}
+
+
+#pragma mark - UITableViewDelegate
+// when user tap the row, what action you want to perform
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"selected %ld row", (long)indexPath.row);
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //TODO: Calculate cell height
+    return 65.0f;
+}
+
+
+-(void)attachNewProblemClicked{
+    
+    NSLog(@"Clicked on attach new problem");
+    [self.normalModalView2 close];
+    
+}
+
+
+-(void)attachExistingProblemClicked{
+    
+     NSLog(@"Clicked on attach existing problem");
+     [self.normalModalView2 close];
+    
+}
 
 
 @end

@@ -21,7 +21,7 @@
 #import "EditProblemDetails.h"
 #import "LPSemiModalView.h"
 #import "OpenCloseTableViewCell.h"
-#import "AssetTableViewCell.h"
+#import "AssetCell.h"
 #import "ProblemList.h"
 
 @interface ProblemDetailView ()<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -971,11 +971,11 @@
 
  //  else  if(theTableView == _tableView2){
   
-    AssetTableViewCell *cell = [theTableView dequeueReusableCellWithIdentifier:@"assetCellId"];
+    AssetCell *cell = [theTableView dequeueReusableCellWithIdentifier:@"assetCellID"];
     
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AssetTableViewCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AssetCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
    
