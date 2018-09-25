@@ -26,6 +26,8 @@
 #import "InboxTickets.h"
 #import "LPSemiModalView.h"
 #import "AssetCell.h"
+#import "CreateProblem.h"
+#import "BIZPopupViewController.h"
 
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
@@ -86,6 +88,7 @@
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
+    
     [editTicket setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
     [editTicket addTarget:self action:@selector(editTicketTapped) forControlEvents:UIControlEventTouchUpInside];
     // [editTicket setFrame:CGRectMake(0, 0, 32, 32)];
@@ -106,8 +109,8 @@
     
     NSLog(@"Ticket Id isssss : %@",globalVariables.ticketId);
     
-    
-    
+    // this is showing tableview pop-up for problems
+    self.tableview.separatorColor=[UIColor clearColor];
     
     // ************** modal view 1 for showing assets ************************
     
@@ -245,6 +248,7 @@
     else{
         
         [self getDependencies];
+        [self getProblemAssociatedProblemDetails];
     }
     
 }
@@ -291,9 +295,17 @@
     else if(item.tag == 2) {
         //your code for tab item 2
         NSLog(@"clicked on 2");
-        //NSLog(@"Array is : %@",globalVariables.asstArray);
         
-        [self.normalModalView2 open];
+        if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"notFound"]){
+            
+            NSLog(@"Problem Not Found");
+            [self.normalModalView2 open];
+        }
+        else if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"Found"]){
+            
+            NSLog(@"Problem Found");
+            
+        }
         
     }
     else if(item.tag == 3) {
@@ -461,8 +473,8 @@
                 
                 if (json) {
                     
-                    NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
-                    NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
+                  //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
+                 //   NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                     NSDictionary *resultDic = [json objectForKey:@"data"];
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
@@ -959,7 +971,15 @@
 
 -(void)attachNewProblemClicked{
     
-    NSLog(@"Clicked on attach new problem");
+    NSLog(@"Clicked on attach new problem"); //globalVariables.ticketId
+    
+    globalVariables.ticketIdForTicketDetail =[NSString stringWithFormat:@"%@",globalVariables.ticketId];
+    
+    globalVariables.createProblemConditionforVC = @"newWithTicket";
+    
+    CreateProblem *createProblemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
+    [self.navigationController pushViewController:createProblemVC animated:YES];
+    
     [self.normalModalView2 close];
     
 }
@@ -968,9 +988,129 @@
 -(void)attachExistingProblemClicked{
     
      NSLog(@"Clicked on attach existing problem");
-     [self.normalModalView2 close];
     
+    
+    
+     [self.normalModalView2 close];
 }
 
+-(void)getProblemAssociatedProblemDetails{
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        //connection unavailable
+        [SVProgressHUD dismiss];
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+        
+        
+    }else{
+        
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/attached/problem/details/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.ticketId,API_KEY,[userDefaults objectForKey:@"token"]];
+        
+        NSLog(@"URL is : %@",url);
+        
+        @try{
+            
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+                //   NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                
+                    [SVProgressHUD dismiss];
+                    
+                    if( [msg containsString:@"Error-401"])
+                        
+                    {
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
+                        
+                        
+                    }
+                    else
+                        
+                    
+                        if([msg isEqualToString:@"Error-404"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
+                            
+                        }
+                    
+                    else{
+                            NSLog(@"Error message is %@",msg);
+                            NSLog(@"Thread-NO4-getdependency-Refresh-error == %@",error.localizedDescription);
+                            [self->utils showAlertWithMessage:msg sendViewController:self];
+                            
+                            
+                            return ;
+                        }
+                }
+                
+                
+    
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    [self getProblemAssociatedProblemDetails];
+                    NSLog(@"Thread-getProblemAssociatedProblemDetails-call");
+                    return;
+                }
+                
+                if (json) {
+                    
+                 //   NSLog(@"JSON is : %@",json);
+                    
+                    if (([[json objectForKey:@"data"] isEqual:[NSNull null]] ) || ( [[json objectForKey:@"data"] length] == 0 )) {
+                        NSLog(@"No Problem is found");
+                        // data is not available
+                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                    }
+                    else{
+                     
+                        NSLog(@"Problem is found");
+                        self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                        // data vailable
+                        
+                    NSDictionary * dataDict = [json objectForKey:@"data"];
+                        NSLog(@"Problem Details : %@",dataDict);
+                    
+//                    NSString * id1 = [dataDict objectForKey:@"id"];
+//                    NSString * subject = [dataDict objectForKey:@"subject"];
+//                    NSString * from =  [dataDict objectForKey:@"from"];
+                  
+                    }
+                }
+                
+            }
+             ];
+        }@catch (NSException *exception)
+        {
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            [SVProgressHUD dismiss];
+            return;
+        }
+        
+    }
+  
+    
+}
 
 @end

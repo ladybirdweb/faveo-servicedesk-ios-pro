@@ -34,5 +34,6 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *replyTabBarItem;
 @property (weak, nonatomic) IBOutlet UITabBarItem *internalNoteTabBarItem;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @end

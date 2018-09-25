@@ -90,9 +90,10 @@
 
 -(void)addNewProblem{
     
+    globalVariables.createProblemConditionforVC = @"newAlone";
+    
     //add lines of code
     CreateProblem *createProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
-    
     
     [self.navigationController pushViewController:createProblem animated:YES];
     

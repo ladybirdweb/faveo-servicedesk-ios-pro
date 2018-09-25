@@ -28,11 +28,12 @@
 #import "CreateProblem.h"
 #import "UIImageView+Letters.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "GlobalVariables.h"
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
 {
      NSUserDefaults *userDefaults;
+     GlobalVariables *globalVariables;
 }
 
 
@@ -69,6 +70,7 @@ NSUInteger g_ExpandedCellIndex = 0;
     
     
     userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
     
     //
     //select the data.plist as per the language set for the app
@@ -353,6 +355,8 @@ NSUInteger g_ExpandedCellIndex = 0;
                  else if([strId isEqualToString:@"sme_marketstats"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     globalVariables.createProblemConditionforVC = @"newAlone";
                      
                      CreateProblem * controller = (CreateProblem *)[storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
                      

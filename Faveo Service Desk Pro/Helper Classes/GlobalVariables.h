@@ -114,4 +114,9 @@
 @property (strong, nonatomic) NSMutableArray *ticketArray;
 
 
+@property (strong, nonatomic) NSString *createProblemConditionforVC;
+@property (strong, nonatomic) NSString *ticketIdForTicketDetail;
+
+
+@property (strong, nonatomic) NSString *problemStatusInTicketDetailVC;
 @end

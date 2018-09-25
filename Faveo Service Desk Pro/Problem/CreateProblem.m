@@ -17,6 +17,8 @@
 #import "Utils.h"
 #import "ActionSheetStringPicker.h"
 #import "ProblemList.h"
+#import "TicketDetailViewController.h"
+
 
 @interface CreateProblem ()<RMessageProtocol,UITextFieldDelegate,UITextViewDelegate>
 {
@@ -683,7 +685,19 @@
 
 -(void)postTicketProblem{
     
-     NSString *urlString=[NSString stringWithFormat:@"%@servicedesk/problem/create?token=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"]];
+    NSString *urlString;
+    
+    if([globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"])
+    {
+       
+       urlString=[NSString stringWithFormat:@"%@servicedesk/attach/problem/ticket?token=%@&ticketid=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"],globalVariables.ticketIdForTicketDetail];
+        
+    }
+    else{
+        
+       urlString=[NSString stringWithFormat:@"%@servicedesk/problem/create?token=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"]];
+    }
+    
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:urlString]];
@@ -791,39 +805,75 @@
     
     NSLog(@"Dictionary is : %@",jsonData);
     
-    if([jsonData objectForKey:@"data"])
-        
-    {
-        NSDictionary *data = [jsonData objectForKey:@"data"];
-        NSString *msg = [data objectForKey:@"success"];
-        
-        if([msg isEqualToString:@"Problem Created Successfully."]){
+  
+      if([globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"])
+        {
+            NSDictionary *data = [jsonData objectForKey:@"data"];
+            NSString *msg = [data objectForKey:@"success"];
             
-            [SVProgressHUD dismiss];
+            if([msg isEqualToString:@"Problem Created Successfully."]){
+                
+                [SVProgressHUD dismiss];
+                
+                if (self.navigationController.navigationBarHidden) {
+                    [self.navigationController setNavigationBarHidden:NO];
+                }
+                
+                [RMessage showNotificationInViewController:self.navigationController
+                                                     title:NSLocalizedString(@"success", nil)
+                                                  subtitle:NSLocalizedString(@"Ticket created successfully.", nil)
+                                                 iconImage:nil
+                                                      type:RMessageTypeSuccess
+                                            customTypeName:nil
+                                                  duration:RMessageDurationAutomatic
+                                                  callback:nil
+                                               buttonTitle:nil
+                                            buttonCallback:nil
+                                                atPosition:RMessagePositionNavBarOverlay
+                                      canBeDismissedByUser:YES];
+                
             
-            if (self.navigationController.navigationBarHidden) {
-                [self.navigationController setNavigationBarHidden:NO];
+                ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                [self.navigationController pushViewController:problemVC animated:YES];
+                
+            }else{
+                
             }
             
-            [RMessage showNotificationInViewController:self.navigationController
-                                                 title:NSLocalizedString(@"success", nil)
-                                              subtitle:NSLocalizedString(@"Ticket created successfully.", nil)
-                                             iconImage:nil
-                                                  type:RMessageTypeSuccess
-                                        customTypeName:nil
-                                              duration:RMessageDurationAutomatic
-                                              callback:nil
-                                           buttonTitle:nil
-                                        buttonCallback:nil
-                                            atPosition:RMessagePositionNavBarOverlay
-                                  canBeDismissedByUser:YES];
-            
-           // [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
-            
-            ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
-            [self.navigationController pushViewController:problemVC animated:YES];
-            
         }
+        else if([globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
+            
+            NSString * dataMessage = [jsonData objectForKey:@"data"];
+            
+            if([dataMessage isEqualToString:@"Created new problem and attached to this ticket"]){
+                
+                [SVProgressHUD dismiss];
+                
+                if (self.navigationController.navigationBarHidden) {
+                    [self.navigationController setNavigationBarHidden:NO];
+                }
+                
+                [RMessage showNotificationInViewController:self.navigationController
+                                                     title:NSLocalizedString(@"success", nil)
+                                                  subtitle:NSLocalizedString(@"Problem attached successfully.", nil)
+                                                 iconImage:nil
+                                                      type:RMessageTypeSuccess
+                                            customTypeName:nil
+                                                  duration:RMessageDurationAutomatic
+                                                  callback:nil
+                                               buttonTitle:nil
+                                            buttonCallback:nil
+                                                atPosition:RMessagePositionNavBarOverlay
+                                      canBeDismissedByUser:YES];
+                
+                
+                globalVariables.ticketId= [NSNumber numberWithInt:[globalVariables.ticketIdForTicketDetail intValue]];
+                
+                 TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+                [self.navigationController pushViewController:td animated:YES];
+                
+            }
+            
         
         else {
             NSString *str=[jsonData objectForKey:@"message"];
@@ -843,9 +893,10 @@
                 
             }
             
-        }
         
-    }
+        }
+            
+        }
     
 }
 

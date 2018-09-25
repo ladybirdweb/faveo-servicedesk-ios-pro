@@ -32,7 +32,7 @@
     
     NSArray  * ccListArray;
     
-     HSAttachmentPicker *_menu;
+    HSAttachmentPicker *_menu;
     
     NSData *attachNSData;
     NSString *file123;
