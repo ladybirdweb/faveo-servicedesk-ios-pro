@@ -119,4 +119,9 @@
 
 
 @property (strong, nonatomic) NSString *problemStatusInTicketDetailVC;
+
+//attached problem dictionary
+@property (strong, nonatomic) NSDictionary *attachedProblemDataDict;
+
+
 @end

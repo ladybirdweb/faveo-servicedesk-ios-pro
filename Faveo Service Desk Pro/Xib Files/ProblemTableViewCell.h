@@ -21,5 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *createdDateLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+
 
 @end

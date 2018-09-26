@@ -6360,6 +6360,92 @@
             </objects>
             <point key="canvasLocation" x="4740" y="1031"/>
         </scene>
+        <!--View Attached Problems-->
+        <scene sceneID="qdx-Ql-8Jv">
+            <objects>
+                <viewController storyboardIdentifier="ViewAttachedProblemsId" id="90X-3b-ttF" customClass="ViewAttachedProblems" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PEi-OC-hJX"/>
+                        <viewControllerLayoutGuide type="bottom" id="BEP-gZ-Y1T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ox8-TP-Dxn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-Fr-wNO">
+                                <rect key="frame" x="0.0" y="55" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="iXi-8q-cdG"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="90X-3b-ttF" id="Jry-RJ-7F7"/>
+                                    <outlet property="delegate" destination="90X-3b-ttF" id="pvk-XU-80B"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associated Problem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SC-k9-Yxo">
+                                <rect key="frame" x="70" y="20" width="176" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="ZNR-Ds-AV8"/>
+                                    <constraint firstAttribute="height" constant="21" id="kQt-fQ-2eC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS7-rN-pcQ">
+                                <rect key="frame" x="22" y="158" width="72" height="30"/>
+                                <color key="backgroundColor" red="0.65854708260000006" green="0.77422254450000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Cqx-Og-XMx"/>
+                                    <constraint firstAttribute="width" constant="72" id="uRW-ee-8SK"/>
+                                </constraints>
+                                <state key="normal" title="View">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="e3E-R1-zpz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RME-RC-kU3">
+                                <rect key="frame" x="267" y="158" width="74" height="30"/>
+                                <color key="backgroundColor" red="0.65854708260000006" green="0.77422254450000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rY6-rv-CYa"/>
+                                    <constraint firstAttribute="width" constant="74" id="z8E-xL-4Xa"/>
+                                </constraints>
+                                <state key="normal" title="Detach">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="detachButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="fha-7L-8U6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Sl5-Fr-wNO" secondAttribute="trailing" id="2Je-B0-99B"/>
+                            <constraint firstItem="tS7-rN-pcQ" firstAttribute="top" secondItem="Sl5-Fr-wNO" secondAttribute="bottom" constant="3" id="Chc-hg-w6S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RME-RC-kU3" secondAttribute="trailing" constant="18" id="IvC-ss-wXy"/>
+                            <constraint firstItem="5SC-k9-Yxo" firstAttribute="leading" secondItem="Ox8-TP-Dxn" secondAttribute="leadingMargin" constant="54" id="Zkw-Mo-psp"/>
+                            <constraint firstItem="5SC-k9-Yxo" firstAttribute="top" secondItem="PEi-OC-hJX" secondAttribute="bottom" constant="20" id="bOY-9B-zTa"/>
+                            <constraint firstItem="Sl5-Fr-wNO" firstAttribute="top" secondItem="5SC-k9-Yxo" secondAttribute="bottom" constant="14" id="ggL-iI-nh6"/>
+                            <constraint firstItem="tS7-rN-pcQ" firstAttribute="leading" secondItem="Ox8-TP-Dxn" secondAttribute="leadingMargin" constant="6" id="iod-97-jkY"/>
+                            <constraint firstItem="RME-RC-kU3" firstAttribute="top" secondItem="Sl5-Fr-wNO" secondAttribute="bottom" constant="3" id="qYe-LX-iY7"/>
+                            <constraint firstItem="Sl5-Fr-wNO" firstAttribute="leading" secondItem="Ox8-TP-Dxn" secondAttribute="leading" id="xPF-wN-qaL"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="375" height="200"/>
+                    <connections>
+                        <outlet property="detachButtonOutlet" destination="RME-RC-kU3" id="Aae-7r-MUK"/>
+                        <outlet property="tableview" destination="Sl5-Fr-wNO" id="Dd4-AR-sYf"/>
+                        <outlet property="viewButtonOutlet" destination="tS7-rN-pcQ" id="Oox-RM-KsH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nOz-NX-FmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7076" y="1815"/>
+        </scene>
         <!--Notification View Controller-->
         <scene sceneID="CPW-ei-7Qx">
             <objects>

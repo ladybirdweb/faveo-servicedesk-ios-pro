@@ -28,7 +28,7 @@
 #import "AssetCell.h"
 #import "CreateProblem.h"
 #import "BIZPopupViewController.h"
-
+#import "ViewAttachedProblems.h"
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
@@ -41,6 +41,7 @@
     UILabel *errorMessageNote;
     GlobalVariables *globalVariables;
     
+    NSDictionary * dataDict;
     
     NSArray *ticketStatusArray;
     
@@ -84,6 +85,9 @@
     statusArrayforChange = [[NSMutableArray alloc] init];
     statusIdforChange = [[NSMutableArray alloc] init];
     uniqueStatusNameArray = [[NSMutableArray alloc] init];
+    
+    dataDict = [[NSDictionary alloc] init];
+    
     
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
@@ -304,6 +308,17 @@
         else if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"Found"]){
             
             NSLog(@"Problem Found");
+            
+            globalVariables.attachedProblemDataDict=dataDict;
+            NSLog(@"%@",globalVariables.attachedProblemDataDict);
+            NSLog(@"%@",globalVariables.attachedProblemDataDict);
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewAttachedProblems *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedProblemsId"];
+            
+            BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 200)];
+            [self presentViewController:popupViewController animated:NO completion:nil];
+            
             
         }
         
@@ -1074,9 +1089,11 @@
                 
                 if (json) {
                     
-                 //   NSLog(@"JSON is : %@",json);
+                    NSLog(@"JSON is : %@",json);
                     
-                    if (([[json objectForKey:@"data"] isEqual:[NSNull null]] ) || ( [[json objectForKey:@"data"] length] == 0 )) {
+                    self->dataDict = [json objectForKey:@"data"];
+                    
+                    if (([self->dataDict count] == 0) || ([self->dataDict isEqual:[NSNull null]] )) {
                         NSLog(@"No Problem is found");
                         // data is not available
                         self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
@@ -1087,12 +1104,11 @@
                         self->globalVariables.problemStatusInTicketDetailVC = @"Found";
                         // data vailable
                         
-                    NSDictionary * dataDict = [json objectForKey:@"data"];
-                        NSLog(@"Problem Details : %@",dataDict);
+                        self->dataDict = [json objectForKey:@"data"];
+                   //     NSLog(@"Problem Details : %@",self->dataDict);
                     
-//                    NSString * id1 = [dataDict objectForKey:@"id"];
-//                    NSString * subject = [dataDict objectForKey:@"subject"];
-//                    NSString * from =  [dataDict objectForKey:@"from"];
+                    self->globalVariables.attachedProblemDataDict = self->dataDict;
+                        [SVProgressHUD dismiss];
                   
                     }
                 }

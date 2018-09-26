@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onL-G1-lZ5">
-                        <rect key="frame" x="0.0" y="0.0" width="354" height="105"/>
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="104.66666666666667"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="im4-PG-CUX">
-                                <rect key="frame" x="0.0" y="0.0" width="10" height="105"/>
+                                <rect key="frame" x="0.0" y="0.0" width="10" height="104.66666666666667"/>
                                 <color key="backgroundColor" red="1" green="0.61879034259999999" blue="0.94335221550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="SZy-XO-QwL"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z5-cO-Vki">
-                                <rect key="frame" x="20" y="36" width="316" height="41"/>
+                                <rect key="frame" x="20" y="36" width="316" height="40.666666666666657"/>
                                 <string key="text">Labelwiosiniedwql;delow;ds;nlcsnckldsncxncknzxkcndkncksdncnkdsnckdsncwsdadadbajdbsajdbsjad bjsdbuLabelwiosiniedwql;delow;ds;nlcsnckldsncxncknzxkcndkncksdncnkdsnckdsncwsdadadbajdbsajdbsjad bjsdbu</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="admin@gmail.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voH-gW-TWE">
-                                <rect key="frame" x="20" y="85" width="174" height="18"/>
+                                <rect key="frame" x="20" y="84.666666666666671" width="174" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="8Bf-dV-7Zy"/>
                                     <constraint firstAttribute="height" constant="18" id="Iu7-XA-PzV"/>
@@ -101,6 +101,7 @@
                 <outlet property="createdDateLabel" destination="jdN-Tq-LRi" id="JnW-x1-VtL"/>
                 <outlet property="fromLabel" destination="voH-gW-TWE" id="9f4-Mo-B7I"/>
                 <outlet property="indicationView" destination="im4-PG-CUX" id="anA-mk-6Od"/>
+                <outlet property="mainView" destination="onL-G1-lZ5" id="c1X-7a-glF"/>
                 <outlet property="problemNameLabel" destination="9z5-cO-Vki" id="Jb2-eL-fqe"/>
                 <outlet property="problemNumber" destination="ahN-Pk-e5N" id="IDI-h3-l2g"/>
             </connections>

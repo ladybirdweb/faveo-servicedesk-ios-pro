@@ -127,6 +127,7 @@
 		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
 		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
 		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
+		06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */; };
 		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
 		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
@@ -349,6 +350,8 @@
 		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
 		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
 		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
+		06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedProblems.h; sourceTree = "<group>"; };
+		06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedProblems.m; sourceTree = "<group>"; };
 		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
 		06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemTableViewCell.m; sourceTree = "<group>"; };
 		06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
@@ -821,6 +824,8 @@
 				06B3D99C213FB74F004D548E /* ProblemDetailData.m */,
 				06B3D9A12140013F004D548E /* EditProblemDetails.h */,
 				06B3D9A22140013F004D548E /* EditProblemDetails.m */,
+				06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */,
+				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
 			);
 			path = Problem;
 			sourceTree = "<group>";
@@ -1129,6 +1134,7 @@
 				06B3D99A213FB430004D548E /* AnalysisView.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
+				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
