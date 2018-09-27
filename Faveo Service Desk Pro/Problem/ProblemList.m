@@ -21,6 +21,8 @@
 #import "UIColor+HexColors.h"
 #import "UIColor+HexColors.h"
 #import "CreateProblem.h"
+#import "AppConstanst.h"
+
 
 @interface ProblemList ()<RMessageProtocol>
 {
@@ -130,7 +132,7 @@
     }else{
         
        
-        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"]];
+        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
         NSLog(@"URL is : %@",url);
         
         @try{

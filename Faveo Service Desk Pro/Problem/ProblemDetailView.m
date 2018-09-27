@@ -56,6 +56,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //self.title
+    
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
     // to set black background color mask for Progress view
@@ -68,6 +70,14 @@
     globalVariables=[GlobalVariables sharedInstance];
     
    
+    if ([globalVariables.showNavigationItem isEqualToString:@"show"]) {
+        
+        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick:)];
+        self.navigationItem.leftBarButtonItem = rightBtn;
+        
+    }
+    
+    
     UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [editButton setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
     [editButton addTarget:self action:@selector(editProblem) forControlEvents:UIControlEventTouchUpInside];
@@ -432,11 +442,19 @@
     
 }
 
+
+
+-(void)backBtnClick:(UIBarButtonItem*)item{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 //-(void)viewWillAppear:(BOOL)animated{
 //
 //    [self callProbleDetailAPI];
 //
 //}
+
 
 
 

@@ -123,5 +123,7 @@
 //attached problem dictionary
 @property (strong, nonatomic) NSDictionary *attachedProblemDataDict;
 
+//show left navigation item/button in problem detail after navigating problem pop-up in ticket detail
+@property (strong, nonatomic) NSString *showNavigationItem; //show//hide
 
 @end

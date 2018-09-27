@@ -6379,8 +6379,8 @@
                                     <constraint firstAttribute="height" constant="100" id="iXi-8q-cdG"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="90X-3b-ttF" id="Jry-RJ-7F7"/>
-                                    <outlet property="delegate" destination="90X-3b-ttF" id="pvk-XU-80B"/>
+                                    <outlet property="dataSource" destination="90X-3b-ttF" id="b5e-8g-N3g"/>
+                                    <outlet property="delegate" destination="90X-3b-ttF" id="1Qt-7J-UgD"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associated Problem" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SC-k9-Yxo">
@@ -6404,7 +6404,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="viewButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="e3E-R1-zpz"/>
+                                    <action selector="viewButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="qfV-5K-PTI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RME-RC-kU3">
@@ -6418,7 +6418,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="detachButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="fha-7L-8U6"/>
+                                    <action selector="detachButtonClicked:" destination="90X-3b-ttF" eventType="touchUpInside" id="hua-ny-xYd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -6437,14 +6437,14 @@
                     </view>
                     <size key="freeformSize" width="375" height="200"/>
                     <connections>
-                        <outlet property="detachButtonOutlet" destination="RME-RC-kU3" id="Aae-7r-MUK"/>
-                        <outlet property="tableview" destination="Sl5-Fr-wNO" id="Dd4-AR-sYf"/>
-                        <outlet property="viewButtonOutlet" destination="tS7-rN-pcQ" id="Oox-RM-KsH"/>
+                        <outlet property="detachButtonOutlet" destination="RME-RC-kU3" id="2hO-i9-7bV"/>
+                        <outlet property="tableview" destination="Sl5-Fr-wNO" id="Z2u-7R-aG0"/>
+                        <outlet property="viewButtonOutlet" destination="tS7-rN-pcQ" id="ZO8-og-x2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOz-NX-FmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7076" y="1815"/>
+            <point key="canvasLocation" x="7067" y="1796"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="CPW-ei-7Qx">

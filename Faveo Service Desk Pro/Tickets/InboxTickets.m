@@ -96,6 +96,9 @@
     uniqueStatusNameArray = [[NSMutableArray alloc] init];
     _mutableArray=[[NSMutableArray alloc]init];
     
+    globalVariables.problemStatusInTicketDetailVC =@"";
+    globalVariables.showNavigationItem=@"hide";
+    
     //side menu initialization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);

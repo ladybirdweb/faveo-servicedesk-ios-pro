@@ -65,7 +65,7 @@
 @implementation TicketDetailViewController
 
 //This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     
     self.currentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ConversationVC"];
@@ -90,6 +90,9 @@
     
     
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
+    
+  
+    _asstetTabBarItem.badgeValue = @"0";
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
     
@@ -258,6 +261,8 @@
 }
 
 
+
+
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -309,7 +314,11 @@
             
             NSLog(@"Problem Found");
             
+         //   _problemTabBarItem.badgeValue = @"1";
+            
             globalVariables.attachedProblemDataDict=dataDict;
+            globalVariables.ticketId=globalVariables.ticketId;
+            
             NSLog(@"%@",globalVariables.attachedProblemDataDict);
             NSLog(@"%@",globalVariables.attachedProblemDataDict);
             
@@ -367,6 +376,7 @@
 
 - (void)cycleFromViewController:(UIViewController*) oldViewController
                toViewController:(UIViewController*) newViewController {
+    
     [oldViewController willMoveToParentViewController:nil];
     [self addChildViewController:newViewController];
     [self addSubview:newViewController.view toView:self.containerView];
@@ -1093,24 +1103,29 @@
                     
                     self->dataDict = [json objectForKey:@"data"];
                     
-                    if (([self->dataDict count] == 0) || ([self->dataDict isEqual:[NSNull null]] )) {
-                        NSLog(@"No Problem is found");
-                        // data is not available
-                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
-                    }
-                    else{
-                     
+                    if([[json objectForKey:@"data"] isKindOfClass:[NSDictionary class]]){
+                      
                         NSLog(@"Problem is found");
                         self->globalVariables.problemStatusInTicketDetailVC = @"Found";
                         // data vailable
                         
                         self->dataDict = [json objectForKey:@"data"];
-                   //     NSLog(@"Problem Details : %@",self->dataDict);
-                    
-                    self->globalVariables.attachedProblemDataDict = self->dataDict;
+                        //     NSLog(@"Problem Details : %@",self->dataDict);
+                        
+                        self->globalVariables.attachedProblemDataDict = self->dataDict;
                         [SVProgressHUD dismiss];
-                  
+                        
+                    }else{
+                        
+                        NSLog(@"No Problem is found");
+                       // data is not available
+                        
+                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                        
                     }
+                    
+                    
+                
                 }
                 
             }

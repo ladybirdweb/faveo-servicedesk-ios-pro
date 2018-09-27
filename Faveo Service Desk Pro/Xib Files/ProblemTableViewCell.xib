@@ -37,9 +37,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday at 1:28pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdN-Tq-LRi">
-                                <rect key="frame" x="229" y="7" width="117" height="21"/>
+                                <rect key="frame" x="221" y="7" width="125" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="dTf-u2-5xj"/>
+                                    <constraint firstAttribute="width" constant="125" id="dTf-u2-5xj"/>
                                     <constraint firstAttribute="height" constant="21" id="g2V-rB-8DG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
