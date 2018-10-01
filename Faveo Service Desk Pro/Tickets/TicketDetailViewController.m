@@ -51,6 +51,8 @@
     NSMutableArray *uniqueStatusNameArray;
     NSString *selectedStatusName;
     NSString *selectedStatusId;
+    
+    NSArray * assetsArray;
 }
 
 @property (nonatomic, strong) LPSemiModalView *normalModalView1;
@@ -88,7 +90,7 @@
     
     dataDict = [[NSDictionary alloc] init];
     
-    
+   
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
   
@@ -221,6 +223,7 @@
     
     
     self.normalModalView2.narrowedOff = YES;
+    self.normalModalView2.backgroundColor = [UIColor whiteColor];
    
     // **************** end modal view 2 for problem *************************************
     
@@ -296,14 +299,15 @@
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if(item.tag == 1) {
         //your code for tab item 1
-        NSLog(@"clicked on 1");
+        NSLog(@"clicked on assets");
         
+        [self getAssociatedAssets];
         [self.normalModalView1 open];
         
     }
     else if(item.tag == 2) {
         //your code for tab item 2
-        NSLog(@"clicked on 2");
+        NSLog(@"clicked on problems");
         
         if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"notFound"]){
             
@@ -500,6 +504,7 @@
                     
                   //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                  //   NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
+                    
                     NSDictionary *resultDic = [json objectForKey:@"data"];
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
@@ -935,17 +940,47 @@
 // number of section(s), now I assume there is only 1 section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
 {
-    
+
     return 1;
-    
 }
+
+
+////This method asks the data source to return the number of sections in the table view.
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
+//{
+//    NSInteger numOfSections = 0;
+//
+//    if ([assetsArray count] != 0)
+//    {
+//        _tableView1.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//        numOfSections                = 1;
+//        _tableView1.backgroundView = nil;
+//
+//    }
+//    else{
+//
+//        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _tableView1.bounds.size.width, _tableView1.bounds.size.height)];
+//        noDataLabel.text             = NSLocalizedString(@"No Records..!!!",nil);
+//        noDataLabel.textColor        = [UIColor blackColor];
+//        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+//        _tableView1.backgroundView = noDataLabel;
+//        _tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
+//
+//
+//    }
+//
+//    return numOfSections;
+//
+//}
+
+
 
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
     
-   //     return [globalVariables.asstArray count];
-      return 3;
+    return [globalVariables.attachedAssetList count];
+    //  return 3;
 }
 
 
@@ -962,18 +997,20 @@
         cell = [nib objectAtIndex:0];
     }
     
-    //     NSLog(@"Asset Array is : %@",globalVariables.asstArray);
-    //
-    //    NSDictionary * assetDict = [globalVariables.asstArray objectAtIndex:indexPath.row];
-    //
-    //    NSString * id1 = [assetDict objectForKey:@"id"];
-    //    NSString *name = [assetDict objectForKey:@"name"];
+      //   NSLog(@"Asset Array is : %@",globalVariables.asstArray);
     
-    //    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
-    //    cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
+        NSLog(@"Assets Array is : %@",globalVariables.attachedAssetList);
     
-    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
-    cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
+        NSDictionary * assetDict = [globalVariables.attachedAssetList objectAtIndex:indexPath.row];
+    
+        NSString * id1 = [assetDict objectForKey:@"assetId"];
+        NSString *name = [assetDict objectForKey:@"name"];
+    
+        cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
+        cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
+    
+   // cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
+   // cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
     
     return cell;
     
@@ -1080,7 +1117,7 @@
                     
                     else{
                             NSLog(@"Error message is %@",msg);
-                            NSLog(@"Thread-NO4-getdependency-Refresh-error == %@",error.localizedDescription);
+                            NSLog(@"Thread-getAssociatedProblem-Refresh-error == %@",error.localizedDescription);
                             [self->utils showAlertWithMessage:msg sendViewController:self];
                             
                             
@@ -1143,5 +1180,146 @@
   
     
 }
+
+
+-(void)getAssociatedAssets{
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        //connection unavailable
+        [SVProgressHUD dismiss];
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+        
+        
+    }else{
+        
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/get/attached/assets/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.ticketId,API_KEY,[userDefaults objectForKey:@"token"]];
+        
+        NSLog(@"URL is : %@",url);
+        
+        @try{
+            
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+                //   NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    if( [msg containsString:@"Error-401"])
+                        
+                    {
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
+                        
+                        
+                    }
+                    else
+                        
+                        
+                        if([msg isEqualToString:@"Error-404"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
+                            
+                        }
+                    
+                        else{
+                            NSLog(@"Error message is %@",msg);
+                            NSLog(@"Thread-getAssociatedAssets-error == %@",error.localizedDescription);
+                            [self->utils showAlertWithMessage:msg sendViewController:self];
+                            
+                            
+                            return ;
+                        }
+                }
+                
+                
+                
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    [self getAssociatedAssets];
+                    NSLog(@"Thread-getAssociatedAssets-call");
+                    return;
+                }
+                
+                if (json) {
+                    
+                    NSLog(@"JSON is : %@",json);
+                    
+                    self->dataDict = [json objectForKey:@"data"];
+                    
+                    if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+                        
+                        NSLog(@"Asset are found");
+                     //   self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                        // data vailable
+                        
+                        self->assetsArray = [json objectForKey:@"data"];
+                        //  NSLog(@"Asset Array is : %@",self->assetsArray);
+                        
+                       self->globalVariables.attachedAssetList = self->assetsArray;
+                        
+                        
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                               
+                                [self.tableView1 reloadData];
+                                [self.tableView1 reloadData];
+                                [SVProgressHUD dismiss];
+                                
+                            });
+                        });
+                        
+                      
+                        
+                        
+                        
+                    }else{
+                        
+                        NSLog(@"No Assets are found");
+                        // data is not available
+                        
+                      //  self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                        
+                    }
+                    
+                    
+                    
+                }
+                
+            }
+             ];
+        }@catch (NSException *exception)
+        {
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            [SVProgressHUD dismiss];
+            return;
+        }
+        
+    }
+    
+    
+}
+
 
 @end

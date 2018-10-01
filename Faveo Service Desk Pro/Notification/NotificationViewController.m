@@ -52,9 +52,7 @@
     [super viewDidLoad];
     NSLog(@"Naa-Inbox");
     
-//    NSString *refreshedToken = [[FIRInstanceID instanceID] token];
-//    NSLog(@"refreshed token  %@",refreshedToken);
-    
+  
     [self setTitle:NSLocalizedString(@"Notifications",nil)];
     [self addUIRefresh];
     
@@ -82,7 +80,7 @@
        
     }
     {
-        [SVProgressHUD showWithStatus:@"Please wait"];
+        [SVProgressHUD showWithStatus:@"Loading data"];
         [self reload];
     }
     
@@ -236,37 +234,37 @@
 //This method returns the number of rows (table cells) in a specified section.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    NSInteger numOfSections = 0;
-//    if ([_mutableArray count]==0)
-//    {
-//        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-//        noDataLabel.text             =  NSLocalizedString(@"",nil);
-//        noDataLabel.textColor        = [UIColor blackColor];
-//        noDataLabel.textAlignment    = NSTextAlignmentCenter;
-//        tableView.backgroundView = noDataLabel;
-//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    }
-//    else
-//    {
-//        tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//        numOfSections                = 1;
-//        tableView.backgroundView = nil;
-//    }
+    NSInteger numOfSections = 0;
+    if ([_mutableArray count]==0)
+    {
+        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
+        noDataLabel.text             =  NSLocalizedString(@"Empty!!!",nil);
+        noDataLabel.textColor        = [UIColor blackColor];
+        noDataLabel.textAlignment    = NSTextAlignmentCenter;
+        tableView.backgroundView = noDataLabel;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    else
+    {
+        tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        numOfSections                = 1;
+        tableView.backgroundView = nil;
+    }
     
-    return 1;
+    return numOfSections;
 }
 
 //This method asks the data source to return the number of sections in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (self.currentPage == self.totalPages
-//        || self.totalTickets == _mutableArray.count) {
-//        return _mutableArray.count;
-//    }
-//
+    if (self.currentPage == self.totalPages
+        || self.totalTickets == _mutableArray.count) {
+        return _mutableArray.count;
+    }
     
-   // return _mutableArray.count + 1;
-    return 5;
+    
+    return _mutableArray.count + 1;
 }
+
 
 //This method tells the delegate the table view is about to draw a cell for a particular row
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -274,31 +272,30 @@
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     
-//    if (indexPath.row == [_mutableArray count] - 1 ) {
-//        NSLog(@"nextURL  %@",_nextPageUrl);
-//        if (( ![_nextPageUrl isEqual:[NSNull null]] ) && ( [_nextPageUrl length] != 0 )) {
-//
-//            [self loadMore];
-//
-//        }
-//        else{
-//            // [RKDropdownAlert title:@"" message:@"All Caught Up...!" backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
-//
-//            [RMessage showNotificationInViewController:self
-//                                                 title:nil
-//                                              subtitle:NSLocalizedString(@"All Caught Up...!)", nil)
-//                                             iconImage:nil
-//                                                  type:RMessageTypeSuccess
-//                                        customTypeName:nil
-//                                              duration:RMessageDurationAutomatic
-//                                              callback:nil
-//                                           buttonTitle:nil
-//                                        buttonCallback:nil
-//                                            atPosition:RMessagePositionBottom
-//                                  canBeDismissedByUser:YES];
-//
-//        }
-//    }
+    if (indexPath.row == [_mutableArray count] - 1 ) {
+        NSLog(@"nextURL  %@",_nextPageUrl);
+        if (( ![_nextPageUrl isEqual:[NSNull null]] ) && ( [_nextPageUrl length] != 0 )) {
+            
+            [self loadMore];
+            
+        }
+        else{
+            
+            [RMessage showNotificationInViewController:self
+                                                 title:nil
+                                              subtitle:NSLocalizedString(@"All Caught Up...!)", nil)
+                                             iconImage:nil
+                                                  type:RMessageTypeSuccess
+                                        customTypeName:nil
+                                              duration:RMessageDurationAutomatic
+                                              callback:nil
+                                           buttonTitle:nil
+                                        buttonCallback:nil
+                                            atPosition:RMessagePositionBottom
+                                  canBeDismissedByUser:YES];
+            
+        }
+    }
 }
 
 
@@ -307,7 +304,8 @@
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
-       // [[AppDelegate sharedAppdelegate] hideProgressView];
+        [SVProgressHUD dismiss];
+       
         if (self.navigationController.navigationBarHidden) {
             [self.navigationController setNavigationBarHidden:NO];
         }
@@ -348,15 +346,12 @@
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
                     [self loadMore];
-                    //NSLog(@"Thread--NO4-call-getInbox");
                     return;
                 }
                 
                 if (json) {
                     NSLog(@"Thread-NO4--getNotifictionAPI--%@",json);
                     
-                    //_indexPaths=[[NSArray alloc]init];
-                    //_indexPaths = [json objectForKey:@"data"];
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
                     self->_currentPage=[[json objectForKey:@"current_page"] integerValue];
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
@@ -418,160 +413,167 @@
         
         
         
-        ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
+        NotificationTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"NotificationCellID"];
         
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"NotificationTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             
         }
         
-//        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-//        NSLog(@"Dict is : %@", finaldic);
-//
-//
-//        @try{
-//
-//
-//            NSDictionary *profileDict= [finaldic objectForKey:@"requester"];
-//
-//            NSString * seen=[NSString stringWithFormat:@"%i",1];
-//
-//            NSString * str=[NSString stringWithFormat:@"%@",[finaldic objectForKey:@"seen"]];
-//
+        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
+        //   NSLog(@"Dict is : %@", finaldic);
         
-//            [Utils isEmpty:str];
-//
-//            if  (![Utils isEmpty:str] && ![str isEqualToString:@""])
-//            {
-//                if([str isEqualToString:seen])
-//                {
-//
-//                    cell.viewMain.backgroundColor=[UIColor hx_colorWithHexRGBAString:@"#F2F2F2"];
-//                }else
-//                {
-//                    cell.viewMain.backgroundColor=[UIColor clearColor];
-//                    NSLog(@"I am in else condition..!");
-//                }
-//            }
-//            else
-//            {
-//                NSLog(@"I am in else condition..!");
-//            }
         
+        @try{
             
-//            // cell.msglbl.text=[finaldic objectForKey:@"message"];
-//
-//            if ( ( ![[finaldic objectForKey:@"message"] isEqual:[NSNull null]] ) && ( [[finaldic objectForKey:@"message"] length] != 0 ) )
-//            {
-//                cell.msglbl.text=[finaldic objectForKey:@"message"];
-//            }
-//            else
-//            {
-//                cell.msglbl.text= NSLocalizedString(@"Not Available",nil);
-//            }
-        
-//
-//            // cell.timelbl.text=[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]];
-//
-//            if ( ( ![[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]] isEqual:[NSNull null]] ) && ( [[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]] length] != 0 ) )
-//            {
-//                cell.timelbl.text=[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]];
-//            }
-//            else
-//            {
-//                cell.timelbl.text= NSLocalizedString(@"Not Available",nil);
-//            }
-        
-//
-//            //  NSDictionary *profileDict= [finaldic objectForKey:@"requester"];
-//
-//
-//            if(( ![[finaldic objectForKey:@"requester"] isEqual:[NSNull null]] ) )
-//            {
-//                // [cell setUserProfileimage:[profileDict objectForKey:@"profile_pic"]];
-//
-//                // changed_by_user_name
-//                NSString *fname= [profileDict objectForKey:@"changed_by_first_name"];
-//                NSString *lname= [profileDict objectForKey:@"changed_by_last_name"];
-//                NSString *userName= [profileDict objectForKey:@"changed_by_user_name"];
-//
-//                [Utils isEmpty:fname];
-//                [Utils isEmpty:lname];
-//                [Utils isEmpty:userName];
-//
-//                if (![Utils isEmpty:fname] || ![Utils isEmpty:lname])
-//                {
-//                    if(![Utils isEmpty:fname] && ![Utils isEmpty:lname])
-//                    {
-//                        cell.name.text= [NSString stringWithFormat:@"%@ %@",fname,lname];
-//                    }
-//                    else
-//                    {
-//                        cell.name.text= [NSString stringWithFormat:@"%@ %@",fname,lname];
-//                    }
-//                }else if(![Utils isEmpty:userName])
-//                {
-//                    cell.name.text= [profileDict objectForKey:@"changed_by_user_name"];
-//                }
-//
-//                else
-//                {
-//                    // cell.name.text=@"Not Availabel";
-//                    cell.name.text= NSLocalizedString(@"Not Available",nil);
-//                }
-//
-//                if([[profileDict objectForKey:@"profile_pic"] hasSuffix:@"system.png"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".jpg"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".jpeg"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".png"] )
-//                {
-//                    [cell setUserProfileimage:[profileDict objectForKey:@"profile_pic"]];
-//                }
-//                else if(![Utils isEmpty:fname])
-//                {
-//                    [cell.profilePicView setImageWithString:fname color:nil ];
-//                }
-//                else if( [Utils isEmpty:fname] && [Utils isEmpty:lname] && [Utils isEmpty:userName])//userName
-//                {
-//                    // [cell setUserProfileimage:@"systemIcon.png"];
-//                    cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
-//                }
-//
-//            }
-//            else{
-//
-//                if([[finaldic objectForKey:@"by"] isEqualToString:@"System"])
-//                {
-//                    // [cell setUserProfileimage:@"systemIcon.png"];
-//                    cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
-//                    cell.name.text= NSLocalizedString(@"System",nil);//robot
-//                }
-//                else{
-//
-//                    [cell setUserProfileimage:@"default_pic.png"];
-//                    cell.name.text= NSLocalizedString(@"Not Available",nil);
-//                }
-//            }
-//
-        
-//            
-//        }@catch (NSException *exception)
-//        {
-//            [utils showAlertWithMessage:exception.name sendViewController:self];
-//            NSLog( @"Name: %@", exception.name);
-//            NSLog( @"Reason: %@", exception.reason );
-//            
-//        }
-//        @finally
-//        {
-//            NSLog( @" I am in cellForROwAtINdexPAth method in Notification ViewController" );
-//            
-//        }
+            
+            NSDictionary *profileDict= [finaldic objectForKey:@"requester"];
+            
+            NSString * seen=[NSString stringWithFormat:@"%i",1];
+            
+            NSString * str=[NSString stringWithFormat:@"%@",[finaldic objectForKey:@"seen"]];
+            
+            
+            [Utils isEmpty:str];
+            
+            if  (![Utils isEmpty:str] && ![str isEqualToString:@""])
+            {
+                if([str isEqualToString:seen])
+                {
+                    
+                    cell.viewMain.backgroundColor=[UIColor hx_colorWithHexRGBAString:@"#F2F2F2"];
+                }else
+                {
+                    cell.viewMain.backgroundColor=[UIColor clearColor];
+                    NSLog(@"I am in else condition..!");
+                }
+            }
+            else
+            {
+                NSLog(@"I am in else condition..!");
+            }
+            
+            
+            // cell.msglbl.text=[finaldic objectForKey:@"message"];
+            
+            if ( ( ![[finaldic objectForKey:@"message"] isEqual:[NSNull null]] ) && ( [[finaldic objectForKey:@"message"] length] != 0 ) )
+            {
+                cell.msglbl.text=[finaldic objectForKey:@"message"];
+            }
+            else
+            {
+                cell.msglbl.text= NSLocalizedString(@"Not Available",nil);
+            }
+            
+            
+            // cell.timelbl.text=[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]];
+            
+            if ( ( ![[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]] isEqual:[NSNull null]] ) && ( [[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]] length] != 0 ) )
+            {
+                cell.timelbl.text=[utils getLocalDateTimeFromUTC:[finaldic objectForKey:@"created_utc"]];
+            }
+            else
+            {
+                cell.timelbl.text= NSLocalizedString(@"Not Available",nil);
+            }
+            
+            
+            //  NSDictionary *profileDict= [finaldic objectForKey:@"requester"];
+            
+            
+            if(( ![[finaldic objectForKey:@"requester"] isEqual:[NSNull null]] ) )
+            {
+                // [cell setUserProfileimage:[profileDict objectForKey:@"profile_pic"]];
+                
+                // changed_by_user_name
+                NSString *fname= [profileDict objectForKey:@"changed_by_first_name"];
+                NSString *lname= [profileDict objectForKey:@"changed_by_last_name"];
+                NSString *userName= [profileDict objectForKey:@"changed_by_user_name"];
+                
+                [Utils isEmpty:fname];
+                [Utils isEmpty:lname];
+                [Utils isEmpty:userName];
+                
+                if (![Utils isEmpty:fname] || ![Utils isEmpty:lname])
+                {
+                    if(![Utils isEmpty:fname] && ![Utils isEmpty:lname])
+                    {
+                        cell.name.text= [NSString stringWithFormat:@"%@ %@",fname,lname];
+                    }
+                    else
+                    {
+                        cell.name.text= [NSString stringWithFormat:@"%@ %@",fname,lname];
+                    }
+                }else if(![Utils isEmpty:userName])
+                {
+                    cell.name.text= [profileDict objectForKey:@"changed_by_user_name"];
+                }
+                
+                else
+                {
+                    // cell.name.text=@"Not Availabel";
+                    cell.name.text= NSLocalizedString(@"Not Available",nil);
+                }
+                
+                if([[profileDict objectForKey:@"profile_pic"] hasSuffix:@"system.png"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".jpg"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".jpeg"] || [[profileDict objectForKey:@"profile_pic"] hasSuffix:@".png"] )
+                {
+                    [cell setUserProfileimage:[profileDict objectForKey:@"profile_pic"]];
+                }
+                else
+                    if(![Utils isEmpty:fname])
+                    {
+                        [cell.profilePicView setImageWithString:fname color:nil ];
+                    }
+                    else
+                        if(![Utils isEmpty:userName])
+                        {
+                            [cell.profilePicView setImageWithString:userName color:nil ];
+                        }
+                        else if( [Utils isEmpty:fname] && [Utils isEmpty:lname] && [Utils isEmpty:userName])//userName
+                        {
+                            // [cell setUserProfileimage:@"systemIcon.png"];
+                            cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
+                        }
+                
+            }
+            else{
+                
+                if([[finaldic objectForKey:@"by"] isEqualToString:@"System"])
+                {
+                    // [cell setUserProfileimage:@"systemIcon.png"];
+                    cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
+                    cell.name.text= NSLocalizedString(@"System",nil);//robot
+                }
+                else{
+                    
+                    [cell setUserProfileimage:@"default_pic.png"];
+                    cell.name.text= NSLocalizedString(@"Not Available",nil);
+                }
+            }
+            
+            
+            
+        }@catch (NSException *exception)
+        {
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            
+        }
+        @finally
+        {
+            NSLog( @" I am in cellForROwAtINdexPAth method in Notification ViewController" );
+            
+        }
         
         //[[self.tableView didSelectRowAtIndexPath] ];
         
         return cell;
     }
 }
+
 
 
 // This method tells the delegate that the specified row is now selected.
