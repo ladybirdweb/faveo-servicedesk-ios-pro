@@ -864,10 +864,10 @@
                     self->_assetBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.asstArray count]];
                     
                     
-                 //  self->ticketArray = [problemList objectForKey:@"tickets"];
+                 self->globalVariables.ticketArray = [problemList objectForKey:@"tickets"];
                  //showing ticket count
-                 // self->_ticketBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[ticketArray count]];
-                    self->_ticketBarItem.badgeValue=@"0";
+                    self->_ticketBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.ticketArray count]];
+                  //  self->_ticketBarItem.badgeValue=@"0";
                     
                     
                     [SVProgressHUD dismiss];
@@ -901,14 +901,39 @@
         //your code for tab item 1
         NSLog(@"clicked on 1");
         
+        self.normalModalView1.backgroundColor = [UIColor whiteColor];
+        self.normalModalView2.backgroundColor = [UIColor whiteColor];
         [self.normalModalView1 open];
+        
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tableView1 reloadData];
+                [self.tableView1 reloadData];
+                [SVProgressHUD dismiss];
+                
+            });
+        });
         
     }
     else if(item.tag == 2) {
         //your code for tab item 2
         NSLog(@"clicked on 2");
         //NSLog(@"Array is : %@",globalVariables.asstArray);
+        self.normalModalView1.backgroundColor = [UIColor whiteColor];
+        self.normalModalView2.backgroundColor = [UIColor whiteColor];
+        
         [self.normalModalView2 open];
+        
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tableView2 reloadData];
+                [self.tableView2 reloadData];
+                [SVProgressHUD dismiss];
+                
+            });
+        });
         
     }
     else if(item.tag == 3) {
@@ -949,7 +974,7 @@
 {
     if(theTableView == _tableView1){
     
-        return 5;
+        return [globalVariables.ticketArray count];
     }
    
     if(theTableView == _tableView2){
@@ -978,8 +1003,13 @@
         cell = [nib objectAtIndex:0];
     }
 
-    cell.ticketNumberLbl.text = @"AAAA-BBBB-0111";
-    cell.ticketSubLbl.text = @"This is the ticket title";
+        NSDictionary * ticketDic = [globalVariables.ticketArray objectAtIndex:indexPath.row];
+        
+        cell.ticketNumberLbl.text = [ticketDic objectForKey:@"ticket_number"];
+        cell.ticketSubLbl.text = [ticketDic objectForKey:@"title"];
+        
+  //  cell.ticketNumberLbl.text = @"AAAA-BBBB-0111";
+  //  cell.ticketSubLbl.text = @"This is the ticket title";
 
     return cell;
 
@@ -997,18 +1027,18 @@
         cell = [nib objectAtIndex:0];
     }
    
-//     NSLog(@"Asset Array is : %@",globalVariables.asstArray);
-//
-//    NSDictionary * assetDict = [globalVariables.asstArray objectAtIndex:indexPath.row];
-//
-//    NSString * id1 = [assetDict objectForKey:@"id"];
-//    NSString *name = [assetDict objectForKey:@"name"];
+     NSLog(@"Asset Array is : %@",globalVariables.asstArray);
+
+    NSDictionary * assetDict = [globalVariables.asstArray objectAtIndex:indexPath.row];
+
+    NSString * id1 = [assetDict objectForKey:@"id"];
+    NSString *name = [assetDict objectForKey:@"name"];
     
-//    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
-//    cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
+    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
+    cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
     
-    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
-    cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
+//    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
+//    cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
 
     return cell;
     
