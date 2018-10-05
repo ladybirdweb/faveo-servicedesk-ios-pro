@@ -317,6 +317,7 @@
 
 // This method used for implementing the feature of multiple ticket select, using this we can select and deselects the tableview rows and perform futher actions on that seleected rows.
 -(void)EditTableView:(UIGestureRecognizer*)gesture{
+    
     [self.tableView setEditing:YES animated:YES];
     navbar.hidden=NO;
     
@@ -789,8 +790,7 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-          //  [[AppDelegate sharedAppdelegate] hideProgressView];
-               [self reloadTableView];
+            [SVProgressHUD dismiss];
             return;
         }
         @finally
@@ -850,7 +850,6 @@
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                       // [[AppDelegate sharedAppdelegate] hideProgressView];
                         
                     }
                     else

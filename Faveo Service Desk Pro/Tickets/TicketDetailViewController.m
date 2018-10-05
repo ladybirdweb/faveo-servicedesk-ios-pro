@@ -29,6 +29,9 @@
 #import "CreateProblem.h"
 #import "BIZPopupViewController.h"
 #import "ViewAttachedProblems.h"
+#import "ProblemList.h"
+#import "ProblemListForPopUpView.h"
+
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
@@ -68,6 +71,7 @@
 
 //This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
 -(void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.currentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ConversationVC"];
@@ -78,7 +82,6 @@
    
     
     //  self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    
     
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
@@ -121,7 +124,7 @@
     // this is showing tableview pop-up for problems
     self.tableview.separatorColor=[UIColor clearColor];
     
-    // ************** modal view 1 for showing assets ************************
+    // ************** modal view 1 for showing assets ************************************
     
     self.normalModalView1 = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 230) andBaseViewController:self];
     //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
@@ -282,8 +285,8 @@
     
     [super viewWillAppear:animated];
     
-   
 }
+
 
 // After clicking this button, it will nviagte to edit ticket view controller
 -(void)editTicketTapped
@@ -1051,7 +1054,11 @@
     
      NSLog(@"Clicked on attach existing problem");
     
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProblemListForPopUpView *vc = [storyboard instantiateViewControllerWithIdentifier:@"ProblemListForPopUpViewId"];
+
+    BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
+    [self presentViewController:popupViewController animated:NO completion:nil];
     
      [self.normalModalView2 close];
 }
@@ -1107,7 +1114,6 @@
                     }
                     else
                         
-                    
                         if([msg isEqualToString:@"Error-404"])
                         {
                             NSLog(@"Message is : %@",msg);
@@ -1150,7 +1156,7 @@
                         //     NSLog(@"Problem Details : %@",self->dataDict);
                         
                         self->globalVariables.attachedProblemDataDict = self->dataDict;
-                        [SVProgressHUD dismiss];
+                        
                         
                     }else{
                         
@@ -1160,8 +1166,6 @@
                         self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
                         
                     }
-                    
-                    
                 
                 }
                 
@@ -1172,7 +1176,7 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-            [SVProgressHUD dismiss];
+          //  [SVProgressHUD dismiss];
             return;
         }
         

@@ -109,6 +109,7 @@
 		0653B9DA21551CEB00DE5C5E /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0653B9D821551CEB00DE5C5E /* AssetCell.xib */; };
 		0667370D215A362A0088719E /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667370C215A362A0088719E /* AssetCell.m */; };
 		066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A6C312153B2740050EDA2 /* LPSemiModalView.m */; };
+		067550C321673A1A00F78C20 /* ProblemListForPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */; };
 		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
 		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
 		06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB820CBA76D000D834D /* ReplyTicketViewController.m */; };
@@ -317,6 +318,8 @@
 		0667370C215A362A0088719E /* AssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
 		066A6C302153B2730050EDA2 /* LPSemiModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSemiModalView.h; sourceTree = "<group>"; };
 		066A6C312153B2740050EDA2 /* LPSemiModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSemiModalView.m; sourceTree = "<group>"; };
+		067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemListForPopUpView.h; sourceTree = "<group>"; };
+		067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemListForPopUpView.m; sourceTree = "<group>"; };
 		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
 		0675925220D23393009BDCCF /* TestingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingView.m; sourceTree = "<group>"; };
 		0675925420D24DE4009BDCCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -826,6 +829,8 @@
 				06B3D9A22140013F004D548E /* EditProblemDetails.m */,
 				06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */,
 				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
+				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
+				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
 			);
 			path = Problem;
 			sourceTree = "<group>";
@@ -1176,6 +1181,7 @@
 				0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */,
 				0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
+				067550C321673A1A00F78C20 /* ProblemListForPopUpView.m in Sources */,
 				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */,

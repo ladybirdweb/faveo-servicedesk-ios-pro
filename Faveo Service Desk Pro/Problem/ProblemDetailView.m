@@ -246,7 +246,7 @@
     
     self.normalModalView3.narrowedOff = YES;
     //below line is the most important line, if you do not write below line then top view and the view below navigation bar will show in balck color, aslo an segemented control also shown in black color. So what I am doing here, I am changing the background color of modal view so that when I come to problem detail page, I can able to see normal screen.
-  //  self.normalModalView3.backgroundColor = [UIColor whiteColor];
+    self.normalModalView3.backgroundColor = [UIColor whiteColor];
     
    // **************** end modal view 3 for change *************************************
     
@@ -343,7 +343,7 @@
     
     
     self.normalModalView4.narrowedOff = YES;
-  //  self.normalModalView4.backgroundColor = [UIColor whiteColor];
+    self.normalModalView4.backgroundColor = [UIColor whiteColor];
     
     
    //***************** end modal view 4 ************************************************
@@ -434,7 +434,7 @@
     
     
     self.normalModalView5.narrowedOff = YES;
-  //  self.normalModalView4.backgroundColor = [UIColor whiteColor];
+    self.normalModalView5.backgroundColor = [UIColor whiteColor];
     
     //************* end modal view 5 for more **********************************************
     
