@@ -745,6 +745,7 @@
 
 // After clicking on submit/save button below method is called
 -(void)save{
+    
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
         

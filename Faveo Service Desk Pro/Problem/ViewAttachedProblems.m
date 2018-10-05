@@ -148,50 +148,16 @@
                 [SVProgressHUD dismiss];
                 
                 if (msg) {
-                    
-                    
-                    if([msg isEqualToString:@"Error-403"])
-                    {
-                        [self->utils showAlertWithMessage:NSLocalizedString(@"Access Denied - You don't have permission.", nil) sendViewController:self];
-                        
-                    }
-                    
-                    else if([msg isEqualToString:@"Error-422"])
-                    {
-                        NSLog(@"Message is : %@",msg);
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Unprocessable Entity. Please try again later."] sendViewController:self];
-                    }
-                    else if([msg isEqualToString:@"Error-404"])
-                    {
-                        NSLog(@"Message is : %@",msg);
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
-                        
-                    }
-                    else if([msg isEqualToString:@"Error-405"] ||[msg isEqualToString:@"405"])
-                    {
-                        NSLog(@"Message is : %@",msg);
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
-                        
-                    }
-                    else if([msg isEqualToString:@"Error-500"] ||[msg isEqualToString:@"500"])
-                    {
-                        NSLog(@"Message is : %@",msg);
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Internal Server Error.Something has gone wrong on the website's server."] sendViewController:self];
-                        
-                    }
-                    
-                    else{
                         
                         NSLog(@"Message is : %@",msg);
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
                         [SVProgressHUD dismiss];
-                    }
                     
                 }else if(error)  {
                     NSLog(@"Error is : %@",error);
                     
                     [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                    NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
+                  //  NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
                     [SVProgressHUD dismiss];
                 }
                 return ;

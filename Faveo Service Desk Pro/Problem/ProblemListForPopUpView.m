@@ -18,6 +18,7 @@
 #import "LoadingTableViewCell.h"
 #import "UIColor+HexColors.h"
 #import "AppConstanst.h"
+#import "InboxTickets.h"
 
 @interface ProblemListForPopUpView ()<RMessageProtocol,UITableViewDataSource,UITableViewDelegate>
 {
@@ -406,6 +407,8 @@
     NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
     NSLog(@"Selected problem Id is : %@",[finaldic objectForKey:@"id"]);
     
+    globalVariables.problemId2 = [finaldic objectForKey:@"id"];
+    
     [tableView reloadData];
     
 }
@@ -574,5 +577,112 @@
 - (IBAction)saveButtonClicked:(id)sender {
     
      NSLog(@"Clicked on save button");
+    
+    [SVProgressHUD showWithStatus:@"Please wait"];
+    
+    [self attachExistingProblemToTicketAPICall];
+    
+   
+    
+}
+
+-(void)attachExistingProblemToTicketAPICall{
+    
+    
+    NSString *url=[NSString stringWithFormat:@"%@servicedesk/attach/existing/problem?api_key=%@&token=%@&ticketid=%@&problemid=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,[userDefaults objectForKey:@"token"],globalVariables.ticketId,globalVariables.problemId2];
+    
+    
+    @try{
+        MyWebservices *webservices=[MyWebservices sharedInstance];
+        
+        [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            
+            
+            if (error || [msg containsString:@"Error"]) {
+                
+                [SVProgressHUD dismiss];
+                
+                if (msg) {
+                    
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                    
+                }else if(error)  {
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                    // NSLog(@"Thread-NO4-getInbox-Refresh-error == %@",error.localizedDescription);
+                }
+                
+                return ;
+            }
+            
+            if ([msg isEqualToString:@"tokenRefreshed"]) {
+                
+                [self attachExistingProblemToTicketAPICall];
+                NSLog(@"Thread-call-attachExistingProblemToTicket");
+                return;
+            }
+            
+            if (json) {
+                
+                // write code
+                NSString * dataMesg = [json objectForKey:@"data"];
+                
+                if([dataMesg isEqualToString:@"Problem attached to this ticket"]){
+                    
+                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            if (self.navigationController.navigationBarHidden) {
+                                [self.navigationController setNavigationBarHidden:NO];
+                            }
+                            
+                            [RMessage showNotificationInViewController:self.navigationController
+                                                                 title:NSLocalizedString(@"success", nil)
+                                                              subtitle:NSLocalizedString(@"Problem attached Successfully", nil)
+                                                             iconImage:nil
+                                                                  type:RMessageTypeSuccess
+                                                        customTypeName:nil
+                                                              duration:RMessageDurationAutomatic
+                                                              callback:nil
+                                                           buttonTitle:nil
+                                                        buttonCallback:nil
+                                                            atPosition:RMessagePositionNavBarOverlay
+                                                  canBeDismissedByUser:YES];
+                            
+                           
+                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
+                            [self presentViewController:objNav animated:YES completion:nil];
+                            
+                            [SVProgressHUD dismiss];
+                            
+                        });
+                    });
+                    
+                    
+                    
+                }else{
+                    
+                    [self->utils showAlertWithMessage:@"Something Went Wrong." sendViewController:self];
+                    [SVProgressHUD dismiss];
+                }
+                
+            }
+            NSLog(@"Thread-attachExistingProblemToTicket-closed");
+            
+        }];
+    }@catch (NSException *exception)
+    {
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        return;
+    }
+    @finally
+    {
+        //   NSLog( @" I am in attachExistingProblemToTicket ViewController" );
+        
+    }
+    
+    
 }
 @end

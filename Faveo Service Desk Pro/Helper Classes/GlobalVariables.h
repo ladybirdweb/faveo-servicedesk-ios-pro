@@ -127,4 +127,7 @@
 @property (strong, nonatomic) NSString *showNavigationItem; //show//hide
 
 @property (strong, nonatomic) NSArray * attachedAssetList;
+
+@property (strong, nonatomic) NSNumber *problemId2;
+
 @end
