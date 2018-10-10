@@ -278,7 +278,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgA-gg-sHz">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="License is expired so latest versions are not coming and are not able to scan the system." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j9K-cN-xb3">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j9K-cN-xb3">
                                                             <rect key="frame" x="101" y="9" width="299" height="61"/>
                                                             <color key="backgroundColor" red="0.94869631529999998" green="0.97320848699999996" blue="0.98284083600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -286,6 +286,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="TXV-dY-QiP" id="f0i-cm-9lf"/>
+                                                            </connections>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Root Cause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko8-su-meF">
                                                             <rect key="frame" x="8" y="32" width="85" height="17"/>
@@ -325,7 +328,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nad-tD-EgX">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Due to this issue user won't be able to install latest version of the software and not be able to scan his system." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l0F-T2-UgL">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l0F-T2-UgL">
                                                             <rect key="frame" x="101" y="9" width="299" height="61"/>
                                                             <color key="backgroundColor" red="0.94869631529999998" green="0.97320848699999996" blue="0.98284083600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -333,6 +336,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="TXV-dY-QiP" id="gIu-Ge-ahB"/>
+                                                            </connections>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-U9-kmF">
                                                             <rect key="frame" x="8" y="32" width="85" height="17"/>
@@ -382,7 +388,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="It is giving a pop up message that &quot;Your developer license has expired, please renew your license&quot;" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zCB-dD-j32">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zCB-dD-j32">
                                                             <rect key="frame" x="101" y="9" width="299" height="61"/>
                                                             <color key="backgroundColor" red="0.94869631529999998" green="0.97320848699999996" blue="0.98284083600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -390,6 +396,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="TXV-dY-QiP" id="TCc-pb-HGD"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
@@ -423,11 +432,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3B-m8-O1b">
                                                     <rect key="frame" x="0.0" y="0.0" width="413" height="107"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Need to upgrade the software plan. The plan should be minimun for 1-2 years for 30 users." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jKc-vc-IWO">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jKc-vc-IWO">
                                                             <rect key="frame" x="17" y="8" width="379" height="97"/>
                                                             <color key="backgroundColor" red="0.94869631529999998" green="0.97320848699999996" blue="0.98284083600000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="TXV-dY-QiP" id="1fr-sV-sIW"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
@@ -467,7 +479,11 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="impactTextView" destination="l0F-T2-UgL" id="aBz-er-M1n"/>
+                        <outlet property="rootCauseTextView" destination="j9K-cN-xb3" id="QLE-8J-BAH"/>
                         <outlet property="sampleTableview" destination="mJb-v3-TWL" id="HE7-1n-W5z"/>
+                        <outlet property="solutionTextView" destination="jKc-vc-IWO" id="OGL-9p-hg4"/>
+                        <outlet property="symptomsTextView" destination="zCB-dD-j32" id="G9i-Gj-MaK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdS-31-sUs" userLabel="First Responder" sceneMemberID="firstResponder"/>

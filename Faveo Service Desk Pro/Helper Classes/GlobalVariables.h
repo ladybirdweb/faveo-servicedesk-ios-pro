@@ -130,4 +130,12 @@
 
 @property (strong, nonatomic) NSNumber *problemId2;
 
+// Problem data -
+@property (strong, nonatomic) NSString *rootCuaseValue;
+@property (strong, nonatomic) NSString *impactValue;
+@property (strong, nonatomic) NSString *symptomsValue;
+@property (strong, nonatomic) NSString *solutionValue;
+
+
+
 @end

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "68D4421289C12F8FDB7679FE3928AF7C"
-               BlueprintName = "GTMSessionFetcher"
+               BlueprintIdentifier = "AF49B47A3DE4016C4AFE1D231F23CE67"
+               BlueprintName = "CNPPopupController"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libGTMSessionFetcher.a">
+               BuildableName = "libCNPPopupController.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

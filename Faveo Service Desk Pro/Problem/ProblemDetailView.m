@@ -23,13 +23,26 @@
 #import "OpenCloseTableViewCell.h"
 #import "AssetCell.h"
 #import "ProblemList.h"
+#import "CNPPopupController.h"
+#import "AppConstanst.h"
 
-@interface ProblemDetailView ()<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     
     Utils *utils;
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
+    
+    
+    UITextView *textViewRootCause;
+    UITextView *textViewImpact;
+    UITextView *textViewSymptoms;
+    UITextView *textViewSolution;
+    
+    UILabel *errorMessageRootCause;
+    UILabel *errorMessageImpact;
+    UILabel *errorMessageSymptoms;
+    UILabel *errorMessageSolution;
 
 }
 
@@ -45,6 +58,8 @@
 
 
 @property (nonatomic) int count1;
+
+@property (nonatomic, strong) CNPPopupController *popupController;
 
 @end
 
@@ -440,6 +455,7 @@
     
     [self callProbleDetailAPI];
     
+    
 }
 
 
@@ -466,27 +482,110 @@
 -(void)existingChangeMethod{
     
      NSLog(@"existing change clicked");
+    
 }
 
 -(void)rootCauseMethodCall{
     
     NSLog(@"root cause clicked");
+    [self showPopupRootCause:CNPPopupStyleCentered];
+    [self.normalModalView4 close];
 }
 
 -(void)impactMethodCall{
     
      NSLog(@"impact method clicked");
+  //   [self showPopupImpact:CNPPopupStyleCentered];
 }
 
 -(void)symptomsMethodCall{
     
     NSLog(@"symptoms  method clicked");
+  //  [self showPopupSymtoms:CNPPopupStyleCentered];
 }
 
 
 -(void)solutionMethodCall{
     
      NSLog(@"solution method clicked");
+   // [self showPopupSolution:CNPPopupStyleCentered];
+}
+
+
+- (void)showPopupRootCause:(CNPPopupStyle)popupStyle {
+    
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Add Root Cause",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    
+    NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Description*",nil) attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSForegroundColorAttributeName : [UIColor hx_colorWithHexRGBAString:@"#00aeef"]}];
+    [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(7,1)];
+   
+    UILabel *titleLabel = [[UILabel alloc] init];
+    titleLabel.numberOfLines = 0;
+    titleLabel.attributedText = title;
+    errorMessageRootCause=[[UILabel alloc] initWithFrame:CGRectMake(10, 135, 250, 20)];
+    errorMessageRootCause.textColor=[UIColor hx_colorWithHexRGBAString:@"#d50000"];
+    errorMessageRootCause.text=@"Field is mandatory.";
+    [errorMessageRootCause setFont:[UIFont systemFontOfSize:12]];
+    errorMessageRootCause.hidden=YES;
+    
+    
+    UILabel *lineTwoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 150, 20)];
+    lineTwoLabel.attributedText = lineTwo;
+    
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 275, 140)];
+    
+    textViewRootCause = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 250, 100)];
+    
+    textViewRootCause.layer.cornerRadius=4;
+    textViewRootCause.spellCheckingType=UITextSpellCheckingTypeYes;
+    textViewRootCause.autocorrectionType=UITextAutocorrectionTypeNo;
+    textViewRootCause.layer.borderWidth=1.0F;
+    textViewRootCause.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    
+    [customView addSubview: textViewRootCause];
+    [customView addSubview:lineTwoLabel];
+    [customView addSubview:errorMessageRootCause];
+    
+    CNPPopupButton *button = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0,200
+                                                                              
+                                                                              , 40)];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    [button setTitle:NSLocalizedString(@"Done",nil) forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor hx_colorWithHexRGBAString:@"#00aeef"];
+    button.layer.cornerRadius = 4;
+    
+    button.selectionHandler = ^(CNPPopupButton *button){
+        NSString *rawString = [self->textViewRootCause text];
+        NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        NSString *trimmed = [rawString stringByTrimmingCharactersInSet:whitespace];
+        if ([trimmed length] == 0) {
+            self->errorMessageRootCause.hidden=NO;
+            // Text was empty or only whitespace.
+        }else if ( self->textViewRootCause.text.length > 0 && self->textViewRootCause.text != nil && ![self->textViewRootCause.text isEqual:@""]) {
+            self->errorMessageRootCause.hidden=YES;
+            
+            [self rootCauseAPICall];
+            [self.popupController dismissPopupControllerAnimated:YES];
+            NSLog(@"Message of InternalNote: %@",  self->textViewRootCause.text);
+            
+        }else {
+            self->errorMessageRootCause.hidden=NO;
+        }
+    };
+
+    
+    self.popupController = [[CNPPopupController alloc] initWithContents:@[titleLabel, customView, button]];
+    //self.popupController = [[CNPPopupController alloc] initWithContents:@[titleLabel, customView, button2]];
+    self.popupController.theme = [CNPPopupTheme defaultTheme];
+    self.popupController.theme.popupStyle = popupStyle;
+    self.popupController.delegate = self;
+    [self.popupController presentPopupControllerAnimated:YES];
+    
 }
 
 -(void)editMethodCalled{
@@ -1060,6 +1159,109 @@
     //TODO: Calculate cell height
     return 65.0f;
 }
+
+
+-(void)rootCauseAPICall{
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        //connection unavailable
+       
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+    }else{
+        
+        [SVProgressHUD showWithStatus:@"Please wait"];
+        
+        
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=root-cause&root-cause=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],textViewRootCause.text];
+        
+        
+        NSLog(@"URL is : %@",url);
+        @try{
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            
+            [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                     [SVProgressHUD dismiss];
+                    
+                    if (msg) {
+                        
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                        
+                    }else if(error)  {
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                        NSLog(@"Thread-adding-rootcause-error == %@",error.localizedDescription);
+                    }
+                    
+                    return ;
+                }
+                
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    [self rootCauseAPICall];
+                    return;
+                }
+                
+                if (json) {
+                    NSLog(@"JSON-%@",json);
+                    
+                    if ([json objectForKey:@"data"]) {
+                        
+            
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                         
+                            //[RKDropdownAlert title:NSLocalizedString(@"Sucess", nil) message:NSLocalizedString(@"Posted your reply.", nil)backgroundColor:[UIColor hx_colorWithHexRGBAString:SUCCESS_COLOR] textColor:[UIColor whiteColor]];
+                            
+                            
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+                            
+                            [self.view setNeedsDisplay];
+                            [self viewDidLoad];
+                          
+                        });
+                    }
+                }
+                NSLog(@"Thread-UpdateRootCause-closed");
+                
+            }];
+        }@catch (NSException *exception)
+        {
+            // Print exception information
+            NSLog( @"NSException caught in post-replay methos in TicketDetail ViewController\n" );
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            return;
+        }
+        @finally
+        {
+            // Cleanup, in both success and fail cases
+            NSLog( @"In finally block");
+            
+        }
+        
+    }
+    
+    
+}
+
 
 
 @end

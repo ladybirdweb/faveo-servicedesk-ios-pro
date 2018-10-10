@@ -21,6 +21,7 @@ pod 'Firebase/Performance'
 pod 'Fabric'
 pod 'Crashlytics'
 
+pod 'CNPPopupController'
 
 pod 'SDWebImage', '~> 4.0'
 

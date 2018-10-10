@@ -12,5 +12,13 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *sampleTableview;
 
+@property (weak, nonatomic) IBOutlet UITextView *rootCauseTextView;
+
+@property (weak, nonatomic) IBOutlet UITextView *impactTextView;
+
+@property (weak, nonatomic) IBOutlet UITextView *symptomsTextView;
+
+@property (weak, nonatomic) IBOutlet UITextView *solutionTextView;
+
 
 @end

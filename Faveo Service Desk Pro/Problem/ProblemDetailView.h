@@ -27,4 +27,6 @@
 @property (weak, nonatomic) IBOutlet UITabBarItem *assetBarItem;
 
 
+-(void)getRootCauseDetails;
+
 @end
