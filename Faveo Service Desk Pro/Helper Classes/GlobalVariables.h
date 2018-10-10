@@ -130,12 +130,13 @@
 
 @property (strong, nonatomic) NSNumber *problemId2;
 
-// Problem data -
+// This variable stores values of RootCause, Impact, Symptoms and Solution
 @property (strong, nonatomic) NSString *rootCuaseValue;
 @property (strong, nonatomic) NSString *impactValue;
 @property (strong, nonatomic) NSString *symptomsValue;
 @property (strong, nonatomic) NSString *solutionValue;
 
-
+//This property is used to identify that which button clicked on update modalView for a problem. Values can be rootCause, impact, symptoms and solution.
+@property (strong, nonatomic) NSString *updateProblemValue;
 
 @end

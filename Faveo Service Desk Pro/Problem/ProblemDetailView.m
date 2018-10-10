@@ -34,15 +34,8 @@
     GlobalVariables *globalVariables;
     
     
-    UITextView *textViewRootCause;
-    UITextView *textViewImpact;
-    UITextView *textViewSymptoms;
-    UITextView *textViewSolution;
-    
-    UILabel *errorMessageRootCause;
-    UILabel *errorMessageImpact;
-    UILabel *errorMessageSymptoms;
-    UILabel *errorMessageSolution;
+    UITextView *customTextView;
+    UILabel *errorMessage;
 
 }
 
@@ -488,37 +481,60 @@
 -(void)rootCauseMethodCall{
     
     NSLog(@"root cause clicked");
-    [self showPopupRootCause:CNPPopupStyleCentered];
+    globalVariables.updateProblemValue=@"rootCause";
+    
+    [self showPopup:CNPPopupStyleCentered];
     [self.normalModalView4 close];
 }
 
 -(void)impactMethodCall{
     
      NSLog(@"impact method clicked");
-  //   [self showPopupImpact:CNPPopupStyleCentered];
+     globalVariables.updateProblemValue=@"impact";
 }
 
 -(void)symptomsMethodCall{
     
     NSLog(@"symptoms  method clicked");
-  //  [self showPopupSymtoms:CNPPopupStyleCentered];
+    globalVariables.updateProblemValue=@"symptoms";
 }
 
 
 -(void)solutionMethodCall{
     
      NSLog(@"solution method clicked");
-   // [self showPopupSolution:CNPPopupStyleCentered];
+     globalVariables.updateProblemValue=@"solution";
 }
 
 
-- (void)showPopupRootCause:(CNPPopupStyle)popupStyle {
+- (void)showPopup:(CNPPopupStyle)popupStyle {
     
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
-    NSAttributedString *title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Add Root Cause",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    NSAttributedString *title;
+    
+    if([globalVariables.updateProblemValue isEqualToString:@"rootCause"]){
+        
+       title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Root Cause",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"impact"]){
+        
+        title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Impact",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"symptoms"]){
+        
+        title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Symptoms",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"solution"]){
+        
+        title = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Solution",nil) attributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:24], NSParagraphStyleAttributeName : paragraphStyle}];
+    }else{
+        
+        NSLog(@"Nothing...!");
+    }
+    
     
     NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Description*",nil) attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSForegroundColorAttributeName : [UIColor hx_colorWithHexRGBAString:@"#00aeef"]}];
     [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(7,1)];
@@ -526,11 +542,11 @@
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.numberOfLines = 0;
     titleLabel.attributedText = title;
-    errorMessageRootCause=[[UILabel alloc] initWithFrame:CGRectMake(10, 135, 250, 20)];
-    errorMessageRootCause.textColor=[UIColor hx_colorWithHexRGBAString:@"#d50000"];
-    errorMessageRootCause.text=@"Field is mandatory.";
-    [errorMessageRootCause setFont:[UIFont systemFontOfSize:12]];
-    errorMessageRootCause.hidden=YES;
+    errorMessage=[[UILabel alloc] initWithFrame:CGRectMake(10, 135, 250, 20)];
+    errorMessage.textColor=[UIColor hx_colorWithHexRGBAString:@"#d50000"];
+    errorMessage.text=@"Field is mandatory.";
+    [errorMessage setFont:[UIFont systemFontOfSize:12]];
+    errorMessage.hidden=YES;
     
     
     UILabel *lineTwoLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 150, 20)];
@@ -538,17 +554,17 @@
     
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 275, 140)];
     
-    textViewRootCause = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 250, 100)];
+    customTextView = [[UITextView alloc] initWithFrame:CGRectMake(10, 35, 250, 100)];
     
-    textViewRootCause.layer.cornerRadius=4;
-    textViewRootCause.spellCheckingType=UITextSpellCheckingTypeYes;
-    textViewRootCause.autocorrectionType=UITextAutocorrectionTypeNo;
-    textViewRootCause.layer.borderWidth=1.0F;
-    textViewRootCause.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+    customTextView.layer.cornerRadius=4;
+    customTextView.spellCheckingType=UITextSpellCheckingTypeYes;
+    customTextView.autocorrectionType=UITextAutocorrectionTypeNo;
+    customTextView.layer.borderWidth=1.0F;
+    customTextView.layer.borderColor=[[UIColor lightGrayColor] CGColor];
     
-    [customView addSubview: textViewRootCause];
+    [customView addSubview: customTextView];
     [customView addSubview:lineTwoLabel];
-    [customView addSubview:errorMessageRootCause];
+    [customView addSubview:errorMessage];
     
     CNPPopupButton *button = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0,200
                                                                               
@@ -560,27 +576,27 @@
     button.layer.cornerRadius = 4;
     
     button.selectionHandler = ^(CNPPopupButton *button){
-        NSString *rawString = [self->textViewRootCause text];
+        NSString *rawString = [self->customTextView text];
         NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         NSString *trimmed = [rawString stringByTrimmingCharactersInSet:whitespace];
         if ([trimmed length] == 0) {
-            self->errorMessageRootCause.hidden=NO;
+            self->errorMessage.hidden=NO;
             // Text was empty or only whitespace.
-        }else if ( self->textViewRootCause.text.length > 0 && self->textViewRootCause.text != nil && ![self->textViewRootCause.text isEqual:@""]) {
-            self->errorMessageRootCause.hidden=YES;
+        }else if ( self->customTextView.text.length > 0 && self->customTextView.text != nil && ![self->customTextView.text isEqual:@""]) {
+            self->errorMessage.hidden=YES;
             
-            [self rootCauseAPICall];
+            [self updateAPICall]; // Update API called - to update Root cause, impact, symptoms and solution
+            
             [self.popupController dismissPopupControllerAnimated:YES];
-            NSLog(@"Message of InternalNote: %@",  self->textViewRootCause.text);
+            NSLog(@"Message is: %@",  self->customTextView.text);
             
         }else {
-            self->errorMessageRootCause.hidden=NO;
+            self->errorMessage.hidden=NO;
         }
     };
 
     
     self.popupController = [[CNPPopupController alloc] initWithContents:@[titleLabel, customView, button]];
-    //self.popupController = [[CNPPopupController alloc] initWithContents:@[titleLabel, customView, button2]];
     self.popupController.theme = [CNPPopupTheme defaultTheme];
     self.popupController.theme.popupStyle = popupStyle;
     self.popupController.delegate = self;
@@ -1161,7 +1177,7 @@
 }
 
 
--(void)rootCauseAPICall{
+-(void)updateAPICall{
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
@@ -1188,11 +1204,39 @@
         
         [SVProgressHUD showWithStatus:@"Please wait"];
         
+        NSString *url;
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=root-cause&root-cause=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],textViewRootCause.text];
+        if([globalVariables.updateProblemValue isEqualToString:@"rootCause"]){
+            
+            url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=root-cause&root-cause=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],customTextView.text];
+            
+            NSLog(@"URL is : %@",url);
+        }
+        else if([globalVariables.updateProblemValue isEqualToString:@"impact"]){
+            
+            url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=impact&impact=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],customTextView.text];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }
+        else if([globalVariables.updateProblemValue isEqualToString:@"symptoms"]){
+            
+            url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=symptoms&symptoms=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],customTextView.text];
+        
+            NSLog(@"URL is : %@",url);
+        }
+        else if([globalVariables.updateProblemValue isEqualToString:@"solution"]){
+           
+            url=[NSString stringWithFormat:@"%@servicedesk/general/updates/%@/sd_problem?api_key=%@&token=%@&identifier=solution&solution=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"],customTextView.text];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }else{
+            
+            NSLog(@"Nothing Called...!");
+        }
         
         
-        NSLog(@"URL is : %@",url);
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
             
@@ -1216,7 +1260,7 @@
                 
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
-                    [self rootCauseAPICall];
+                    [self updateAPICall];
                     return;
                 }
                 
@@ -1228,9 +1272,6 @@
             
                         dispatch_async(dispatch_get_main_queue(), ^{
                          
-                            //[RKDropdownAlert title:NSLocalizedString(@"Sucess", nil) message:NSLocalizedString(@"Posted your reply.", nil)backgroundColor:[UIColor hx_colorWithHexRGBAString:SUCCESS_COLOR] textColor:[UIColor whiteColor]];
-                            
-                            
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
                             
                             [self.view setNeedsDisplay];
@@ -1239,13 +1280,13 @@
                         });
                     }
                 }
-                NSLog(@"Thread-UpdateRootCause-closed");
+                NSLog(@"Thread-updateAPICall-closed");
                 
             }];
         }@catch (NSException *exception)
         {
             // Print exception information
-            NSLog( @"NSException caught in post-replay methos in TicketDetail ViewController\n" );
+            NSLog( @"NSException caught in updateAPICall methods in Problem Detal VC \n" );
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             return;
