@@ -10,6 +10,8 @@
 
 @interface ProblemDetailView : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *problemIdLabel;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -26,7 +28,5 @@
 
 @property (weak, nonatomic) IBOutlet UITabBarItem *assetBarItem;
 
-
--(void)getRootCauseDetails;
 
 @end

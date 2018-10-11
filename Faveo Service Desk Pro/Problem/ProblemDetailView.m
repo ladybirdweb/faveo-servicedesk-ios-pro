@@ -36,14 +36,19 @@
     
     UITextView *customTextView;
     UILabel *errorMessage;
+    
 
 }
+
+@property (nonatomic, strong) NSString *successMessage;
 
 @property (nonatomic, strong) LPSemiModalView *normalModalView1;
 @property (nonatomic, strong) LPSemiModalView *normalModalView2;
 @property (nonatomic, strong) LPSemiModalView *normalModalView3;
 @property (nonatomic, strong) LPSemiModalView *normalModalView4;
 @property (nonatomic, strong) LPSemiModalView *normalModalView5;
+
+
 
 //It is used to show table view as a modal for displaying tickets and assets
 @property (strong, nonatomic) UITableView *tableView1;
@@ -77,6 +82,7 @@
     utils=[[Utils alloc]init];
     globalVariables=[GlobalVariables sharedInstance];
     
+    _problemIdLabel.text=[NSString stringWithFormat:@"#PRB-%@",globalVariables.problemId];
    
     if ([globalVariables.showNavigationItem isEqualToString:@"show"]) {
         
@@ -365,33 +371,33 @@
     UILabel *label0A;
     UILabel *label1A;
     UILabel *label2A;
-    UILabel *label3A;
+   
     
     
-                                                   //  x  y    w   h
+                                                //  x  y    w   h
     label0A=[[UILabel alloc]initWithFrame:CGRectMake(15, 15, 200, 13)];
     label1A=[[UILabel alloc]initWithFrame:CGRectMake(58, 50, 150, 40)];//Set frame of label in your viewcontroller.
     label2A=[[UILabel alloc]initWithFrame:CGRectMake(58, 90, 150, 40)];
-    label3A=[[UILabel alloc]initWithFrame:CGRectMake(58, 130, 150, 40)];
+    
     
     
     
     [label1A setText:@"Edit"];//Set text in label.
-    [label2A setText:@"Close"];
-    [label3A setText:@"Delete"];
+    [label2A setText:@"Delete"];
+    
     
 
     label1A.userInteractionEnabled = YES;
     label2A.userInteractionEnabled = YES;
-    label3A.userInteractionEnabled = YES;
+
     
     UITapGestureRecognizer * tapGesture1A = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editMethodCalled)];
-    UITapGestureRecognizer * tapGesture2A = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeMethodCalled)];
-    UITapGestureRecognizer * tapGesture3A = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleteMethodCalled)];
+    UITapGestureRecognizer * tapGesture2A = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(deleteMethodCalled)];
+    
     
     [label1A addGestureRecognizer:tapGesture1A];
     [label2A addGestureRecognizer:tapGesture2A];
-    [label3A addGestureRecognizer:tapGesture3A];
+
     
     
     [label0A setText:@"..."];
@@ -399,13 +405,13 @@
     [label0A setTextColor:[UIColor colorFromHexString:@"CCCCCC"]];
     [label1A setTextColor:[UIColor blackColor]];//Set text color in label.
     [label2A setTextColor:[UIColor blackColor]];
-    [label3A setTextColor:[UIColor blackColor]];
+    
     
     
     [label0A setTextAlignment:NSTextAlignmentLeft];
     [label1A setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
     [label2A setTextAlignment:NSTextAlignmentLeft];//Set text alignment in label.
-    [label3A setTextAlignment:NSTextAlignmentLeft];
+    
     
     
     [label1A setBaselineAdjustment:UIBaselineAdjustmentAlignBaselines];//Set line adjustment.
@@ -415,11 +421,8 @@
     [self.normalModalView5.contentView addSubview:label0A];
     [self.normalModalView5.contentView addSubview:label1A];
     [self.normalModalView5.contentView addSubview:label2A];
-    [self.normalModalView5.contentView addSubview:label3A];
-    
-    
-    
-    
+
+
     UIImageView *imageview1A = [[UIImageView alloc]
                                initWithFrame:CGRectMake(21, 59, 25, 25)];
     [imageview1A setImage:[UIImage imageNamed:@"pencileEdit"]];
@@ -428,18 +431,11 @@
     
     UIImageView *imageview2A = [[UIImageView alloc]
                                initWithFrame:CGRectMake(21, 98, 25, 25)];
-    [imageview2A setImage:[UIImage imageNamed:@"closeticket2"]];
+    [imageview2A setImage:[UIImage imageNamed:@"trash2"]];
     [imageview2A setContentMode:UIViewContentModeScaleAspectFit];
     [self.normalModalView5.contentView addSubview:imageview2A];
     
-    UIImageView *imageview3A = [[UIImageView alloc]
-                               initWithFrame:CGRectMake(21, 140, 25, 25)];
-    [imageview3A setImage:[UIImage imageNamed:@"trash2"]];
-    [imageview3A setContentMode:UIViewContentModeScaleAspectFit];
-    [self.normalModalView5.contentView addSubview:imageview3A];
-    
-    
-    
+
     
     self.normalModalView5.narrowedOff = YES;
     self.normalModalView5.backgroundColor = [UIColor whiteColor];
@@ -491,12 +487,18 @@
     
      NSLog(@"impact method clicked");
      globalVariables.updateProblemValue=@"impact";
+    
+    [self showPopup:CNPPopupStyleCentered];
+    [self.normalModalView4 close];
 }
 
 -(void)symptomsMethodCall{
     
     NSLog(@"symptoms  method clicked");
     globalVariables.updateProblemValue=@"symptoms";
+    
+    [self showPopup:CNPPopupStyleCentered];
+    [self.normalModalView4 close];
 }
 
 
@@ -504,6 +506,9 @@
     
      NSLog(@"solution method clicked");
      globalVariables.updateProblemValue=@"solution";
+    
+    [self showPopup:CNPPopupStyleCentered];
+    [self.normalModalView4 close];
 }
 
 
@@ -561,10 +566,32 @@
     customTextView.autocorrectionType=UITextAutocorrectionTypeNo;
     customTextView.layer.borderWidth=1.0F;
     customTextView.layer.borderColor=[[UIColor lightGrayColor] CGColor];
+
     
     [customView addSubview: customTextView];
     [customView addSubview:lineTwoLabel];
     [customView addSubview:errorMessage];
+    
+    if([globalVariables.updateProblemValue isEqualToString:@"rootCause"]){
+        
+        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.rootCuaseValue];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"impact"]){
+        
+        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.impactValue];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"symptoms"]){
+        
+        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.symptomsValue];
+    }
+    else if([globalVariables.updateProblemValue isEqualToString:@"solution"]){
+        
+        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.solutionValue];
+        
+    }else{
+        
+        customTextView.text=@"";
+    }
     
     CNPPopupButton *button = [[CNPPopupButton alloc] initWithFrame:CGRectMake(0, 0,200
                                                                               
@@ -1051,12 +1078,12 @@
         });
         
     }
-    else if(item.tag == 3) {
-        //your code for tab item 3
-        NSLog(@"clicked on 3");
-        
-        [self.normalModalView3 open];
-    }
+//    else if(item.tag == 3) {
+//        //your code for tab item 3
+//        NSLog(@"clicked on 3");
+//        
+//        [self.normalModalView3 open];
+//    }
     else if(item.tag == 4) {
         //your code for tab item 4
         NSLog(@"clicked on 4");
@@ -1272,9 +1299,26 @@
             
                         dispatch_async(dispatch_get_main_queue(), ^{
                          
-                            [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+                            if (self.navigationController.navigationBarHidden) {
+                                [self.navigationController setNavigationBarHidden:NO];
+                            }
                             
+                            [RMessage showNotificationInViewController:self.navigationController
+                                                                 title:NSLocalizedString(@"Done!", nil)
+                                                              subtitle:NSLocalizedString(@"Updated successfully..!", nil)
+                                                             iconImage:nil
+                                                                  type:RMessageTypeSuccess
+                                                        customTypeName:nil
+                                                              duration:RMessageDurationAutomatic
+                                                              callback:nil
+                                                           buttonTitle:nil
+                                                        buttonCallback:nil
+                                                            atPosition:RMessagePositionNavBarOverlay
+                                                  canBeDismissedByUser:YES];
+                            
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
                             [self.view setNeedsDisplay];
+                            [SVProgressHUD dismiss];
                             [self viewDidLoad];
                           
                         });

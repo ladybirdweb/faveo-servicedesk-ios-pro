@@ -215,9 +215,6 @@
                                     <tabBarItem tag="2" title="Assets" image="tabBar2" id="qcI-J1-gsm">
                                         <inset key="largeContentSizeImageInsets" minX="-1" minY="-1" maxX="0.0" maxY="-1"/>
                                     </tabBarItem>
-                                    <tabBarItem tag="3" title="Change" image="tabBar3" id="Miq-Jf-0y5">
-                                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
                                     <tabBarItem tag="4" title="Update" image="tabBar4" id="1gg-HW-3z8"/>
                                     <tabBarItem tag="5" systemItem="more" id="A1s-te-XSh">
                                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="1"/>
@@ -249,6 +246,7 @@
                     <connections>
                         <outlet property="assetBarItem" destination="qcI-J1-gsm" id="Wvu-TI-a1f"/>
                         <outlet property="containerView" destination="3F1-b1-L8l" id="L7G-S9-Qb5"/>
+                        <outlet property="problemIdLabel" destination="DVS-nf-d6t" id="JvI-ag-oN4"/>
                         <outlet property="segmentedControl" destination="oUp-t5-b36" id="Tvk-fi-8eo"/>
                         <outlet property="ticketBarItem" destination="qeO-BH-VcP" id="dw3-TU-Nnf"/>
                     </connections>
@@ -456,18 +454,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="z3B-m8-O1b" secondAttribute="bottom" constant="10.666666666666671" id="abA-uI-jLK"/>
                                                 <constraint firstItem="z3B-m8-O1b" firstAttribute="top" secondItem="njb-gq-jq4" secondAttribute="top" id="agK-p1-j6N"/>
                                             </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="CHANGE" id="e3L-D2-92X">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="pyS-Er-zf4">
-                                        <rect key="frame" x="0.0" y="525.33333333333337" width="414" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pyS-Er-zf4" id="GAw-03-uzz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
-                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -7205,7 +7191,6 @@
         <image name="save22" width="25" height="25"/>
         <image name="servicdeskPro.png" width="1024" height="1024"/>
         <image name="tabBar2" width="24" height="24"/>
-        <image name="tabBar3" width="24" height="24"/>
         <image name="tabBar4" width="25" height="25"/>
         <image name="ticket1" width="24" height="24"/>
         <image name="url1" width="24" height="24"/>
