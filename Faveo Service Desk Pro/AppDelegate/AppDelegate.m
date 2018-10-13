@@ -84,12 +84,21 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
             // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
            
           
-            UIUserNotificationType allNotificationTypes =
-            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-            UIUserNotificationSettings *settings =
-            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-            [application registerUserNotificationSettings:settings];
+//            UIUserNotificationType allNotificationTypes =
+//            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+//            UIUserNotificationSettings *settings =
+//            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+//            [application registerUserNotificationSettings:settings];
+            
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                if (!granted) {
+                    //Show alert asking to go to settings and allow permission
+                }
+            }];
         }
+        
+        
     } else {
         // Fallback on earlier versions
     }
@@ -334,10 +343,19 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         return;
     }
     // Disconnect previous FCM connection if it exists.
-    [[FIRMessaging messaging] disconnect];
+   //   [[FIRMessaging messaging] disconnect]; // preveously : 'disconnect' is deprecated: Please use the shouldEstablishDirectChannel property instead.
+
     
+    FIRMessaging.messaging.shouldEstablishDirectChannel=false;
+    /* //using swift for disconnecting connection
+     func applicationDidEnterBackground(_ application: UIApplication) {
+     Messaging.messaging().shouldEstablishDirectChannel = false
+     print("Disconnected from FCM.")
+     */
     
+
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
+    
         if (error != nil) {
             NSLog(@"Unable to connect to FCM. %@", error);
         } else {
@@ -361,7 +379,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 // [START disconnect_from_fcm]
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
-    [[FIRMessaging messaging] disconnect];
+   // [[FIRMessaging messaging] disconnect];
+     FIRMessaging.messaging.shouldEstablishDirectChannel=false;
     NSLog(@"Disconnected from FCM");
 }
 // [END disconnect_from_fcm]
