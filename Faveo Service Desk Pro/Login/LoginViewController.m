@@ -377,6 +377,13 @@
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access denied - Either your role has been changed or your login credential has been changed."] sendViewController:self];
                     }
                     
+                    else if([msg isEqualToString:@"Error-404"])
+                    {
+                        NSLog(@"Message is : %@",msg);
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error 404 - Issue with Billing API while validating your Helpdesk URL. Contact to   Helpdesk Support."] sendViewController:self];
+                    }
+                    
+                    
                     else{
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
                         NSLog(@"Thread-verifyBilling-error == %@",error.localizedDescription);
@@ -661,9 +668,7 @@
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 
                                 if([userRole isEqualToString:@"admin"] || [userRole isEqualToString:@"agent"]){
-                                    
-                                    
-                                    
+                    
                                     
                                     [self sendDeviceToken];
                                     
