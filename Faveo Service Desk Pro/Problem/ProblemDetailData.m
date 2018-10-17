@@ -284,6 +284,32 @@
                     }
                     
                     
+                   NSDictionary *assigneeDict = [problemList objectForKey:@"assigned_id"];
+                  
+                    if ( [assigneeDict count] == 0 ) {
+                        
+                        self->_assigneeTextField.text = @"No Assignee";
+                    }
+                    else {
+                        
+                        NSString * assigneeName;// =[NSString stringWithFormat:@"%@"]; //[assigneeDict objectForKey:@"first_name"];
+                        
+                        if (![Utils isEmpty:[assigneeDict objectForKey:@"first_name"]] && ![Utils isEmpty:[assigneeDict objectForKey:@"last_name"]] ){
+                            
+                            assigneeName = [NSString stringWithFormat:@"%@ %@",[assigneeDict objectForKey:@"first_name"],[assigneeDict objectForKey:@"last_name"]];
+                        }
+                        else{
+                            
+                            assigneeName= [NSString stringWithFormat:@"%@",[assigneeDict objectForKey:@"user_name"]];
+                        }
+
+                        if (![Utils isEmpty:assigneeName] || ![assigneeName isEqualToString:@""]){
+                            
+                            self->_assigneeTextField.text = assigneeName;
+                        }
+                        
+                    }
+                    
                    
                    
                     

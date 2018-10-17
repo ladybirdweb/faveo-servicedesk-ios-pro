@@ -242,7 +242,7 @@
                     });
                     
                 }
-                NSLog(@"Thread-NO5-getInbox-closed");
+                NSLog(@"Thread-problems-closed");
                 
             }];
         }@catch (NSException *exception)
@@ -256,7 +256,7 @@
         }
         @finally
         {
-            NSLog( @" I am in reload method in Inbox ViewController" );
+            NSLog( @" I am in reload method in problem list ViewController" );
             
             
         }

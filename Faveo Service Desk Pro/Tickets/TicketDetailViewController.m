@@ -304,8 +304,18 @@
         //your code for tab item 1
         NSLog(@"clicked on assets");
         
-        [self getAssociatedAssets];
-        [self.normalModalView1 open];
+        if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"notFound"]){
+            
+            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Data Found."] sendViewController:self];
+            [self.normalModalView1 close];
+
+        }
+        else if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"Found"]){
+            
+            [self getAssociatedAssets];
+            [self.normalModalView1 open];
+            
+        }
         
     }
     else if(item.tag == 2) {
@@ -1275,7 +1285,7 @@
                     if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
                         
                         NSLog(@"Asset are found");
-                     //   self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                        self->globalVariables.problemStatusInTicketDetailVC = @"Found";
                         // data vailable
                         
                         self->assetsArray = [json objectForKey:@"data"];
@@ -1303,7 +1313,7 @@
                         NSLog(@"No Assets are found");
                         // data is not available
                         
-                      //  self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
                         
                     }
                     
