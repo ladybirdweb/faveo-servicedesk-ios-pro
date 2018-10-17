@@ -760,9 +760,8 @@
                 if (json) {
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
-                    
+                        
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
-                    
                     self->_nextPageUrl =[data1Dict objectForKey:@"next_page_url"];
                     self->_path1=[data1Dict objectForKey:@"path"];
                     self->_currentPage=[[data1Dict objectForKey:@"current_page"] integerValue];
@@ -774,14 +773,14 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                            
-                            [self->refresh endRefreshing];
+                             [self->refresh endRefreshing];
                              [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                         });
                     });
                     
-                }
+                }//end json
                 NSLog(@"Thread-NO5-getInbox-closed");
                 
             }];

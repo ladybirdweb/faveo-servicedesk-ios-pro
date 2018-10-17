@@ -505,9 +505,11 @@
                 
                 if (json) {
                     //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                  //  NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                    
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
+    
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
                     
                     self->_nextPageUrl =[data1Dict objectForKey:@"next_page_url"];
@@ -521,9 +523,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             
-                            [self reloadTableView];
                             [self->refresh endRefreshing];
-                          //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                             
@@ -539,7 +540,6 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-           // [[AppDelegate sharedAppdelegate] hideProgressView];
             [SVProgressHUD dismiss];
 
             return;
@@ -547,7 +547,6 @@
         @finally
         {
             NSLog( @" I am in reload method in MyTickets ViewController" );
-            // [[AppDelegate sharedAppdelegate] hideProgressView];
             
         }
         

@@ -492,7 +492,7 @@
                 
                 if (json) {
                     //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                   // NSLog(@"Thread-NO4--getInboxAPI--%@",json);
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
@@ -507,9 +507,8 @@
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            [self reloadTableView];
                             [self->refresh endRefreshing];
-                           //[[AppDelegate sharedAppdelegate] hideProgressView];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                             

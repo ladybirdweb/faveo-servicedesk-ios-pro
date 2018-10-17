@@ -40,6 +40,11 @@
     utils=[[Utils alloc]init];
     globalVariables=[GlobalVariables sharedInstance];
     
+    _rootCauseTextView.editable=NO;
+    _impactTextView.editable=NO;
+    _symptomsTextView.editable=NO;
+    _solutionTextView.editable=NO;
+    
     [SVProgressHUD showWithStatus:@"Loading data"];
     
      [self getRootCauseDetails];
@@ -108,7 +113,13 @@
             
             if([json isKindOfClass:[NSDictionary class]]){
                 
-                self->globalVariables.rootCuaseValue = [json objectForKey:@"data"];
+                if (json[@"data"]){
+                    
+                   self->globalVariables.rootCuaseValue = [json objectForKey:@"data"];
+                }else{
+                    self->globalVariables.rootCuaseValue=@"Details are not added.";
+                }
+                
             }
             else{
                 
@@ -175,7 +186,13 @@
             
             if([json isKindOfClass:[NSDictionary class]]){
                 
-                self->globalVariables.impactValue = [json objectForKey:@"data"];
+                if (json[@"data"]){
+                    
+                    self->globalVariables.impactValue = [json objectForKey:@"data"];
+                }else{
+                    self->globalVariables.impactValue=@"Details are not added.";
+                }
+                
             }
             else{
                 
@@ -242,7 +259,13 @@
             
             if([json isKindOfClass:[NSDictionary class]]){
                 
-                self->globalVariables.symptomsValue = [json objectForKey:@"data"];
+                if (json[@"data"]){
+                    
+                    self->globalVariables.symptomsValue = [json objectForKey:@"data"];
+                }else{
+                    self->globalVariables.symptomsValue=@"Details are not added.";
+                }
+                
             }
             else{
                 
@@ -309,7 +332,13 @@
             
             if([json isKindOfClass:[NSDictionary class]]){
                 
-                self->globalVariables.solutionValue = [json objectForKey:@"data"];
+                if (json[@"data"]){
+                    
+                    self->globalVariables.solutionValue = [json objectForKey:@"data"];
+                }else{
+                    self->globalVariables.solutionValue=@"Details are not added.";
+                }
+                
             }
             else{
                 

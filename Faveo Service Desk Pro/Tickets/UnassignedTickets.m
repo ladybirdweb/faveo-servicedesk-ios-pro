@@ -500,11 +500,18 @@
                 
                 if (json) {
                     //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                 //   NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                    
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
-                    self->_mutableArray = [data1Dict objectForKey:@"data"];
+                    if(![[data1Dict objectForKey:@"ticket"] isKindOfClass:[NSArray class]]){
+                        
+                        [self->utils showAlertWithMessage:@"Tickets not available" sendViewController:self];
+                        [SVProgressHUD dismiss];
+                    }{
+                        
                     
+                    self->_mutableArray = [data1Dict objectForKey:@"data"];
                     self->_nextPageUrl =[data1Dict objectForKey:@"next_page_url"];
                     self->_path1=[data1Dict objectForKey:@"path"];
                     self->_currentPage=[[data1Dict objectForKey:@"current_page"] integerValue];
@@ -515,14 +522,14 @@
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            [self reloadTableView];
-                           // [[AppDelegate sharedAppdelegate] hideProgressView];
                             [self->refresh endRefreshing];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                         });
                     });
                     
+                }
                 }
                 NSLog(@"Thread-Unassigned-Tickets-closed");
                 
