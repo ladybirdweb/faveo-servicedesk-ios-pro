@@ -117,8 +117,14 @@
 @property (strong, nonatomic) NSString *createProblemConditionforVC;
 @property (strong, nonatomic) NSString *ticketIdForTicketDetail;
 
-
+//Used in Ticket Details VC
 @property (strong, nonatomic) NSString *problemStatusInTicketDetailVC;
+@property (strong, nonatomic) NSString *assetStatusInTicketDetailVC;
+
+//Used in Problem Details VC
+@property (strong, nonatomic) NSString *ticketStatusInProblemDetailVC;
+@property (strong, nonatomic) NSString *assetStatusInProblemDetailVC;
+
 
 //attached problem dictionary
 @property (strong, nonatomic) NSDictionary *attachedProblemDataDict;

@@ -97,7 +97,7 @@
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
   
-    _asstetTabBarItem.badgeValue = @"0";
+   
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
     
@@ -261,6 +261,7 @@
     else{
         
         [self getDependencies];
+        [self getAssociatedAssets];
         [self getProblemAssociatedProblemDetails];
     }
     
@@ -304,15 +305,15 @@
         //your code for tab item 1
         NSLog(@"clicked on assets");
         
-        if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"notFound"]){
+        if([globalVariables.assetStatusInTicketDetailVC isEqualToString:@"notFound"]){
             
             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Data Found."] sendViewController:self];
             [self.normalModalView1 close];
 
         }
-        else if([globalVariables.problemStatusInTicketDetailVC isEqualToString:@"Found"]){
+        else if([globalVariables.assetStatusInTicketDetailVC isEqualToString:@"Found"]){
             
-            [self getAssociatedAssets];
+           // [self getAssociatedAssets];
             [self.normalModalView1 open];
             
         }
@@ -337,7 +338,7 @@
             globalVariables.ticketId=globalVariables.ticketId;
             
             NSLog(@"%@",globalVariables.attachedProblemDataDict);
-            NSLog(@"%@",globalVariables.attachedProblemDataDict);
+        //    NSLog(@"%@",globalVariables.attachedProblemDataDict);
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewAttachedProblems *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedProblemsId"];
@@ -1068,9 +1069,9 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ProblemListForPopUpView *vc = [storyboard instantiateViewControllerWithIdentifier:@"ProblemListForPopUpViewId"];
-
+    
     BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
-    [self presentViewController:popupViewController animated:NO completion:nil];
+    [self presentViewController:popupViewController animated:YES completion:nil];
     
      [self.normalModalView2 close];
 }
@@ -1169,6 +1170,8 @@
                         
                         self->globalVariables.attachedProblemDataDict = self->dataDict;
                         
+                        self->_problemTabBarItem.badgeValue=@"1";
+                        
                         
                     }else{
                         
@@ -1176,7 +1179,7 @@
                        // data is not available
                         
                         self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
-                        
+                         self->_problemTabBarItem.badgeValue=@"0";
                     }
                 
                 }
@@ -1285,7 +1288,7 @@
                     if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
                         
                         NSLog(@"Asset are found");
-                        self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                        self->globalVariables.assetStatusInTicketDetailVC = @"Found";
                         // data vailable
                         
                         self->assetsArray = [json objectForKey:@"data"];
@@ -1297,6 +1300,7 @@
                         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                             dispatch_async(dispatch_get_main_queue(), ^{
                                
+                                self->_asstetTabBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->assetsArray count]];
                                 [self.tableView1 reloadData];
                                 [self.tableView1 reloadData];
                                 [SVProgressHUD dismiss];
@@ -1304,16 +1308,14 @@
                             });
                         });
                         
-                      
-                        
-                        
                         
                     }else{
                         
                         NSLog(@"No Assets are found");
                         // data is not available
                         
-                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                        self->globalVariables.assetStatusInTicketDetailVC = @"notFound";
+                        self->_asstetTabBarItem.badgeValue =@"0";
                         
                     }
                     

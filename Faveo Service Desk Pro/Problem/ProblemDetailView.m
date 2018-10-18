@@ -1005,11 +1005,22 @@
                   //showing asset count
                     self->_assetBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.asstArray count]];
                     
+                    if([self->globalVariables.asstArray count] ==0){
+                        self->globalVariables.assetStatusInProblemDetailVC=@"NotFound";
+                    }else{
+                        self->globalVariables.assetStatusInProblemDetailVC=@"Found";
+                    }
                     
                  self->globalVariables.ticketArray = [problemList objectForKey:@"tickets"];
                  //showing ticket count
                     self->_ticketBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.ticketArray count]];
                   //  self->_ticketBarItem.badgeValue=@"0";
+                    
+                    if([self->globalVariables.ticketArray count] ==0){
+                        self->globalVariables.ticketStatusInProblemDetailVC=@"NotFound";
+                    }else{
+                        self->globalVariables.ticketStatusInProblemDetailVC=@"Found";
+                    }
                     
                     
                     [SVProgressHUD dismiss];
@@ -1045,26 +1056,44 @@
         
         self.normalModalView1.backgroundColor = [UIColor whiteColor];
         self.normalModalView2.backgroundColor = [UIColor whiteColor];
-        [self.normalModalView1 open];
         
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self.tableView1 reloadData];
-                [self.tableView1 reloadData];
-                [SVProgressHUD dismiss];
-                
+        if([globalVariables.ticketStatusInProblemDetailVC isEqualToString:@"NotFound"]){
+            
+             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Tickets Found"] sendViewController:self];
+             [self.normalModalView1 close];
+            
+        }else{
+           
+            [self.normalModalView1 open];
+            
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView1 reloadData];
+                    [self.tableView1 reloadData];
+                    [SVProgressHUD dismiss];
+                    
+                });
             });
-        });
+            
+        
+        }
         
     }
     else if(item.tag == 2) {
         //your code for tab item 2
         NSLog(@"clicked on 2");
-        //NSLog(@"Array is : %@",globalVariables.asstArray);
+        
         self.normalModalView1.backgroundColor = [UIColor whiteColor];
         self.normalModalView2.backgroundColor = [UIColor whiteColor];
         
+        if([globalVariables.assetStatusInProblemDetailVC isEqualToString:@"NotFound"]){
+            
+            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Assets Found"] sendViewController:self];
+            [self.normalModalView2 close];
+            
+        }else{
+            
         [self.normalModalView2 open];
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -1076,7 +1105,7 @@
                 
             });
         });
-        
+        }
     }
 //    else if(item.tag == 3) {
 //        //your code for tab item 3

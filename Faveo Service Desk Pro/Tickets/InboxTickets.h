@@ -31,7 +31,6 @@
 
 -(void)hideTableViewEditMode;
 
-
 //-(void)showMessageForLogout:(NSString*)message sendViewController:(UIViewController *)viewController;
 
 
