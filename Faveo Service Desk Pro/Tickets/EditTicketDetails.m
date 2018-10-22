@@ -767,14 +767,17 @@
                               canBeDismissedByUser:YES];
         
     }else{
-        
         if (_typeTextField.text.length!=0) {
             type_id=[NSNumber numberWithInteger:1+[_typeArray indexOfObject:_typeTextField.text]];
+        }else if([_typeTextField.text isEqualToString:@"Not Available"]){
+            type_id=0;
         }else type_id=0;
         
         priority_id=[NSNumber numberWithInteger:1+[_priorityArray indexOfObject:_priorityTextField.text]];
         help_topic_id = [NSNumber numberWithInteger:1+[_helptopicsArray indexOfObject:_helptopicsTextField.text]];
-        source_id = [NSNumber numberWithInteger:1+[_sourceArray indexOfObject:_sourceTextField.text]];
+       // sla_id = [NSNumber numberWithInteger:1+[_slaPlansArray indexOfObject:_slaTextField.text]];
+        source_id = [NSNumber numberWithInteger:[_sourceArray indexOfObject:_sourceTextField.text]];
+      //  status_id = [NSNumber numberWithInteger:1+[_statusArray indexOfObject:_statusTextField.text]];
         
         
         

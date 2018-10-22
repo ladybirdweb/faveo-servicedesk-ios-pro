@@ -3168,8 +3168,11 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="9Jv-f7-RCd"/>
+                                                            </connections>
                                                         </textView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddCC" translatesAutoresizingMaskIntoConstraints="NO" id="vnE-fS-Lou">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnE-fS-Lou">
                                                             <rect key="frame" x="352" y="23" width="27" height="26.666666666666671"/>
                                                         </imageView>
                                                     </subviews>
@@ -3231,6 +3234,9 @@
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="MJa-4H-v8j"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3381,6 +3387,10 @@
                                                             <rect key="frame" x="19" y="8" width="62" height="46.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                            <connections>
+                                                                <action selector="countryCodeClicked:" destination="OaD-LO-zRy" eventType="touchDown" id="rSm-qz-GL4"/>
+                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="Y2F-oR-EPk"/>
+                                                            </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN3-4A-2ID">
                                                             <rect key="frame" x="19" y="5" width="65" height="15"/>
@@ -3743,6 +3753,10 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="assigneeClicked:" destination="OaD-LO-zRy" eventType="touchDown" id="1nF-9W-LXB"/>
+                                                                <outlet property="delegate" destination="OaD-LO-zRy" id="TH7-pc-AMW"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3869,8 +3883,15 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
+                        <outlet property="assigneeTextField" destination="hlP-dc-GAV" id="0Kn-KS-C0k"/>
+                        <outlet property="ccTextField" destination="Zoh-HF-lJK" id="a1l-7F-MLm"/>
+                        <outlet property="codeTextField" destination="l5d-aP-kNX" id="tUs-aC-QWB"/>
+                        <outlet property="emailTextView" destination="IMI-P7-mSW" id="inU-9F-Td3"/>
+                        <outlet property="firstNameTextView" destination="LWd-Qw-gKy" id="DXs-v4-H96"/>
                         <outlet property="helptopicTextField" destination="cPu-7d-00p" id="qL6-v6-Oo8"/>
+                        <outlet property="lastNameTextView" destination="Jnw-l3-gGg" id="RY3-Qk-NTd"/>
                         <outlet property="messageTextView" destination="dRA-wN-HMe" id="fQH-fq-uIv"/>
+                        <outlet property="mobileTextView" destination="WaX-88-gSY" id="5ua-du-tu3"/>
                         <outlet property="priorityTextField" destination="Yxp-KQ-juu" id="apE-OW-qLV"/>
                         <outlet property="sidebarButton" destination="gbr-Ch-eyq" id="m4o-8f-Nwv"/>
                         <outlet property="subjectTextView" destination="Rmw-uv-gAo" id="SKo-ig-RVI"/>
@@ -7153,7 +7174,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AddCC" width="60" height="60"/>
         <image name="Avatar.png" width="225" height="225"/>
         <image name="call1" width="512" height="512"/>
         <image name="close22" width="25" height="25"/>

@@ -503,13 +503,7 @@
                  //   NSLog(@"Thread-NO4--getInboxAPI--%@",json);
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
-                    
-                    if(![[data1Dict objectForKey:@"ticket"] isKindOfClass:[NSArray class]]){
-                        
-                        [self->utils showAlertWithMessage:@"Tickets not available" sendViewController:self];
-                        [SVProgressHUD dismiss];
-                    }{
-                        
+                
                     
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
                     self->_nextPageUrl =[data1Dict objectForKey:@"next_page_url"];
@@ -529,7 +523,6 @@
                         });
                     });
                     
-                }
                 }
                 NSLog(@"Thread-Unassigned-Tickets-closed");
                 

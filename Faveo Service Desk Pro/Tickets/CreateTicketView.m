@@ -151,7 +151,7 @@
     [clearAll setFrame:CGRectMake(46, 0, 32, 32)]; //clearAll  //flipView
     
     UIView *rightBarButtonItems = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 76, 32)];
-    [rightBarButtonItems addSubview:attachmentButton];
+   // [rightBarButtonItems addSubview:attachmentButton];
     [rightBarButtonItems addSubview:clearAll];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
@@ -431,8 +431,6 @@
         NSLog( @" I am in country code clicked method in Create ticket ViewController" );
         
     }
-    
-    
 }
 
 - (IBAction)priorityClicked:(id)sender {
@@ -486,6 +484,7 @@
     
 }
 
+
 - (IBAction)assigneeClicked:(id)sender {
     
     @try{
@@ -509,7 +508,6 @@
         NSLog( @" I am in staff clicked method in CrateTicket ViewController" );
         
     }
-    
 }
 
 
@@ -1424,11 +1422,17 @@
     [body appendData:[_messageTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-    // collaborator parameter
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"cc[]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[selectedUserEmail dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    //cc parameter
+    if(![_ccTextField.text isEqualToString:@""]){
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"cc[]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[selectedUserEmail dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    }else
+    {
+        
+        
+    }
     
 //    if ([myString length] == 0) {
 //        // definitely empty!

@@ -141,7 +141,7 @@
    
 }
 
-
+// This method validates the URL
 -(void)URLValidationMethod
 {
 

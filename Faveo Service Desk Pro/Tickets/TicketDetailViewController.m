@@ -232,6 +232,7 @@
     
     
     
+    
     if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"Invalid credentials"])
     {
         NSString *msg=@"";
@@ -301,6 +302,8 @@
 
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+@try{
     if(item.tag == 1) {
         //your code for tab item 1
         NSLog(@"clicked on assets");
@@ -344,7 +347,7 @@
             ViewAttachedProblems *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedProblemsId"];
             
             BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 200)];
-            [self presentViewController:popupViewController animated:NO completion:nil];
+            [self presentViewController:popupViewController animated:YES completion:nil];
             
             
         }
@@ -371,6 +374,23 @@
         NSLog(@"something went wrong");
         
     }
+    
+  }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        //  [[AppDelegate sharedAppdelegate] hideProgressView];
+        [SVProgressHUD dismiss];
+        return;
+    }
+    @finally
+    {
+        NSLog( @" I am in tab bar did clicked method in  Ticket detail VC" );
+        
+        
+    }
+    
 }
 
 
@@ -416,11 +436,13 @@
 // This method used to get some values like Agents list, Ticket Status, Ticket counts, Ticket Source, SLA ..etc which are used in various places in project.
 -(void)getDependencies{
     
-   
+    NSLog(@"Thread-NO1-getDependencies()-start");
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
+        //[[AppDelegate sharedAppdelegate] hideProgressView];
         //connection unavailable
         [SVProgressHUD dismiss];
+        
         if (self.navigationController.navigationBarHidden) {
             [self.navigationController setNavigationBarHidden:NO];
         }
@@ -448,18 +470,16 @@
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
             [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
-                //   NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
+                
                 
                 if (error || [msg containsString:@"Error"]) {
                     
-                  //  [[AppDelegate sharedAppdelegate] hideProgressView];
                     [SVProgressHUD dismiss];
                     
                     if( [msg containsString:@"Error-401"])
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                        
                         
                     }
                     else
@@ -498,15 +518,19 @@
                         else{
                             NSLog(@"Error message is %@",msg);
                             NSLog(@"Thread-NO4-getdependency-Refresh-error == %@",error.localizedDescription);
-                            [self->utils showAlertWithMessage:msg sendViewController:self];
-                            
+                            if([error.localizedDescription isEqualToString:@"The request timed out."])
+                            {
+                                [self->utils showAlertWithMessage:@"The request timed out" sendViewController:self];
+                            }else
+                                
+                                [self->utils showAlertWithMessage:error.localizedDescription sendViewController:self];
+                            [SVProgressHUD dismiss];
                             
                             return ;
                         }
                 }
                 
                 
-                // [[AppDelegate sharedAppdelegate] hideProgressView];
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
                     [self getDependencies];
@@ -514,12 +538,23 @@
                     return;
                 }
                 
+                if ([msg isEqualToString:@"tokenNotRefreshed"]) {
+                    
+                    //  [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    
+                    //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                    [SVProgressHUD dismiss];
+                    
+                    return;
+                }
                 if (json) {
                     
-                  //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
-                 //   NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
-                    
+                    //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                     NSDictionary *resultDic = [json objectForKey:@"data"];
+                    
+                    self->globalVariables.dependencyDataDict = [json objectForKey:@"data"];
+                    
+                    
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
                     for (int i = 0; i < ticketCountArray.count; i++) {
@@ -540,7 +575,7 @@
                     }
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
-        
+                    
                     
                     NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
                     
@@ -560,7 +595,7 @@
                     }
                     else
                     {
-                       // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
+                        // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
                         
                     }
                     
@@ -573,18 +608,18 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-           //[AppDelegate sharedAppdelegate] hideProgressView];
+            //  [[AppDelegate sharedAppdelegate] hideProgressView];
             [SVProgressHUD dismiss];
             return;
         }
         @finally
         {
-            NSLog( @" I am in getDependencies method in ticket detail ViewController" );
+            NSLog( @" I am in getDependencies method in Inbox ViewController" );
             
             
         }
     }
-    NSLog(@"Thread-NO2-getDependencies()-closed");
+    
 }
 
 
@@ -1069,7 +1104,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ProblemListForPopUpView *vc = [storyboard instantiateViewControllerWithIdentifier:@"ProblemListForPopUpViewId"];
-    
+
     BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
     [self presentViewController:popupViewController animated:YES completion:nil];
     
@@ -1102,7 +1137,7 @@
         
         
     }else{
-        
+
         NSString *url=[NSString stringWithFormat:@"%@servicedesk/attached/problem/details/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.ticketId,API_KEY,[userDefaults objectForKey:@"token"]];
         
         NSLog(@"URL is : %@",url);

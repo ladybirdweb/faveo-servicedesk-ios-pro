@@ -37,8 +37,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *assigneeTextField;
 
-- (IBAction)countryCodeClicked:(id)sender;
 
+- (IBAction)countryCodeClicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
 
