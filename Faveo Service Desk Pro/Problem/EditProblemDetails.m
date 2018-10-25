@@ -1152,4 +1152,11 @@
     
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    return NO;
+}
+
 @end

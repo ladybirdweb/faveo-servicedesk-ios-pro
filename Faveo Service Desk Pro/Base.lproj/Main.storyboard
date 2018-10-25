@@ -4638,6 +4638,9 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" smartDashesType="no" smartQuotesType="no" textContentType="name"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="1il-2s-EYr" id="uNV-yU-VZO"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -4694,6 +4697,9 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="1il-2s-EYr" id="CPG-4G-uGe"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
@@ -4728,6 +4734,7 @@
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             <connections>
                                                                 <action selector="fromTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="tVi-CC-bco"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="ZqI-G1-Th8"/>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-ye-Dfh">
@@ -4789,6 +4796,7 @@
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             <connections>
                                                                 <action selector="impactTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="5VN-ST-IJY"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="u5j-Om-e7d"/>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cs-cy-FBs">
@@ -4850,6 +4858,7 @@
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             <connections>
                                                                 <action selector="statusTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="IPj-nZ-qjO"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="z0T-te-QWb"/>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRE-d4-N0a">
@@ -4911,6 +4920,7 @@
                                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             <connections>
                                                                 <action selector="priorityTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="0xl-C9-q0o"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="osP-Tu-uUA"/>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority*" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAB-ta-6Rz">
@@ -4989,6 +4999,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="departmentTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="MQX-VQ-B7z"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="510-Zs-qat"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -5050,6 +5061,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="locationTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="ixH-5D-sUh"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="l6L-kW-f6x"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -5111,6 +5123,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="assigneeTextFieldClicked:" destination="1il-2s-EYr" eventType="touchDown" id="FrU-ZP-rrL"/>
+                                                                <outlet property="delegate" destination="1il-2s-EYr" id="9nE-NS-Hep"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
