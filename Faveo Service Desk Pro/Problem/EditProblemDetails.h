@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationTextField;
 @property (weak, nonatomic) IBOutlet UITextField *assigneeTextField;
 
+@property (weak, nonatomic) IBOutlet UITextField *assetsTextField;
+
 
 - (IBAction)fromTextFieldClicked:(id)sender;
 - (IBAction)impactTextFieldClicked:(id)sender;
@@ -30,6 +32,7 @@
 - (IBAction)locationTextFieldClicked:(id)sender;
 - (IBAction)assigneeTextFieldClicked:(id)sender;
 
+- (IBAction)assetsTextFieldClicked:(id)sender;
 
 
 @property (nonatomic, strong) NSMutableArray * fromArray;

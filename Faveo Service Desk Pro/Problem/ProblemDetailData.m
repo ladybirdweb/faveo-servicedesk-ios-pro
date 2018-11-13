@@ -284,6 +284,26 @@
                     }
                     
                     
+                    //assets
+                    NSDictionary *assetsDict = [problemList objectForKey:@"assets"];
+                    
+                    if ( [assetsDict count] == 0 ) {
+                        
+                        self->_assetsTextField.text = @"No data";
+                    }
+                    else {
+                        
+                        NSString * assetName = [assetsDict objectForKey:@"name"];
+                        
+                        if (![Utils isEmpty:assetName] || ![assetName isEqualToString:@""]){
+                            
+                            self->_assetsTextField.text = assetName;
+                        }
+                        
+                    }
+                    
+                    
+                    
                    NSDictionary *assigneeDict = [problemList objectForKey:@"assigned_id"];
                   
                     if ( [assigneeDict count] == 0 ) {

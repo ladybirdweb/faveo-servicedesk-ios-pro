@@ -54,7 +54,7 @@
 - (void)locationWasSelected:(NSNumber *)selectedIndex element:(id)element;
 - (void)priorityWasSelected:(NSNumber *)selectedIndex element:(id)element;
 - (void)assigneeWasSelected:(NSNumber *)selectedIndex element:(id)element;
-//- (void)assetWasSelected:(NSNumber *)selectedIndex element:(id)element;
+- (void)assetWasSelected:(NSNumber *)selectedIndex element:(id)element;
 
 - (void)actionPickerCancelled:(id)sender;
 
@@ -371,7 +371,7 @@
                     self->_locationArray=[locationMU copy];
                     self->_priorityArray=[priorityMU copy];
                     self->_assignedArray=[assigneeMU copy];
-                    self->_assetArray=[assigneeMU copy];
+                    self->_assetArray=[assetsMU copy];
                     
                     
                 }
@@ -622,7 +622,7 @@
                         
                     }
                     
-                    
+                   // assignee data
                  NSDictionary *assigneeDict = [problemList objectForKey:@"assigned_id"];
                    
                     if ( [assigneeDict count] == 0 ) {
@@ -641,6 +641,25 @@
                     }
                 
                     }
+                    
+                    //assets
+                    NSDictionary *assetsDict = [problemList objectForKey:@"assets"];
+                    
+                    if ( [assetsDict count] == 0 ) {
+                        
+                        self->_assetsTextField.text = @"No data";
+                    }
+                    else {
+                        
+                        NSString * assetName = [assetsDict objectForKey:@"name"];
+                        
+                        if (![Utils isEmpty:assetName] || ![assetName isEqualToString:@""]){
+                            
+                            self->_assetsTextField.text = assetName;
+                        }
+                        
+                    }
+                    
                     
                     
                     
@@ -847,6 +866,33 @@
     
 }
 
+- (IBAction)assetsTextFieldClicked:(id)sender {
+    
+   // NSLog(@"Assets are: %@",_assetArray);
+    
+    @try{
+        [self.view endEditing:YES];
+        if (!_assetArray || !_assetArray.count) {
+            _assetsTextField.text=NSLocalizedString(@"Not Available",nil);
+            from_id=0;
+        }else{
+            [ActionSheetStringPicker showPickerWithTitle:@"Select Assets" rows:_assetArray initialSelection:0 target:self successAction:@selector(assetWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:sender];
+        }
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        return;
+    }
+    @finally
+    {
+        NSLog( @" I am in Add Assets method in CreateProblem ViewController" );
+        
+    }
+    
+}
+
 - (void)actionPickerCancelled:(id)sender {
     NSLog(@"Delegate has been informed that ActionSheetPicker was cancelled");
 }
@@ -911,6 +957,14 @@
     NSLog(@"From is: %@",_assigneeTextField.text);
 }
 
+
+- (void)assetWasSelected:(NSNumber *)selectedIndex element:(id)element{
+    
+    asset_id=(asset_idArray)[(NSUInteger) [selectedIndex intValue]];
+    self.assetsTextField.text = (_assetArray)[(NSUInteger) [selectedIndex intValue]];
+    NSLog(@"Id is: %@",asset_id);
+    NSLog(@"From is: %@",_assetsTextField.text);
+}
 
 
 - (IBAction)submitButtonClicked:(id)sender {
@@ -984,6 +1038,7 @@
         location_id = [NSNumber numberWithInteger:1+[_locationArray indexOfObject:_locationTextField.text]];
         priority_id = [NSNumber numberWithInteger:1+[_priorityArray indexOfObject:_priorityTextField.text]];
         assigned_id = [NSNumber numberWithInteger:1+[_assignedArray indexOfObject:_assigneeTextField.text]];
+        asset_id = [NSNumber numberWithInteger:1+[_assetArray indexOfObject:_assetsTextField.text]];
         
         
          [SVProgressHUD showWithStatus:@"Saving data"];
@@ -1014,7 +1069,7 @@
 //
 //        http://productdemourl.com/servicedesk38t/public/api/v1/servicedesk/problem/2?//token&subject&description&from&department&status_type_id&impact_id&priority_id&location_type_id&assigned_id
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,_fromTextField.text,department_id,status_id,impact_id,priority_id,locatioinID,staffID];
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@&asset=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,_fromTextField.text,department_id,status_id,impact_id,priority_id,locatioinID,staffID,asset_id];
         
         NSLog(@"URL is : %@",url);
         

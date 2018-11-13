@@ -40,6 +40,8 @@
 
 - (IBAction)assigneeTextFieldClicked:(id)sender;
 
+- (IBAction)assetsTextFieldClicked:(id)sender;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
@@ -65,6 +67,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *assigneeTextField;
 
 
+@property (weak, nonatomic) IBOutlet UITextField *assetTextField;
 
 
 @end
