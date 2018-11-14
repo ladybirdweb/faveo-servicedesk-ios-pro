@@ -284,7 +284,7 @@
                     }
                     
                     
-                    //assets
+                  /*  //assets
                     NSDictionary *assetsDict = [problemList objectForKey:@"assets"];
                     
                     if ( [assetsDict count] == 0 ) {
@@ -301,7 +301,7 @@
                         }
                         
                     }
-                    
+                    */
                     
                     
                    NSDictionary *assigneeDict = [problemList objectForKey:@"assigned_id"];
@@ -329,11 +329,6 @@
                         }
                         
                     }
-                    
-                   
-                   
-                    
-    
                     
                     
                     [SVProgressHUD dismiss];

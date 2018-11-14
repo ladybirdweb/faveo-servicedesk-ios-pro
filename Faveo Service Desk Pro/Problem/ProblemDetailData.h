@@ -31,6 +31,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *impactTextField;
 
-@property (weak, nonatomic) IBOutlet UITextField *assetsTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *assetsTextField;
 
 @end

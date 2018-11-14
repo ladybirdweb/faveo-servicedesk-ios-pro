@@ -108,7 +108,7 @@ NSUInteger g_ExpandedCellIndex = 0;
     {
         //   NSString * name = [NSString];
         NSString * name = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"profile_name"]];
-        [_profileImageView setImageWithString:[name substringToIndex:2] color:nil ];
+        [_profileImageView setImageWithString:[name substringToIndex:1] color:nil ];
     }
     
     

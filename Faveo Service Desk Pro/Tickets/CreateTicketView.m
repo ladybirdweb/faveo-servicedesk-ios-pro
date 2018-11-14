@@ -151,7 +151,7 @@
     [clearAll setFrame:CGRectMake(46, 0, 32, 32)]; //clearAll  //flipView
     
     UIView *rightBarButtonItems = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 76, 32)];
-   // [rightBarButtonItems addSubview:attachmentButton];
+    [rightBarButtonItems addSubview:attachmentButton];
     [rightBarButtonItems addSubview:clearAll];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
@@ -831,6 +831,8 @@
 
     self.codeTextField.text = (_codeArray)[(NSUInteger) [selectedIndex intValue]];
 }
+
+
 - (void)helpTopicWasSelected:(NSNumber *)selectedIndex element:(id)element {
     help_topic_id=(helpTopic_idArray)[(NSUInteger) [selectedIndex intValue]];
     self.helptopicTextField.text = (_helptopicsArray)[(NSUInteger) [selectedIndex intValue]];
@@ -1472,6 +1474,7 @@
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"email\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[_emailTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
     NSString * help_id=[NSString stringWithFormat:@"%@",help_topic_id];
     NSString * prio_id=[NSString stringWithFormat:@"%@",priority_id];
     
@@ -1748,30 +1751,7 @@
                     }
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
-                    
-
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                      // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
+                
                     
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");
