@@ -25,6 +25,7 @@
 #import "TicketMergeView.h"
 #import "MultipleTicketAssignView.h"
 #import "FTPopOverMenu.h"
+#import "SearchViewController.h"
 
 @interface ClosedTickets () <RMessageProtocol>
 {
@@ -259,7 +260,7 @@
     }
     @finally
     {
-        NSLog( @" I am in clickedOnAssignButton method in Inbox ViewController" );
+        NSLog( @" I am in clickedOnAssignButton method in Closed Tickets ViewController" );
         
     }
     
@@ -322,7 +323,7 @@
     }
     @finally
     {
-        NSLog( @" I am in mergeButtonCicked method in Inbox ViewController" );
+        NSLog( @" I am in mergeButtonCicked method in Closed Tickets ViewController" );
         
     }
 }
@@ -330,10 +331,21 @@
 // After clicking this navigation button, it will navigate to the ticket search view controller.
 - (IBAction)searchButtonClicked {
     
-//    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
-//    [self.navigationController pushViewController:search animated:YES];
+    [self hideTableViewEditMode];
     
+    SearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"searchViewId"];
+    [self.navigationController pushViewController:search animated:YES];
+
 }
+
+// hiding editing mode of table while moving to other views
+-(void)hideTableViewEditMode
+{
+    [self.tableView setEditing:NO animated:YES];
+    navbar.hidden=YES;
+    [self reloadTableView];
+}
+
 
 // Handling the tableview even we reload the tableview, edit view will not vanish even we scroll
 - (void)reloadTableView
@@ -1071,12 +1083,12 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
             
             if(![cc isEqualToString:@"<null>"])
             {

@@ -126,11 +126,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
     
-    
-    //  NSString *refreshedToken = [[FIRInstanceID instanceID] token];
-    //  NSLog(@"refreshed token  %@",refreshedToken);
-    
-    
+
     //To set Gesture on Tableview for multiselection
     count1=0;
     selectedArray = [[NSMutableArray alloc] init];
@@ -264,7 +260,7 @@
     }
     @finally
     {
-        NSLog( @" I am in clickedOnAssignButton method in Inbox ViewController" );
+        NSLog( @" I am in clickedOnAssignButton method in Unassigned Tickets ViewController" );
         
     }
     
@@ -327,12 +323,11 @@
     }
     @finally
     {
-        NSLog( @" I am in mergeButtonCicked method in Inbox ViewController" );
+        NSLog( @" I am in mergeButtonCicked method in Unassigned Tickets ViewController" );
         
     }
 }
 
-// After clicking this navigation button, it will redirect to search view controller
 // After clicking this naviagtion button, it will navigate to search view controller
 - (IBAction)searchButtonClicked {
     
@@ -490,17 +485,16 @@
                 
                 if ([msg isEqualToString:@"tokenNotRefreshed"]) {
                     
-                    // [[AppDelegate sharedAppdelegate] hideProgressView];
                     [self->utils showAlertWithMessage:@"Your HELPDESK URL or your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
-                  //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                 
                     [SVProgressHUD dismiss];
                     
                     return;
                 }
                 
                 if (json) {
-                    //NSError *error;
-                 //   NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                   
+                 //   NSLog(@"Thread-getUnassignedTickets--%@",json);
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                 
@@ -699,7 +693,6 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             [self reloadTableView];
-                          // [[AppDelegate sharedAppdelegate] hideProgressView];
                             [self->refresh endRefreshing];
                             [SVProgressHUD dismiss];
                             
@@ -888,7 +881,7 @@
         }
         @finally
         {
-            NSLog( @" I am in cellForRowAtIndexPath method in Leftmenu ViewController" );
+            NSLog( @" I am in cellForRowAtIndexPath method in Unassigned Tickets ViewController" );
             
         }
         // ______________________________________________________________________________________________________
@@ -1080,13 +1073,13 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
-            
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
+//
             if(![cc isEqualToString:@"<null>"])
             {
                 cell.ccImgView.image=[UIImage imageNamed:@"cc1"];
@@ -1271,7 +1264,6 @@
 // This method used to get some values like Agents list, Ticket Status, Ticket counts, Ticket Source, SLA ..etc which are used in various places in project.
 -(void)getDependencies{
     
-    NSLog(@"Thread-NO1-getDependencies()-start");
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
         //connection unavailable
@@ -1312,56 +1304,43 @@
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                       // [[AppDelegate sharedAppdelegate] hideProgressView];
-                        
                     }
                     else
                         if( [msg containsString:@"Error-429"])
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"your request counts exceed our limit"] sendViewController:self];
-                           // [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
                         }
                     
                         else if( [msg isEqualToString:@"Error-403"] && [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"])
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                          //  [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
-                        }
+                         }
                     
                         else if( [msg containsString:@"Error-403"])
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                         //  [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
                         }
                     
                         else if([msg isEqualToString:@"Error-404"])
                         {
                             NSLog(@"Message is : %@",msg);
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
-                          //  [[AppDelegate sharedAppdelegate] hideProgressView];
-                        }
+                          }
                     
                     
                         else{
                             NSLog(@"Error message is %@",msg);
                             NSLog(@"Thread-NO4-getdependency-Refresh-error == %@",error.localizedDescription);
                             [self->utils showAlertWithMessage:msg sendViewController:self];
-                          // [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
-                            return ;
+                          return ;
                         }
                     [SVProgressHUD dismiss];
                 }
                 
-                
-                // [[AppDelegate sharedAppdelegate] hideProgressView];
-                if ([msg isEqualToString:@"tokenRefreshed"]) {
+               if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
                     [self getDependencies];
                     NSLog(@"Thread--NO4-call-getDependecies");
@@ -1370,7 +1349,6 @@
                 
                 if (json) {
                     
-                    //  NSLog(@"Thread-NO4-getDependencies-dependencyAPI--%@",json);
                     NSDictionary *resultDic = [json objectForKey:@"data"];
                     NSArray *ticketCountArray=[resultDic objectForKey:@"tickets_count"];
                     
@@ -1393,30 +1371,6 @@
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
                     
-                    
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                     //   NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
-                    
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");
             }
@@ -1433,18 +1387,16 @@
         @finally
         {
             NSLog( @" I am in getDependencies method in Inbox ViewController" );
-            
-            
+        
         }
     }
-    NSLog(@"Thread-NO2-getDependencies()-closed");
+   
 }
 
 
 // This method used to show some popuop or list which contain some menus. Here it used to change the status of ticket, after clicking this button it will show one view which contains list of status. After clicking on any row, according to its name that status will be changed.
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    NSLog(@"11111111*********111111111111");
     
     if (!selectedArray.count) {
         
@@ -1511,7 +1463,6 @@
                                if([self->selectedStatusName isEqualToString:@"Open"] || [self->selectedStatusName isEqualToString:@"open"])
                                {
                                    [self->utils showAlertWithMessage:NSLocalizedString(@"Ticket is Already Open",nil) sendViewController:self];
-                                   // [[AppDelegate sharedAppdelegate] hideProgressView];
                                }
                                else{
                                    

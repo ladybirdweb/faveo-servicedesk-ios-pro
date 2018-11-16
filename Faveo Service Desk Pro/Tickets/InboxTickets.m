@@ -684,7 +684,7 @@
                 
                 NSLog(@"Reload Method Inbox Error is : %@",error );
                 NSLog(@"Reload Method Inbox Message is : %@",msg );
-                NSLog(@"Reload Method Inbox JSON is: %@",json);
+             //   NSLog(@"Reload Method Inbox JSON is: %@",json);
                 
                 if (error || [msg containsString:@"Error"]) {
                     [self->refresh endRefreshing];
@@ -947,28 +947,6 @@
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
                     
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                       // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
                     
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");
@@ -1516,12 +1494,13 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
+//
             
             if(![cc isEqualToString:@"<null>"])
             {
