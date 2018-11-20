@@ -339,8 +339,7 @@
 // This method used to show some popuop or list which contain some menus. Here it used to change the status of ticket, after clicking this button it will show one view which contains list of status. After clicking on any row, according to its name that status will be changed.
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    NSLog(@"11111111*********111111111111");
-    
+   
     if (!selectedArray.count) {
         
         [utils showAlertWithMessage:@"Select The Tickets First For Changing Ticket Status" sendViewController:self];
@@ -406,7 +405,7 @@
                                if([self->selectedStatusName isEqualToString:@"Open"] || [self->selectedStatusName isEqualToString:@"open"])
                                {
                                    [self->utils showAlertWithMessage:NSLocalizedString(@"Ticket is Already Open",nil) sendViewController:self];
-                                  // [[AppDelegate sharedAppdelegate] hideProgressView];
+                            
                                }
                                else{
                                    

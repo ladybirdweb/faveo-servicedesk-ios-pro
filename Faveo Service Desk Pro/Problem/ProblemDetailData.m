@@ -20,7 +20,7 @@
 #import "HexColors.h"
 
 
-@interface ProblemDetailData ()
+@interface ProblemDetailData ()<UITextFieldDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -51,12 +51,31 @@
     self.problemDescription.layer.cornerRadius = 3;
     
     
+    _problemSubject.userInteractionEnabled = NO;
+    _problemDescription.userInteractionEnabled = NO;
+    _fromTextField.userInteractionEnabled = NO;
+    _statusTextField.userInteractionEnabled = NO;
+    _priorityTextField.userInteractionEnabled = NO;
+    _locationTextField.userInteractionEnabled = NO;
+    _sourceTextField.userInteractionEnabled = NO;
+    _assigneeTextField.userInteractionEnabled = NO;
+    _departmentTextField.userInteractionEnabled = NO;
+    _impactTextField.userInteractionEnabled = NO;
+   // _assetsTextField.userInteractionEnabled = NO;
+    
+    
+    
+    
+    
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD showWithStatus:@"Please wait"];
     
     [self reload];
 }
+
+
+
 
 -(void)reload{
     
@@ -352,6 +371,11 @@
     }
     
     
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return NO;
 }
 
 @end
