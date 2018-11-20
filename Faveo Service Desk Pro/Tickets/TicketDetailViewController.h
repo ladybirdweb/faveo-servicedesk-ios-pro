@@ -37,7 +37,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 -(void)viewDidLoad;
--(void)getProblemAssociatedProblemDetails;
+-(void)getProblemAssociatedWithTicket;
 
 
 @end

@@ -83,13 +83,13 @@
         }
     
         
-      NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
+        NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
     
         NSString *problemName= [finaldic objectForKey:@"subject"];
         NSString *from= [finaldic objectForKey:@"from"];
         NSString *id= [finaldic objectForKey:@"id"];
 
-        cell.problemNameLabel.text = problemName;
+        cell.problemNameLabel.text = [NSString stringWithFormat:@"%@",problemName];
         cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
         cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
         cell.createdDateLabel.text = @"";

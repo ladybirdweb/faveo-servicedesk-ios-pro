@@ -96,8 +96,6 @@
    
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     
-  
-   
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
     
@@ -123,6 +121,10 @@
     
     // this is showing tableview pop-up for problems
     self.tableview.separatorColor=[UIColor clearColor];
+    
+    
+    //I am setting problemStatusInTicketDetailVC to "" because when I am calling the method for fetching problems associated with the ticket that time I am using this variable and if found then I am storing as found else not found. So again when I will go back to ticket list and suppose I came to any ticket details page then problemStatusInTicketDetailVC taking preveous stored values. Due to this, getting an NSException when I m trying to click on 2nd tabe bar button i.e problems
+    self->globalVariables.problemStatusInTicketDetailVC=@"";
     
     // ************** modal view 1 for showing assets ************************************
     
@@ -263,7 +265,7 @@
         
         [self getDependencies];
         [self getAssociatedAssets];
-        [self getProblemAssociatedProblemDetails];
+        [self getProblemAssociatedWithTicket];
     }
     
 }
@@ -283,7 +285,7 @@
     _nameLabel.text=[NSString stringWithFormat:@"%@ %@",globalVariables.firstNameFromTicket,globalVariables.lastNameFromTicket];
     
     _statusLabel.text=globalVariables.ticketStatus;
-    
+
     
     [super viewWillAppear:animated];
     
@@ -577,28 +579,6 @@
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
                     
                     
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                        // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
-                    
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");
             }
@@ -873,6 +853,7 @@
 
 // It will handle segmented control selection
 - (IBAction)indexChanged:(id)sender {
+    
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         UIViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ConversationVC"];
         newViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -929,19 +910,6 @@
     
     [self sendDeviceToken];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    // get documents path
-    NSString *documentsPath = [paths objectAtIndex:0];
-    // get the path to our Data/plist file
-    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-    NSError *error;
-    
-    if(![[NSFileManager defaultManager] removeItemAtPath:plistPath error:&error])
-    {
-        NSLog(@"Error while removing the plist %@", error.localizedDescription);
-        //TODO: Handle/Log error
-    }
     
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *each in cookieStorage.cookies) {
@@ -1071,6 +1039,8 @@
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"selected %ld row", (long)indexPath.row);
+    
+    
 }
 
 
@@ -1108,10 +1078,11 @@
     BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
     [self presentViewController:popupViewController animated:YES completion:nil];
     
-     [self.normalModalView2 close];
+    [self.normalModalView2 close];
 }
 
--(void)getProblemAssociatedProblemDetails{
+
+-(void)getProblemAssociatedWithTicket{
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
@@ -1133,8 +1104,6 @@
                                     buttonCallback:nil
                                         atPosition:RMessagePositionNavBarOverlay
                               canBeDismissedByUser:YES];
-        
-        
         
     }else{
 
@@ -1171,7 +1140,7 @@
                     
                     else{
                             NSLog(@"Error message is %@",msg);
-                            NSLog(@"Thread-getAssociatedProblem-Refresh-error == %@",error.localizedDescription);
+                            NSLog(@"Thread-getProblemAssociatedWithTicket-Refresh-error == %@",error.localizedDescription);
                             [self->utils showAlertWithMessage:msg sendViewController:self];
                             
                             
@@ -1183,8 +1152,8 @@
     
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
-                    [self getProblemAssociatedProblemDetails];
-                    NSLog(@"Thread-getProblemAssociatedProblemDetails-call");
+                    [self getProblemAssociatedWithTicket];
+                    NSLog(@"Thread-getProblemAssociatedWithTicket-call");
                     return;
                 }
                 
@@ -1196,25 +1165,41 @@
                     
                     if([[json objectForKey:@"data"] isKindOfClass:[NSDictionary class]]){
                       
-                        NSLog(@"Problem is found");
-                        self->globalVariables.problemStatusInTicketDetailVC = @"Found";
-                        // data vailable
+                       
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            NSLog(@"Problem is found");
+                            self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                            // data vailable
+                            
+                            self->dataDict = [json objectForKey:@"data"];
+                            //     NSLog(@"Problem Details : %@",self->dataDict);
+                            
+                            self->globalVariables.attachedProblemDataDict = self->dataDict;
+                            
+                            
+                            //update UI here
+                            self->_problemTabBarItem.badgeValue=@"1";
+                        });
                         
-                        self->dataDict = [json objectForKey:@"data"];
-                        //     NSLog(@"Problem Details : %@",self->dataDict);
-                        
-                        self->globalVariables.attachedProblemDataDict = self->dataDict;
-                        
-                        self->_problemTabBarItem.badgeValue=@"1";
                         
                         
                     }else{
                         
-                        NSLog(@"No Problem is found");
+                        NSLog(@"Problem is not found");
                        // data is not available
                         
-                        self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
-                         self->_problemTabBarItem.badgeValue=@"0";
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            //update UI here
+                            
+                            self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                            
+                            self->globalVariables.attachedProblemDataDict = NULL;
+                            
+                            
+                            self->_problemTabBarItem.badgeValue=@"0";
+                        });
+                        
                     }
                 
                 }
@@ -1231,8 +1216,6 @@
         }
         
     }
-  
-    
 }
 
 
@@ -1316,7 +1299,7 @@
                 
                 if (json) {
                     
-                    NSLog(@"JSON is : %@",json);
+                 //   NSLog(@"JSON is : %@",json);
                     
                     self->dataDict = [json objectForKey:@"data"];
                     

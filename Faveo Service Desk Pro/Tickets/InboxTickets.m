@@ -102,6 +102,7 @@
     //side menu initialization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
+    
     [SVProgressHUD dismiss];
     
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -205,7 +206,6 @@
     
     
 }
-
 
 
 - (IBAction)searchButtonClicked {
@@ -776,7 +776,7 @@
                            
                              [self->refresh endRefreshing];
                              [self reloadTableView];
-                            [SVProgressHUD dismiss];
+                             [SVProgressHUD dismiss];
                             
                         });
                     });

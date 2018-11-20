@@ -770,7 +770,7 @@
                         
                         [RMessage showNotificationInViewController:self.navigationController
                                                              title:NSLocalizedString(@"success", nil)
-                                                          subtitle:NSLocalizedString(@"Ticket created successfully.", nil)
+                                                          subtitle:NSLocalizedString(@"Problem Deleted Successfully.", nil)
                                                          iconImage:nil
                                                               type:RMessageTypeSuccess
                                                     customTypeName:nil
