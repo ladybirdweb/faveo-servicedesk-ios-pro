@@ -44,6 +44,9 @@
     NSMutableArray * assigned_idArray;
     NSMutableArray * asset_idArray;
     
+    NSString * descriptionData;
+    NSString * subjectData;
+    
 }
 
 - (void)fromWasSelected:(NSNumber *)selectedIndex element:(id)element;
@@ -713,7 +716,15 @@
         
     }else{
         
-         [self performSelector:@selector(postTicketProblem) withObject:self afterDelay:3.0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+          
+            self->subjectData = [NSString stringWithFormat:@"%@",self->_subjectTextView.text];
+            self->descriptionData = [NSString stringWithFormat:@"%@",self->_descriptionTextView.text];
+            
+        [self performSelector:@selector(postTicketProblem) withObject:self afterDelay:2.0];
+            
+        });
+        
     }
     
 }
@@ -749,14 +760,14 @@
     // subject parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"subject\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[_subjectTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[subjectData dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
     
     // description parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"description\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[_descriptionTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[descriptionData dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
     
@@ -808,8 +819,7 @@
     [body appendData:[locationId dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-    
-    
+   
     NSString * assignId=[NSString stringWithFormat:@"%@",assigned_id];
     // assigned parameter
     [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -817,15 +827,15 @@
     [body appendData:[assignId dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-
-    NSString * assetId=[NSString stringWithFormat:@"%@",asset_id];
-    // asset parameter
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"asset\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[assetId dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-
-    
+//
+//    NSString * assetId=[NSString stringWithFormat:@"%@",asset_id];
+//    // asset parameter
+//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"asset\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[assetId dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//
+//    
     
     // close form
     [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -835,92 +845,73 @@
     
     NSLog(@"Request is : %@",request);
     
-    //
-    //return and test
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"ReturnString : %@", returnString);
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] ];
     
-    NSError *error=nil;
-    NSDictionary *jsonData=[NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:&error];
-    if (error) {
-        return;
-    }
-    
-    NSLog(@"Dictionary is : %@",jsonData);
-    
-  
-      if([globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"])
-        {
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+        
+        NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSLog(@"ReturnString : %@", returnString);
+        
+        error=nil;
+        
+        NSDictionary *jsonData=[NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+         NSLog(@"Dictionary is : %@",jsonData);
+     
+        
+        if([jsonData objectForKey:@"data"]){
+            
             NSDictionary *data = [jsonData objectForKey:@"data"];
             NSString *msg = [data objectForKey:@"success"];
-            
-            if([msg isEqualToString:@"Problem Created Successfully."]){
                 
-                [SVProgressHUD dismiss];
-                
-                if (self.navigationController.navigationBarHidden) {
-                    [self.navigationController setNavigationBarHidden:NO];
+                if([msg isEqualToString:@"Problem Created Successfully."]){
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"success", nil)
+                                                          subtitle:NSLocalizedString(@"Problem created successfully.", nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+                        
+                         if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"]){
+                        ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                        [self.navigationController pushViewController:problemVC animated:YES];
+                             
+                         } else
+                             if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
+                             
+                             self->globalVariables.ticketId= [NSNumber numberWithInt:[self->globalVariables.ticketIdForTicketDetail intValue]];
+                             
+                             TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+                             [self.navigationController pushViewController:td animated:YES];
+                             
+                         }
+                    });
+                    
+                    
+                }else{
+                    
                 }
-                
-                [RMessage showNotificationInViewController:self.navigationController
-                                                     title:NSLocalizedString(@"success", nil)
-                                                  subtitle:NSLocalizedString(@"Problem created successfully.", nil)
-                                                 iconImage:nil
-                                                      type:RMessageTypeSuccess
-                                            customTypeName:nil
-                                                  duration:RMessageDurationAutomatic
-                                                  callback:nil
-                                               buttonTitle:nil
-                                            buttonCallback:nil
-                                                atPosition:RMessagePositionNavBarOverlay
-                                      canBeDismissedByUser:YES];
-                
-            
-                ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
-                [self.navigationController pushViewController:problemVC animated:YES];
-                
-            }else{
-                
-            }
-            
-        }
-        else if([globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
-            
-            NSString * dataMessage = [jsonData objectForKey:@"data"];
-            
-            if([dataMessage isEqualToString:@"Created new problem and attached to this ticket"]){
-                
-                [SVProgressHUD dismiss];
-                
-                if (self.navigationController.navigationBarHidden) {
-                    [self.navigationController setNavigationBarHidden:NO];
-                }
-                
-                [RMessage showNotificationInViewController:self.navigationController
-                                                     title:NSLocalizedString(@"success", nil)
-                                                  subtitle:NSLocalizedString(@"Problem attached successfully.", nil)
-                                                 iconImage:nil
-                                                      type:RMessageTypeSuccess
-                                            customTypeName:nil
-                                                  duration:RMessageDurationAutomatic
-                                                  callback:nil
-                                               buttonTitle:nil
-                                            buttonCallback:nil
-                                                atPosition:RMessagePositionNavBarOverlay
-                                      canBeDismissedByUser:YES];
-                
-                
-                globalVariables.ticketId= [NSNumber numberWithInt:[globalVariables.ticketIdForTicketDetail intValue]];
-                
-                 TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
-                [self.navigationController pushViewController:td animated:YES];
-                
-            }
-            
         
-        else {
+        } //end of main if
+        else if([jsonData objectForKey:@"message"]){
+            
             NSString *str=[jsonData objectForKey:@"message"];
             
             if([str isEqualToString:@"Token expired"])
@@ -931,21 +922,30 @@
                 [self postTicketProblem];
                 
             }
-            else{
-                
+        }
+        else{
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //update UI here
+                //something went wrong
                 [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Someting went wrong. Please try again later.."] sendViewController:self];
                 [SVProgressHUD dismiss];
-                
-            }
-            
+            });
+           
+        }
         
+     
+        // Error:
+        if (error) {
+            return;
         }
-            
-        }
+        
+        
+    }] resume];
     
 }
 
-// this method used to control writing data/texts in textfields and textviews.
+//This method used to control writing data/texts in textfields and textviews.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
@@ -971,7 +971,7 @@
             return NO;
         }
         
-        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.';;:?()*&%, "];
+        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890._-='+%@!;;:?()*&%, "];
         
         
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)

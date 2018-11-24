@@ -997,7 +997,8 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
-    if(textView == _messageTextView)
+    
+    
     {
         
         if([text isEqualToString:@" "])
@@ -1019,15 +1020,15 @@
             return NO;
         }
         
-        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "];
+        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ./;@#$%&*,<-_"];
         
         
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)
         {
             return NO;
         }
+        
     }
-    
     
     return YES;
 }

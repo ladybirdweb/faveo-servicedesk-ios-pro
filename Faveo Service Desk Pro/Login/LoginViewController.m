@@ -498,13 +498,6 @@
         if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
         {
             
-            //            [RMessage
-            //             showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
-            //             subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it!", nil)
-            //             type:RMessageTypeError
-            //             customTypeName:nil
-            //             callback:nil];
-            
             if (self.navigationController.navigationBarHidden) {
                 [self.navigationController setNavigationBarHidden:NO];
             }
@@ -525,7 +518,6 @@
             
         }else{
             
-            //  [[AppDelegate sharedAppdelegate] showProgressView];
             [SVProgressHUD showWithStatus:@"Please wait"];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
@@ -596,21 +588,28 @@
                 if ([replyStr containsString:@"success"] && [replyStr containsString:@"message"] ) {
                     
                     
-                    NSString *msg=[jsonData objectForKey:@"message"];
+                   NSString *msg=[jsonData objectForKey:@"message"];
                     
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       
                     if([msg isEqualToString:@"Invalid credentials"])
                     {
                         [self->utils showAlertWithMessage:@"Invalid Credentials.Enter valid username or password" sendViewController:self];
-                        // [[AppDelegate sharedAppdelegate] hideProgressView];
                         [SVProgressHUD dismiss];
                     }
                     else if([msg isEqualToString:@"API disabled"])
                     {
                         [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
-                        //  [[AppDelegate sharedAppdelegate] hideProgressView];
                         [SVProgressHUD dismiss];
                     }
+                    else{
+                        
+                        [self->utils showAlertWithMessage:msg sendViewController:self];
+                        [SVProgressHUD dismiss];
+                        
+                    }
                     
+                  });
                 }
                 
                 else         //success = true

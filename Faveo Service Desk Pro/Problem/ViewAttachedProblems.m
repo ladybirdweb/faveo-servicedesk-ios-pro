@@ -20,6 +20,10 @@
 #import "RMessageView.h"
 #import "TicketDetailViewController.h"
 #import "InboxTickets.h"
+#import "SampleNavigation.h"
+#import "ExpandableTableViewController.h"
+#import "SWRevealViewController.h"
+
 
 @interface ViewAttachedProblems ()<RMessageProtocol>
 {
@@ -204,16 +208,24 @@
                           
 //                            TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
 //
+//                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+//                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
+//                            [self presentViewController:objNav animated:YES completion:nil];
+//
                             InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
-                            [self presentViewController:objNav animated:YES completion:nil];
+                            
+                            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                            
+                            
+                            ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                            
+                            // Initialize SWRevealViewController and set it as |rootViewController|
+                            SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+                            
+                            [self presentViewController:vc animated:YES completion:nil];
                             
                          //   [self.navigationController pushViewController:inboxVC animated:YES];
 //
-//                            [td viewDidLoad];
-//                            [td viewWillAppear:YES];
-                            
-                            
                             [SVProgressHUD dismiss];
                             
                         });
