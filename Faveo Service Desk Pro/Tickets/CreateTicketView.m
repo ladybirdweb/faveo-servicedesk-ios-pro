@@ -389,9 +389,9 @@
         _priorityArray=[priMU copy];
         _staffArray=[staffMU copy];
         
-        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        
+//        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        
         //  [yourArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
         NSLog(@"Staff Name Array : %@",_staffArray);

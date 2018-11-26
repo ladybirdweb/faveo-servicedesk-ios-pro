@@ -584,7 +584,9 @@
                 NSDictionary *jsonData=[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 NSLog(@"JSON is : %@",jsonData);
                 
+                
                 //main if 1
+                
                 if ([replyStr containsString:@"success"] && [replyStr containsString:@"message"] ) {
                     
                     
