@@ -796,6 +796,11 @@
                     [self->utils showAlertWithMessage:NSLocalizedString(@"Permission Denied - You don't have permission to change status. ", nil) sendViewController:self];
                     
                 }
+                if([[json objectForKey:@"message"] isKindOfClass:[NSDictionary class]])
+                {
+                    [self->utils showAlertWithMessage:NSLocalizedString(@"Error: Some Issue with Back-end server. Please try again later.", nil) sendViewController:self];
+                    
+                }
                 else{
                     
                     NSString * msg=[json objectForKey:@"message"];

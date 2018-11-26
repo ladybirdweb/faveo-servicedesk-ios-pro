@@ -268,7 +268,8 @@
                         self->globalVariables=[GlobalVariables sharedInstance];
                         
                         
-                        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                      // [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
+                        [self.navigationController popViewControllerAnimated:YES];
                         
                     }else
                     {
