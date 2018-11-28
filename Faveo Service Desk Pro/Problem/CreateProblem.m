@@ -863,11 +863,15 @@
         
         if([jsonData objectForKey:@"data"]){
             
-            NSDictionary *data = [jsonData objectForKey:@"data"];
-            NSString *msg = [data objectForKey:@"success"];
+            NSObject *data = [jsonData objectForKey:@"data"];
+
+            if([data isKindOfClass:[NSDictionary class]]){
                 
-                if([msg isEqualToString:@"Problem Created Successfully."] || [msg isEqualToString:@"Created new problem and attached to this ticket"]){
-                    
+                NSDictionary *dataDict = [jsonData objectForKey:@"data"];
+                NSString *successMsg = [dataDict objectForKey:@"success"];
+                
+                if([successMsg isEqualToString:@"Problem Created Successfully."]){
+                
                     [SVProgressHUD dismiss];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -889,27 +893,79 @@
                                                         atPosition:RMessagePositionNavBarOverlay
                                               canBeDismissedByUser:YES];
                         
-                         if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"]){
+                        
                         ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
                         [self.navigationController pushViewController:problemVC animated:YES];
-                             
-                         } else
-                             if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
-                             
-                             self->globalVariables.ticketId= [NSNumber numberWithInt:[self->globalVariables.ticketIdForTicketDetail intValue]];
-                             
-                             TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
-                             [self.navigationController pushViewController:td animated:YES];
-                             
-                         }
+                
+//                        if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"]){
+//
+//
+//
+//                        } else
+//                            if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
+//
+//
+//                            }
+                        
                     });
                     
+                }//end if checking msg = ticket cerated successfully ...etc
+                
+                else{
                     
-                }else{
-                    
+                    //show some error
                 }
         
-        } //end of main if
+            } // end if - while checking that data is kind of Dict
+            
+            else if([data isKindOfClass:[NSString class]]){
+                
+                
+                NSString *dataString = [jsonData objectForKey:@"data"];
+                
+                if([dataString isEqualToString:@"Created new problem and attached to this ticket"]){
+                   
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"success", nil)
+                                                          subtitle:NSLocalizedString(@"Created new problem and attached to this ticket.", nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+
+                        self->globalVariables.ticketId= [NSNumber numberWithInt:[self->globalVariables.ticketIdForTicketDetail intValue]];
+                        
+                        TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+                        [self.navigationController pushViewController:td animated:YES];
+                     
+                     });
+                        
+                } //end if while check if msg = Created new problem and attached to this ticket
+                else{
+                    
+                    //show some error
+                }
+        
+                
+                
+            }
+      
+        } //end of main if checking object for key data
+        
         else if([jsonData objectForKey:@"message"]){
             
             NSString *str=[jsonData objectForKey:@"message"];
@@ -926,8 +982,7 @@
         else{
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                //update UI here
-                //something went wrong
+
                 [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Someting went wrong. Please try again later.."] sendViewController:self];
                 [SVProgressHUD dismiss];
             });
