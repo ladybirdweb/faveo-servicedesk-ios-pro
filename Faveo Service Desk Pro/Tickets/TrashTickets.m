@@ -74,6 +74,7 @@
 
 @implementation TrashTickets
 
+//It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -215,6 +216,7 @@
     
 }
 
+// Your app never calls this method directly. Instead, this method is called when the system determines that the amount of available memory is low.
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

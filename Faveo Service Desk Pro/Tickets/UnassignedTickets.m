@@ -75,6 +75,7 @@
 
 @implementation UnassignedTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -215,6 +216,7 @@
     
 }
 
+// It sent to the view controller when the app receives a memory warning.
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

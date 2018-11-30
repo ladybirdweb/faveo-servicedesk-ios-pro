@@ -41,6 +41,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
 @implementation AppDelegate
 
+// It tells the delegate that the launch process is almost done and the app is almost ready to run.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -162,27 +163,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     return YES;
 }
 
-
-
-//// [START receive_message]
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    // If you are receiving a notification message while your app is in the background,
-//    // this callback will not be fired till the user taps on the notification launching the application.
-//    // TODO: Handle data of notification
-//
-//    // With swizzling disabled you must let Messaging know about the message, for Analytics
-//    // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-//
-//    // Print message ID.
-//    if (userInfo[kGCMMessageIDKey]) {
-//        NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-//    }
-//
-//    // Print full message.
-//    NSLog(@"%@", userInfo);
-//}
-
-
+// It tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     NSLog(@"APNs device token retrieved: %@", deviceToken);
@@ -202,6 +183,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
 }
 
+// It sent to the delegate when Apple Push Notification service cannot successfully complete the registration process.
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"Failed to register deviceToken:%@",error.localizedDescription);
     
@@ -247,7 +229,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // [END ios_10_message_handling]
 
 
-//
+// It tells the app that a remote notification arrived that indicates there is data to be fetched.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
@@ -309,7 +291,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 //
 //}
 
-
+// It sends the device token to the firebase and we will receive an refreshed token from firebase server.
 -(void)sendDeviceToken:(NSString*)refreshedToken{
     
     NSLog(@"refreshed token  %@",refreshedToken);
@@ -409,12 +391,12 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"");
 }
 
-
+// It tells the delegate that the app is about to enter the foreground.
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-
+// It tells the delegate when the app is about to terminate.
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }

@@ -49,7 +49,9 @@
 
 @implementation ProblemList
 
+//It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setTitle:NSLocalizedString(@"All Problems",nil)];

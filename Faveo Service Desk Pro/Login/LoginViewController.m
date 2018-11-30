@@ -41,6 +41,7 @@
 
 @implementation LoginViewController
 
+// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -92,12 +93,13 @@
     
 }
 
-
+//It notifies the view controller that its view was added to a view hierarchy.
 -(void)viewDidAppear:(BOOL)animated{
     [self.urlTextfield becomeFirstResponder];
     
 }
 
+// It Notifies the view controller that its view is about to be added to a view hierarchy.
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES];
@@ -116,7 +118,7 @@
     [_passcodeTextField resignFirstResponder];
 }
 
-
+// It asks the delegate if the text field should process the pressing of the return button.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
@@ -132,7 +134,7 @@
     return YES;
 }
 
-
+// After clicking this button it will check url which is eneterd by user.
 - (IBAction)urlNextButtonAction:(id)sender {
     
     [self.urlTextfield resignFirstResponder];

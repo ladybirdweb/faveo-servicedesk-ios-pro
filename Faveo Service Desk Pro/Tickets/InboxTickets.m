@@ -79,7 +79,9 @@
 
 @implementation InboxTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -207,7 +209,7 @@
     
 }
 
-
+// After clicking this button it will navigate to search viewController
 - (IBAction)searchButtonClicked {
     
     [self hideTableViewEditMode];

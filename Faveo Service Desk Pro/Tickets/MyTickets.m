@@ -75,6 +75,7 @@
 
 @implementation MyTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
     

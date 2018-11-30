@@ -73,6 +73,7 @@
 
 @implementation ClosedTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -214,11 +215,6 @@
     
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 // This method used for implementing the feature of multiple ticket select, using this we can select and deselects the tableview rows and perform futher actions on that seleected rows.
