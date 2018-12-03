@@ -227,7 +227,7 @@
  
  @endcode
  */
-- (IBAction)assetsTextFieldClicked:(id)sender;
+//- (IBAction)assetsTextFieldClicked:(id)sender;
 
 /*!
  @property fromArray

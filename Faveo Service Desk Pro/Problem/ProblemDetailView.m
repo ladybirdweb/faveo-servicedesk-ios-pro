@@ -1007,7 +1007,9 @@
                     self->_assetBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.asstArray count]];
                     
                     if([self->globalVariables.asstArray count] ==0){
+                        
                         self->globalVariables.assetStatusInProblemDetailVC=@"NotFound";
+                        
                     }else{
                         self->globalVariables.assetStatusInProblemDetailVC=@"Found";
                     }

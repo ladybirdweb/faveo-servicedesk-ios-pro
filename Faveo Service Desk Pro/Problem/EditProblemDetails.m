@@ -45,6 +45,8 @@
     NSMutableArray * assigned_idArray;
     NSMutableArray * asset_idArray;
     
+    NSString * assetIds;
+    
 }
 
 - (void)fromWasSelected:(NSNumber *)selectedIndex element:(id)element;
@@ -54,7 +56,7 @@
 - (void)locationWasSelected:(NSNumber *)selectedIndex element:(id)element;
 - (void)priorityWasSelected:(NSNumber *)selectedIndex element:(id)element;
 - (void)assigneeWasSelected:(NSNumber *)selectedIndex element:(id)element;
-- (void)assetWasSelected:(NSNumber *)selectedIndex element:(id)element;
+//- (void)assetWasSelected:(NSNumber *)selectedIndex element:(id)element;
 
 - (void)actionPickerCancelled:(id)sender;
 
@@ -1066,12 +1068,39 @@
             locatioinID=@"0";
         }
         
+        // checking assets are present or not, if present then pass assets to edit problem API
+        
+        NSMutableArray * assetArray1 = [[NSMutableArray alloc]init];
+        
+        if([self->globalVariables.asstArray count] !=0){
+            
+            for(NSDictionary *dict in globalVariables.asstArray){
+                
+                NSString *id1 = [dict objectForKey:@"id"];
+                NSLog(@"asset[]: %@",id1);
+    
+                [assetArray1 addObject:[NSString stringWithFormat:@"asset[]=%@",id1]];
+            }
+            
+            NSLog(@"Array is : %@",assetArray1);
+            
+            assetIds = [assetArray1 componentsJoinedByString:@",&"];
+            NSLog(@"Final Array is : %@",assetIds);
+            
+        }else{
+            
+            
+        }
+        
+        
 //
 //        http://productdemourl.com/servicedesk38t/public/api/v1/servicedesk/problem/2?//token&subject&description&from&department&status_type_id&impact_id&priority_id&location_type_id&assigned_id
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,_fromTextField.text,department_id,status_id,impact_id,priority_id,locatioinID,staffID];
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@&%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,_fromTextField.text,department_id,status_id,impact_id,priority_id,locatioinID,staffID,assetIds];
         
         NSLog(@"URL is : %@",url);
+        
+        //NSString * newUrl = [url stringByAppendingString:@"%@",assetIds];
         
         
         @try{

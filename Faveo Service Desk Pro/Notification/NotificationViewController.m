@@ -4,7 +4,8 @@
 //
 //  Created by Mallikarjun on 11/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
-//
+
+
 #import "NotificationViewController.h"
 #import "NotificationTableViewCell.h"
 #import "Reachability.h"
@@ -238,7 +239,7 @@
     if ([_mutableArray count]==0)
     {
         UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-        noDataLabel.text             =  NSLocalizedString(@"Empty!!!",nil);
+        noDataLabel.text             =  NSLocalizedString(@"",nil);
         noDataLabel.textColor        = [UIColor blackColor];
         noDataLabel.textAlignment    = NSTextAlignmentCenter;
         tableView.backgroundView = noDataLabel;
@@ -253,6 +254,7 @@
     
     return numOfSections;
 }
+
 
 //This method asks the data source to return the number of sections in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
