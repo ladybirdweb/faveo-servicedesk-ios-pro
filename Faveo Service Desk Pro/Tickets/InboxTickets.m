@@ -79,7 +79,9 @@
 
 @implementation InboxTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -96,9 +98,13 @@
     uniqueStatusNameArray = [[NSMutableArray alloc] init];
     _mutableArray=[[NSMutableArray alloc]init];
     
+    globalVariables.problemStatusInTicketDetailVC =@"";
+    globalVariables.showNavigationItem=@"hide";
+    
     //side menu initialization
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
+    
     [SVProgressHUD dismiss];
     
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -203,6 +209,7 @@
     
 }
 
+// After clicking this button it will navigate to search viewController
 - (IBAction)searchButtonClicked {
     
     [self hideTableViewEditMode];
@@ -314,6 +321,7 @@
 
 // This method used for implementing the feature of multiple ticket select, using this we can select and deselects the tableview rows and perform futher actions on that seleected rows.
 -(void)EditTableView:(UIGestureRecognizer*)gesture{
+    
     [self.tableView setEditing:YES animated:YES];
     navbar.hidden=NO;
     
@@ -333,8 +341,7 @@
 // This method used to show some popuop or list which contain some menus. Here it used to change the status of ticket, after clicking this button it will show one view which contains list of status. After clicking on any row, according to its name that status will be changed.
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    NSLog(@"11111111*********111111111111");
-    
+   
     if (!selectedArray.count) {
         
         [utils showAlertWithMessage:@"Select The Tickets First For Changing Ticket Status" sendViewController:self];
@@ -400,7 +407,7 @@
                                if([self->selectedStatusName isEqualToString:@"Open"] || [self->selectedStatusName isEqualToString:@"open"])
                                {
                                    [self->utils showAlertWithMessage:NSLocalizedString(@"Ticket is Already Open",nil) sendViewController:self];
-                                  // [[AppDelegate sharedAppdelegate] hideProgressView];
+                            
                                }
                                else{
                                    
@@ -678,7 +685,7 @@
                 
                 NSLog(@"Reload Method Inbox Error is : %@",error );
                 NSLog(@"Reload Method Inbox Message is : %@",msg );
-                NSLog(@"Reload Method Inbox JSON is: %@",json);
+             //   NSLog(@"Reload Method Inbox JSON is: %@",json);
                 
                 if (error || [msg containsString:@"Error"]) {
                     [self->refresh endRefreshing];
@@ -756,9 +763,8 @@
                 if (json) {
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
-                    
+                        
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
-                    
                     self->_nextPageUrl =[data1Dict objectForKey:@"next_page_url"];
                     self->_path1=[data1Dict objectForKey:@"path"];
                     self->_currentPage=[[data1Dict objectForKey:@"current_page"] integerValue];
@@ -770,14 +776,14 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                            
-                            [self->refresh endRefreshing];
+                             [self->refresh endRefreshing];
                              [self reloadTableView];
-                            [SVProgressHUD dismiss];
+                             [SVProgressHUD dismiss];
                             
                         });
                     });
                     
-                }
+                }//end json
                 NSLog(@"Thread-NO5-getInbox-closed");
                 
             }];
@@ -786,8 +792,7 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-          //  [[AppDelegate sharedAppdelegate] hideProgressView];
-               [self reloadTableView];
+            [SVProgressHUD dismiss];
             return;
         }
         @finally
@@ -847,7 +852,6 @@
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                       // [[AppDelegate sharedAppdelegate] hideProgressView];
                         
                     }
                     else
@@ -944,28 +948,6 @@
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
                     
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                       // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
                     
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");
@@ -1513,12 +1495,13 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
+//
             
             if(![cc isEqualToString:@"<null>"])
             {
@@ -1545,12 +1528,38 @@
             //priority color
              NSDictionary *priorityDict=[finaldic objectForKey:@"priority"];
             
+            
             NSString *rawString=[priorityDict objectForKey:@"color"];
+            NSString *nameOfPriority=[priorityDict objectForKey:@"name"];
             
             NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
             
-             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:color] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:color] CGColor];
             
+            if([nameOfPriority isEqualToString:@"Low"]){
+                
+                NSString *rawString=[priorityDict objectForKey:@"color"];
+                NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                globalVariables.priorityColorLowForProblemsList = color;
+            }
+            else if([nameOfPriority isEqualToString:@"Normal"]){
+                
+                NSString *rawString=[priorityDict objectForKey:@"color"];
+                NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                globalVariables.priorityColorNormalProblemsList = color;
+            }
+            else if([nameOfPriority isEqualToString:@"High"]){
+                    
+                    NSString *rawString=[priorityDict objectForKey:@"color"];
+                    NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                    globalVariables.priorityColorHighProblemsList = color;
+                }
+            else if([nameOfPriority isEqualToString:@"Emergency"]){
+                    
+                    NSString *rawString=[priorityDict objectForKey:@"color"];
+                    NSString * color = [rawString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+                    globalVariables.priorityColorEmergencyProblemsList = color;
+                }
             
             
         }@catch (NSException *exception)

@@ -32,7 +32,7 @@
     
     NSArray  * ccListArray;
     
-     HSAttachmentPicker *_menu;
+    HSAttachmentPicker *_menu;
     
     NSData *attachNSData;
     NSString *file123;
@@ -687,7 +687,7 @@
                 NSLog(@"Thread-Ticket-Reply-closed");
                 
             }
-            if ([jsonData objectForKey:@"result"]){
+           else if ([jsonData objectForKey:@"result"]){
                 
                 NSDictionary *resultDict=[jsonData objectForKey:@"result"];
                 
@@ -709,7 +709,7 @@
         }
         @finally
         {
-            NSLog( @" I am in replytTicket method in TicketDetail ViewController" );
+            NSLog( @" I am in replytTicket method in Ticket Reply ViewController" );
             
         }
         

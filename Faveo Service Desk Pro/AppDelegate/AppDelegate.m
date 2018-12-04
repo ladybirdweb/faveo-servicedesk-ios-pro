@@ -41,6 +41,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
 @implementation AppDelegate
 
+// It tells the delegate that the launch process is almost done and the app is almost ready to run.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
@@ -84,12 +85,21 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
             // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
            
           
-            UIUserNotificationType allNotificationTypes =
-            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-            UIUserNotificationSettings *settings =
-            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-            [application registerUserNotificationSettings:settings];
+//            UIUserNotificationType allNotificationTypes =
+//            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+//            UIUserNotificationSettings *settings =
+//            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+//            [application registerUserNotificationSettings:settings];
+            
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                if (!granted) {
+                    //Show alert asking to go to settings and allow permission
+                }
+            }];
         }
+        
+        
     } else {
         // Fallback on earlier versions
     }
@@ -153,27 +163,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     return YES;
 }
 
-
-
-//// [START receive_message]
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    // If you are receiving a notification message while your app is in the background,
-//    // this callback will not be fired till the user taps on the notification launching the application.
-//    // TODO: Handle data of notification
-//
-//    // With swizzling disabled you must let Messaging know about the message, for Analytics
-//    // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-//
-//    // Print message ID.
-//    if (userInfo[kGCMMessageIDKey]) {
-//        NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-//    }
-//
-//    // Print full message.
-//    NSLog(@"%@", userInfo);
-//}
-
-
+// It tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     NSLog(@"APNs device token retrieved: %@", deviceToken);
@@ -193,6 +183,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
 }
 
+// It sent to the delegate when Apple Push Notification service cannot successfully complete the registration process.
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"Failed to register deviceToken:%@",error.localizedDescription);
     
@@ -238,7 +229,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 // [END ios_10_message_handling]
 
 
-//
+// It tells the app that a remote notification arrived that indicates there is data to be fetched.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
@@ -300,7 +291,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 //
 //}
 
-
+// It sends the device token to the firebase and we will receive an refreshed token from firebase server.
 -(void)sendDeviceToken:(NSString*)refreshedToken{
     
     NSLog(@"refreshed token  %@",refreshedToken);
@@ -334,10 +325,19 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         return;
     }
     // Disconnect previous FCM connection if it exists.
-    [[FIRMessaging messaging] disconnect];
+   //   [[FIRMessaging messaging] disconnect]; // preveously : 'disconnect' is deprecated: Please use the shouldEstablishDirectChannel property instead.
+
     
+    FIRMessaging.messaging.shouldEstablishDirectChannel=false;
+    /* //using swift for disconnecting connection
+     func applicationDidEnterBackground(_ application: UIApplication) {
+     Messaging.messaging().shouldEstablishDirectChannel = false
+     print("Disconnected from FCM.")
+     */
     
+
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
+    
         if (error != nil) {
             NSLog(@"Unable to connect to FCM. %@", error);
         } else {
@@ -361,7 +361,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 // [START disconnect_from_fcm]
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
-    [[FIRMessaging messaging] disconnect];
+   // [[FIRMessaging messaging] disconnect];
+     FIRMessaging.messaging.shouldEstablishDirectChannel=false;
     NSLog(@"Disconnected from FCM");
 }
 // [END disconnect_from_fcm]
@@ -390,12 +391,12 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"");
 }
 
-
+// It tells the delegate that the app is about to enter the foreground.
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-
+// It tells the delegate when the app is about to terminate.
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }

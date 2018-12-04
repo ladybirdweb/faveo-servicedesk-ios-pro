@@ -517,11 +517,11 @@
         NSLog(@"Type Array : %@",_typeArray);
         NSLog(@"Assignee Array : %@",assignArray);
         
-        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _sourceArray = [_sourceArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _typeArray =  [_typeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        
+//        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _sourceArray = [_sourceArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _typeArray =  [_typeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        
         //[assignArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
     }@catch (NSException *exception)
@@ -660,7 +660,7 @@
         [_assigneeTextField resignFirstResponder];
         if (!assignArray||!assignArray.count) {
             _assigneeTextField.text=NSLocalizedString(@"Not Available",nil);
-            source_id=0;
+            staff_id=0;
         }else{
             [ActionSheetStringPicker showPickerWithTitle:NSLocalizedString(@"Select Assignee",nil) rows:assignArray initialSelection:0 target:self successAction:@selector(staffWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:sender];
         }
@@ -730,14 +730,25 @@
 - (IBAction)saveButtonAction:(id)sender {
     
     if (self.messageTextView.text.length==0) {
-       //[RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please enter SUBJECT",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please enter the subject field.", nil) sendViewController:self];
+        
     }else if (self.helptopicsTextField.text.length==0) {
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select HELP-TOPIC",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select Helptopic.", nil) sendViewController:self];
     }else if (self.priorityTextField.text.length==0){
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select PRIORITY" ,nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select Priority.", nil) sendViewController:self];
     }else  if (self.sourceTextField.text.length==0){
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select SOURCE" ,@"Please select SOURCE") backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
-    }else  {
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Source.", nil) sendViewController:self];
+    }
+    if ([self.typeTextField.text isEqualToString:@"Not Available"]){
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Type.", nil) sendViewController:self];
+    }
+    else
+    {
         [self save];
     }
     
@@ -745,6 +756,7 @@
 
 // After clicking on submit/save button below method is called
 -(void)save{
+    
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
         
@@ -768,11 +780,15 @@
     }else{
         if (_typeTextField.text.length!=0) {
             type_id=[NSNumber numberWithInteger:1+[_typeArray indexOfObject:_typeTextField.text]];
+        }else if([_typeTextField.text isEqualToString:@"Not Available"]){
+            type_id=0;
         }else type_id=0;
         
         priority_id=[NSNumber numberWithInteger:1+[_priorityArray indexOfObject:_priorityTextField.text]];
         help_topic_id = [NSNumber numberWithInteger:1+[_helptopicsArray indexOfObject:_helptopicsTextField.text]];
+       // sla_id = [NSNumber numberWithInteger:1+[_slaPlansArray indexOfObject:_slaTextField.text]];
         source_id = [NSNumber numberWithInteger:1+[_sourceArray indexOfObject:_sourceTextField.text]];
+      //  status_id = [NSNumber numberWithInteger:1+[_statusArray indexOfObject:_statusTextField.text]];
         
         
         
@@ -992,7 +1008,8 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
-    if(textView == _messageTextView)
+    
+    
     {
         
         if([text isEqualToString:@" "])
@@ -1014,15 +1031,15 @@
             return NO;
         }
         
-        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "];
+        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ./;@#$%&*,<-_"];
         
         
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)
         {
             return NO;
         }
+        
     }
-    
     
     return YES;
 }

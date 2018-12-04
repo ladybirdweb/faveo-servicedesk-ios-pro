@@ -89,34 +89,67 @@
 		</dict>
 		<dict>
 			<key>Name</key>
-			<string>Service Desk</string>
+			<string>Problems</string>
 			<key>level</key>
 			<integer>0</integer>
 			<key>id</key>
 			<string>sme</string>
 			<key>image</key>
-			<string>Jobs</string>
+			<string>problem-ic1</string>
 			<key>SubItems</key>
 			<array>
 				<dict>
 					<key>Name</key>
-					<string>Starred</string>
+					<string>All Problems</string>
 					<key>level</key>
 					<integer>1</integer>
 					<key>id</key>
 					<string>sme_marketwatch</string>
 					<key>image</key>
-					<string>Starred</string>
+					<string>all-list</string>
 				</dict>
 				<dict>
 					<key>Name</key>
-					<string>Applied</string>
+					<string>New Problem</string>
 					<key>level</key>
 					<integer>1</integer>
 					<key>id</key>
 					<string>sme_marketstats</string>
 					<key>image</key>
-					<string>Advance</string>
+					<string>all-list</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Changes</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>changeLevel0</string>
+			<key>image</key>
+			<string>tabBar3</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>All Changes</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>changeSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>New Change</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>newChangeSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
 				</dict>
 			</array>
 		</dict>

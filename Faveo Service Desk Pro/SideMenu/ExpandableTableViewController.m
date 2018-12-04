@@ -24,10 +24,19 @@
 #import "InboxTickets.h"
 #import "RMessage.h"
 #import "RMessageView.h"
-
+#import "ProblemList.h"
+#import "CreateProblem.h"
+#import "UIImageView+Letters.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "GlobalVariables.h"
+#import "ChangeList.h"
+#import "CreateChange.h"
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
-
+{
+     NSUserDefaults *userDefaults;
+     GlobalVariables *globalVariables;
+}
 
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -60,6 +69,11 @@ NSUInteger g_ExpandedCellIndex = 0;
     
     [self setTableView];
     [self setProfileImage];
+    
+    
+    userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+    
     //
     //select the data.plist as per the language set for the app
     NSDictionary *dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"enData" ofType:@"plist"]];
@@ -80,10 +94,30 @@ NSUInteger g_ExpandedCellIndex = 0;
 }
 
 - (void) setProfileImage {
+    
+    userDefaults=[NSUserDefaults standardUserDefaults];
+    
     self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
     self.profileImageView.clipsToBounds = YES;
     // self.profileImageView.layer.borderWidth = 3.0f;
     //  self.profileImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
+    if([[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".jpg"] || [[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".jpeg"] || [[userDefaults objectForKey:@"profile_pic"] hasSuffix:@".png"] )
+    {
+        [_profileImageView sd_setImageWithURL:[NSURL URLWithString:[userDefaults objectForKey:@"profile_pic"]]
+                              placeholderImage:[UIImage imageNamed:@"default_pic.png"]];
+    }else
+    {
+        //   NSString * name = [NSString];
+        NSString * name = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"profile_name"]];
+        [_profileImageView setImageWithString:[name substringToIndex:1] color:nil ];
+    }
+    
+    
+    
+    _userNameLabel.text = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"profile_name"]];
+    _userEmailLabel.text = [NSString stringWithFormat:@"%@",[userDefaults objectForKey:@"userEmail"]];
+    
     
 }
 
@@ -233,9 +267,10 @@ NSUInteger g_ExpandedCellIndex = 0;
     {
         //1.getquote   2.home
         //3.1 indices 3.2 gainers  3.3 turnover
-        //4.1 sme_marketwatch  4.2  sme_marketstats
-        //5. sme_marketstats
-        // 6. settings
+        //Problem 4.1 sme_marketwatch  4.2  sme_marketstats
+        //chnage 5.1 changeSubLevel1 5.2 newChangeSubLevel1
+        //6. sme_marketstats
+        // 7. settings
         
         NSString* strId =[dic valueForKey:@"id"];
         NSLog(@"STR_ID : %@",strId);
@@ -309,7 +344,56 @@ NSUInteger g_ExpandedCellIndex = 0;
                      [navController setViewControllers: @[controller] animated: YES];
 
                  }
-                 else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"] || [strId isEqualToString:@"sme_marketwatch"] || [strId isEqualToString:@"sme_marketstats"])
+                 else if([strId isEqualToString:@"sme_marketwatch"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     ProblemList * controller = (ProblemList *)[storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"sme_marketstats"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     globalVariables.createProblemConditionforVC = @"newAlone";
+                     
+                     CreateProblem * controller = (CreateProblem *)[storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"changeSubLevel1"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                
+                     ChangeList * controller = (ChangeList *)[storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"newChangeSubLevel1"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     globalVariables.createChangeConditionforVC = @"newChangeAlone";
+                     
+                     CreateChange * controller = (CreateChange *)[storyboard instantiateViewControllerWithIdentifier:@"CreateChangeId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"UnapprovedId"] || [strId isEqualToString:@"home"])
                  {
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 

@@ -16,6 +16,14 @@
 		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */; };
 		060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */; };
+		0610637C21B649C5007F28BB /* CreateChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610637B21B649C5007F28BB /* CreateChange.m */; };
+		0610637F21B649EF007F28BB /* ChangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610637E21B649EF007F28BB /* ChangeList.m */; };
+		0610638221B64A18007F28BB /* ChangeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638121B64A18007F28BB /* ChangeDetailView.m */; };
+		0610638521B64A55007F28BB /* ChangeAnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638421B64A55007F28BB /* ChangeAnalysisView.m */; };
+		0610638821B64A7D007F28BB /* ChangeDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638721B64A7D007F28BB /* ChangeDetailData.m */; };
+		0610638B21B64AAD007F28BB /* EditChangeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638A21B64AAD007F28BB /* EditChangeDetails.m */; };
+		0610638F21B64FA4007F28BB /* ChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638D21B64FA4007F28BB /* ChangesTableViewCell.m */; };
+		0610639221B6508C007F28BB /* ChangesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0610639121B6508C007F28BB /* ChangesTableViewCell.xib */; };
 		06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06187532211414E70078A7C5 /* ExpandableTableViewController.m */; };
 		061875352114193B0078A7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 061875342114193A0078A7C5 /* GoogleService-Info.plist */; };
 		0619C48120D3CC2C00AFF505 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0619C48020D3CC2C00AFF505 /* libicucore.tbd */; };
@@ -25,7 +33,6 @@
 		0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9020B2E234004CFDC9 /* Assets.xcassets */; };
 		0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */; };
 		0619CF9720B2E234004CFDC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF9620B2E234004CFDC9 /* main.m */; };
-		0619CFA120B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFA020B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m */; };
 		0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */; };
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
 		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
@@ -106,21 +113,37 @@
 		065029B620BFFD51007E90E2 /* Ratings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299C20BFFD50007E90E2 /* Ratings@2x.png */; };
 		065029B720BFFD51007E90E2 /* Jobs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0650299D20BFFD50007E90E2 /* Jobs@2x.png */; };
 		065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 065029B920C02865007E90E2 /* SampleNavigation.m */; };
+		0653B9DA21551CEB00DE5C5E /* AssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0653B9D821551CEB00DE5C5E /* AssetCell.xib */; };
+		0667370D215A362A0088719E /* AssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667370C215A362A0088719E /* AssetCell.m */; };
+		066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A6C312153B2740050EDA2 /* LPSemiModalView.m */; };
+		067550C321673A1A00F78C20 /* ProblemListForPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */; };
 		0675925320D23393009BDCCF /* TestingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0675925220D23393009BDCCF /* TestingView.m */; };
 		0675925520D24DE4009BDCCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675925420D24DE4009BDCCF /* CloudKit.framework */; };
-		06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAC20CBA4ED000D834D /* LGPlusButton.m */; };
-		06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */; };
-		06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */; };
-		06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */; };
 		06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB820CBA76D000D834D /* ReplyTicketViewController.m */; };
 		06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DBB20CBA782000D834D /* InternalNoteViewController.m */; };
 		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
 		0676605F20CBBD93000D834D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
+		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
+		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
 		06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */; };
+		06AD850321B51AB70094C259 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AD850221B51AB70094C259 /* XCTest.framework */; };
+		06B3D997213FA274004D548E /* ProblemDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D996213FA274004D548E /* ProblemDetailView.m */; };
+		06B3D99A213FB430004D548E /* AnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D999213FB430004D548E /* AnalysisView.m */; };
+		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
+		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
+		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
+		06B98CD921B5340C00F3CFB1 /* SampleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */; };
+		06B98CDD21B5397500F3CFB1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CDC21B5397500F3CFB1 /* Card.m */; };
+		06B98CE021B539DB00F3CFB1 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */; };
+		06B98CE221B53A2400F3CFB1 /* CardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CE121B53A2400F3CFB1 /* CardTestCase.m */; };
+		06B98CE721B53A8600F3CFB1 /* PlayingCardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */; };
+		06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */; };
+		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
+		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
 		06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D6478320C56FEC000783C8 /* Default-568h@2x.png */; };
 		06D6479920C5724B000783C8 /* InboxTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479820C5724B000783C8 /* InboxTickets.m */; };
 		06D6479C20C5725B000783C8 /* MyTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6479B20C5725B000783C8 /* MyTickets.m */; };
@@ -128,6 +151,7 @@
 		06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A120C5729F000783C8 /* UnApprovedTickets.m */; };
 		06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A420C5732A000783C8 /* ClosedTickets.m */; };
 		06D647A820C5733E000783C8 /* TrashTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A720C5733E000783C8 /* TrashTickets.m */; };
+		06E8451D213EB19000786CEB /* ProblemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8451C213EB19000786CEB /* ProblemList.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +188,21 @@
 		060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		0610637A21B649C5007F28BB /* CreateChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChange.h; sourceTree = "<group>"; };
+		0610637B21B649C5007F28BB /* CreateChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChange.m; sourceTree = "<group>"; };
+		0610637D21B649EF007F28BB /* ChangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeList.h; sourceTree = "<group>"; };
+		0610637E21B649EF007F28BB /* ChangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeList.m; sourceTree = "<group>"; };
+		0610638021B64A18007F28BB /* ChangeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailView.h; sourceTree = "<group>"; };
+		0610638121B64A18007F28BB /* ChangeDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailView.m; sourceTree = "<group>"; };
+		0610638321B64A55007F28BB /* ChangeAnalysisView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAnalysisView.h; sourceTree = "<group>"; };
+		0610638421B64A55007F28BB /* ChangeAnalysisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAnalysisView.m; sourceTree = "<group>"; };
+		0610638621B64A7D007F28BB /* ChangeDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailData.h; sourceTree = "<group>"; };
+		0610638721B64A7D007F28BB /* ChangeDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailData.m; sourceTree = "<group>"; };
+		0610638921B64AAD007F28BB /* EditChangeDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditChangeDetails.h; sourceTree = "<group>"; };
+		0610638A21B64AAD007F28BB /* EditChangeDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditChangeDetails.m; sourceTree = "<group>"; };
+		0610638C21B64FA4007F28BB /* ChangesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangesTableViewCell.h; sourceTree = "<group>"; };
+		0610638D21B64FA4007F28BB /* ChangesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangesTableViewCell.m; sourceTree = "<group>"; };
+		0610639121B6508C007F28BB /* ChangesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangesTableViewCell.xib; sourceTree = "<group>"; };
 		06187531211414E70078A7C5 /* ExpandableTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpandableTableViewController.h; sourceTree = "<group>"; };
 		06187532211414E70078A7C5 /* ExpandableTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpandableTableViewController.m; sourceTree = "<group>"; };
 		061875342114193A0078A7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -179,7 +218,6 @@
 		0619CF9520B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0619CF9620B2E234004CFDC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0619CFA020B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProTests.m; sourceTree = "<group>"; };
 		0619CFA220B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
@@ -302,17 +340,16 @@
 		0650299D20BFFD50007E90E2 /* Jobs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jobs@2x.png"; sourceTree = "<group>"; };
 		065029B820C02865007E90E2 /* SampleNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleNavigation.h; sourceTree = "<group>"; };
 		065029B920C02865007E90E2 /* SampleNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleNavigation.m; sourceTree = "<group>"; };
+		0653B9D821551CEB00DE5C5E /* AssetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssetCell.xib; sourceTree = "<group>"; };
+		0667370B215A362A0088719E /* AssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssetCell.h; sourceTree = "<group>"; };
+		0667370C215A362A0088719E /* AssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssetCell.m; sourceTree = "<group>"; };
+		066A6C302153B2730050EDA2 /* LPSemiModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSemiModalView.h; sourceTree = "<group>"; };
+		066A6C312153B2740050EDA2 /* LPSemiModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSemiModalView.m; sourceTree = "<group>"; };
+		067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemListForPopUpView.h; sourceTree = "<group>"; };
+		067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemListForPopUpView.m; sourceTree = "<group>"; };
 		0675925120D23393009BDCCF /* TestingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestingView.h; sourceTree = "<group>"; };
 		0675925220D23393009BDCCF /* TestingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestingView.m; sourceTree = "<group>"; };
 		0675925420D24DE4009BDCCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		06765DAB20CBA4ED000D834D /* LGPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButton.h; sourceTree = "<group>"; };
-		06765DAC20CBA4ED000D834D /* LGPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButton.m; sourceTree = "<group>"; };
-		06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonDescription.h; sourceTree = "<group>"; };
-		06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonDescription.m; sourceTree = "<group>"; };
-		06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsView.h; sourceTree = "<group>"; };
-		06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsView.m; sourceTree = "<group>"; };
-		06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGPlusButtonsViewShared.h; sourceTree = "<group>"; };
-		06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGPlusButtonsViewShared.m; sourceTree = "<group>"; };
 		06765DB720CBA76D000D834D /* ReplyTicketViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyTicketViewController.h; sourceTree = "<group>"; };
 		06765DB820CBA76D000D834D /* ReplyTicketViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyTicketViewController.m; sourceTree = "<group>"; };
 		06765DBA20CBA782000D834D /* InternalNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternalNoteViewController.h; sourceTree = "<group>"; };
@@ -323,6 +360,8 @@
 		0676605E20CBBD93000D834D /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		0676606320CBBF22000D834D /* GlobalVariables.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		068F424521466C00005CA466 /* problem-ic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "problem-ic1.png"; path = "../../../../../Downloads/problem-ic1.png"; sourceTree = "<group>"; };
+		068F424921466E0C005CA466 /* all-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-list.png"; sourceTree = "<group>"; };
 		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
@@ -331,6 +370,29 @@
 		06A2543020E63412001F8017 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = "<group>"; };
 		06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = "<group>"; };
+		06AD850221B51AB70094C259 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		06B3D995213FA274004D548E /* ProblemDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemDetailView.h; sourceTree = "<group>"; };
+		06B3D996213FA274004D548E /* ProblemDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemDetailView.m; sourceTree = "<group>"; };
+		06B3D998213FB430004D548E /* AnalysisView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalysisView.h; sourceTree = "<group>"; };
+		06B3D999213FB430004D548E /* AnalysisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnalysisView.m; sourceTree = "<group>"; };
+		06B3D99B213FB74F004D548E /* ProblemDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemDetailData.h; sourceTree = "<group>"; };
+		06B3D99C213FB74F004D548E /* ProblemDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemDetailData.m; sourceTree = "<group>"; };
+		06B3D99E21400102004D548E /* CreateProblem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateProblem.h; sourceTree = "<group>"; };
+		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
+		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
+		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
+		06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTestCase.m; sourceTree = "<group>"; };
+		06B98CDB21B5397500F3CFB1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		06B98CDC21B5397500F3CFB1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		06B98CDE21B539DB00F3CFB1 /* PlayingCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		06B98CE121B53A2400F3CFB1 /* CardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardTestCase.m; sourceTree = "<group>"; };
+		06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardTestCase.m; sourceTree = "<group>"; };
+		06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedProblems.h; sourceTree = "<group>"; };
+		06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedProblems.m; sourceTree = "<group>"; };
+		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
+		06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemTableViewCell.m; sourceTree = "<group>"; };
+		06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
 		06D6478320C56FEC000783C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		06D6479720C5724B000783C8 /* InboxTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InboxTickets.h; sourceTree = "<group>"; };
 		06D6479820C5724B000783C8 /* InboxTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InboxTickets.m; sourceTree = "<group>"; };
@@ -344,6 +406,8 @@
 		06D647A420C5732A000783C8 /* ClosedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClosedTickets.m; sourceTree = "<group>"; };
 		06D647A620C5733E000783C8 /* TrashTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashTickets.h; sourceTree = "<group>"; };
 		06D647A720C5733E000783C8 /* TrashTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashTickets.m; sourceTree = "<group>"; };
+		06E8451B213EB19000786CEB /* ProblemList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemList.h; sourceTree = "<group>"; };
+		06E8451C213EB19000786CEB /* ProblemList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemList.m; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06AD850321B51AB70094C259 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +477,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0610637921B6426A007F28BB /* ChangeManagement */ = {
+			isa = PBXGroup;
+			children = (
+				0610637A21B649C5007F28BB /* CreateChange.h */,
+				0610637B21B649C5007F28BB /* CreateChange.m */,
+				0610637D21B649EF007F28BB /* ChangeList.h */,
+				0610637E21B649EF007F28BB /* ChangeList.m */,
+				0610638021B64A18007F28BB /* ChangeDetailView.h */,
+				0610638121B64A18007F28BB /* ChangeDetailView.m */,
+				0610638321B64A55007F28BB /* ChangeAnalysisView.h */,
+				0610638421B64A55007F28BB /* ChangeAnalysisView.m */,
+				0610638621B64A7D007F28BB /* ChangeDetailData.h */,
+				0610638721B64A7D007F28BB /* ChangeDetailData.m */,
+				0610638921B64AAD007F28BB /* EditChangeDetails.h */,
+				0610638A21B64AAD007F28BB /* EditChangeDetails.m */,
+			);
+			path = ChangeManagement;
+			sourceTree = "<group>";
+		};
 		0619CF7B20B2E233004CFDC9 = {
 			isa = PBXGroup;
 			children = (
@@ -437,11 +521,14 @@
 		0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXGroup;
 			children = (
+				06B98CDA21B5394F00F3CFB1 /* TestFile */,
 				06D6478020C56BFC000783C8 /* AppDelegate */,
 				0630D96920C6A79C00191A7D /* WebServices */,
 				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
+				06E8451A213EB15B00786CEB /* ProblemManagement */,
+				0610637921B6426A007F28BB /* ChangeManagement */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
@@ -464,8 +551,10 @@
 		0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */ = {
 			isa = PBXGroup;
 			children = (
-				0619CFA020B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m */,
 				0619CFA220B2E234004CFDC9 /* Info.plist */,
+				06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */,
+				06B98CE121B53A2400F3CFB1 /* CardTestCase.m */,
+				06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */,
 			);
 			path = "Faveo Service Desk ProTests";
 			sourceTree = "<group>";
@@ -482,6 +571,7 @@
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				066A6C2F2153B2610050EDA2 /* LPSemiModalView */,
 				0644091620CE891D00A5DB3B /* TableViewPopUp */,
 				0623C2AB20B5513100A52087 /* AppConstanst.h */,
 				0619CFC320B3125A004CFDC9 /* UIColor+HexColors.h */,
@@ -493,7 +583,6 @@
 				0676606420CBBF22000D834D /* GlobalVariables.m */,
 				06A2543320E63519001F8017 /* MultiSelectSegmentedControl.h */,
 				06A2543220E63518001F8017 /* MultiSelectSegmentedControl.m */,
-				06765DAA20CBA4ED000D834D /* LGPlusButtonsView */,
 				0623809820CA636D00257395 /* NSDate-Time-Ago */,
 				060F460C20C927D100EDA6B8 /* UIImageView+Letters */,
 				060F460320C91D4800EDA6B8 /* NavigationMenuItem */,
@@ -598,6 +687,15 @@
 				064408F020CE58EC00A5DB3B /* userSearchDataCell.h */,
 				064408F220CE58ED00A5DB3B /* userSearchDataCell.m */,
 				064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */,
+				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
+				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
+				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
+				0667370B215A362A0088719E /* AssetCell.h */,
+				0667370C215A362A0088719E /* AssetCell.m */,
+				0653B9D821551CEB00DE5C5E /* AssetCell.xib */,
+				0610638C21B64FA4007F28BB /* ChangesTableViewCell.h */,
+				0610638D21B64FA4007F28BB /* ChangesTableViewCell.m */,
+				0610639121B6508C007F28BB /* ChangesTableViewCell.xib */,
 			);
 			path = "Xib Files";
 			sourceTree = "<group>";
@@ -649,6 +747,8 @@
 			children = (
 				0650298320BFFD2E007E90E2 /* Images */,
 				0650290020BFEE33007E90E2 /* enData.plist */,
+				068F424521466C00005CA466 /* problem-ic1.png */,
+				068F424921466E0C005CA466 /* all-list.png */,
 				06D6478320C56FEC000783C8 /* Default-568h@2x.png */,
 				065028F920BFE3C0007E90E2 /* SWRevealViewController.h */,
 				065028FA20BFE3C0007E90E2 /* SWRevealViewController.m */,
@@ -697,19 +797,25 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		06765DAA20CBA4ED000D834D /* LGPlusButtonsView */ = {
+		066A6C2F2153B2610050EDA2 /* LPSemiModalView */ = {
 			isa = PBXGroup;
 			children = (
-				06765DAB20CBA4ED000D834D /* LGPlusButton.h */,
-				06765DAC20CBA4ED000D834D /* LGPlusButton.m */,
-				06765DAD20CBA4ED000D834D /* LGPlusButtonDescription.h */,
-				06765DAE20CBA4ED000D834D /* LGPlusButtonDescription.m */,
-				06765DAF20CBA4ED000D834D /* LGPlusButtonsView.h */,
-				06765DB020CBA4ED000D834D /* LGPlusButtonsView.m */,
-				06765DB120CBA4ED000D834D /* LGPlusButtonsViewShared.h */,
-				06765DB220CBA4ED000D834D /* LGPlusButtonsViewShared.m */,
+				066A6C302153B2730050EDA2 /* LPSemiModalView.h */,
+				066A6C312153B2740050EDA2 /* LPSemiModalView.m */,
 			);
-			path = LGPlusButtonsView;
+			name = LPSemiModalView;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		06B98CDA21B5394F00F3CFB1 /* TestFile */ = {
+			isa = PBXGroup;
+			children = (
+				06B98CDB21B5397500F3CFB1 /* Card.h */,
+				06B98CDC21B5397500F3CFB1 /* Card.m */,
+				06B98CDE21B539DB00F3CFB1 /* PlayingCard.h */,
+				06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */,
+			);
+			path = TestFile;
 			sourceTree = "<group>";
 		};
 		06D6477F20C56BE8000783C8 /* Tickets */ = {
@@ -779,9 +885,33 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		06E8451A213EB15B00786CEB /* ProblemManagement */ = {
+			isa = PBXGroup;
+			children = (
+				06B3D99E21400102004D548E /* CreateProblem.h */,
+				06B3D99F21400102004D548E /* CreateProblem.m */,
+				06E8451B213EB19000786CEB /* ProblemList.h */,
+				06E8451C213EB19000786CEB /* ProblemList.m */,
+				06B3D995213FA274004D548E /* ProblemDetailView.h */,
+				06B3D996213FA274004D548E /* ProblemDetailView.m */,
+				06B3D998213FB430004D548E /* AnalysisView.h */,
+				06B3D999213FB430004D548E /* AnalysisView.m */,
+				06B3D99B213FB74F004D548E /* ProblemDetailData.h */,
+				06B3D99C213FB74F004D548E /* ProblemDetailData.m */,
+				06B3D9A12140013F004D548E /* EditProblemDetails.h */,
+				06B3D9A22140013F004D548E /* EditProblemDetails.m */,
+				06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */,
+				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
+				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
+				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
+			);
+			path = ProblemManagement;
+			sourceTree = "<group>";
+		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06AD850221B51AB70094C259 /* XCTest.framework */,
 				0619C48220D3E68300AFF505 /* MobileCoreServices.framework */,
 				0619C48020D3CC2C00AFF505 /* libicucore.tbd */,
 				0675925420D24DE4009BDCCF /* CloudKit.framework */,
@@ -935,6 +1065,7 @@
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
+				0610639221B6508C007F28BB /* ChangesTableViewCell.xib in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
 				065029B520BFFD51007E90E2 /* Starred@2x.png in Resources */,
 				0632102620C7E26200F9235D /* ClientListTableViewCell.xib in Resources */,
@@ -949,10 +1080,13 @@
 				060F461020C9318F00EDA6B8 /* OpenCloseTableViewCell.xib in Resources */,
 				065029A420BFFD51007E90E2 /* News.png in Resources */,
 				065029B020BFFD51007E90E2 /* People@2x.png in Resources */,
+				0653B9DA21551CEB00DE5C5E /* AssetCell.xib in Resources */,
 				065029B120BFFD51007E90E2 /* menu_img.png in Resources */,
 				065029A120BFFD51007E90E2 /* Favorite.png in Resources */,
 				0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */,
 				065029A620BFFD51007E90E2 /* Invite.png in Resources */,
+				06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */,
+				068F424621466C00005CA466 /* problem-ic1.png in Resources */,
 				065029A020BFFD51007E90E2 /* Background.png in Resources */,
 				06D6478420C56FEC000783C8 /* Default-568h@2x.png in Resources */,
 				065029B220BFFD51007E90E2 /* Invite@2x.png in Resources */,
@@ -966,6 +1100,7 @@
 				065029A920BFFD51007E90E2 /* Settings@2x.png in Resources */,
 				061875352114193B0078A7C5 /* GoogleService-Info.plist in Resources */,
 				064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */,
+				068F424A21466E0C005CA466 /* all-list.png in Resources */,
 				065029A720BFFD51007E90E2 /* Avatar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,7 +1134,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3d31c3fca25cb228d17bfa05856d933d97e90db1 67564a3dc39ee26711efe06322fa00b99e69a63e26e5d755afe7339b6f22ceb1";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3d31c3fca25cb228d17bfa05856d933d97e90db1 67564a3dc39ee26711efe06322fa00b99e69a63e26e5d755afe7339b6f22ceb1\n";
 		};
 		6E159F1E6D3F3B77373023AA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1070,32 +1205,44 @@
 				06A2543420E63519001F8017 /* MultiSelectSegmentedControl.m in Sources */,
 				06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */,
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
+				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
+				0610637C21B649C5007F28BB /* CreateChange.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
+				06B3D99A213FB430004D548E /* AnalysisView.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
+				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
+				06B98CE021B539DB00F3CFB1 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
 				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
+				06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */,
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
+				06B3D997213FA274004D548E /* ProblemDetailView.m in Sources */,
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
+				0610638B21B64AAD007F28BB /* EditChangeDetails.m in Sources */,
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
-				06765DB420CBA4ED000D834D /* LGPlusButtonDescription.m in Sources */,
+				06B98CDD21B5397500F3CFB1 /* Card.m in Sources */,
+				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
+				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
+				06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */,
+				06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */,
 				06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
@@ -1104,20 +1251,25 @@
 				062380A420CA84F000257395 /* DetailViewController.m in Sources */,
 				0644090920CE757900A5DB3B /* NSData+Base64.m in Sources */,
 				06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */,
+				066A6C322153B2740050EDA2 /* LPSemiModalView.m in Sources */,
 				062380A720CA852200257395 /* EditTicketDetails.m in Sources */,
 				060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */,
 				064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */,
 				0675925320D23393009BDCCF /* TestingView.m in Sources */,
 				060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */,
-				06765DB620CBA4ED000D834D /* LGPlusButtonsViewShared.m in Sources */,
 				0644090C20CE823700A5DB3B /* AddCCViewController.m in Sources */,
+				0610638F21B64FA4007F28BB /* ChangesTableViewCell.m in Sources */,
 				0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */,
 				065029BA20C02865007E90E2 /* SampleNavigation.m in Sources */,
+				067550C321673A1A00F78C20 /* ProblemListForPopUpView.m in Sources */,
 				060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */,
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
+				0610637F21B649EF007F28BB /* ChangeList.m in Sources */,
 				0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */,
+				0610638821B64A7D007F28BB /* ChangeDetailData.m in Sources */,
+				0610638221B64A18007F28BB /* ChangeDetailView.m in Sources */,
+				0610638521B64A55007F28BB /* ChangeAnalysisView.m in Sources */,
 				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
-				06765DB320CBA4ED000D834D /* LGPlusButton.m in Sources */,
 				0676605F20CBBD93000D834D /* Utils.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
@@ -1130,7 +1282,6 @@
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
-				06765DB520CBA4ED000D834D /* LGPlusButtonsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,7 +1289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0619CFA120B2E234004CFDC9 /* Faveo_Service_Desk_ProTests.m in Sources */,
+				06B98CD921B5340C00F3CFB1 /* SampleTestCase.m in Sources */,
+				06B98CE721B53A8600F3CFB1 /* PlayingCardTestCase.m in Sources */,
+				06B98CE221B53A2400F3CFB1 /* CardTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1219,8 +1372,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1278,9 +1433,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMPRESS_PNG_FILES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;

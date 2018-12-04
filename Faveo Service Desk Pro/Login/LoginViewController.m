@@ -41,6 +41,7 @@
 
 @implementation LoginViewController
 
+// This method is called after the view controller has loaded its view hierarchy into memory. This method is called regardless of whether the view hierarchy was loaded from a nib file or created programmatically in the loadView method.
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -80,7 +81,7 @@
   //  [self.passcodeTextField addPasswordField];
     
     _servicdeskUrlLabel.textColor = [UIColor colorFromHexString:@"049BE5"];
-    _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
+//    _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
     
     
     
@@ -92,12 +93,13 @@
     
 }
 
-
+//It notifies the view controller that its view was added to a view hierarchy.
 -(void)viewDidAppear:(BOOL)animated{
     [self.urlTextfield becomeFirstResponder];
     
 }
 
+// It Notifies the view controller that its view is about to be added to a view hierarchy.
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [[self navigationController] setNavigationBarHidden:YES];
@@ -116,7 +118,7 @@
     [_passcodeTextField resignFirstResponder];
 }
 
-
+// It asks the delegate if the text field should process the pressing of the return button.
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
@@ -132,7 +134,7 @@
     return YES;
 }
 
-
+// After clicking this button it will check url which is eneterd by user.
 - (IBAction)urlNextButtonAction:(id)sender {
     
     [self.urlTextfield resignFirstResponder];
@@ -141,7 +143,7 @@
    
 }
 
-
+// This method validates the URL
 -(void)URLValidationMethod
 {
 
@@ -377,6 +379,13 @@
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access denied - Either your role has been changed or your login credential has been changed."] sendViewController:self];
                     }
                     
+                    else if([msg isEqualToString:@"Error-404"])
+                    {
+                        NSLog(@"Message is : %@",msg);
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error 404 - Issue with Billing API while validating your Helpdesk URL. Contact to   Helpdesk Support."] sendViewController:self];
+                    }
+                    
+                    
                     else{
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
                         NSLog(@"Thread-verifyBilling-error == %@",error.localizedDescription);
@@ -491,13 +500,6 @@
         if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
         {
             
-            //            [RMessage
-            //             showNotificationWithTitle:NSLocalizedString(@"Something failed", nil)
-            //             subtitle:NSLocalizedString(@"The internet connection seems to be down. Please check it!", nil)
-            //             type:RMessageTypeError
-            //             customTypeName:nil
-            //             callback:nil];
-            
             if (self.navigationController.navigationBarHidden) {
                 [self.navigationController setNavigationBarHidden:NO];
             }
@@ -518,7 +520,6 @@
             
         }else{
             
-            //  [[AppDelegate sharedAppdelegate] showProgressView];
             [SVProgressHUD showWithStatus:@"Please wait"];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
@@ -585,25 +586,34 @@
                 NSDictionary *jsonData=[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 NSLog(@"JSON is : %@",jsonData);
                 
+                
                 //main if 1
+                
                 if ([replyStr containsString:@"success"] && [replyStr containsString:@"message"] ) {
                     
                     
-                    NSString *msg=[jsonData objectForKey:@"message"];
+                   NSString *msg=[jsonData objectForKey:@"message"];
                     
+                   dispatch_async(dispatch_get_main_queue(), ^{
+                       
                     if([msg isEqualToString:@"Invalid credentials"])
                     {
                         [self->utils showAlertWithMessage:@"Invalid Credentials.Enter valid username or password" sendViewController:self];
-                        // [[AppDelegate sharedAppdelegate] hideProgressView];
                         [SVProgressHUD dismiss];
                     }
                     else if([msg isEqualToString:@"API disabled"])
                     {
                         [self->utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
-                        //  [[AppDelegate sharedAppdelegate] hideProgressView];
                         [SVProgressHUD dismiss];
                     }
+                    else{
+                        
+                        [self->utils showAlertWithMessage:msg sendViewController:self];
+                        [SVProgressHUD dismiss];
+                        
+                    }
                     
+                  });
                 }
                 
                 else         //success = true
@@ -630,6 +640,8 @@
                             
                             NSString * userRole=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"role"]];
                             
+                            NSString * userEmail = [NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"email"]];
+                            [self->userdefaults setObject:userEmail forKey:@"userEmail"];
                             
                             
                             
@@ -659,9 +671,7 @@
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 
                                 if([userRole isEqualToString:@"admin"] || [userRole isEqualToString:@"agent"]){
-                                    
-                                    
-                                    
+                    
                                     
                                     [self sendDeviceToken];
                                     

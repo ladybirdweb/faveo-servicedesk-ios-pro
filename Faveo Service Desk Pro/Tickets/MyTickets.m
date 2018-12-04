@@ -75,6 +75,7 @@
 
 @implementation MyTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -259,7 +260,7 @@
     }
     @finally
     {
-        NSLog( @" I am in clickedOnAssignButton method in Inbox ViewController" );
+        NSLog( @" I am in clickedOnAssignButton method in My Tickets ViewController" );
         
     }
     
@@ -322,7 +323,7 @@
     }
     @finally
     {
-        NSLog( @" I am in mergeButtonCicked method in Inbox ViewController" );
+        NSLog( @" I am in mergeButtonCicked method in My Tickets ViewController" );
         
     }
 }
@@ -478,8 +479,7 @@
                         
                     }else if(error)  {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                        NSLog(@"Thread-NO4-getInbox-Refresh-error == %@",error.localizedDescription);
-                        //[[AppDelegate sharedAppdelegate] hideProgressView];
+                        NSLog(@"Thread-myTickets-Refresh-error == %@",error.localizedDescription);
                         [SVProgressHUD dismiss];
                     }
                     
@@ -489,23 +489,23 @@
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
                     [self reload];
-                    NSLog(@"Thread--NO4-call-getInbox");
+                    NSLog(@"Thread--NO4-call-getMyTickets");
                     return;
                 }
                 
                 if ([msg isEqualToString:@"tokenNotRefreshed"]) {
                     
-                    // [[AppDelegate sharedAppdelegate] hideProgressView];
                     [self->utils showAlertWithMessage:@"Your HELPDESK URL or your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
-                  //  [[AppDelegate sharedAppdelegate] hideProgressView];
+            
                       [SVProgressHUD dismiss];
                     
                     return;
                 }
                 
                 if (json) {
-                    //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                   
+                  //  NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                    
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
@@ -521,9 +521,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             
-                            [self reloadTableView];
                             [self->refresh endRefreshing];
-                          //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                             
@@ -539,7 +538,6 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-           // [[AppDelegate sharedAppdelegate] hideProgressView];
             [SVProgressHUD dismiss];
 
             return;
@@ -547,7 +545,6 @@
         @finally
         {
             NSLog( @" I am in reload method in MyTickets ViewController" );
-            // [[AppDelegate sharedAppdelegate] hideProgressView];
             
         }
         
@@ -701,7 +698,7 @@
                 }
                 
                 if (json) {
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                 //   NSLog(@"Thread-getMyTicketsAPI--%@",json);
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
@@ -720,14 +717,13 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             [self reloadTableView];
-                           // [[AppDelegate sharedAppdelegate] hideProgressView];
                             [self->refresh endRefreshing];
                             [SVProgressHUD dismiss];
                         });
                     });
                     
                 }
-                NSLog(@"Thread-NO5-getInbox-closed");
+                NSLog(@"Thread-MyTickets-closed");
                 
             }];
         }@catch (NSException *exception)
@@ -1148,7 +1144,7 @@
         }
         @finally
         {
-            NSLog( @" I am in cellForAtIndexPath method in Inobx ViewController" );
+            NSLog( @" I am in cellForAtIndexPath method in MyTickets ViewController" );
             
         }
         
@@ -1334,23 +1330,18 @@
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                      //  [[AppDelegate sharedAppdelegate] hideProgressView];
-                        
                     }
                     else
                         if( [msg containsString:@"Error-429"])
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"your request counts exceed our limit"] sendViewController:self];
-                         //   [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
                         }
                     
                         else if( [msg isEqualToString:@"Error-403"] && [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"])
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                       //     [[AppDelegate sharedAppdelegate] hideProgressView];
                             
                         }
                     
@@ -1358,7 +1349,6 @@
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                          // [[AppDelegate sharedAppdelegate] hideProgressView];
                             
                         }
                     
@@ -1366,16 +1356,15 @@
                         {
                             NSLog(@"Message is : %@",msg);
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
-                          //  [[AppDelegate sharedAppdelegate] hideProgressView];
+                         
                         }
                     
                     
                         else{
                             NSLog(@"Error message is %@",msg);
-                            NSLog(@"Thread-NO4-getdependency-Refresh-error == %@",error.localizedDescription);
+                            NSLog(@"Thread-getdependency-Refresh-error == %@",error.localizedDescription);
                             [self->utils showAlertWithMessage:msg sendViewController:self];
-                          // [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
+                        
                             return ;
                         }
                 }
@@ -1413,31 +1402,9 @@
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
                     
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                     //   NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
-                    
+                
                 }
-                NSLog(@"Thread-NO5-getDependencies-closed");
+                NSLog(@"Thread-getDependencies-in-myTickets-closed");
             }
              ];
         }@catch (NSException *exception)
@@ -1445,25 +1412,21 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-         //  [[AppDelegate sharedAppdelegate] hideProgressView];
             [SVProgressHUD dismiss];
             return;
         }
         @finally
         {
-            NSLog( @" I am in getDependencies method in Inbox ViewController" );
-            
-            
+            NSLog( @" I am in getDependencies method in MyTickets ViewController" );
         }
     }
-    NSLog(@"Thread-NO2-getDependencies()-closed");
 }
 
 
 // This method used to show some popuop or list which contain some menus. Here it used to change the status of ticket, after clicking this button it will show one view which contains list of status. After clicking on any row, according to its name that status will be changed.
 -(void)onNavButtonTapped:(UIBarButtonItem *)sender event:(UIEvent *)event
 {
-    NSLog(@"11111111*********111111111111");
+    NSLog(@"Clicked on Navigation Button");
     
     if (!selectedArray.count) {
         
@@ -1530,7 +1493,7 @@
                                if([self->selectedStatusName isEqualToString:@"Open"] || [self->selectedStatusName isEqualToString:@"open"])
                                {
                                    [self->utils showAlertWithMessage:NSLocalizedString(@"Ticket is Already Open",nil) sendViewController:self];
-                                   // [[AppDelegate sharedAppdelegate] hideProgressView];
+                                  
                                }
                                else{
                                    
@@ -1582,6 +1545,7 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 // This method used to change status of ticket
 -(void)changeStatusMethod:(NSString *)nameOfStatus idIs:(NSString *)idOfStatus
 {
@@ -1715,7 +1679,7 @@
                     }
                 }
                 
-                NSLog(@"Thread-NO5-postTicketStatusChange-closed");
+                NSLog(@"Thread-postTicketStatusChange-closed");
                 
             }];
         }

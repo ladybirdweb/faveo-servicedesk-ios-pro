@@ -25,6 +25,7 @@
 #import "TicketMergeView.h"
 #import "MultipleTicketAssignView.h"
 #import "FTPopOverMenu.h"
+#import "SearchViewController.h"
 
 @interface ClosedTickets () <RMessageProtocol>
 {
@@ -72,6 +73,7 @@
 
 @implementation ClosedTickets
 
+// It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
    
@@ -214,11 +216,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 // This method used for implementing the feature of multiple ticket select, using this we can select and deselects the tableview rows and perform futher actions on that seleected rows.
 -(void)EditTableView:(UIGestureRecognizer*)gesture{
@@ -259,7 +256,7 @@
     }
     @finally
     {
-        NSLog( @" I am in clickedOnAssignButton method in Inbox ViewController" );
+        NSLog( @" I am in clickedOnAssignButton method in Closed Tickets ViewController" );
         
     }
     
@@ -322,7 +319,7 @@
     }
     @finally
     {
-        NSLog( @" I am in mergeButtonCicked method in Inbox ViewController" );
+        NSLog( @" I am in mergeButtonCicked method in Closed Tickets ViewController" );
         
     }
 }
@@ -330,10 +327,21 @@
 // After clicking this navigation button, it will navigate to the ticket search view controller.
 - (IBAction)searchButtonClicked {
     
-//    TicketSearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketSearchViewControllerId"];
-//    [self.navigationController pushViewController:search animated:YES];
+    [self hideTableViewEditMode];
     
+    SearchViewController * search=[self.storyboard instantiateViewControllerWithIdentifier:@"searchViewId"];
+    [self.navigationController pushViewController:search animated:YES];
+
 }
+
+// hiding editing mode of table while moving to other views
+-(void)hideTableViewEditMode
+{
+    [self.tableView setEditing:NO animated:YES];
+    navbar.hidden=YES;
+    [self reloadTableView];
+}
+
 
 // Handling the tableview even we reload the tableview, edit view will not vanish even we scroll
 - (void)reloadTableView
@@ -486,7 +494,7 @@
                 
                 if (json) {
                     //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+               //     NSLog(@"Thread-NO4--getInboxAPI--%@",json);
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
@@ -501,9 +509,8 @@
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            [self reloadTableView];
-                            //[[AppDelegate sharedAppdelegate] hideProgressView];
                             [self->refresh endRefreshing];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                         });
@@ -1072,12 +1079,12 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
             
             if(![cc isEqualToString:@"<null>"])
             {

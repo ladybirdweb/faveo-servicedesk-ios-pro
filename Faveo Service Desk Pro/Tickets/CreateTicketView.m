@@ -389,9 +389,9 @@
         _priorityArray=[priMU copy];
         _staffArray=[staffMU copy];
         
-        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        
+//        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        
         //  [yourArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
         NSLog(@"Staff Name Array : %@",_staffArray);
@@ -431,9 +431,8 @@
         NSLog( @" I am in country code clicked method in Create ticket ViewController" );
         
     }
-    
-    
 }
+
 - (IBAction)priorityClicked:(id)sender {
     
     @try{
@@ -485,6 +484,7 @@
     
 }
 
+
 - (IBAction)assigneeClicked:(id)sender {
     
     @try{
@@ -508,7 +508,6 @@
         NSLog( @" I am in staff clicked method in CrateTicket ViewController" );
         
     }
-    
 }
 
 
@@ -832,6 +831,8 @@
 
     self.codeTextField.text = (_codeArray)[(NSUInteger) [selectedIndex intValue]];
 }
+
+
 - (void)helpTopicWasSelected:(NSNumber *)selectedIndex element:(id)element {
     help_topic_id=(helpTopic_idArray)[(NSUInteger) [selectedIndex intValue]];
     self.helptopicTextField.text = (_helptopicsArray)[(NSUInteger) [selectedIndex intValue]];
@@ -1423,11 +1424,17 @@
     [body appendData:[_messageTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     
-    // collaborator parameter
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"cc[]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[selectedUserEmail dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    //cc parameter
+    if(![_ccTextField.text isEqualToString:@""]){
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"cc[]\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[selectedUserEmail dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    }else
+    {
+        
+        
+    }
     
 //    if ([myString length] == 0) {
 //        // definitely empty!
@@ -1467,6 +1474,7 @@
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"email\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[_emailTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
     NSString * help_id=[NSString stringWithFormat:@"%@",help_topic_id];
     NSString * prio_id=[NSString stringWithFormat:@"%@",priority_id];
     
@@ -1743,30 +1751,7 @@
                     }
                     
                     self->ticketStatusArray=[resultDic objectForKey:@"status"];
-                    
-
-                    
-                    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-                    
-                    // get documents path
-                    NSString *documentsPath = [paths objectAtIndex:0];
-                    
-                    // get the path to our Data/plist file
-                    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-                    NSError *writeError = nil;
-                    
-                    NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:resultDic format:NSPropertyListXMLFormat_v1_0 options:NSPropertyListImmutable error:&writeError];
-                    
-                    if(plistData)
-                    {
-                        [plistData writeToFile:plistPath atomically:YES];
-                        NSLog(@"Data saved sucessfully");
-                    }
-                    else
-                    {
-                      // NSLog(@"Error in saveData: %@", writeError.localizedDescription);
-                        
-                    }
+                
                     
                 }
                 NSLog(@"Thread-NO5-getDependencies-closed");

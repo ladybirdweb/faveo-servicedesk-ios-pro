@@ -14,7 +14,6 @@
 #import "MyWebservices.h"
 #import "HexColors.h"
 #import "GlobalVariables.h"
-//#import "NotificationViewController.h"
 #import "RMessage.h"
 #import "RMessageView.h"
 #import "UIImageView+Letters.h"
@@ -207,9 +206,7 @@
                             [self.tableView reloadData];
                             [self.refreshControl endRefreshing];
                             [SVProgressHUD dismiss];
-                           // [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
-                            
+                           
                         });
                     });
                 }
