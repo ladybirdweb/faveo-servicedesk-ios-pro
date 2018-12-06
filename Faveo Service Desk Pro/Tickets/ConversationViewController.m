@@ -62,6 +62,7 @@
     attachmentArray=[[NSMutableArray alloc]init];
     
     self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadd) name:@"reload_data" object:nil];
     
     [self reload];

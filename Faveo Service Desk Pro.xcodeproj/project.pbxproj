@@ -138,6 +138,18 @@
 		06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A120C5729F000783C8 /* UnApprovedTickets.m */; };
 		06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A420C5732A000783C8 /* ClosedTickets.m */; };
 		06D647A820C5733E000783C8 /* TrashTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A720C5733E000783C8 /* TrashTickets.m */; };
+		06D6B63B21B8F42100B71700 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63321B8F41F00B71700 /* PlayingCardDeck.m */; };
+		06D6B63C21B8F42100B71700 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63321B8F41F00B71700 /* PlayingCardDeck.m */; };
+		06D6B63D21B8F42100B71700 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63421B8F41F00B71700 /* PlayingCard.m */; };
+		06D6B63E21B8F42100B71700 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63421B8F41F00B71700 /* PlayingCard.m */; };
+		06D6B63F21B8F42100B71700 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63721B8F42000B71700 /* Deck.m */; };
+		06D6B64021B8F42100B71700 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63721B8F42000B71700 /* Deck.m */; };
+		06D6B64121B8F42100B71700 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63921B8F42100B71700 /* Card.m */; };
+		06D6B64221B8F42100B71700 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B63921B8F42100B71700 /* Card.m */; };
+		06D6B64421B8F45400B71700 /* CardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64321B8F45400B71700 /* CardTestCase.m */; };
+		06D6B64621B8F46B00B71700 /* PlayingCardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64521B8F46B00B71700 /* PlayingCardTestCase.m */; };
+		06D6B64821B8F48900B71700 /* DeckTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64721B8F48900B71700 /* DeckTestCase.m */; };
+		06D6B64A21B8F49900B71700 /* PlayingCardDeckTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */; };
 		06E8451D213EB19000786CEB /* ProblemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8451C213EB19000786CEB /* ProblemList.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
@@ -371,6 +383,18 @@
 		06D647A420C5732A000783C8 /* ClosedTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClosedTickets.m; sourceTree = "<group>"; };
 		06D647A620C5733E000783C8 /* TrashTickets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrashTickets.h; sourceTree = "<group>"; };
 		06D647A720C5733E000783C8 /* TrashTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashTickets.m; sourceTree = "<group>"; };
+		06D6B63321B8F41F00B71700 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		06D6B63421B8F41F00B71700 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		06D6B63521B8F42000B71700 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		06D6B63621B8F42000B71700 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		06D6B63721B8F42000B71700 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		06D6B63821B8F42000B71700 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		06D6B63921B8F42100B71700 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		06D6B63A21B8F42100B71700 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		06D6B64321B8F45400B71700 /* CardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardTestCase.m; sourceTree = "<group>"; };
+		06D6B64521B8F46B00B71700 /* PlayingCardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardTestCase.m; sourceTree = "<group>"; };
+		06D6B64721B8F48900B71700 /* DeckTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeckTestCase.m; sourceTree = "<group>"; };
+		06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeckTestCase.m; sourceTree = "<group>"; };
 		06E8451B213EB19000786CEB /* ProblemList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemList.h; sourceTree = "<group>"; };
 		06E8451C213EB19000786CEB /* ProblemList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemList.m; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -497,6 +521,10 @@
 			isa = PBXGroup;
 			children = (
 				0619CFA220B2E234004CFDC9 /* Info.plist */,
+				06D6B64321B8F45400B71700 /* CardTestCase.m */,
+				06D6B64521B8F46B00B71700 /* PlayingCardTestCase.m */,
+				06D6B64721B8F48900B71700 /* DeckTestCase.m */,
+				06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */,
 			);
 			path = "Faveo Service Desk ProTests";
 			sourceTree = "<group>";
@@ -749,6 +777,14 @@
 		06B98CDA21B5394F00F3CFB1 /* TestFile */ = {
 			isa = PBXGroup;
 			children = (
+				06D6B63821B8F42000B71700 /* Card.h */,
+				06D6B63921B8F42100B71700 /* Card.m */,
+				06D6B63521B8F42000B71700 /* PlayingCard.h */,
+				06D6B63421B8F41F00B71700 /* PlayingCard.m */,
+				06D6B63621B8F42000B71700 /* Deck.h */,
+				06D6B63721B8F42000B71700 /* Deck.m */,
+				06D6B63A21B8F42100B71700 /* PlayingCardDeck.h */,
+				06D6B63321B8F41F00B71700 /* PlayingCardDeck.m */,
 			);
 			path = TestFile;
 			sourceTree = "<group>";
@@ -1150,7 +1186,9 @@
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
+				06D6B64121B8F42100B71700 /* Card.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
+				06D6B63D21B8F42100B71700 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
@@ -1165,6 +1203,7 @@
 				06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */,
 				0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */,
 				0676606520CBBF22000D834D /* GlobalVariables.m in Sources */,
+				06D6B63B21B8F42100B71700 /* PlayingCardDeck.m in Sources */,
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
@@ -1203,6 +1242,7 @@
 				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */,
 				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
+				06D6B63F21B8F42100B71700 /* Deck.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
@@ -1214,6 +1254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D6B64821B8F48900B71700 /* DeckTestCase.m in Sources */,
+				06D6B63E21B8F42100B71700 /* PlayingCard.m in Sources */,
+				06D6B64421B8F45400B71700 /* CardTestCase.m in Sources */,
+				06D6B64021B8F42100B71700 /* Deck.m in Sources */,
+				06D6B63C21B8F42100B71700 /* PlayingCardDeck.m in Sources */,
+				06D6B64A21B8F49900B71700 /* PlayingCardDeckTestCase.m in Sources */,
+				06D6B64621B8F46B00B71700 /* PlayingCardTestCase.m in Sources */,
+				06D6B64221B8F42100B71700 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
