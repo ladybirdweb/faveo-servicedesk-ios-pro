@@ -5386,9 +5386,9 @@
                                                             <rect key="frame" x="8" y="27.000000000000007" width="358" height="88.666666666666686"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                             <connections>
-                                                                <outlet property="delegate" destination="PFN-SO-neQ" id="Lp9-hq-Y2A"/>
+                                                                <outlet property="delegate" destination="PFN-SO-neQ" id="hem-Wb-otF"/>
                                                             </connections>
                                                         </textView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-r7-2SH">
@@ -5519,7 +5519,7 @@
                         <outlet property="fileImage" destination="ahV-Ni-7D1" id="emD-29-fIC"/>
                         <outlet property="fileName123" destination="Ach-BQ-9PR" id="3s8-wC-Ifv"/>
                         <outlet property="fileSize123" destination="OeY-yD-5LH" id="t0D-fi-aOF"/>
-                        <outlet property="messageTextView" destination="AV1-3J-3pa" id="aNY-Tv-msC"/>
+                        <outlet property="messageTextView" destination="AV1-3J-3pa" id="Z8f-FQ-hjo"/>
                         <outlet property="msgLabel" destination="pQc-Ds-nEC" id="ICt-LK-La0"/>
                         <outlet property="submitButtonOutlet" destination="JBf-dP-C2A" id="fei-ou-fRV"/>
                         <outlet property="tableview" destination="vA8-rb-twZ" id="OcF-Mn-lGz"/>

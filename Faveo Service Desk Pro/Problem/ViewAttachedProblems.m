@@ -86,7 +86,11 @@
             
         }
     
-        
+    
+     NSLog(@"Attached Problem Details are : %@",globalvariable.attachedProblemDataDict);
+     NSLog(@"Attached Problem Details are : %@",globalvariable.attachedProblemDataDict);
+    
+    
         NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
     
         NSString *problemName= [finaldic objectForKey:@"subject"];

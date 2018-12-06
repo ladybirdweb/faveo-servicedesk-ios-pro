@@ -224,20 +224,14 @@
                     self->_currentPage=[[json objectForKey:@"current_page"] integerValue];
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
                     self->_totalPages=[[json objectForKey:@"last_page"] integerValue];
-
-                    
-                    
                     
            //         self->_mutableArray = [problemList objectForKey:@"problems"];
-                    
-                   
                     
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            
-                            [self->refresh endRefreshing];
                             [self reloadTableView];
+                            [self->refresh endRefreshing];
                             [SVProgressHUD dismiss];
                             
                         });
@@ -252,8 +246,6 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-            //  [[AppDelegate sharedAppdelegate] hideProgressView];
-            [self reloadTableView];
             return;
         }
         @finally
@@ -274,6 +266,7 @@
     NSArray *indexPaths = [self.sampleTableview indexPathsForSelectedRows];
     
     [self.sampleTableview reloadData];
+    
     for (NSIndexPath *path in indexPaths) {
         [self.sampleTableview selectRowAtIndexPath:path animated:NO scrollPosition:UITableViewScrollPositionNone];
     }

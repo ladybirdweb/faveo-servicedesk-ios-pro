@@ -87,7 +87,7 @@
 
 -(void)addInternalNoteApiMethodCall
 {
-    
+    [_noteTextView resignFirstResponder];
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
@@ -184,10 +184,7 @@
                             
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
                             
-                            
-                            //  [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
-                            //                            TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"TicketDetailVCID"];
-                            //                            [self.navigationController pushViewController:td animated:YES];
+                    
                             [self.view setNeedsDisplay];
                             [self.navigationController popViewControllerAnimated:YES];
                             

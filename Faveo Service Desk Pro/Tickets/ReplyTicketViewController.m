@@ -21,8 +21,7 @@
 #import "ViewCCViewController.h"
 #import "BIZPopupViewController.h"
 
-
-@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
+@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -98,15 +97,15 @@
     _viewCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     _msgLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     
-    
     UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
-    
+
     UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
+
     [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
     [self.messageTextView setInputAccessoryView:toolBar];
-    
+//
+
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
 
     
@@ -268,19 +267,12 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
-    
     if (range.length == 0) {
         if ([text isEqualToString:@"\n"]) {
             _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
             return NO;
         }
     }
-    else
-    {
-        [_messageTextView resignFirstResponder];
-    }
-    
-    
     
     if(textView == _messageTextView)
     {
@@ -316,6 +308,7 @@
     
     return YES;
 }
+
 
 // Here attachment picker will initialize
 -(void)addAttachmentPickerButton

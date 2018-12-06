@@ -5,7 +5,7 @@
 //  Created by Mallikarjun on 08/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
-
+ 
 #import "TicketDetailViewController.h"
 #import "Utils.h"
 #import "HexColors.h"
@@ -339,7 +339,7 @@
             
          //   _problemTabBarItem.badgeValue = @"1";
             
-            globalVariables.attachedProblemDataDict=dataDict;
+         //   globalVariables.attachedProblemDataDict=dataDict;
             globalVariables.ticketId=globalVariables.ticketId;
             
             NSLog(@"%@",globalVariables.attachedProblemDataDict);
@@ -364,11 +364,14 @@
         
     }
     else if(item.tag == 4) {
-        //your code for tab item 4
-        NSLog(@"clicked on 4");
+     
+       
+            //your code for tab item 4
+            NSLog(@"clicked on 4");
+            
+            InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
+            [self.navigationController pushViewController:note animated:YES];
         
-        InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
-        [self.navigationController pushViewController:note animated:YES];
         
     }
     else{

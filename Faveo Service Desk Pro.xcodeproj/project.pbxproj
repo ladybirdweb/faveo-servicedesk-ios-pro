@@ -128,11 +128,6 @@
 		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
 		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
 		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
-		06B98CD921B5340C00F3CFB1 /* SampleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */; };
-		06B98CDD21B5397500F3CFB1 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CDC21B5397500F3CFB1 /* Card.m */; };
-		06B98CE021B539DB00F3CFB1 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */; };
-		06B98CE221B53A2400F3CFB1 /* CardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CE121B53A2400F3CFB1 /* CardTestCase.m */; };
-		06B98CE721B53A8600F3CFB1 /* PlayingCardTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */; };
 		06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */; };
 		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
 		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
@@ -358,13 +353,6 @@
 		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
 		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
 		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
-		06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTestCase.m; sourceTree = "<group>"; };
-		06B98CDB21B5397500F3CFB1 /* Card.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		06B98CDC21B5397500F3CFB1 /* Card.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		06B98CDE21B539DB00F3CFB1 /* PlayingCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
-		06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
-		06B98CE121B53A2400F3CFB1 /* CardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardTestCase.m; sourceTree = "<group>"; };
-		06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayingCardTestCase.m; sourceTree = "<group>"; };
 		06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedProblems.h; sourceTree = "<group>"; };
 		06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedProblems.m; sourceTree = "<group>"; };
 		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
@@ -509,9 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				0619CFA220B2E234004CFDC9 /* Info.plist */,
-				06B98CD821B5340C00F3CFB1 /* SampleTestCase.m */,
-				06B98CE121B53A2400F3CFB1 /* CardTestCase.m */,
-				06B98CE621B53A8600F3CFB1 /* PlayingCardTestCase.m */,
 			);
 			path = "Faveo Service Desk ProTests";
 			sourceTree = "<group>";
@@ -764,10 +749,6 @@
 		06B98CDA21B5394F00F3CFB1 /* TestFile */ = {
 			isa = PBXGroup;
 			children = (
-				06B98CDB21B5397500F3CFB1 /* Card.h */,
-				06B98CDC21B5397500F3CFB1 /* Card.m */,
-				06B98CDE21B539DB00F3CFB1 /* PlayingCard.h */,
-				06B98CDF21B539DB00F3CFB1 /* PlayingCard.m */,
 			);
 			path = TestFile;
 			sourceTree = "<group>";
@@ -1170,7 +1151,6 @@
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
-				06B98CE021B539DB00F3CFB1 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
@@ -1188,7 +1168,6 @@
 				0644090520CE753800A5DB3B /* attachmentListShowTableCell.m in Sources */,
 				0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */,
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
-				06B98CDD21B5397500F3CFB1 /* Card.m in Sources */,
 				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
 				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
@@ -1235,9 +1214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B98CD921B5340C00F3CFB1 /* SampleTestCase.m in Sources */,
-				06B98CE721B53A8600F3CFB1 /* PlayingCardTestCase.m in Sources */,
-				06B98CE221B53A2400F3CFB1 /* CardTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
