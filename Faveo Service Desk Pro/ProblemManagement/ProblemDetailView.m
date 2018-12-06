@@ -543,7 +543,7 @@
     
     
     NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Description*",nil) attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSForegroundColorAttributeName : [UIColor hx_colorWithHexRGBAString:@"#00aeef"]}];
-    [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(7,1)];
+    [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(11,1)];
    
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.numberOfLines = 0;
@@ -575,19 +575,43 @@
     
     if([globalVariables.updateProblemValue isEqualToString:@"rootCause"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.rootCuaseValue];
+        if([globalVariables.rootCuaseValue isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.rootCuaseValue];
+        }
     }
     else if([globalVariables.updateProblemValue isEqualToString:@"impact"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.impactValue];
+        if([globalVariables.impactValue isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.impactValue];
+        }
     }
     else if([globalVariables.updateProblemValue isEqualToString:@"symptoms"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.symptomsValue];
+        if([globalVariables.symptomsValue isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.symptomsValue];
+        }
     }
     else if([globalVariables.updateProblemValue isEqualToString:@"solution"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.solutionValue];
+        if([globalVariables.solutionValue isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.solutionValue];
+        }
         
     }else{
         

@@ -339,7 +339,7 @@
             
          //   _problemTabBarItem.badgeValue = @"1";
             
-            globalVariables.attachedProblemDataDict=dataDict;
+           // globalVariables.attachedProblemDataDict=dataDict;
             globalVariables.ticketId=globalVariables.ticketId;
             
             NSLog(@"%@",globalVariables.attachedProblemDataDict);

@@ -87,7 +87,7 @@
 
 -(void)addInternalNoteApiMethodCall
 {
-    
+    [_noteTextView resignFirstResponder];
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
