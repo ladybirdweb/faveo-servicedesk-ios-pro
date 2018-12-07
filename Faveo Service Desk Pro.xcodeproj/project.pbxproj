@@ -152,6 +152,8 @@
 		06D647A520C5732B000783C8 /* ClosedTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A420C5732A000783C8 /* ClosedTickets.m */; };
 		06D647A820C5733E000783C8 /* TrashTickets.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D647A720C5733E000783C8 /* TrashTickets.m */; };
 		06E8451D213EB19000786CEB /* ProblemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8451C213EB19000786CEB /* ProblemList.m */; };
+		06FEE9E721BA5F36003AF5B8 /* ViewAttachedChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEE9E621BA5F36003AF5B8 /* ViewAttachedChange.m */; };
+		06FEE9EA21BA6026003AF5B8 /* ChangeListForPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FEE9E921BA6026003AF5B8 /* ChangeListForPopUpView.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -408,6 +410,10 @@
 		06D647A720C5733E000783C8 /* TrashTickets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrashTickets.m; sourceTree = "<group>"; };
 		06E8451B213EB19000786CEB /* ProblemList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemList.h; sourceTree = "<group>"; };
 		06E8451C213EB19000786CEB /* ProblemList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemList.m; sourceTree = "<group>"; };
+		06FEE9E521BA5F36003AF5B8 /* ViewAttachedChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedChange.h; sourceTree = "<group>"; };
+		06FEE9E621BA5F36003AF5B8 /* ViewAttachedChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedChange.m; sourceTree = "<group>"; };
+		06FEE9E821BA6026003AF5B8 /* ChangeListForPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeListForPopUpView.h; sourceTree = "<group>"; };
+		06FEE9E921BA6026003AF5B8 /* ChangeListForPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeListForPopUpView.m; sourceTree = "<group>"; };
 		0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Faveo Service Desk Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673690A52B72503E4FE33B72 /* Pods-Faveo Service Desk Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.release.xcconfig"; sourceTree = "<group>"; };
 		AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Faveo Service Desk Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Faveo Service Desk Pro/Pods-Faveo Service Desk Pro.debug.xcconfig"; sourceTree = "<group>"; };
@@ -904,6 +910,10 @@
 				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
 				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
 				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
+				06FEE9E521BA5F36003AF5B8 /* ViewAttachedChange.h */,
+				06FEE9E621BA5F36003AF5B8 /* ViewAttachedChange.m */,
+				06FEE9E821BA6026003AF5B8 /* ChangeListForPopUpView.h */,
+				06FEE9E921BA6026003AF5B8 /* ChangeListForPopUpView.m */,
 			);
 			path = ProblemManagement;
 			sourceTree = "<group>";
@@ -1209,6 +1219,7 @@
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				0610637C21B649C5007F28BB /* CreateChange.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
+				06FEE9E721BA5F36003AF5B8 /* ViewAttachedChange.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
@@ -1278,6 +1289,7 @@
 				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */,
 				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
+				06FEE9EA21BA6026003AF5B8 /* ChangeListForPopUpView.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,

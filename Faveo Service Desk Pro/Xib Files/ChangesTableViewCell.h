@@ -13,12 +13,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *changeNameLabel;
 
-//@property (weak, nonatomic) IBOutlet UILabel *requesterLabel;
+@property (weak, nonatomic) IBOutlet UILabel *requesterLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *indicationView;
 
 @property (weak, nonatomic) IBOutlet UILabel *changeNumber;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *createdDateLabel;
 

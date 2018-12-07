@@ -1,18 +1,18 @@
 //
-//  ViewAttachedProblems.m
+//  ViewAttachedChange.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 26/09/18.
+//  Created by Mallikarjun on 07/12/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "ViewAttachedProblems.h"
+#import "ViewAttachedChange.h"
 #import "Utils.h"
 #import "GlobalVariables.h"
 #import "AppDelegate.h"
 #import "MyWebservices.h"
 #import "SVProgressHUD.h"
-#import "ProblemTableViewCell.h"
+#import "ChangesTableViewCell.h"
 #import "UIColor+HexColors.h"
 #import "ProblemDetailView.h"
 #import "AppConstanst.h"
@@ -23,23 +23,23 @@
 #import "SampleNavigation.h"
 #import "ExpandableTableViewController.h"
 #import "SWRevealViewController.h"
+#import "ChangeDetailView.h"
+#import "ProblemList.h"
 
-
-@interface ViewAttachedProblems ()<RMessageProtocol>
+@interface ViewAttachedChange ()<RMessageProtocol>
 {
     GlobalVariables *globalvariable;
     NSUserDefaults *userDefaults;
     Utils *utils;
     
 }
-
 @end
 
-@implementation ViewAttachedProblems
+@implementation ViewAttachedChange
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     utils=[[Utils alloc]init];
     userDefaults=[NSUserDefaults standardUserDefaults];
     globalvariable=[GlobalVariables sharedInstance];
@@ -48,10 +48,11 @@
     _viewButtonOutlet.backgroundColor = [UIColor colorFromHexString:@"00aeef"];
     _detachButtonOutlet.backgroundColor = [UIColor colorFromHexString:@"00aeef"];
     
-   
+    
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -77,30 +78,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-        ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
+    ChangesTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ChangesTableViewCellId"];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChangesTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
         
-        if (cell == nil)
-        {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
-            
-        }
+    }
     
-        
-        NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
     
-        NSString *problemName= [finaldic objectForKey:@"subject"];
-        NSString *from= [finaldic objectForKey:@"from"];
-        NSString *id= [finaldic objectForKey:@"id"];
-
-        cell.problemNameLabel.text = [NSString stringWithFormat:@"%@",problemName];
-        cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
-        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
-        cell.createdDateLabel.text = @"";
-        cell.indicationView.layer.backgroundColor=[[UIColor clearColor] CGColor];
-        cell.mainView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    NSDictionary *finaldic= globalvariable.attachedChangeDataDict;
     
-        return cell;
+    NSString *changeName= [finaldic objectForKey:@"subject"];
+    NSString *id= [finaldic objectForKey:@"id"];
+    NSArray *requesterArray= [finaldic objectForKey:@"requester"];
+    NSDictionary *reqDict = [requesterArray objectAtIndex:0];
+    NSString *requesterName = [NSString stringWithFormat:@"%@ %@",[reqDict objectForKey:@"first_name"],[reqDict objectForKey:@"last_name"]];
+    
+    cell.changeNameLabel.text = [NSString stringWithFormat:@"%@",changeName];
+    cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",requesterName]; //from;
+    cell.changeNumber.text = [NSString stringWithFormat:@"#CHN-%@",id];
+    
+    cell.createdDateLabel.text = @"";
+    cell.indicationView.layer.backgroundColor=[[UIColor clearColor] CGColor];
+    cell.mainView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    
+    return cell;
     
     
 }
@@ -109,36 +113,36 @@
 - (IBAction)viewButtonClicked:(id)sender {
     
     NSLog(@"Clicked on view button");
-
-    NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
-
-    globalvariable.problemId=[finaldic objectForKey:@"id"];
-    globalvariable.showNavigationItem=@"show1";
     
-    ProblemDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
+    NSDictionary *finaldic= globalvariable.attachedChangeDataDict;
+    
+    globalvariable.changeId=[finaldic objectForKey:@"id"];
+    globalvariable.showNavigationItem=@"show2";
+    
+    ChangeDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ChangeDetailViewId"];
     UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:detail];
     [self presentViewController:objNav animated:YES completion:nil];
     
-   // [ dismissViewControllerAnimated:YES completion:nil];
-
+    // [ dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (IBAction)detachButtonClicked:(id)sender {
     
     NSLog(@"Clicked on detach button");
-    [SVProgressHUD showWithStatus:@"Detaching Problem"];
-    [self dettachProblemAPICall];
+    [SVProgressHUD showWithStatus:@"Detaching Change"];
+    [self dettachChangeFromProblemAPICall];
     
 }
 
--(void)dettachProblemAPICall{
+-(void)dettachChangeFromProblemAPICall{
     
-    NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
+    NSDictionary *finaldic= globalvariable.attachedChangeDataDict;
     
-    globalvariable.problemId=[finaldic objectForKey:@"id"];
+    globalvariable.changeId=[finaldic objectForKey:@"id"];
     
     
-    NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/detach/problem/ticket?token=%@&api_key=%@&ticketid=%@&problemid=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY,globalvariable.ticketId,globalvariable.problemId];
+    NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/detach/change/problem?token=%@&api_key=%@&problemid=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY,globalvariable.problemId];
     NSLog(@"URL is : %@",url);
     
     @try{
@@ -152,16 +156,16 @@
                 [SVProgressHUD dismiss];
                 
                 if (msg) {
-                        
-                        NSLog(@"Message is : %@",msg);
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
-                        [SVProgressHUD dismiss];
+                    
+                    NSLog(@"Message is : %@",msg);
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                    [SVProgressHUD dismiss];
                     
                 }else if(error)  {
                     NSLog(@"Error is : %@",error);
                     
                     [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                  //  NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
+                    //  NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
                     [SVProgressHUD dismiss];
                 }
                 return ;
@@ -170,7 +174,7 @@
             if ([msg isEqualToString:@"tokenRefreshed"]) {
                 
                 
-                [self dettachProblemAPICall];
+                [self dettachChangeFromProblemAPICall];
                 return;
             }
             
@@ -183,7 +187,7 @@
                 NSString * dataMesg = [json objectForKey:@"data"];
                 
                 if([dataMesg isEqualToString:@"Detached Successfully"]){
-                
+                    
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
@@ -203,18 +207,18 @@
                                                         buttonCallback:nil
                                                             atPosition:RMessagePositionNavBarOverlay
                                                   canBeDismissedByUser:YES];
-                          
-                         //   [self dismissViewControllerAnimated:YES completion:nil];
-                          
-//                            TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
-//
-//                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-//                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
-//                            [self presentViewController:objNav animated:YES completion:nil];
-//
-                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
                             
-                            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                            //   [self dismissViewControllerAnimated:YES completion:nil];
+                            
+                            //                            TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+                            //
+                            //                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                            //                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
+                            //                            [self presentViewController:objNav animated:YES completion:nil];
+                            //
+                            ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                            
+                            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
                             
                             
                             ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
@@ -224,8 +228,8 @@
                             
                             [self presentViewController:vc animated:YES completion:nil];
                             
-                         //   [self.navigationController pushViewController:inboxVC animated:YES];
-//
+                            //   [self.navigationController pushViewController:inboxVC animated:YES];
+                            //
                             [SVProgressHUD dismiss];
                             
                         });
@@ -239,10 +243,10 @@
                     [SVProgressHUD dismiss];
                 }
                 
-               
+                
                 
             }
-            NSLog(@"Thread-detach-problem-closed");
+            NSLog(@"Thread-detach-change-closed");
             
         }];
     }@catch (NSException *exception)

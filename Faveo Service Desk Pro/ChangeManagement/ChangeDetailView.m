@@ -75,7 +75,7 @@
     
     _changeIdLabel.text=[NSString stringWithFormat:@"#CHN-%@",globalVariables.changeId];
     
-    if ([globalVariables.showNavigationItem isEqualToString:@"show"]) {
+    if ([globalVariables.showNavigationItem isEqualToString:@"show2"]) {
 
         UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick:)];
         self.navigationItem.leftBarButtonItem = rightBtn;
@@ -203,12 +203,15 @@
     
 }
 
+
+
 -(void)editChange{
     
     //navigate to edit changeVC
 }
 
 -(void)backBtnClick:(UIBarButtonItem*)item{
+    globalVariables.showNavigationItem =@"";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

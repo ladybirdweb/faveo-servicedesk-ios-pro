@@ -629,7 +629,7 @@
             NSLog(@"Dictionary is : %@",jsonData);
             // "message": "Successfully replied"
             
-            
+           
             
             if ([jsonData objectForKey:@"message"]){
                 
@@ -666,18 +666,12 @@
                     
                 }
                 
-                else if ([jsonData objectForKey:@"message"])
+                else if([msg isEqualToString:@"Token expired"] || [msg isEqualToString:@"tokenRefreshed"])
                 {
-                    
-                    NSString *str=[jsonData objectForKey:@"message"];
-                    
-                    if([str isEqualToString:@"Token expired"])
-                    {
+
                         MyWebservices *web=[[MyWebservices alloc]init];
                         [web refreshToken];
                         [self replyTicketMethodCall];
-                        
-                    }
                 }
                 else
                 {

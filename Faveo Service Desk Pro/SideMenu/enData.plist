@@ -155,6 +155,39 @@
 		</dict>
 		<dict>
 			<key>Name</key>
+			<string>Releases</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>releaseLevel0</string>
+			<key>image</key>
+			<string>release</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>All Releases</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>releaseSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>New Release</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>newReleaseSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
 			<string>Users List</string>
 			<key>level</key>
 			<integer>0</integer>

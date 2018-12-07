@@ -25,6 +25,9 @@
 #import "ProblemList.h"
 #import "CNPPopupController.h"
 #import "AppConstanst.h"
+#import "ViewAttachedChange.h"
+#import "BIZPopupViewController.h"
+
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -85,7 +88,7 @@
     
     _problemIdLabel.text=[NSString stringWithFormat:@"#PRB-%@",globalVariables.problemId];
    
-    if ([globalVariables.showNavigationItem isEqualToString:@"show"]) {
+    if ([globalVariables.showNavigationItem isEqualToString:@"show1"]) {
         
         UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick:)];
         self.navigationItem.leftBarButtonItem = rightBtn;
@@ -444,6 +447,7 @@
     //************* end modal view 5 for more **********************************************
     
     [self callProbleDetailAPI];
+    [self getChangesAssociatedWithTheProblem];
     
     
 }
@@ -451,6 +455,7 @@
 
 
 -(void)backBtnClick:(UIBarButtonItem*)item{
+    globalVariables.showNavigationItem =@"";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -1134,12 +1139,33 @@
         });
         }
     }
-//    else if(item.tag == 3) {
-//        //your code for tab item 3
-//        NSLog(@"clicked on 3");
-//        
-//        [self.normalModalView3 open];
-//    }
+    else if(item.tag == 3) {
+        //your code for tab item 3
+        NSLog(@"clicked on 3");
+   
+        if([globalVariables.changeStatusInTicketDetailVC isEqualToString:@"notFound"]){
+            
+            NSLog(@"Change Not Found");
+            [self.normalModalView3 open];
+        }
+        else if([globalVariables.changeStatusInTicketDetailVC isEqualToString:@"Found"]){
+            
+            NSLog(@"Change Found");
+            
+            globalVariables.changeId=globalVariables.changeId;
+            
+            NSLog(@"Attached Change is: %@",globalVariables.attachedChangeDataDict);
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewAttachedChange *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedChangeId"];
+            
+            BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 200)];
+            [self presentViewController:popupViewController animated:YES completion:nil];
+            
+            
+        }
+        
+    }
     else if(item.tag == 4) {
         //your code for tab item 4
         NSLog(@"clicked on 4");
@@ -1403,6 +1429,141 @@
     
 }
 
+-(void)getChangesAssociatedWithTheProblem{
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        //connection unavailable
+        [SVProgressHUD dismiss];
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+    }else{
+        
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/get/attached/change/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"]];
+        
+        NSLog(@"URL is : %@",url);
+        
+        @try{
+            
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    if( [msg containsString:@"Error-401"])
+                        
+                    {
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
+                        
+                        
+                    }
+                    else
+                        
+                        if([msg isEqualToString:@"Error-404"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
+                            
+                        }
+                    
+                        else{
+                            NSLog(@"Error message is %@",msg);
+                            NSLog(@"Thread-getChangesAssociatedWithProblem-Refresh-error == %@",error.localizedDescription);
+                            [self->utils showAlertWithMessage:msg sendViewController:self];
+                            
+                            
+                            return ;
+                        }
+                }
+                
+                
+                
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    [self getChangesAssociatedWithTheProblem];
+                    NSLog(@"Thread-getChangesAssociatedWithProblem-call");
+                    return;
+                }
+                
+                if (json) {
+                    
+                    NSLog(@"JSON is : %@",json);
+                    
+                    if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
+                        
+                        NSLog(@"Change is found");
+                        
+                        self->globalVariables.changeStatusInTicketDetailVC = @"Found";
+                        // data vailable
+                        
+                        NSArray *dataArray = [json objectForKey:@"data"];
+                        
+                        NSDictionary *dataDict = [dataArray objectAtIndex:0];
+                        
+                        
+                        NSLog(@"Change Dict is: %@",dataDict);
+                        
+                        self->globalVariables.attachedChangeDataDict = dataDict;
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                            self->_changeTabBarItem.badgeValue=@"1";
+                            
+                        });
+                        
+                        
+                        
+                    }else{
+                        
+                        NSLog(@"Change is not found");
+                        // data is not available
+                        
+                        self->globalVariables.changeStatusInTicketDetailVC = @"notFound";
+                        
+                        self->globalVariables.attachedChangeDataDict = NULL;
+                        
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            //update UI here
+                
+                            self->_changeTabBarItem.badgeValue=@"0";
+                        });
+                        
+                    }
+                    
+                }
+                
+            }
+             ];
+        }@catch (NSException *exception)
+        {
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            return;
+        }
+        
+    }
+    
+}
 
 
 @end

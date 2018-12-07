@@ -266,11 +266,10 @@
         [self getDependencies];
         [self getAssociatedAssets];
         [self getProblemAssociatedWithTicket];
+        
     }
     
 }
-
-
 
 
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
@@ -337,13 +336,9 @@
             
             NSLog(@"Problem Found");
             
-         //   _problemTabBarItem.badgeValue = @"1";
-            
-           // globalVariables.attachedProblemDataDict=dataDict;
             globalVariables.ticketId=globalVariables.ticketId;
             
-            NSLog(@"%@",globalVariables.attachedProblemDataDict);
-        //    NSLog(@"%@",globalVariables.attachedProblemDataDict);
+            NSLog(@"Attached Problem is: %@",globalVariables.attachedProblemDataDict);
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             ViewAttachedProblems *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedProblemsId"];
@@ -429,11 +424,13 @@
                          oldViewController.view.alpha = 0;
                      }
                      completion:^(BOOL finished) {
+                    
                          [oldViewController.view removeFromSuperview];
                          [oldViewController removeFromParentViewController];
                          [newViewController didMoveToParentViewController:self];
                      }];
 }
+
 
 // This method used to get some values like Agents list, Ticket Status, Ticket counts, Ticket Source, SLA ..etc which are used in various places in project.
 -(void)getDependencies{

@@ -163,4 +163,11 @@
 @property (strong, nonatomic) NSString *updateChangeValue;
 
 
+// used this condition while creating/adding a change
+@property (strong, nonatomic) NSString *changeStatusInTicketDetailVC;
+
+//attached change dictionary
+@property (strong, nonatomic) NSDictionary *attachedChangeDataDict;
+
+
 @end

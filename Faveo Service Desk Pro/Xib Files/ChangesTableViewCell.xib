@@ -103,6 +103,7 @@
                 <outlet property="createdDateLabel" destination="jdN-Tq-LRi" id="jEs-vN-lo0"/>
                 <outlet property="indicationView" destination="im4-PG-CUX" id="8sP-La-Z5K"/>
                 <outlet property="mainView" destination="onL-G1-lZ5" id="h7K-uN-Aw5"/>
+                <outlet property="requesterLabel" destination="voH-gW-TWE" id="TUe-5g-mDj"/>
             </connections>
             <point key="canvasLocation" x="75" y="-110"/>
         </tableViewCell>

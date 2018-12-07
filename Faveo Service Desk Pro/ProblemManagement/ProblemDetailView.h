@@ -90,6 +90,8 @@
  */
 @property (weak, nonatomic) IBOutlet UITabBarItem *assetBarItem;
 
+@property (weak, nonatomic) IBOutlet UITabBarItem *changeTabBarItem;
+
 /*!
  @method indexChanged
  
