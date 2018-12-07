@@ -198,11 +198,10 @@
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            
-                            [self->refresh endRefreshing];
                             [self reloadTableView];
+                            [self->refresh endRefreshing];
                             [SVProgressHUD dismiss];
-                            
+           
                         });
                     });
                     

@@ -92,9 +92,22 @@
     
     NSString *changeName= [finaldic objectForKey:@"subject"];
     NSString *id= [finaldic objectForKey:@"id"];
-    NSArray *requesterArray= [finaldic objectForKey:@"requester"];
-    NSDictionary *reqDict = [requesterArray objectAtIndex:0];
-    NSString *requesterName = [NSString stringWithFormat:@"%@ %@",[reqDict objectForKey:@"first_name"],[reqDict objectForKey:@"last_name"]];
+    NSArray * requesterArray= [finaldic objectForKey:@"requester"];
+    
+    NSObject *requesterObject = [requesterArray objectAtIndex:0];
+    
+    NSString *requesterName;
+    
+    if([requesterObject isKindOfClass:[NSArray class]]){
+        
+        requesterName = @"No Requester";
+    }
+    else if([requesterObject isKindOfClass:[NSDictionary class]]){
+        
+         NSDictionary *requesterObject = [requesterArray objectAtIndex:0];
+        
+         requesterName = [NSString stringWithFormat:@"%@ %@",[requesterObject objectForKey:@"first_name"],[requesterObject objectForKey:@"last_name"]];
+    }
     
     cell.changeNameLabel.text = [NSString stringWithFormat:@"%@",changeName];
     cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",requesterName]; //from;

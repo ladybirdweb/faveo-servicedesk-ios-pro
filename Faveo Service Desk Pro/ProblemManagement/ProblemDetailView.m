@@ -27,7 +27,8 @@
 #import "AppConstanst.h"
 #import "ViewAttachedChange.h"
 #import "BIZPopupViewController.h"
-
+#import "ChangeList.h"
+#import "ProblemListForPopUpView.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -477,6 +478,18 @@
 -(void)existingChangeMethod{
     
      NSLog(@"existing change clicked");
+
+    globalVariables.problemId=globalVariables.problemId;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChangeList *vc = [storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
+
+    BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
+    [self presentViewController:popupViewController animated:YES completion:nil];
+
+    [self.normalModalView3 close];
+    
+    
     
 }
 
