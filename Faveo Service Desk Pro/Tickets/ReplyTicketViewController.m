@@ -20,7 +20,7 @@
 #import "AddCCViewController.h"
 #import "ViewCCViewController.h"
 #import "BIZPopupViewController.h"
-
+#import "InboxTickets.h"
 
 @interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
 {
@@ -664,6 +664,9 @@
                     [self.view setNeedsDisplay];
                     [self.navigationController popViewControllerAnimated:YES];
                     
+//                    InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+//                    [self.navigationController pushViewController:inboxVC animated:YES];
+//
                 }
                 
                 else if([msg isEqualToString:@"Token expired"] || [msg isEqualToString:@"tokenRefreshed"])

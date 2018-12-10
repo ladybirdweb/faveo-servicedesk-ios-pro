@@ -126,6 +126,7 @@
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
 		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
+		06903F1F21BE4FB70090563E /* ReleasesList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06903F1E21BE4FB70090563E /* ReleasesList.m */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
@@ -364,6 +365,8 @@
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		068F424521466C00005CA466 /* problem-ic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "problem-ic1.png"; path = "../../../../../Downloads/problem-ic1.png"; sourceTree = "<group>"; };
 		068F424921466E0C005CA466 /* all-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-list.png"; sourceTree = "<group>"; };
+		06903F1D21BE4FB70090563E /* ReleasesList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReleasesList.h; sourceTree = "<group>"; };
+		06903F1E21BE4FB70090563E /* ReleasesList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReleasesList.m; sourceTree = "<group>"; };
 		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
@@ -535,6 +538,7 @@
 				06D6477F20C56BE8000783C8 /* Tickets */,
 				06E8451A213EB15B00786CEB /* ProblemManagement */,
 				0610637921B6426A007F28BB /* ChangeManagement */,
+				06903F1C21BE4F6B0090563E /* ReleaseManagement */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
@@ -811,6 +815,15 @@
 			);
 			name = LPSemiModalView;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		06903F1C21BE4F6B0090563E /* ReleaseManagement */ = {
+			isa = PBXGroup;
+			children = (
+				06903F1D21BE4FB70090563E /* ReleasesList.h */,
+				06903F1E21BE4FB70090563E /* ReleasesList.m */,
+			);
+			path = ReleaseManagement;
 			sourceTree = "<group>";
 		};
 		06B98CDA21B5394F00F3CFB1 /* TestFile */ = {
@@ -1228,6 +1241,7 @@
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
+				06903F1F21BE4FB70090563E /* ReleasesList.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				06B98CE021B539DB00F3CFB1 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,

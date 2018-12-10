@@ -28,7 +28,7 @@
 #import "ViewAttachedChange.h"
 #import "BIZPopupViewController.h"
 #import "ChangeList.h"
-#import "ProblemListForPopUpView.h"
+#import "ProblemList.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -478,17 +478,16 @@
 -(void)existingChangeMethod{
     
      NSLog(@"existing change clicked");
-
+    
     globalVariables.problemId=globalVariables.problemId;
-
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChangeList *vc = [storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
-
+    
     BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
     [self presentViewController:popupViewController animated:YES completion:nil];
-
-    [self.normalModalView3 close];
     
+    [self.normalModalView3 close];
     
     
 }
@@ -1508,11 +1507,20 @@
                 }
                 
                 
-                
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
+                    
                     [self getChangesAssociatedWithTheProblem];
-                    NSLog(@"Thread-getChangesAssociatedWithProblem-call");
+                    NSLog(@"Thread-call-getProblemDetails");
+                    return;
+                }
+                
+                if ([msg isEqualToString:@"tokenNotRefreshed"]) {
+                    
+                    // [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    
+                    [SVProgressHUD dismiss];
+                    
                     return;
                 }
                 
@@ -1537,7 +1545,7 @@
                         self->globalVariables.attachedChangeDataDict = dataDict;
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
-                        
+                            
                             self->_changeTabBarItem.badgeValue=@"1";
                             
                         });
@@ -1562,7 +1570,7 @@
                         
                     }
                     
-                }
+                } // end if json
                 
             }
              ];

@@ -964,36 +964,6 @@
 }
 
 
-////This method asks the data source to return the number of sections in the table view.
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
-//{
-//    NSInteger numOfSections = 0;
-//
-//    if ([assetsArray count] != 0)
-//    {
-//        _tableView1.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//        numOfSections                = 1;
-//        _tableView1.backgroundView = nil;
-//
-//    }
-//    else{
-//
-//        UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _tableView1.bounds.size.width, _tableView1.bounds.size.height)];
-//        noDataLabel.text             = NSLocalizedString(@"No Records..!!!",nil);
-//        noDataLabel.textColor        = [UIColor blackColor];
-//        noDataLabel.textAlignment    = NSTextAlignmentCenter;
-//        _tableView1.backgroundView = noDataLabel;
-//        _tableView1.separatorStyle = UITableViewCellSeparatorStyleNone;
-//
-//
-//    }
-//
-//    return numOfSections;
-//
-//}
-
-
-
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {

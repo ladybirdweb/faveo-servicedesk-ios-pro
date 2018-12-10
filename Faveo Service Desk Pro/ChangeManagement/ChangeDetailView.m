@@ -43,6 +43,7 @@
 @property (nonatomic, strong) NSString *successMessage;
 
 @property (nonatomic, strong) LPSemiModalView *normalModalView1;
+@property (nonatomic, strong) LPSemiModalView *assetsModalView;
 
 //It is used to show table view as a modal for displaying tickets and assets
 @property (strong, nonatomic) UITableView *tableView1;
@@ -102,6 +103,47 @@
     [self addSubview:self.currentViewController.view toView:self.containerView];
     
     
+    // ************** modal view 2 for showing assets ************************
+    
+    self.assetsModalView = [[LPSemiModalView alloc] initWithSize:CGSizeMake(self.view.bounds.size.width, 230) andBaseViewController:self];
+    //  self.normalModalView.contentView.backgroundColor = [UIColor yellowColor];
+    
+    
+    // init table view
+    _tableView1 = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
+    // must set delegate & dataSource, otherwise the the table will be empty and not responsive
+    _tableView1.delegate = self;
+    _tableView1.dataSource = self;
+    
+    
+    //  _tableView2.backgroundColor = [UIColor lightGrayColor];
+    
+    // add to canvas
+    [self.assetsModalView.contentView addSubview:_tableView1];
+    
+    
+    // creating header
+    UIView *headerView2 = [[UIView alloc] initWithFrame:CGRectMake(1, 50, 276, 45)];
+    // headerView2.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    headerView2.backgroundColor = [UIColor lightGrayColor];
+    
+    UILabel *labelView2 = [[UILabel alloc] initWithFrame:CGRectMake(8, 13, 300, 24)];
+    labelView2.text = @"Asssociated Assets";
+    // labelView2.textColor = [UIColor colorFromHexString:@"CCCCCC"];
+    labelView2.textColor = [UIColor whiteColor];
+    
+    [headerView2 addSubview:labelView2];
+    _tableView1.tableHeaderView = headerView2;
+    
+    // end creating header
+    
+    
+    self.assetsModalView.narrowedOff = YES;
+    self.assetsModalView.backgroundColor = [UIColor whiteColor];
+    
+    
+    // ************** end modal view 2 for showing assets ***********************
     
     //***************** modal view 4 for update *******************************************
     
@@ -200,6 +242,7 @@
     
     //***************** end modal view 4 ************************************************
 
+    [self getChangeDetailDataAPICall];
     
 }
 
@@ -276,6 +319,30 @@
     if(item.tag == 1) {
         
         NSLog(@"Clicked on assets");
+        
+        self.assetsModalView.backgroundColor = [UIColor whiteColor];
+        self.assetsModalView.backgroundColor = [UIColor whiteColor];
+        
+        if([globalVariables.assetStatusInChangeDetailVC isEqualToString:@"NotFound"]){
+            
+            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Assets Found"] sendViewController:self];
+            [self.assetsModalView close];
+            
+        }else{
+            
+            [self.assetsModalView open];
+            
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.tableView1 reloadData];
+                    [self.tableView1 reloadData];
+                    [SVProgressHUD dismiss];
+                    
+                });
+            });
+        }
+        
     }
     else if(item.tag == 2) {
         
@@ -402,7 +469,7 @@
                     
                     NSString * msg = [json objectForKey:@"data"];
                     
-                    if([msg isEqualToString:@"Problem Deleted Successfully."]){
+                    if([msg isEqualToString:@"Changes Deleted."]){
                         
                         if (self.navigationController.navigationBarHidden) {
                             [self.navigationController setNavigationBarHidden:NO];
@@ -520,7 +587,7 @@
     
     
     NSMutableAttributedString *lineTwo = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Description*",nil) attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18], NSForegroundColorAttributeName : [UIColor hx_colorWithHexRGBAString:@"#00aeef"]}];
-    [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(7,1)];
+    [lineTwo addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(11,1)];
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.numberOfLines = 0;
@@ -552,19 +619,45 @@
     
     if([globalVariables.updateChangeValue isEqualToString:@"reasonForChange"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.reasonForChangeValue];
+        if([globalVariables.reasonForChangeValue isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.reasonForChangeValue];
+        }
     }
     else if([globalVariables.updateChangeValue isEqualToString:@"impactForChange"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.impactValueForChange];
+        if([globalVariables.impactValueForChange isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.impactValueForChange];
+        }
+
     }
     else if([globalVariables.updateChangeValue isEqualToString:@"rollOut"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.rollOutValueForChange];
+        if([globalVariables.rollOutValueForChange isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.rollOutValueForChange];
+        }
+    
     }
     else if([globalVariables.updateChangeValue isEqualToString:@"backOut"]){
         
-        customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.backOutValueForChange];
+        if([globalVariables.backOutValueForChange isEqualToString:@"Details are not added."]){
+            
+            customTextView.text = @"";
+        }
+        else{
+            customTextView.text = [NSString stringWithFormat:@"%@",globalVariables.backOutValueForChange];
+        }
         
     }else{
         
@@ -752,5 +845,225 @@
     
 }
 
+
+-(void)getChangeDetailDataAPICall{
+    
+    if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
+    {
+        
+        [SVProgressHUD dismiss];
+        
+        if (self.navigationController.navigationBarHidden) {
+            [self.navigationController setNavigationBarHidden:NO];
+        }
+        
+        [RMessage showNotificationInViewController:self.navigationController
+                                             title:NSLocalizedString(@"Error..!", nil)
+                                          subtitle:NSLocalizedString(@"There is no Internet Connection...!", nil)
+                                         iconImage:nil
+                                              type:RMessageTypeError
+                                    customTypeName:nil
+                                          duration:RMessageDurationAutomatic
+                                          callback:nil
+                                       buttonTitle:nil
+                                    buttonCallback:nil
+                                        atPosition:RMessagePositionNavBarOverlay
+                              canBeDismissedByUser:YES];
+        
+        
+        
+    }else{
+        
+        
+        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/change/editbind/%@?token=%@",[userDefaults objectForKey:@"baseURL"],globalVariables.changeId,[userDefaults objectForKey:@"token"]];
+        
+        NSLog(@"URL is : %@",url);
+        
+        @try{
+            MyWebservices *webservices=[MyWebservices sharedInstance];
+            [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+                
+                
+                if (error || [msg containsString:@"Error"]) {
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    if (msg) {
+               
+                        if([msg isEqualToString:@"Error-403"])
+                        {
+                            [self->utils showAlertWithMessage:NSLocalizedString(@"Access Denied - You don't have permission.", nil) sendViewController:self];
+                            
+                        }
+                        
+                        else if([msg isEqualToString:@"Error-422"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Unprocessable Entity. Please try again later."] sendViewController:self];
+                        }
+                        else if([msg isEqualToString:@"Error-404"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
+                            
+                        }
+                        else if([msg isEqualToString:@"Error-405"] ||[msg isEqualToString:@"405"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
+                            
+                        }
+                        else if([msg isEqualToString:@"Error-500"] ||[msg isEqualToString:@"500"])
+                        {
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Internal Server Error.Something has gone wrong on the website's server."] sendViewController:self];
+                            
+                        }
+                        
+                        else{
+                            
+                            NSLog(@"Message is : %@",msg);
+                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                            [SVProgressHUD dismiss];
+                        }
+                        
+                    }else if(error)  {
+                        NSLog(@"Error is : %@",error);
+                        
+                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                        NSLog(@"Thread-change-details-Refresh-error == %@",error.localizedDescription);
+                        
+                        [SVProgressHUD dismiss];
+                    }
+                    return ;
+                }
+                
+                if ([msg isEqualToString:@"tokenRefreshed"]) {
+                    
+                    
+                    [self getChangeDetailDataAPICall];
+                    NSLog(@"Thread-call-getChangeDetails");
+                    return;
+                }
+                
+                if ([msg isEqualToString:@"tokenNotRefreshed"]) {
+                    
+                    // [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    return;
+                }
+                
+                
+                if (json) {
+                    
+                    NSDictionary *changeDetailsDict=[json objectForKey:@"data"];
+                    
+                    self->globalVariables.associatedAssetsWithTheChangeArray = [changeDetailsDict objectForKey:@"assetList"];
+                    
+                    //NSLog(@"Values of count is : %lu",(unsigned long)[assetArray count]);
+                    
+                    //showing asset count
+                    self->_assetsBarItem.badgeValue = [NSString stringWithFormat:@"%lu",(unsigned long)[self->globalVariables.associatedAssetsWithTheChangeArray count]];
+                    
+                    if([self->globalVariables.associatedAssetsWithTheChangeArray count] ==0){
+                        
+                        self->globalVariables.assetStatusInChangeDetailVC=@"NotFound";
+                        
+                    }else{
+                        self->globalVariables.assetStatusInChangeDetailVC=@"Found";
+                    }
+                    
+                    
+                    [SVProgressHUD dismiss];
+                }
+                NSLog(@"Thread-change-detail-closed");
+                
+            }];
+        }@catch (NSException *exception)
+        {
+            NSLog( @"Name: %@", exception.name);
+            NSLog( @"Reason: %@", exception.reason );
+            [utils showAlertWithMessage:exception.name sendViewController:self];
+            [SVProgressHUD dismiss];
+            return;
+        }
+        @finally
+        {
+            NSLog( @" I am in getChangeDetailsDatAPI method in problem detail ViewController" );
+            
+            
+        }
+    }
+    
+ 
+    
+}
+
+
+#pragma mark - UITableViewDataSource
+// number of section(s), now I assume there is only 1 section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
+{
+    
+    return 1;
+    
+}
+
+// number of row in the section, I assume there is only 1 row
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
+{
+
+      return [globalVariables.associatedAssetsWithTheChangeArray count];
+    
+}
+
+
+// the cell will be returned to the tableView
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    AssetCell *cell = [theTableView dequeueReusableCellWithIdentifier:@"assetCellID"];
+    
+    if (cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AssetCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    NSLog(@"Asset Array is : %@",globalVariables.associatedAssetsWithTheChangeArray);
+    
+    NSDictionary * assetDict = [globalVariables.associatedAssetsWithTheChangeArray objectAtIndex:indexPath.row];
+    
+    NSString * id1 = [assetDict objectForKey:@"id"];
+    NSString *name = [assetDict objectForKey:@"name"];
+    
+    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-%@",id1];
+    cell.assetTitleLabel.text = [NSString stringWithFormat:@"%@",name];
+    
+    //    cell.assetIdLabel.text = [NSString stringWithFormat:@"#AST-12"];
+    //    cell.assetTitleLabel.text = [NSString stringWithFormat:@"Pankaj Macbook Pro"];
+    
+    return cell;
+    
+    //    }
+    //
+    //    return nil;
+}
+
+
+#pragma mark - UITableViewDelegate
+// when user tap the row, what action you want to perform
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"selected %ld row", (long)indexPath.row);
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //TODO: Calculate cell height
+    return 65.0f;
+}
 
 @end

@@ -31,6 +31,7 @@
 #import "GlobalVariables.h"
 #import "ChangeList.h"
 #import "CreateChange.h"
+#import "ReleasesList.h"
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
 {
@@ -387,6 +388,17 @@ NSUInteger g_ExpandedCellIndex = 0;
                      globalVariables.createChangeConditionforVC = @"newChangeAlone";
                      
                      CreateChange * controller = (CreateChange *)[storyboard instantiateViewControllerWithIdentifier:@"CreateChangeId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"releaseSubLevel1"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                 
+                     ReleasesList * controller = (ReleasesList *)[storyboard instantiateViewControllerWithIdentifier:@"ReleasesListId"];
                      
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
                      

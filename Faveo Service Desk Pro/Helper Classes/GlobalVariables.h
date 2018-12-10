@@ -169,5 +169,17 @@
 //attached change dictionary
 @property (strong, nonatomic) NSDictionary *attachedChangeDataDict;
 
+//attached assets array asssociated with the change
+@property (strong, nonatomic) NSArray *associatedAssetsWithTheChangeArray;
 
+//it used to check wheather asset is present or not in change details
+@property (strong, nonatomic) NSString *assetStatusInChangeDetailVC;
+
+
+
+//Release id
+@property (strong, nonatomic) NSString *releaseId;
+
+//It used to to check wheather this release is creating fresh or with the problem.
+@property (strong, nonatomic) NSString *createReleaseConditionforVC;
 @end

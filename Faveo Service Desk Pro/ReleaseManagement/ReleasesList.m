@@ -1,17 +1,17 @@
 //
-//  ProblemList.m
+//  ReleasesList.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 04/09/18.
+//  Created by Mallikarjun on 10/12/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "ProblemList.h"
+#import "ReleasesList.h"
 #import "Utils.h"
 #import "MyWebservices.h"
 #import "GlobalVariables.h"
 #import "SWRevealViewController.h"
-#import "ProblemTableViewCell.h"
+#import "ChangesTableViewCell.h"
 #import "SVProgressHUD.h"
 #import "RMessage.h"
 #import "RMessageView.h"
@@ -23,8 +23,7 @@
 #import "CreateProblem.h"
 #import "AppConstanst.h"
 
-
-@interface ProblemList ()<RMessageProtocol>
+@interface ReleasesList ()<RMessageProtocol>
 {
     
     Utils *utils;
@@ -32,8 +31,8 @@
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
     
-    
 }
+
 
 @property (nonatomic, strong) NSMutableArray *mutableArray;
 
@@ -45,16 +44,17 @@
 @property (nonatomic, strong) NSString *path1;
 
 @property (nonatomic) int pageInt;
+
+
 @end
 
-@implementation ProblemList
+@implementation ReleasesList
 
-//It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:NSLocalizedString(@"All Problems",nil)];
+    
+    [self setTitle:NSLocalizedString(@"All Releases",nil)];
     
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
@@ -72,7 +72,7 @@
     // adding button on navigation
     UIButton *addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [addButton setImage:[UIImage imageNamed:@"add1"] forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(addNewProblem) forControlEvents:UIControlEventTouchUpInside];
+    [addButton addTarget:self action:@selector(addNewRelease) forControlEvents:UIControlEventTouchUpInside];
     //    [moreButton setFrame:CGRectMake(46, 0, 32, 32)];
     [addButton setFrame:CGRectMake(46, 0, 32, 32)];
     
@@ -81,25 +81,25 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
     
-   
+    
     
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD showWithStatus:@"Loading Problems"];
+    [SVProgressHUD showWithStatus:@"Loading Releases"];
     
     [self addUIRefresh];
     [self reload];
-    
 }
 
--(void)addNewProblem{
+
+-(void)addNewChange{
     
-    globalVariables.createProblemConditionforVC = @"newAlone";
-    
-    //add lines of code
-    CreateProblem *createProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
-    
-    [self.navigationController pushViewController:createProblem animated:YES];
+//    globalVariables.createChangeConditionforVC = @"newChangeAlone";
+//
+//    //add lines of code
+//    CreateChange *createChange=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateChangeId"];
+//
+//    [self.navigationController pushViewController:createChange animated:YES];
     
 }
 
@@ -133,8 +133,8 @@
         
     }else{
         
-       
-        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
+        
+        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/releases?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
         NSLog(@"URL is : %@",url);
         
         @try{
@@ -144,11 +144,12 @@
                 
                 if (error || [msg containsString:@"Error"]) {
                     [self->refresh endRefreshing];
-                    [SVProgressHUD dismiss];
                     
                     
                     if (msg) {
-      
+                        
+                        [SVProgressHUD dismiss];
+                        
                         if([msg isEqualToString:@"Error-403"])
                         {
                             [self->utils showAlertWithMessage:NSLocalizedString(@"Access Denied - You don't have permission.", nil) sendViewController:self];
@@ -190,7 +191,7 @@
                         NSLog(@"Error is : %@",error);
                         
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                        NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
+                        NSLog(@"Thread-Release-Refresh-error == %@",error.localizedDescription);
                         [SVProgressHUD dismiss];
                     }
                     return ;
@@ -200,7 +201,7 @@
                     
                     
                     [self reload];
-                    NSLog(@"Thread-call-getAllProblems");
+                    NSLog(@"Thread-call-getAllRelease");
                     return;
                 }
                 
@@ -223,9 +224,14 @@
                     self->_currentPage=[[json objectForKey:@"current_page"] integerValue];
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
                     self->_totalPages=[[json objectForKey:@"last_page"] integerValue];
-                 
-           //         self->_mutableArray = [problemList objectForKey:@"problems"];
-                   
+                    
+                    
+                    
+                    
+                    //         self->_mutableArray = [problemList objectForKey:@"problems"];
+                    
+                    
+                    
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
@@ -237,7 +243,7 @@
                     });
                     
                 }
-                NSLog(@"Thread-problems-closed");
+                NSLog(@"Thread-Release-closed");
                 
             }];
         }@catch (NSException *exception)
@@ -245,11 +251,12 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
+           // [self reloadTableView];
             return;
         }
         @finally
         {
-            NSLog( @" I am in reload method in problem list ViewController" );
+            NSLog( @" I am in reload method in changes list ViewController" );
             
             
         }
@@ -318,7 +325,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
     //  cell.selectionStyle=UITableViewCellSelectionStyleBlue;
     
     if (indexPath.row == [_mutableArray count] - 1 ) {
@@ -370,12 +377,13 @@
         return cell;
     }else{
         
+        //here I am using ChangesTableViewCellf for showing release - it needs to be change
         
-        ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
+        ChangesTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ChangesTableViewCellId"];
         
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChangesTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             
         }
@@ -385,36 +393,35 @@
         NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
         
         NSString *problemName= [finaldic objectForKey:@"subject"];
-        NSString *from= [finaldic objectForKey:@"from"];
+        //  NSString *from= [finaldic objectForKey:@"from"];
         NSString *id1= [finaldic objectForKey:@"id"];
         NSString *createdDate= [finaldic objectForKey:@"created_at"];
-       // NSString *prio= [finaldic objectForKey:@"created_at"];
         
         
-        cell.problemNameLabel.text = problemName;
-        cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
-        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id1];
+        cell.changeNameLabel.text = problemName;
+        // cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+        cell.changeNumber.text = [NSString stringWithFormat:@"#REL-%@",id1];
         cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
         
         if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
-          
+            
             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
-        
-             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
         }
         return cell;
     }
-        
+    
 }
 
 
@@ -424,13 +431,13 @@
     
     
     NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-    globalVariables.problemId=[finaldic objectForKey:@"id"];
-   
-    
-    ProblemDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
+    globalVariables.releaseId=[finaldic objectForKey:@"id"];
     
     
-    [self.navigationController pushViewController:detail animated:YES];
+  //  ChangeDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ChangeDetailViewId"];
+    
+    
+   // [self.navigationController pushViewController:detail animated:YES];
     
 }
 
@@ -503,7 +510,7 @@
                         
                     }else if(error)  {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                        NSLog(@"Thread-problem-list-Refresh-error == %@",error.localizedDescription);
+                        NSLog(@"Thread-Release-list-Refresh-error == %@",error.localizedDescription);
                         [SVProgressHUD dismiss];
                     }
                     return ;
@@ -518,7 +525,7 @@
                 
                 if (json) {
                     
-                   // NSDictionary *data1Dict=[json objectForKey:@"data"];
+                    // NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
                     self->_path1=[json objectForKey:@"path"];
@@ -535,7 +542,7 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             [self reloadTableView];
-                    
+                            
                             [SVProgressHUD dismiss];
                             
                         });
@@ -555,13 +562,11 @@
         }
         @finally
         {
-            NSLog( @" I am in loadMore method in Problem List ViewController" );
+            NSLog( @" I am in loadMore method in Release List ViewController" );
             
         }
     }
 }
-
-
 
 // This methodn used to show refresh behind the table view.
 -(void)addUIRefresh{
@@ -574,8 +579,8 @@
     
     refresh=[[UIRefreshControl alloc] init];
     refresh.tintColor=[UIColor whiteColor];
-      refresh.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
-   // refresh.backgroundColor = [UIColor colorFromHexString:@"BDBDBD"];
+    refresh.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
+    // refresh.backgroundColor = [UIColor colorFromHexString:@"BDBDBD"];
     // [UIColor hx_colorWithHexRGBAString:@"#BDBDBD"];
     refresh.attributedTitle =refreshing;
     [refresh addTarget:self action:@selector(reloadd) forControlEvents:UIControlEventValueChanged];
@@ -588,5 +593,6 @@
     [self reload];
     //    [refresh endRefreshing];
 }
+
 
 @end

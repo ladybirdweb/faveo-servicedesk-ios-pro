@@ -184,8 +184,7 @@
                                                   canBeDismissedByUser:YES];
                             
                             [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
-                            
-                        
+                 
                             [self.navigationController popViewControllerAnimated:YES];
                             
                             
