@@ -29,6 +29,7 @@
 #import "BIZPopupViewController.h"
 #import "ChangeList.h"
 #import "ProblemList.h"
+#import "CreateChanges.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -472,7 +473,17 @@
 
 -(void)newChangeMethod{
     
-    NSLog(@"new change clicked");
+    NSLog(@"new change with problem clicked");
+    
+    globalVariables.createChangeConditionforVC = @"newWithProblem";
+    globalVariables.problemId=globalVariables.problemId;
+    
+    CreateChanges *createChangeWithProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateChangesId"];
+    
+    [self.navigationController pushViewController:createChangeWithProblem animated:YES];
+    
+    [self.normalModalView3 close];
+    
 }
 
 -(void)existingChangeMethod{

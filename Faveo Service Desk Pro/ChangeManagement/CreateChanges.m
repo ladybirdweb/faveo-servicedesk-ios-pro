@@ -18,6 +18,8 @@
 #import "ActionSheetStringPicker.h"
 #import "ChangeList.h"
 #import "ProblemDetailView.h"
+#import "ProblemList.h"
+#import "SampleNavigation.h"
 
 @interface CreateChanges ()<RMessageProtocol,UITextFieldDelegate,UITextViewDelegate>
 {
@@ -86,6 +88,8 @@
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
 
@@ -747,6 +751,30 @@
                 if([dataString isEqualToString:@"Changes Created."]){
                     
                     
+                    [SVProgressHUD dismiss];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"success", nil)
+                                                          subtitle:NSLocalizedString(@"Change created successfully.", nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+                    ChangeList *changeListVC=[self.storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
+                    [self.navigationController pushViewController:changeListVC animated:YES];
+                    
+                        });
                     
                 }else{
                     
@@ -760,8 +788,38 @@
                 NSDictionary *dataDict = [jsonData objectForKey:@"data"];
                 NSString *successMsg = [dataDict objectForKey:@"success"];
                 
-                if([successMsg isEqualToString:@"Changes Updated Successfully"]){
+                if([successMsg isEqualToString:@"Changes Created."]){
                     
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"success", nil)
+                                                          subtitle:NSLocalizedString(@"Created new Change and attached to this problem.", nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+
+                        
+                        self->globalVariables.problemId= [NSNumber numberWithInt:[self->globalVariables.problemId intValue]];
+                        
+                        ProblemDetailView *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
+                        [self.navigationController pushViewController:td animated:YES];
+                        
+                        
+                    });
                     
                 }
                 else{

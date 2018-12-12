@@ -425,10 +425,8 @@
     
     NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
     globalVariables.problemId=[finaldic objectForKey:@"id"];
-   
-    
+
     ProblemDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
-    
     
     [self.navigationController pushViewController:detail animated:YES];
     

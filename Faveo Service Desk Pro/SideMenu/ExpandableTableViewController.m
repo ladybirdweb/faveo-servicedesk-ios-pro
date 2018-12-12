@@ -378,7 +378,8 @@ NSUInteger g_ExpandedCellIndex = 0;
                  }
                  else if([strId isEqualToString:@"newChangeSubLevel1"])
                  {
-                  //   globalVariables.createChangeConditionforVC = @"newChangeAlone";
+                  
+                     globalVariables.createChangeConditionforVC = @"newChangeAlone";
                      
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                      

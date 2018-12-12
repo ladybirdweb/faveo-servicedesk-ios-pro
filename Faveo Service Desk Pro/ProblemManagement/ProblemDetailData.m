@@ -64,9 +64,6 @@
    // _assetsTextField.userInteractionEnabled = NO;
     
     
-    
-    
-    
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD showWithStatus:@"Please wait"];
