@@ -3,14 +3,14 @@
 - Updating server with the latest parameters and deprecating old ones.
 
 # 2017-11-27 -- v2.0.7
-- Improve identity reset process, ensuring all information is reset during Identity deletion.
+-   Improve identity reset process, ensuring all information is reset during Identity deletion.
 
 # 2017-11-06 -- v2.0.6
 - Make token refresh weekly.
 - Fixed a crash when performing token operation.
 
 # 2017-10-11 -- v2.0.5
-- Improved support for working in shared Keychain environments.
+-   Improved support for working in shared Keychain environments.
 
 # 2017-09-26 -- v2.0.4
 - Fixed an issue where the FCM token was not associating correctly with an APNs
@@ -26,14 +26,11 @@
   notifications.
 
 # 2017-08-25 -- v2.0.2
-- Fixed a startup performance regression, removing a call which was blocking the
-  main thread.
+- Fixed a startup performance regression, removing a call which was blocking the main thread.
 
 # 2017-08-07 -- v2.0.1
-- Fixed issues with token and app identifier being inaccessible when the device
-  is locked.
-- Fixed a crash if bundle identifier is nil, which is possible in some testing
-  environments.
+- Fixed issues with token and app identifier being inaccessible when the device is locked.
+- Fixed a crash if bundle identifier is nil, which is possible in some testing environments.
 - Fixed a small memory leak fetching a new token.
 - Moved to a new and simplified token storage system.
 - Moved to a new queuing system for token fetches and deletes.
@@ -42,12 +39,10 @@
 
 # 2017-05-08 -- v2.0.0
 - Introduced an improved interface for Swift 3 developers
-- Deprecated some methods and properties after moving their logic to the
-  Firebase Cloud Messaging SDK
+- Deprecated some methods and properties after moving their logic to the Firebase Cloud Messaging SDK
 - Fixed an intermittent stability issue when a debug build of an app was
   replaced with a release build of the same version
-- Removed swizzling logic that was sometimes resulting in developers receiving
-  a validation notice about enabling push notification capabilities, even though
+- Removed swizzling logic that was sometimes resulting in developers receiving a validation notice about enabling push notification capabilities, even though
   they weren't using push notifications
 - Fixed a notification that would sometimes fire twice in quick succession
   during the first run of an app
