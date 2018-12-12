@@ -21,7 +21,7 @@
 #import "ViewCCViewController.h"
 #import "BIZPopupViewController.h"
 
-@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
+@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,HSAttachmentPickerDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;

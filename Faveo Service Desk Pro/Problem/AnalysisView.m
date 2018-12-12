@@ -45,7 +45,7 @@
     _symptomsTextView.editable=NO;
     _solutionTextView.editable=NO;
     
-    [SVProgressHUD showWithStatus:@"Loading data"];
+    [SVProgressHUD showWithStatus:@"Loading Details"];
     
      [self getRootCauseDetails];
      [self getImpactDetails];
