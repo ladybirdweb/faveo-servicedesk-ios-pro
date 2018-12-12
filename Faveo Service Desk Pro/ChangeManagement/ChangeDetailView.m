@@ -346,16 +346,21 @@
     }
     else if(item.tag == 2) {
         
+        NSLog(@"Clicked on release");
+       
+    }
+    else if(item.tag == 3) {
+        
         NSLog(@"Clicked on update");
         [self.normalModalView1 open];
     }
-    else if(item.tag == 3) {
+    else if(item.tag == 4) {
         
         NSLog(@"Clicked on delete change");
         [SVProgressHUD showWithStatus:@"Deleting Change"];
         [self deleteChangeAPICalled];
     }
-    else if(item.tag == 4) {
+    else if(item.tag == 5) {
         
         NSLog(@"Clicked on edit change");
     }

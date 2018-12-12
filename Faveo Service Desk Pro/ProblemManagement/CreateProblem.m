@@ -101,6 +101,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+     [SVProgressHUD showWithStatus:@"Please wait..."];
      [self getMetaDataForProblem];
 }
 
@@ -153,31 +154,8 @@
                         
                     }
                     else
-                        if( [msg containsString:@"Error-429"])
-                            
-                        {
-                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"your request counts exceed our limit"] sendViewController:self];
-                            
-                            
-                        }
-                    
-                        else if( [msg isEqualToString:@"Error-403"] && [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"])
-                            
-                        {
-                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                            
-                            
-                        }
-                    
-                        else if( [msg containsString:@"Error-403"])
-                            
-                        {
-                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                            
-                            
-                        }
-                    
-                        else if([msg isEqualToString:@"Error-404"])
+                       
+                        if([msg isEqualToString:@"Error-404"])
                         {
                             NSLog(@"Message is : %@",msg);
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The requested URL was not found on this server."] sendViewController:self];
@@ -384,6 +362,7 @@
                     
                 }
                 NSLog(@"Thread-allproblem-dependency-closed");
+                [SVProgressHUD dismiss];
             }
              ];
         }@catch (NSException *exception)
@@ -394,14 +373,13 @@
             [SVProgressHUD dismiss];
             return;
         }
+        
         @finally
         {
             NSLog( @" I am in get all problems method in All Problems" );
             
-            
         }
     }
-    
     
 }
 
@@ -643,8 +621,7 @@
     self.impactTextField.text = (_impactArray)[(NSUInteger) [selectedIndex intValue]];
     NSLog(@"Id is: %@",impact_id);
     NSLog(@"From is: %@",_impactTextField.text);
-    
-    
+  
 }
 - (void)statusWasSelected:(NSNumber *)selectedIndex element:(id)element{
     
@@ -897,16 +874,7 @@
                         ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
                         [self.navigationController pushViewController:problemVC animated:YES];
                 
-//                        if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newAlone"]){
-//
-//
-//
-//                        } else
-//                            if([self->globalVariables.createProblemConditionforVC isEqualToString:@"newWithTicket"]){
-//
-//
-//                            }
-                        
+                       
                     });
                     
                 }//end if checking msg = ticket cerated successfully ...etc

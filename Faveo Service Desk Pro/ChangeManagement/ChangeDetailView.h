@@ -63,6 +63,8 @@
 
 @property (weak, nonatomic) IBOutlet UITabBarItem *editChangeBarItem;
 
+@property (weak, nonatomic) IBOutlet UITabBarItem *releaseTabBarItem;
+
 
 /*!
  @method indexChanged

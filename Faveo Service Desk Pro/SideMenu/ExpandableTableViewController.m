@@ -30,8 +30,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "GlobalVariables.h"
 #import "ChangeList.h"
-#import "CreateChange.h"
+#import "CreateChanges.h"
 #import "ReleasesList.h"
+
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
 {
@@ -266,13 +267,7 @@ NSUInteger g_ExpandedCellIndex = 0;
     //Else a subItem has been clicked. We need to push the relevant view into segue
     else
     {
-        //1.getquote   2.home
-        //3.1 indices 3.2 gainers  3.3 turnover
-        //Problem 4.1 sme_marketwatch  4.2  sme_marketstats
-        //chnage 5.1 changeSubLevel1 5.2 newChangeSubLevel1
-        //6. sme_marketstats
-        // 7. settings
-        
+       
         NSString* strId =[dic valueForKey:@"id"];
         NSLog(@"STR_ID : %@",strId);
         
@@ -383,11 +378,12 @@ NSUInteger g_ExpandedCellIndex = 0;
                  }
                  else if([strId isEqualToString:@"newChangeSubLevel1"])
                  {
+                  //   globalVariables.createChangeConditionforVC = @"newChangeAlone";
+                     
                      storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                      
-                     globalVariables.createChangeConditionforVC = @"newChangeAlone";
                      
-                     CreateChange * controller = (CreateChange *)[storyboard instantiateViewControllerWithIdentifier:@"CreateChangeId"];
+                     CreateChanges * controller = (CreateChanges *)[storyboard instantiateViewControllerWithIdentifier:@"CreateChangesId"];
                      
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
                      

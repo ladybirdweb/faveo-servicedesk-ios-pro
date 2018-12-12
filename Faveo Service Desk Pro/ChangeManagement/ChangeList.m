@@ -23,7 +23,7 @@
 #import "CreateProblem.h"
 #import "AppConstanst.h"
 #import "ChangeDetailView.h"
-#import "CreateChange.h"
+#import "CreateChanges.h"
 
 @interface ChangeList ()<RMessageProtocol>
 {
@@ -99,7 +99,7 @@
     globalVariables.createChangeConditionforVC = @"newChangeAlone";
     
     //add lines of code
-    CreateChange *createChange=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateChangeId"];
+    CreateChanges *createChange=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateChangesId"];
     
     [self.navigationController pushViewController:createChange animated:YES];
     

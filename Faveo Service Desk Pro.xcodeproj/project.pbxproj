@@ -16,7 +16,6 @@
 		060F461420C942B600EDA6B8 /* ClientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461320C942B600EDA6B8 /* ClientFilter.m */; };
 		060F461820C95AF000EDA6B8 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */; };
 		060F461920C95AF000EDA6B8 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */; };
-		0610637C21B649C5007F28BB /* CreateChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610637B21B649C5007F28BB /* CreateChange.m */; };
 		0610637F21B649EF007F28BB /* ChangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610637E21B649EF007F28BB /* ChangeList.m */; };
 		0610638221B64A18007F28BB /* ChangeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638121B64A18007F28BB /* ChangeDetailView.m */; };
 		0610638521B64A55007F28BB /* ChangeAnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0610638421B64A55007F28BB /* ChangeAnalysisView.m */; };
@@ -62,6 +61,7 @@
 		0638D40320B7ED9A00A0DD5F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40220B7ED9A00A0DD5F /* UIKit.framework */; };
 		0638D40520B7EDA500A0DD5F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0638D40420B7EDA500A0DD5F /* UserNotifications.framework */; };
 		0638D42620B82A0D00A0DD5F /* admin.png in Resources */ = {isa = PBXBuildFile; fileRef = 0638D42520B82A0D00A0DD5F /* admin.png */; };
+		0643AB9321C104680030FD2D /* CreateChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 0643AB9221C104680030FD2D /* CreateChanges.m */; };
 		064408F420CE58ED00A5DB3B /* userSearchDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */; };
 		064408F620CE58ED00A5DB3B /* userSearchDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408F220CE58ED00A5DB3B /* userSearchDataCell.m */; };
 		064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 064408F820CE5BD900A5DB3B /* AddRequester.m */; };
@@ -191,8 +191,6 @@
 		060F461520C95AEF00EDA6B8 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		060F461620C95AEF00EDA6B8 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		060F461720C95AEF00EDA6B8 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
-		0610637A21B649C5007F28BB /* CreateChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChange.h; sourceTree = "<group>"; };
-		0610637B21B649C5007F28BB /* CreateChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChange.m; sourceTree = "<group>"; };
 		0610637D21B649EF007F28BB /* ChangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeList.h; sourceTree = "<group>"; };
 		0610637E21B649EF007F28BB /* ChangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeList.m; sourceTree = "<group>"; };
 		0610638021B64A18007F28BB /* ChangeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailView.h; sourceTree = "<group>"; };
@@ -271,6 +269,8 @@
 		0638D40220B7ED9A00A0DD5F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0638D40420B7EDA500A0DD5F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		0638D42520B82A0D00A0DD5F /* admin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = admin.png; sourceTree = "<group>"; };
+		0643AB9121C104680030FD2D /* CreateChanges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChanges.h; sourceTree = "<group>"; };
+		0643AB9221C104680030FD2D /* CreateChanges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChanges.m; sourceTree = "<group>"; };
 		064408ED20CE58EB00A5DB3B /* attachmentListShowTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attachmentListShowTableCell.h; sourceTree = "<group>"; };
 		064408EF20CE58EC00A5DB3B /* userSearchDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userSearchDataCell.xib; sourceTree = "<group>"; };
 		064408F020CE58EC00A5DB3B /* userSearchDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSearchDataCell.h; sourceTree = "<group>"; };
@@ -489,8 +489,8 @@
 		0610637921B6426A007F28BB /* ChangeManagement */ = {
 			isa = PBXGroup;
 			children = (
-				0610637A21B649C5007F28BB /* CreateChange.h */,
-				0610637B21B649C5007F28BB /* CreateChange.m */,
+				0643AB9121C104680030FD2D /* CreateChanges.h */,
+				0643AB9221C104680030FD2D /* CreateChanges.m */,
 				0610637D21B649EF007F28BB /* ChangeList.h */,
 				0610637E21B649EF007F28BB /* ChangeList.m */,
 				0610638021B64A18007F28BB /* ChangeDetailView.h */,
@@ -1230,7 +1230,6 @@
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
-				0610637C21B649C5007F28BB /* CreateChange.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
 				06FEE9E721BA5F36003AF5B8 /* ViewAttachedChange.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
@@ -1252,6 +1251,7 @@
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
 				060F460B20C927C400EDA6B8 /* UIImageView+Letters.m in Sources */,
+				0643AB9321C104680030FD2D /* CreateChanges.m in Sources */,
 				06B3D997213FA274004D548E /* ProblemDetailView.m in Sources */,
 				064408FE20CE725600A5DB3B /* AttachmentViewController.m in Sources */,
 				0644092E20CE891D00A5DB3B /* TPKeyboardAvoidingCollectionView.m in Sources */,
