@@ -28,7 +28,6 @@ Create a popup with custom animations and behaviors. Customizations can also be 
 
 	- (instancetype)initWithContents:(NSArray *)contents;
 
-
 `contents` only accepts an array of `UIView` objects.
 
 ## Presentation
@@ -77,8 +76,8 @@ CNPPopupController was created by [Carson Perrotti](http://carsonperrotti.com)
 
 **September 15, 2016 v0.3.3**
 - Content layout fixes
-- Better swift support
-
+- Better swift support  
+  
 **July 14, 2016 v0.3.2**
 - Fixes an issue where content would not be perfectly centred.
 - Project compatibility fixes to prevent `duplicate symbols` errors.
@@ -86,18 +85,18 @@ CNPPopupController was created by [Carson Perrotti](http://carsonperrotti.com)
 
 **September 13, 2015 v0.3.1**
 - Sets `movesAboveKeyboard` to `YES` in the default theme.
-
+  
 **September 11, 2015 v0.3.0**
 - Support for iOS 9 and a few bug fixes.
-
+ 
 **August 30, 2015 v0.2.3**
 - Lower minimum required OS version to 6.0, since it works there anyway.
-
+  
 **August 16, 2015 v0.2.2**
 - Bug fix for centering the popup above the keyboard when presented. Thanks to [Nicholas](https://github.com/nicholas) for the proactive help on this one.
-
+  
 **June 14th, 2015 v0.2.0**
 - Completely rewritten. *Started from the bottom, now we're here.*
-- There are some minor API changes in v0.2.0. I tried to keep it as close to the last version as possible. See the example project if you need some help getting it set up.
+- There are some minor API changes in v0.2.0. I tried to keep it as close to the last version as possible. See the example project if you need some help getting it set up.  
 - Custom view support (You can add anything, as it's contents as long as it is a UIView or subclass of UIView
-- Lots of bug fixes
+- Lots of bug fixes  
