@@ -71,9 +71,6 @@
     [self reload];
 }
 
-
-
-
 -(void)reload{
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)

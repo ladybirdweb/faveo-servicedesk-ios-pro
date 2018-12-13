@@ -815,9 +815,19 @@
                         
                         self->globalVariables.problemId= [NSNumber numberWithInt:[self->globalVariables.problemId intValue]];
                         
+                        self->globalVariables.test121 = @"111";
                         ProblemDetailView *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
-                        [self.navigationController pushViewController:td animated:YES];
                         
+                     //   [self.navigationController pushViewController:td animated:YES];
+                        
+                        SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:td];
+                        
+                        ProblemList *problemList = (ProblemList*)[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                        
+                        // Initialize SWRevealViewController and set it as |rootViewController|
+                        SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:problemList frontViewController:slide];
+                        
+                        [self presentViewController:vc animated:YES completion:nil];
                         
                     });
                     

@@ -30,6 +30,9 @@
 #import "ChangeList.h"
 #import "ProblemList.h"
 #import "CreateChanges.h"
+#import "SampleNavigation.h" //
+#import "ExpandableTableViewController.h"
+#import "SWRevealViewController.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -97,6 +100,14 @@
         
     }
     
+    //self->globalVariables.test121
+    
+    if ([globalVariables.test121 isEqualToString:@"111"]) {
+        
+        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick1:)];
+        self.navigationItem.leftBarButtonItem = rightBtn;
+        
+    }
     
     UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [editButton setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
@@ -459,6 +470,24 @@
 -(void)backBtnClick:(UIBarButtonItem*)item{
     globalVariables.showNavigationItem =@"";
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)backBtnClick1:(UIBarButtonItem*)item{
+    globalVariables.test121 =@"";
+    
+    ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+    
+    SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
+    
+    
+    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+    
+    // Initialize SWRevealViewController and set it as |rootViewController|
+    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
 }
 
 

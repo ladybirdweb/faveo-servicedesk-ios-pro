@@ -139,14 +139,6 @@
                     
                     [SVProgressHUD dismiss];
                     
-                    if( [msg containsString:@"Error-401"])
-                        
-                    {
-                        [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
-                        // [[AppDelegate sharedAppdelegate] hideProgressView];
-                        
-                    }
-                    else
                         if( [msg containsString:@"Error-429"])
                             
                         {
@@ -155,15 +147,7 @@
                             
                         }
                     
-                        else if( [msg isEqualToString:@"Error-403"] && [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"])
-                            
-                        {
-                            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];
-                            
-                            
-                        }
-                    
-                        else if( [msg containsString:@"Error-403"])
+                        else if( ([msg isEqualToString:@"Error-403"] && [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"] ) || ([msg isEqualToString:@"Error-403"] || [self->globalVariables.roleFromAuthenticateAPI isEqualToString:@"user"]))
                             
                         {
                             [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Access Denied.  Your credentials/Role has been changed. Contact to Admin and try to login again."] sendViewController:self];

@@ -183,4 +183,7 @@
 //It used to to check wheather this release is creating fresh or with the problem.
 @property (strong, nonatomic) NSString *createReleaseConditionforVC;
 
+
+//test
+@property (strong, nonatomic) NSString *test121;
 @end
