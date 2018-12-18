@@ -92,6 +92,7 @@
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
+    [SVProgressHUD showWithStatus:@"Please wait"];
     
   //  [self getMetaDataForProblem];
     
@@ -384,6 +385,7 @@
                     
                 }
                 NSLog(@"Thread-allproblem-dependency-closed");
+                 [SVProgressHUD dismiss];
             }
              ];
         }@catch (NSException *exception)
@@ -979,7 +981,24 @@
                 
             }
         }
-        else{
+        else if([jsonData objectForKey:@"error"]){
+            
+            NSDictionary *errorDict=[jsonData objectForKey:@"error"];
+            NSObject *subjectType=[errorDict objectForKey:@"subject"];
+            
+            if([subjectType isKindOfClass:[NSArray class]]){
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"The subject should be less than 50 characters"] sendViewController:self];
+                    [SVProgressHUD dismiss];
+                });
+                
+            }
+            
+            
+        }
+        else {
             
             dispatch_async(dispatch_get_main_queue(), ^{
 

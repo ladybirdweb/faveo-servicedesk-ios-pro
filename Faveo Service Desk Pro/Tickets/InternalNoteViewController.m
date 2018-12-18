@@ -50,7 +50,6 @@
     [self.noteTextView setInputAccessoryView:toolBar];
     
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
-    _noteTitleLabel.textColor = [UIColor colorFromHexString:@"00AEEF"];
     _noteContentLabel.textColor = [UIColor colorFromHexString:@"00AEEF"];
     
     // to set black background color mask for Progress view

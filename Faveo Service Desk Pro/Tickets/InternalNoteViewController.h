@@ -39,12 +39,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButtonOutlet;
 
-/*!
- @property noteTitleLabel
- 
- @brief This is label property used to show some label title
- */
-@property (weak, nonatomic) IBOutlet UILabel *noteTitleLabel;
 
 /*!
  @property noteContentLabel

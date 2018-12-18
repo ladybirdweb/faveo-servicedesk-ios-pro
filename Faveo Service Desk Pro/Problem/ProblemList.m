@@ -288,7 +288,7 @@
     else{
         
         UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-        noDataLabel.text             = NSLocalizedString(@"No Records..!!!",nil);
+        noDataLabel.text             = NSLocalizedString(@"",nil);
         noDataLabel.textColor        = [UIColor blackColor];
         noDataLabel.textAlignment    = NSTextAlignmentCenter;
         tableView.backgroundView = noDataLabel;

@@ -312,7 +312,7 @@
         
         if([globalVariables.assetStatusInTicketDetailVC isEqualToString:@"notFound"]){
             
-            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Data Found."] sendViewController:self];
+            [self->utils showAlertWithMessage:[NSString stringWithFormat:@"No Assets Found"] sendViewController:self];
             [self.normalModalView1 close];
 
         }
@@ -361,6 +361,10 @@
         
         ReplyTicketViewController *reply=[self.storyboard instantiateViewControllerWithIdentifier:@"replyTicketViewId"];
         [self.navigationController pushViewController:reply animated:YES];
+        
+//        InternalNoteViewController * note=[self.storyboard instantiateViewControllerWithIdentifier:@"internalNoteViewId"];
+//        [self.navigationController pushViewController:note animated:YES];
+        
         
     }
     else if(item.tag == 4) {

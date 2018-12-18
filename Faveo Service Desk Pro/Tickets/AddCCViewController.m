@@ -143,8 +143,8 @@
 -(void)getCCCount
 {
     
-    ReplyTicketViewController * rply=[[ReplyTicketViewController alloc]init];
-    [rply FetchCollaboratorAssociatedwithTicket];
+  //  ReplyTicketViewController * rply=[[ReplyTicketViewController alloc]init];
+   // [rply FetchCollaboratorAssociatedwithTicket];
     
 }
 

@@ -83,18 +83,5 @@
 - (IBAction)submitButtonAction:(id)sender;
 
 
-/*!
- @method FetchCollaboratorAssociatedwithTicket
- 
- @brief This method is called to get data of cc which is attached to the particular ticket.
- 
- @code
- 
- -(void)FetchCollaboratorAssociatedwithTicket;
- 
- @endcode
- 
- */
--(void)FetchCollaboratorAssociatedwithTicket;
 
 @end

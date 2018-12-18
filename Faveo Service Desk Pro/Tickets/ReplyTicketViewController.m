@@ -20,6 +20,11 @@
 #import "AddCCViewController.h"
 #import "ViewCCViewController.h"
 #import "BIZPopupViewController.h"
+#import "InboxTickets.h"
+#import "SampleNavigation.h"
+#import "SWRevealViewController.h"
+#import "ExpandableTableViewController.h"
+#import "IQKeyboardManager.h"
 
 @interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,HSAttachmentPickerDelegate>
 {
@@ -46,7 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=@"Reply Ticket";
+ //   self.title=@"Reply Ticket";
     
     self.tableview.separatorColor=[UIColor clearColor];
     
@@ -54,6 +59,9 @@
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
     
+ //   _messageTextView.delegate=self;
+    
+     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:false];
     
     UIButton *attachmentButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [attachmentButton setImage:[UIImage imageNamed:@"attach1"] forState:UIControlStateNormal];
@@ -70,7 +78,7 @@
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    
+/*
     //giving action to lables
     _addCCLabel.userInteractionEnabled=YES;
     _viewCCLabel.userInteractionEnabled=YES;
@@ -95,15 +103,18 @@
     
     _addCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     _viewCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
+    */
     _msgLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     
-    UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
-
-    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-
-    [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
-    [self.messageTextView setInputAccessoryView:toolBar];
+  
+//    //show done button on keybaord
+//    UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+//    UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
+//
+//    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//
+//    [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
+//    [self.messageTextView setInputAccessoryView:toolBar];
 //
 
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
@@ -111,16 +122,18 @@
     
 }
 
--(void)removeKeyBoard
-{
-    [_messageTextView resignFirstResponder];
-}
+//-(void)removeKeyBoard
+//{
+//    [_messageTextView resignFirstResponder];
+//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+/*
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -129,7 +142,9 @@
     
     
 }
+*/
 
+/*
 // After clcking this method, it will move to add cc view controller
 -(void)clickedOnCCSubButton
 {
@@ -159,7 +174,7 @@
     
 }
 
-
+*/
 - (IBAction)submitButtonAction:(id)sender {
     
     [_messageTextView resignFirstResponder];
@@ -175,11 +190,12 @@
     {
         //  [self replyTicketMethodCall];
         
-        [self performSelector:@selector(replyTicketMethodCall) withObject:self afterDelay:5.0];
+        [self performSelector:@selector(replyTicketMethodCall) withObject:self afterDelay:2.0];
     }
     
 }
 
+/*
 // This method fetch the cc list
 -(void)FetchCollaboratorAssociatedwithTicket
 {
@@ -259,6 +275,8 @@
     
 }
 
+ */
+
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView {
     return NO;
 }
@@ -266,13 +284,14 @@
 //Asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    
-    if (range.length == 0) {
-        if ([text isEqualToString:@"\n"]) {
-            _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
-            return NO;
-        }
-    }
+     
+//    
+//    if (range.length == 0) {
+//        if ([text isEqualToString:@"\n"]) {
+//            _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
+//            return NO;
+//        }
+//    }
     
     if(textView == _messageTextView)
     {
@@ -651,11 +670,21 @@
                                                     atPosition:RMessagePositionNavBarOverlay
                                           canBeDismissedByUser:YES];
                     
+//
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+//
+//                    [self.view setNeedsDisplay];
+//                    [self.navigationController popViewControllerAnimated:YES];
+                  
+                    InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
                     
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+                    SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
                     
-                    [self.view setNeedsDisplay];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                    
+                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+                    
+                    [self presentViewController:vc animated:YES completion:nil];
                     
                 }
                 
