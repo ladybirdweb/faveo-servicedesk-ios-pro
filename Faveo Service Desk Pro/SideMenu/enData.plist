@@ -16,16 +16,6 @@
 		</dict>
 		<dict>
 			<key>Name</key>
-			<string>Request Item</string>
-			<key>level</key>
-			<integer>0</integer>
-			<key>id</key>
-			<string>home</string>
-			<key>image</key>
-			<string>Invite</string>
-		</dict>
-		<dict>
-			<key>Name</key>
 			<string>Ticket List</string>
 			<key>level</key>
 			<integer>0</integer>

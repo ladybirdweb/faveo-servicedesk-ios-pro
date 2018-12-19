@@ -31,7 +31,7 @@
 #import "ViewAttachedProblems.h"
 #import "ProblemList.h"
 #import "ProblemListForPopUpView.h"
-
+#import "SampleNavigation.h"
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
@@ -1072,6 +1072,7 @@
     
     CreateProblem *createProblemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
     [self.navigationController pushViewController:createProblemVC animated:YES];
+
     
     [self.normalModalView2 close];
     
@@ -1266,7 +1267,8 @@
             
             MyWebservices *webservices=[MyWebservices sharedInstance];
             [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
-                //   NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
+                
+                NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
                 
                 if (error || [msg containsString:@"Error"]) {
                     
@@ -1277,6 +1279,17 @@
                         
                     {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
+                        
+                        
+                    }
+                    if( [msg containsString:@"Error-400"])
+                        
+                    {
+                       // [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Your Credential Has been changed"] sendViewController:self];
+                        
+                        self->globalVariables.assetStatusInTicketDetailVC = @"notFound";
+                        self->_asstetTabBarItem.badgeValue =@"0";
+                        
                         
                         
                     }
@@ -1300,7 +1313,7 @@
                         }
                 }
                 
-                
+               else
                 
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
@@ -1311,9 +1324,11 @@
                 
                 if (json) {
                     
-                 //   NSLog(@"JSON is : %@",json);
+                   NSLog(@"JSON is : %@",json);
+                   NSLog(@"JSON is : %@",json);
+                   NSLog(@"JSON is : %@",json);
                     
-                    self->dataDict = [json objectForKey:@"data"];
+                  //  self->dataDict = [json objectForKey:@"data"];
                     
                     if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
                         
@@ -1339,15 +1354,26 @@
                         });
                         
                         
-                    }else{
-                        
-                        NSLog(@"No Assets are found");
-                        // data is not available
-                        
-                        self->globalVariables.assetStatusInTicketDetailVC = @"notFound";
-                        self->_asstetTabBarItem.badgeValue =@"0";
-                        
                     }
+//                    else if([[json objectForKey:@"message"] isKindOfClass:[NSString class]])
+//                        {
+//                            NSLog(@"No Assets are found");
+//                            // data is not available
+//
+//                            self->globalVariables.assetStatusInTicketDetailVC = @"notFound";
+//                            self->_asstetTabBarItem.badgeValue =@"0";
+//
+//
+//                        }
+                      else{
+                        
+                           NSLog(@"No Assets are found");
+                           // data is not available
+                        
+                           self->globalVariables.assetStatusInTicketDetailVC = @"notFound";
+                           self->_asstetTabBarItem.badgeValue =@"0";
+                        
+                          }
                     
                     
                     

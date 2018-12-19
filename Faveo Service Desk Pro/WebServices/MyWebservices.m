@@ -197,6 +197,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] ];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+        
         NSLog(@"Response is required : %@",(NSHTTPURLResponse *) response);
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -214,19 +215,20 @@
             if (statusCode != 200) {
                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                 
-                if (statusCode==400) {
-                    if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            block(nil,nil,@"tokenRefreshed");
-                        });
-                        NSLog(@"Thread--httpResponsePOST--tokenRefreshed");
-                    }else {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            block(nil,nil,@"tokenNotRefreshed");
-                        });
-                        NSLog(@"Thread--httpResponsePOST--tokenNotRefreshed");
-                    }
-                }else if (statusCode==401){
+//                if (statusCode==400) {
+//                    if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            block(nil,nil,@"tokenRefreshed");
+//                        });
+//                        NSLog(@"Thread--httpResponsePOST--tokenRefreshed");
+//                    }else {
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            block(nil,nil,@"tokenNotRefreshed");
+//                        });
+//                        NSLog(@"Thread--httpResponsePOST--tokenNotRefreshed");
+//                    }
+//                }else
+                    if (statusCode==401){
                     
                     if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -247,6 +249,7 @@
             }
             
             NSString *replyStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"replyStr is : %@",replyStr);
             
             if ([replyStr containsString:@"token_expired"]) {
                 NSLog(@"Thread--httpResponseGET--token_expired");

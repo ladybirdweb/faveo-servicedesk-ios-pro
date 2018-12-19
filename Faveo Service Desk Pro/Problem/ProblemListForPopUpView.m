@@ -199,8 +199,8 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             
-                            [self->refresh endRefreshing];
                             [self reloadTableView];
+                            [self->refresh endRefreshing];
                             [SVProgressHUD dismiss];
                             
                         });
