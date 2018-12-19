@@ -1182,7 +1182,7 @@
         globalVariables.lastNameFromTicket=[customerDict objectForKey:@"last_name"];
         globalVariables.userIdFromTicket=[customerDict objectForKey:@"id"];
         
-        
+        globalVariables.fromVC = @"fromUnassignedTickets";
         [self.navigationController pushViewController:td animated:YES];
         
         

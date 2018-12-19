@@ -145,4 +145,9 @@
 //This property is used to identify that which button clicked on update modalView for a problem. Values can be rootCause, impact, symptoms and solution.
 @property (strong, nonatomic) NSString *updateProblemValue;
 
+
+//checking is ticket detail, while chnaging ticketr status - where it came from -and where it has to be push back
+@property (strong, nonatomic) NSString *fromVC;
+
+
 @end

@@ -32,6 +32,10 @@
 #import "ProblemList.h"
 #import "ProblemListForPopUpView.h"
 #import "SampleNavigation.h"
+#import "MyTickets.h"
+#import "UnassignedTickets.h"
+#import "ClosedTickets.h"
+#import "TrashTickets.h"
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
@@ -803,6 +807,7 @@
                     [self->utils showAlertWithMessage:NSLocalizedString(@"Permission Denied - You don't have permission to change status. ", nil) sendViewController:self];
                     
                 }
+                else
                 if([[json objectForKey:@"message"] isKindOfClass:[NSDictionary class]])
                 {
                     [self->utils showAlertWithMessage:NSLocalizedString(@"Error: Some Issue with Back-end server. Please try again later.", nil) sendViewController:self];
@@ -831,10 +836,36 @@
                                                     buttonCallback:nil
                                                         atPosition:RMessagePositionNavBarOverlay
                                               canBeDismissedByUser:YES];
-                        
-                        
-                       InboxTickets  *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-                        [self.navigationController pushViewController:inboxVC animated:YES];
+                      
+                    
+                        if([self->globalVariables.fromVC isEqualToString:@"fromInbox"]){
+                            
+                            InboxTickets  *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                            [self.navigationController pushViewController:inboxVC animated:YES];
+                        }
+                        else if([self->globalVariables.fromVC isEqualToString:@"fromMyTickets"]){
+
+                            MyTickets  *myTicketsVC=[self.storyboard instantiateViewControllerWithIdentifier:@"myTicketsId"];
+                            [self.navigationController pushViewController:myTicketsVC animated:YES];
+                        }
+                        else if([self->globalVariables.fromVC isEqualToString:@"fromUnassignedTickets"]){
+
+                            UnassignedTickets  *unassignedVC=[self.storyboard instantiateViewControllerWithIdentifier:@"unAssignedId"];
+                            [self.navigationController pushViewController:unassignedVC animated:YES];
+                        }
+                        else if([self->globalVariables.fromVC isEqualToString:@"fromClosedTickets"]){
+
+                            ClosedTickets  *closedVC=[self.storyboard instantiateViewControllerWithIdentifier:@"closedId"];
+                            [self.navigationController pushViewController:closedVC animated:YES];
+                        }
+                        else if([self->globalVariables.fromVC isEqualToString:@"fromTrashTickets"]){
+
+                            TrashTickets  *trashVC=[self.storyboard instantiateViewControllerWithIdentifier:@"trashId"];
+                            [self.navigationController pushViewController:trashVC animated:YES];
+                        }
+                        else{
+
+                        }
                         
                     }else
                     {

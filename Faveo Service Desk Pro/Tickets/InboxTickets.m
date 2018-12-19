@@ -26,6 +26,7 @@
 #import "MultipleTicketAssignView.h"
 #import "TicketMergeView.h"
 #import "SearchViewController.h"
+#import "LoginViewController.h"
 
 @import FirebaseInstanceID;
 @import FirebaseMessaging;
@@ -551,6 +552,12 @@
                        [SVProgressHUD dismiss];
                         
                     }
+                    else
+                        if([[json objectForKey:@"message"] isKindOfClass:[NSDictionary class]])
+                        {
+                            [self->utils showAlertWithMessage:NSLocalizedString(@"Error: Some Issue with Back-end server. Please try again later.", nil) sendViewController:self];
+                            
+                        }
                     else{
                         
                         NSString * msg=[json objectForKey:@"message"];
@@ -752,7 +759,7 @@
                 
                 if ([msg isEqualToString:@"tokenNotRefreshed"]) {
                     
-                   // [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                   [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
                     
                    [SVProgressHUD dismiss];
                     
@@ -1633,7 +1640,7 @@
         globalVariables.lastNameFromTicket=[customerDict objectForKey:@"last_name"];
         globalVariables.userIdFromTicket=[customerDict objectForKey:@"id"];
         
-        
+        globalVariables.fromVC = @"fromInbox";
         [self.navigationController pushViewController:td animated:YES];
         
         
@@ -1718,6 +1725,84 @@
 }
 
 
+
+-(void)showMessageForLogout:(NSString*)message sendViewController:(UIViewController *)viewController
+{
+    UIAlertController *alertController = [UIAlertController   alertControllerWithTitle:APP_NAME message:message  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction  actionWithTitle:@"Logout"
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction *action)
+                                   {
+                                       [self logout];
+                                       
+                                       if (self.navigationController.navigationBarHidden) {
+                                           [self.navigationController setNavigationBarHidden:NO];
+                                       }
+                                       
+                                       [RMessage showNotificationInViewController:self.navigationController
+                                                                            title:NSLocalizedString(@" Faveo Helpdesk ", nil)
+                                                                         subtitle:NSLocalizedString(@"You've logged out, successfully...!", nil)
+                                                                        iconImage:nil
+                                                                             type:RMessageTypeSuccess
+                                                                   customTypeName:nil
+                                                                         duration:RMessageDurationAutomatic
+                                                                         callback:nil
+                                                                      buttonTitle:nil
+                                                                   buttonCallback:nil
+                                                                       atPosition:RMessagePositionNavBarOverlay
+                                                             canBeDismissedByUser:YES];
+                                       
+                                       LoginViewController *login=[self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+                                       [self.navigationController pushViewController: login animated:YES];
+                                   }];
+    [alertController addAction:cancelAction];
+    
+    [viewController presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+-(void)logout
+{
+    
+    [self sendDeviceToken];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+    
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        [cookieStorage deleteCookie:each];
+    }
+    
+    
+}
+
+-(void)sendDeviceToken{
+    
+    // NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    NSString *url=[NSString stringWithFormat:@"%@fcmtoken?user_id=%@&fcm_token=%s&os=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"user_id"],"0",@"ios"];
+    
+    
+    MyWebservices *webservices=[MyWebservices sharedInstance];
+    [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+        if (error || [msg containsString:@"Error"]) {
+            if (msg) {
+                
+                
+                NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+            }else if(error)  {
+                
+                NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+            }
+            return ;
+        }
+        if (json) {
+            
+            NSLog(@"Thread-sendAPNS-token-json-%@",json);
+           // [[AppDelegate sharedAppdelegate] hideProgressView];
+        }
+        
+    }];
+    
+}
 
 
 

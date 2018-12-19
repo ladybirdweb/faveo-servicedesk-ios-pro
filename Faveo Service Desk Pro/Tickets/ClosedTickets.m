@@ -1186,7 +1186,7 @@
         globalVariables.lastNameFromTicket=[customerDict objectForKey:@"last_name"];
         globalVariables.userIdFromTicket=[customerDict objectForKey:@"id"];
         
-        
+        globalVariables.fromVC = @"fromClosedTickets";
         [self.navigationController pushViewController:td animated:YES];
         
         
