@@ -43,6 +43,8 @@
     NSString *base64Encoded;
     NSString *typeMime;
     
+    UIToolbar *toolBar;
+    
 }
 @end
 
@@ -78,7 +80,7 @@
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-/*
+
     //giving action to lables
     _addCCLabel.userInteractionEnabled=YES;
     _viewCCLabel.userInteractionEnabled=YES;
@@ -103,29 +105,31 @@
     
     _addCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     _viewCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
-    */
     _msgLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
-    
-  
-//    //show done button on keybaord
-//    UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
-//
-//    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-//
-//    [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
-//    [self.messageTextView setInputAccessoryView:toolBar];
-//
-
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
 
+
+    //toolbar is uitoolbar object
+    toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIBarButtonItem *btnDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnClickedDone:)];
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    [toolBar setItems:[NSArray arrayWithObjects:space,btnDone, nil]];
     
 }
 
-//-(void)removeKeyBoard
-//{
-//    [_messageTextView resignFirstResponder];
-//}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    [textView setInputAccessoryView:toolBar];
+    return YES;
+}
+
+-(IBAction)btnClickedDone:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -133,18 +137,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
 -(void)viewWillAppear:(BOOL)animated
 {
     [self viewDidLoad];
     [self FetchCollaboratorAssociatedwithTicket];
-    
-    
-}
-*/
 
-/*
+}
+
+
+
 // After clcking this method, it will move to add cc view controller
 -(void)clickedOnCCSubButton
 {
@@ -174,7 +177,7 @@
     
 }
 
-*/
+
 - (IBAction)submitButtonAction:(id)sender {
     
     [_messageTextView resignFirstResponder];
@@ -195,7 +198,7 @@
     
 }
 
-/*
+
 // This method fetch the cc list
 -(void)FetchCollaboratorAssociatedwithTicket
 {
@@ -275,27 +278,24 @@
     
 }
 
- */
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
-    return NO;
-}
 
 //Asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
      
-//    
-//    if (range.length == 0) {
-//        if ([text isEqualToString:@"\n"]) {
-//            _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
-//            return NO;
-//        }
-//    }
-    
+//
+
+    if (range.length == 0) {
+        if ([text isEqualToString:@"\n"]) {
+            _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
+            return NO;
+        }
+    }
+
     if(textView == _messageTextView)
     {
-        
+
         if([text isEqualToString:@" "])
         {
             if(!textView.text.length)
@@ -303,27 +303,27 @@
                 return NO;
             }
         }
-        
+
         if([textView.text stringByReplacingCharactersInRange:range withString:text].length < textView.text.length)
         {
-            
+
             return  YES;
         }
-        
+
         if([textView.text stringByReplacingCharactersInRange:range withString:text].length >500)
         {
             return NO;
         }
-        
+
         NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.1234567890!@#$^&*()--=+/?:;{}[]| "];
-        
-        
+
+
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)
         {
             return NO;
         }
     }
-    
+
     
     return YES;
 }
@@ -639,6 +639,7 @@
             }
             
             NSLog(@"Dictionary is : %@",jsonData);
+             NSLog(@"Dictionary is : %@",jsonData);
             // "message": "Successfully replied"
             
             

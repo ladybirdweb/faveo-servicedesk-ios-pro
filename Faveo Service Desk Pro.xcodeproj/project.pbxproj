@@ -114,7 +114,6 @@
 		06765DB920CBA76D000D834D /* ReplyTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DB820CBA76D000D834D /* ReplyTicketViewController.m */; };
 		06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06765DBB20CBA782000D834D /* InternalNoteViewController.m */; };
 		0676605920CBBC79000D834D /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605820CBBC79000D834D /* FTPopOverMenu.m */; };
-		0676605F20CBBD93000D834D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
 		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
@@ -151,6 +150,8 @@
 		06D6B64821B8F48900B71700 /* DeckTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64721B8F48900B71700 /* DeckTestCase.m */; };
 		06D6B64A21B8F49900B71700 /* PlayingCardDeckTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */; };
 		06E8451D213EB19000786CEB /* ProblemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8451C213EB19000786CEB /* ProblemList.m */; };
+		06F6258A21CB63CA0060E4AB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676605E20CBBD93000D834D /* Utils.m */; };
+		06F6258C21CB86DD0060E4AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF8820B2E233004CFDC9 /* AppDelegate.m */; };
 		3F4696CC9617C273A4C1EE22 /* libPods-Faveo Service Desk Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0851D67F391E6C63BCD66A96 /* libPods-Faveo Service Desk Pro.a */; };
 /* End PBXBuildFile section */
 
@@ -1182,6 +1183,7 @@
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
 				06B3D99A213FB430004D548E /* AnalysisView.m in Sources */,
+				06F6258A21CB63CA0060E4AB /* Utils.m in Sources */,
 				0619CF9720B2E234004CFDC9 /* main.m in Sources */,
 				0630D96C20C6A7CD00191A7D /* MyWebservices.m in Sources */,
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
@@ -1234,7 +1236,6 @@
 				06D6479F20C57274000783C8 /* UnassignedTickets.m in Sources */,
 				0644092A20CE891D00A5DB3B /* BIZPopupViewController.m in Sources */,
 				0623809E20CA84A000257395 /* TicketDetailViewController.m in Sources */,
-				0676605F20CBBD93000D834D /* Utils.m in Sources */,
 				0630D95E20C675EB00191A7D /* ClientEditDetailsView.m in Sources */,
 				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
@@ -1256,6 +1257,7 @@
 			files = (
 				06D6B64821B8F48900B71700 /* DeckTestCase.m in Sources */,
 				06D6B63E21B8F42100B71700 /* PlayingCard.m in Sources */,
+				06F6258C21CB86DD0060E4AB /* AppDelegate.m in Sources */,
 				06D6B64421B8F45400B71700 /* CardTestCase.m in Sources */,
 				06D6B64021B8F42100B71700 /* Deck.m in Sources */,
 				06D6B63C21B8F42100B71700 /* PlayingCardDeck.m in Sources */,

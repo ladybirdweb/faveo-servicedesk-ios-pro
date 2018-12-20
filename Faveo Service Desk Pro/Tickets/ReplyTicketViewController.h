@@ -68,6 +68,38 @@
 @property (weak, nonatomic) IBOutlet UILabel *fileSize123;
 
 
+
+/*!
+ @method viewDidLoad
+ 
+ @brief This method used to update the internal methods which are used/called from this methods in order to update and get other details.
+ 
+ @code
+ 
+ -(void)viewDidLoad;
+ 
+ @endcode
+ 
+ */
+-(void)viewDidLoad;
+
+
+
+/*!
+ @method FetchCollaboratorAssociatedwithTicket
+ 
+ @brief This method is called to get data of cc which is attached to the particular ticket.
+ 
+ @code
+ 
+ -(void)FetchCollaboratorAssociatedwithTicket;
+ 
+ @endcode
+ 
+ */
+-(void)FetchCollaboratorAssociatedwithTicket;
+
+
 /*!
  @method submitButtonClicked
  

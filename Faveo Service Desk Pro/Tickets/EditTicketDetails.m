@@ -743,10 +743,10 @@
         
         [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Source.", nil) sendViewController:self];
     }
-    if ([self.typeTextField.text isEqualToString:@"Not Available"]){
-        
-        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Type.", nil) sendViewController:self];
-    }
+//    if ([self.typeTextField.text isEqualToString:@"Not Available"]){
+//
+//        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Type.", nil) sendViewController:self];
+//    }
     else
     {
         [self save];
@@ -779,11 +779,20 @@
         
     }else{
         if (_typeTextField.text.length!=0) {
+            
+            if([_typeTextField.text isEqualToString:@"Not Available"]){
+                type_id=0;
+            }
+            else{
             type_id=[NSNumber numberWithInteger:1+[_typeArray indexOfObject:_typeTextField.text]];
-        }else if([_typeTextField.text isEqualToString:@"Not Available"]){
+            }
+        }else
+        {
             type_id=0;
-        }else type_id=0;
         
+        }
+        
+
         priority_id=[NSNumber numberWithInteger:1+[_priorityArray indexOfObject:_priorityTextField.text]];
         help_topic_id = [NSNumber numberWithInteger:1+[_helptopicsArray indexOfObject:_helptopicsTextField.text]];
        // sla_id = [NSNumber numberWithInteger:1+[_slaPlansArray indexOfObject:_slaTextField.text]];
@@ -822,11 +831,23 @@
             }
         
         
+        NSString *url;
         
-        NSString *url=[NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_type=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,type_id,priority_id,source_id,_messageTextView.text,staffID];
-        
-        NSLog(@"URL is : %@",url);
-        
+        if([_typeTextField.text isEqualToString:@"Not Available"]){
+          
+            url= [NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,priority_id,source_id,_messageTextView.text,staffID];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }
+        else{
+           
+            url= [NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_type=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,type_id,priority_id,source_id,_messageTextView.text,staffID];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }
+       
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
             

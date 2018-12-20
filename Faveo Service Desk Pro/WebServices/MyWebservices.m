@@ -249,7 +249,7 @@
             }
             
             NSString *replyStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"replyStr is : %@",replyStr);
+          //  NSLog(@"replyStr is : %@",replyStr);
             
             if ([replyStr containsString:@"token_expired"]) {
                 NSLog(@"Thread--httpResponseGET--token_expired");

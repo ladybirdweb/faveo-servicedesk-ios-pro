@@ -22,6 +22,8 @@
     Utils *utils;
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
+    UIToolbar *toolBar;
+    
     
 }
 
@@ -40,31 +42,38 @@
     self.tableView.separatorColor=[UIColor clearColor];
     
     
-    
-    UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
-    
-    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
-    [self.noteTextView setInputAccessoryView:toolBar];
-    
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
     _noteContentLabel.textColor = [UIColor colorFromHexString:@"00AEEF"];
     
+  
+    //toolbar is uitoolbar object
+    toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIBarButtonItem *btnDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnClickedDone:)];
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    [toolBar setItems:[NSArray arrayWithObjects:space,btnDone, nil]];
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    
 }
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    [textView setInputAccessoryView:toolBar];
+    return YES;
+}
+
+-(IBAction)btnClickedDone:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)removeKeyBoard
-{
-    [_noteTextView resignFirstResponder];
-}
 
 
 // After clcking submit/add button this method is called, here it will check that content textvies is empty or not. It it is empty then then it will show error message else it will call add internal note api
@@ -231,6 +240,14 @@
 //This method asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    
+    if (range.length == 0) {
+        if ([text isEqualToString:@"\n"]) {
+            _noteTextView.text = [NSString stringWithFormat:@"%@\n\t",_noteTextView.text];
+            return NO;
+        }
+    }
+    
     
     if(textView == _noteTextView)
     {

@@ -202,7 +202,7 @@
                         
                         self->_problemSubject.text = subject;
                     }
-                    else  self->_problemSubject.text = @"No data";
+                    else  self->_problemSubject.text = @"Not Available";
                 
                     //description data
                     NSString *description = [problemList objectForKey:@"description"];
@@ -212,7 +212,7 @@
                         
                         self->_problemDescription.text = description;
                     }
-                    else self->_problemDescription.text = @"No data";
+                    else self->_problemDescription.text = @"Not Available";
                     
                     //from data
                     NSString *from= [problemList objectForKey:@"from"];
@@ -222,7 +222,7 @@
                         
                         self->_fromTextField.text = from;
                     }
-                    else self->_fromTextField.text = @"No data";
+                    else self->_fromTextField.text = @"Not Available";
                     
                     
                     //department data
@@ -237,7 +237,7 @@
 
                         self->_departmentTextField.text = deptName;
                     }
-                    else self->_departmentTextField.text = @"No data";
+                    else self->_departmentTextField.text = @"Not Available";
 
                     
                     //Impact data
@@ -252,7 +252,7 @@
 
                         self->_impactTextField.text = impactName;
                     }
-                    else self->_impactTextField.text = @"No data";
+                    else self->_impactTextField.text = @"Not Available";
                     
                     
                     //stastus data
@@ -266,7 +266,7 @@
                         
                         self->_statusTextField.text = statusName;
                     }
-                    else self->_statusTextField.text = @"No data";
+                    else self->_statusTextField.text = @"Not Available";
                     
                     
                     // prority data
@@ -280,7 +280,7 @@
                         
                         self->_priorityTextField.text = prioName;
                     }
-                    else self->_priorityTextField.text = @"No data";
+                    else self->_priorityTextField.text = @"Not Available";
                     
                     
                     NSDictionary *locationDict = [problemList objectForKey:@"location_type_id"];
@@ -289,7 +289,7 @@
                    
                     if ( [locationDict count] == 0 ) {
                         
-                        self->_locationTextField.text = @"No data";
+                        self->_locationTextField.text = @"Not Available";
                     }
                     else {
                         
