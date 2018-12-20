@@ -21,6 +21,10 @@
 #import "UIImageView+Letters.h"
 #import "SVProgressHUD.h"
 #import "TicketDetailViewController.h"
+#import "SampleNavigation.h"
+#import "ExpandableTableViewController.h"
+#import "ClientListViewController.h"
+#import "SWRevealViewController.h"
 
 @interface ClientDetailsViewController ()<RMessageProtocol>
 {
@@ -51,6 +55,13 @@
     self.profileImageView.clipsToBounds = YES;
     self.profileImageView.layer.borderColor=[[UIColor hx_colorWithHexRGBAString:@"#0288D1"] CGColor];
     
+    if ([globalVariables.fromAppDelegateToVC isEqualToString:@"cd"]) {
+        
+        globalVariables.fromAppDelegateToVC = @"";
+        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick:)];
+        self.navigationItem.leftBarButtonItem = rightBtn;
+        
+    }
     
     UIButton *edit =  [UIButton buttonWithType:UIButtonTypeCustom];
     [edit setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
@@ -261,6 +272,23 @@
     [self reload];
     
     
+    
+}
+
+
+-(void)backBtnClick:(UIBarButtonItem*)item{
+    
+    ClientListViewController *clientList=[self.storyboard instantiateViewControllerWithIdentifier:@"clientListId"];
+    
+    SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:clientList];
+    
+    
+    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+    
+    // Initialize SWRevealViewController and set it as |rootViewController|
+    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+    
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 

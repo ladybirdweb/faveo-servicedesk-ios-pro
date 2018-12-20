@@ -36,6 +36,7 @@
 #import "UnassignedTickets.h"
 #import "ClosedTickets.h"
 #import "TrashTickets.h"
+#import "ExpandableTableViewController.h"
 
 @interface TicketDetailViewController () <RMessageProtocol,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     
@@ -99,6 +100,14 @@
     
    
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
+    
+    if ([globalVariables.fromAppDelegateToVC isEqualToString:@"td"]) {
+        
+        globalVariables.fromAppDelegateToVC = @"";
+        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick:)];
+        self.navigationItem.leftBarButtonItem = rightBtn;
+        
+    }
     
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
@@ -275,6 +284,21 @@
 }
 
 
+-(void)backBtnClick:(UIBarButtonItem*)item{
+    
+    InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+    
+    SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+    
+    
+    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+    
+    // Initialize SWRevealViewController and set it as |rootViewController|
+    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
 
 
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.

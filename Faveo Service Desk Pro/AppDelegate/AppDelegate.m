@@ -16,6 +16,11 @@
 #import <UserNotifications/UserNotifications.h>
 #import "MyWebservices.h"
 #import "UIColor+HexColors.h"
+#import "TicketDetailViewController.h"
+#import "GlobalVariables.h"
+#import "ClientDetailsViewController.h"
+#import "SVProgressHUD.h"
+#import "ClientListViewController.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -45,6 +50,9 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    // to set black background color mask for Progress view
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     // [[IQKeyboardManager sharedManager] setEnabled:true];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
@@ -223,6 +231,106 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
     
     // my rest code //pending
+    
+    TicketDetailViewController *td=[mainStoryboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+    
+    GlobalVariables *globalVariables=[GlobalVariables sharedInstance];
+    
+    // Utils *utils=[[Utils alloc]init];
+    
+    @try{
+        NSString * scenario=[userInfo objectForKey:@"scenario"];
+        if ([scenario isEqualToString:@"tickets"])  {
+            
+            globalVariables.ticketId=[userInfo objectForKey:@"id"];
+            
+            NSError *error; // by = System;
+            if([[userInfo objectForKey:@"by"] isEqualToString:@"System"])
+            {
+                globalVariables.firstNameFromTicket=@"";
+                globalVariables.lastNameFromTicket=@"";
+            }
+            else{
+                NSData *data = [[userInfo objectForKey:@"requester"] dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *requester = [NSJSONSerialization JSONObjectWithData:data
+                                                                          options:kNilOptions
+                                                                            error:&error];
+                
+                
+                globalVariables.firstNameFromTicket= [requester objectForKey:@"first_name"];
+                globalVariables.lastNameFromTicket= [requester objectForKey:@"last_name"];
+            }
+            
+            globalVariables.ticketStatusBool=@"AppDeledateNotificationView";
+            globalVariables.ticketStatus=@"Open";
+            globalVariables.fromAppDelegateToVC = @"td";
+            
+            //globalVariables.ticket_number=[userInfo objectForKey:@"ticket_number"];
+          //  [(UINavigationController *)self.window.rootViewController pushViewController:td animated:YES];
+            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:td];
+
+            InboxTickets *inbox = (InboxTickets*)[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
+
+            // Initialize SWRevealViewController and set it as |rootViewController|
+            SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:inbox frontViewController:slide];
+
+           // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+              self.window.rootViewController = vc;
+              [self.window makeKeyAndVisible];
+            
+            ///////////////////////////
+            [SVProgressHUD dismiss];
+        }else {
+            ClientDetailsViewController *cd=[mainStoryboard instantiateViewControllerWithIdentifier:@"clientDetailsViewId"];
+            NSError *error;
+            NSData *data = [[userInfo objectForKey:@"requester"] dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *requester = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:kNilOptions
+                                                                        error:&error];
+            
+            globalVariables.userIDFromUserList=[requester objectForKey:@"id"];
+            globalVariables.First_nameFromUserList= [requester objectForKey:@"first_name"];
+            globalVariables.Last_nameFromUserList= [requester objectForKey:@"last_name"];
+            
+            globalVariables.userNameFromUserList= [requester objectForKey:@"user_name"];
+            globalVariables.emailFromUserList= [requester objectForKey:@"email"];
+            
+            globalVariables.mobilecodeFromUserList= @"";
+            globalVariables.phoneNumberFromUserList= @"";
+            globalVariables.mobileNumberFromUserList= @"";
+            globalVariables.userNameFromUserList=@"";
+            
+             globalVariables.fromAppDelegateToVC = @"cd";
+            
+            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:cd];
+            
+            ClientListViewController *clientList = (ClientListViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"clientListId"];
+            
+            // Initialize SWRevealViewController and set it as |rootViewController|
+            SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:clientList frontViewController:slide];
+            
+            // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+            
+          //  [(UINavigationController *)self.window.rootViewController pushViewController:cd animated:YES];
+            ////////////////////
+            [SVProgressHUD dismiss];
+            
+        }
+        
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        //[utils showAlertWithMessage:exception.name sendViewController:self];
+        //return;
+    }
+    @finally
+    {
+        NSLog( @" I am in cellForAtIndexPath method in Inobx ViewController" );
+        
+    }
     
     
 }

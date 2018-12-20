@@ -150,4 +150,6 @@
 @property (strong, nonatomic) NSString *fromVC;
 
 
+
+@property (strong, nonatomic) NSString *fromAppDelegateToVC;
 @end

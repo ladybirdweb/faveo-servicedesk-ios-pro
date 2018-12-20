@@ -92,7 +92,6 @@
         
     }
     
-    
     UIButton *editButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [editButton setImage:[UIImage imageNamed:@"pencileEdit"] forState:UIControlStateNormal];
     [editButton addTarget:self action:@selector(editProblem) forControlEvents:UIControlEventTouchUpInside];
