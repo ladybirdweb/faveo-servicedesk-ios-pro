@@ -150,6 +150,8 @@
 @property (strong, nonatomic) NSString *fromVC;
 
 
-
+// This variable is used to naviagte to the next VC after clicking on the push notification, value can be td - ticket details and cd - client details vc
 @property (strong, nonatomic) NSString *fromAppDelegateToVC;
+
+
 @end

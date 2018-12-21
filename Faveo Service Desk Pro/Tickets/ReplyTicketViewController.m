@@ -182,7 +182,7 @@
     
     [_messageTextView resignFirstResponder];
     
-    [SVProgressHUD showWithStatus:@"Please wait."];
+    [SVProgressHUD showWithStatus:@"Please wait..."];
     
     if([_messageTextView.text isEqualToString:@""] || [_messageTextView.text length]==0)
     {
@@ -659,7 +659,7 @@
                     }
                     
                     [RMessage showNotificationInViewController:self.navigationController
-                                                         title:NSLocalizedString(@"success.",nil)
+                                                         title:NSLocalizedString(@"Success",nil)
                                                       subtitle:NSLocalizedString(@"Posted your reply.",nil)
                                                      iconImage:nil
                                                           type:RMessageTypeSuccess

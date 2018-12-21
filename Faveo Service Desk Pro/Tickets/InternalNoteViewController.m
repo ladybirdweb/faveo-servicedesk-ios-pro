@@ -178,7 +178,7 @@
                             }
                             
                             [RMessage showNotificationInViewController:self.navigationController
-                                                                 title:NSLocalizedString(@"success.",nil)
+                                                                 title:NSLocalizedString(@"Success",nil)
                                                               subtitle:NSLocalizedString(@"Posted your note.",nil)
                                                              iconImage:nil
                                                                   type:RMessageTypeSuccess

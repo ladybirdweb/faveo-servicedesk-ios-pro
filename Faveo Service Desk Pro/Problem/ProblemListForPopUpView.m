@@ -300,7 +300,7 @@
         }
         else{
             
-            [RMessage showNotificationInViewController:self
+         /*   [RMessage showNotificationInViewController:self
                                                  title:nil
                                               subtitle:NSLocalizedString(@"All Caught Up", nil)
                                              iconImage:nil
@@ -311,7 +311,7 @@
                                            buttonTitle:nil
                                         buttonCallback:nil
                                             atPosition:RMessagePositionBottom
-                                  canBeDismissedByUser:YES];
+                                  canBeDismissedByUser:YES]; */
         }
     }
     
