@@ -217,6 +217,15 @@
                     return;
                 }
                 
+                if ([msg isEqualToString:@"tokenNotRefreshed"]) {
+                    
+                    [self->utils showAlertWithMessage:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    
+                    [SVProgressHUD dismiss];
+                    
+                    return;
+                }
+                
                 if (json) {
                     //NSError *error;
                     

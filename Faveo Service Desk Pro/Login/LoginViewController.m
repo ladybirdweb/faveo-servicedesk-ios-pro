@@ -50,6 +50,15 @@
      userdefaults=[NSUserDefaults standardUserDefaults];
      globalVariables=[GlobalVariables sharedInstance];
     
+    //NSLog(@"App URL: %@",globalVariables.appURL);
+    if(globalVariables.appURL.length==0 || [globalVariables.appURL isKindOfClass:[NSNull class]] || [globalVariables.appURL isEqualToString:@""]||[globalVariables.appURL isEqualToString:@"(null)"]|| globalVariables.appURL==nil || [globalVariables.appURL isEqualToString:@"<null>"])
+    {
+        _urlTextfield.text = @"";
+    }
+    else{
+        _urlTextfield.text = [NSString stringWithFormat:@"%@",self->globalVariables.appURL];
+    }
+    
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
@@ -108,6 +117,8 @@
     
     [self.loginView setHidden:YES];
     [self.companyURLview setHidden:NO];
+    
+    
     
 }
 
@@ -452,12 +463,23 @@
                         
                     });
                     [self->userdefaults setObject:[self->baseURL stringByAppendingString:@"api/v1/"] forKey:@"companyURL"];
+                    
+                    NSString *appURLString = self->baseURL;
+                    
+                    if ([appURLString length] > 0) {
+                        appURLString = [appURLString substringToIndex:[appURLString length] - 1];
+                    } else {
+                        //no characters to delete... attempting to do so will result in a crash
+                    }
+                    
+                   
+                    self->globalVariables.appURL = appURLString;
                     [self->userdefaults synchronize];
                     
                 }else{
                     
                     [self->utils showAlertWithMessage:@"Something went wrong in Billing. Please try later." sendViewController:self];
-                    
+                  
                //     [[AppDelegate sharedAppdelegate] hideProgressView];
                       [SVProgressHUD dismiss];
                 }
@@ -520,7 +542,7 @@
             
         }else{
             
-            [SVProgressHUD showWithStatus:@"Please wait"];
+            [SVProgressHUD showWithStatus:@"Validating..."];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
             // NSString *params=[NSString string];

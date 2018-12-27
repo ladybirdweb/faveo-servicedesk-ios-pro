@@ -154,4 +154,8 @@
 @property (strong, nonatomic) NSString *fromAppDelegateToVC;
 
 
+//app url
+@property (strong, nonatomic) NSString *appURL;
+
+
 @end
