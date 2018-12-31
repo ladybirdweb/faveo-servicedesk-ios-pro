@@ -92,7 +92,7 @@
     _servicdeskUrlLabel.textColor = [UIColor colorFromHexString:@"049BE5"];
 //    _urlNextButton.backgroundColor = [UIColor colorFromHexString:@"1287DE"];
     
-    
+    _loginButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00aeef"];
     
 //    _loginLabel.userInteractionEnabled=YES;
 //
@@ -147,25 +147,22 @@
 
 // After clicking this button it will check url which is eneterd by user.
 - (IBAction)urlNextButtonAction:(id)sender {
-    
-    [self.urlTextfield resignFirstResponder];
-    [SVProgressHUD showWithStatus:@"Verifying URL"];
-    [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
-   
+    if (self.urlTextfield.text.length==0){
+        
+        [utils showAlertWithMessage:@"Please Enter the URL" sendViewController:self];
+        [SVProgressHUD dismiss];
+        
+    }else{
+       [self.urlTextfield resignFirstResponder];
+       [SVProgressHUD showWithStatus:@"Verifying URL"];
+       [self performSelector:@selector(URLValidationMethod) withObject:self afterDelay:2.0];
+    }
 }
 
 // This method validates the URL
 -(void)URLValidationMethod
 {
 
-    
-    if (self.urlTextfield.text.length==0){
-        
-        [utils showAlertWithMessage:@"Please Enter the URL" sendViewController:self];
-        [SVProgressHUD dismiss];
-        
-    }
-    else{
         if ([Utils validateUrl:self.urlTextfield.text]) {
             
             baseURL=[[NSString alloc] init];
@@ -354,7 +351,7 @@
             
         }else
             [utils showAlertWithMessage:NSLocalizedString(@"Please Enter a valid URL",nil) sendViewController:self];
-    }
+    
 
 }
 //    dispatch_async(dispatch_get_main_queue(), ^{
@@ -542,7 +539,7 @@
             
         }else{
             
-            [SVProgressHUD showWithStatus:@"Validating..."];
+            [SVProgressHUD showWithStatus:@"Validating Profile..."];
             
             NSString *url=[NSString stringWithFormat:@"%@authenticate",[[NSUserDefaults standardUserDefaults] objectForKey:@"companyURL"]];
             // NSString *params=[NSString string];

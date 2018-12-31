@@ -25,6 +25,8 @@
 #import "ProblemList.h"
 #import "CNPPopupController.h"
 #import "AppConstanst.h"
+#import "TicketDetailViewController.h"
+#import "SampleNavigation.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -1250,6 +1252,34 @@
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"selected %ld row", (long)indexPath.row);
+    
+     if(theTableView == _tableView1){
+         
+        NSDictionary * ticketDic = [globalVariables.ticketArray objectAtIndex:indexPath.row];
+        
+         globalVariables.ticketNumber = [ticketDic objectForKey:@"ticket_number"];
+         globalVariables.ticketId=[ticketDic objectForKey:@"id"];
+         
+         globalVariables.ticketStatus=@"Open";
+         globalVariables.firstNameFromTicket= @"";
+         globalVariables.lastNameFromTicket=@"";
+         
+        
+         globalVariables.showNavigationItem = @"show";
+         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+         
+         TicketDetailViewController *ticketDetailVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+         
+         SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:ticketDetailVC];
+         
+         ProblemDetailView *probleDetailsVC = (ProblemDetailView*)[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
+         
+         SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:probleDetailsVC frontViewController:navigation];
+         
+         [self presentViewController:vc animated:YES completion:nil];
+         
+         
+     }
 }
 
 

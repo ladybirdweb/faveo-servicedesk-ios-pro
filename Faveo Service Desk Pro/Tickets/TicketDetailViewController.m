@@ -109,6 +109,14 @@
         
     }
     
+    if ([globalVariables.showNavigationItem isEqualToString:@"show"]) {
+        
+        globalVariables.showNavigationItem=@"";
+        UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(backBtnClick2:)];
+        self.navigationItem.leftBarButtonItem = rightBtn;
+        
+    }
+    
     
     UIButton *editTicket =  [UIButton buttonWithType:UIButtonTypeCustom]; // editTicket
     
@@ -283,6 +291,9 @@
     
 }
 
+-(void)backBtnClick2:(UIBarButtonItem*)item{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)backBtnClick:(UIBarButtonItem*)item{
     
