@@ -95,11 +95,11 @@
     
         NSString *problemName= [finaldic objectForKey:@"subject"];
         NSString *from= [finaldic objectForKey:@"from"];
-        NSString *id= [finaldic objectForKey:@"id"];
+        NSString *id2= [finaldic objectForKey:@"id"];
 
         cell.problemNameLabel.text = [NSString stringWithFormat:@"%@",problemName];
         cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
-        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
+        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id2];
         cell.createdDateLabel.text = @"";
         cell.indicationView.layer.backgroundColor=[[UIColor clearColor] CGColor];
         cell.mainView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
@@ -117,6 +117,8 @@
     NSDictionary *finaldic= globalvariable.attachedProblemDataDict;
 
     globalvariable.problemId=[finaldic objectForKey:@"id"];
+    NSLog(@"Problem Id is: %@",globalvariable.problemId);
+    
     globalvariable.showNavigationItem=@"show";
     
     ProblemDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];

@@ -1033,7 +1033,7 @@
     }
     else{
         
-        from_id=[NSNumber numberWithInteger:1+[_fromArray indexOfObject:_fromTextField.text]];
+     //   from_id=[NSNumber numberWithInteger:1+[_fromArray indexOfObject:_fromTextField.text]];
         department_id = [NSNumber numberWithInteger:1+[_departmentArray indexOfObject:_departmentTextField.text]];
         impact_id = [NSNumber numberWithInteger:1+[_impactArray indexOfObject:_impactTextField.text]];
         status_id = [NSNumber numberWithInteger:1+[_statusArray indexOfObject:_statusTextField.text]];
@@ -1096,13 +1096,12 @@
 //
 //        http://productdemourl.com/servicedesk38t/public/api/v1/servicedesk/problem/2?//token&subject&description&from&department&status_type_id&impact_id&priority_id&location_type_id&assigned_id
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@&%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,_fromTextField.text,department_id,status_id,impact_id,priority_id,locatioinID,staffID,assetIds];
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/%@?token=%@&subject=%@&description=%@&from=%@&department=%@&status_type_id=%@&impact_id=%@&priority_id=%@&location_type_id=%@&assigned_id=%@&%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],_subjectTextView.text,_descriptionTextView.text,from_id,department_id,status_id,impact_id,priority_id,locatioinID,staffID,assetIds];
         
         NSLog(@"URL is : %@",url);
         
         //NSString * newUrl = [url stringByAppendingString:@"%@",assetIds];
-        
-        
+
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
             

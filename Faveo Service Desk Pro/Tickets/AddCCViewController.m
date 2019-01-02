@@ -515,13 +515,7 @@
                         //Do not forget to import AnOldViewController.h
                         if ([controller isKindOfClass:[ReplyTicketViewController class]])
                         {
-                            ReplyTicketViewController *viewC;
-                            [self getCCCount];
-                            
-                            [self.navigationController popToViewController:controller animated:YES];
-                            
-                            // [self.navigationController popViewControllerAnimated:YES];
-                    
+                         
                             
                             if (self.navigationController.navigationBarHidden) {
                                 [self.navigationController setNavigationBarHidden:NO];
@@ -539,9 +533,19 @@
                                                         buttonCallback:nil
                                                             atPosition:RMessagePositionNavBarOverlay
                                                   canBeDismissedByUser:YES];
+                           
+                            ReplyTicketViewController *viewC;
                             
                             [viewC viewDidLoad];
-                            return;
+                          
+                            
+                            [self getCCCount];
+                            
+                            [self.navigationController popToViewController:controller animated:YES];
+                            
+                            // [self.navigationController popViewControllerAnimated:YES];
+                            
+                            
                         }
                     }
                     
