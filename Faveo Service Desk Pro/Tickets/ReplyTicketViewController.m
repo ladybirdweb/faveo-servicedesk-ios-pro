@@ -360,6 +360,8 @@
 // here actaul picker called, here it will show picker view and we can select attachment and after selecting file it will print file name and with its size
 - (void)attachmentPickerMenu:(HSAttachmentPicker * _Nonnull)menu upload:(NSData * _Nonnull)data filename:(NSString * _Nonnull)filename image:(UIImage * _Nullable)image {
     
+//    NSLog(@"Data is is : %@",data);
+    
     NSLog(@"File Name : %@", filename);
     NSLog(@"File name : %@",filename);
     
@@ -739,6 +741,10 @@
                 [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", typeMime] dataUsingEncoding:NSUTF8StringEncoding]];
                 [body appendData:[NSData dataWithData:attachNSData]];
                 [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                NSLog(@"File name is: %@",file123);
+                 NSLog(@"MEME type is: %@",typeMime);
+                 NSLog(@"Attached data is : %@",attachNSData);
                 
                 
                 // reply content parameter
