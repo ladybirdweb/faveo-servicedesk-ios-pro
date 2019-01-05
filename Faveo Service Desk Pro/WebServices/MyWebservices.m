@@ -137,6 +137,16 @@
                     NSString *role123=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"role"]];//role
                     NSLog(@"Role from Web Services class : %@",role123);
                     
+                     NSString *userEmail=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"email"]];
+                    [self->_userDefaults setObject:userEmail forKey:@"userEmail"];
+                    
+                     NSString *userProfilePic=[NSString stringWithFormat:@"%@",[userDetailsDict objectForKey:@"profile_pic"]];
+                    [self->_userDefaults setObject:userProfilePic forKey:@"profile_pic"];
+                    
+                    NSString *profileName = [NSString stringWithFormat:@"%@ %@",[userDetailsDict objectForKey:@"first_name"],[userDetailsDict objectForKey:@"last_name"]];
+                    [self->_userDefaults setObject:profileName forKey:@"profile_name"];
+                    
+                    
                     self->globalVariables.roleFromAuthenticateAPI=role123;
                     [self->_userDefaults setObject:role123 forKey:@"msgFromRefreshToken"];
                     
@@ -187,6 +197,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] ];
     
     [[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+        
         NSLog(@"Response is required : %@",(NSHTTPURLResponse *) response);
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -204,19 +215,20 @@
             if (statusCode != 200) {
                 NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
                 
-                if (statusCode==400) {
-                    if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            block(nil,nil,@"tokenRefreshed");
-                        });
-                        NSLog(@"Thread--httpResponsePOST--tokenRefreshed");
-                    }else {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            block(nil,nil,@"tokenNotRefreshed");
-                        });
-                        NSLog(@"Thread--httpResponsePOST--tokenNotRefreshed");
-                    }
-                }else if (statusCode==401){
+//                if (statusCode==400) {
+//                    if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            block(nil,nil,@"tokenRefreshed");
+//                        });
+//                        NSLog(@"Thread--httpResponsePOST--tokenRefreshed");
+//                    }else {
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            block(nil,nil,@"tokenNotRefreshed");
+//                        });
+//                        NSLog(@"Thread--httpResponsePOST--tokenNotRefreshed");
+//                    }
+//                }else
+                    if (statusCode==401){
                     
                     if ([[self refreshToken] isEqualToString:@"tokenRefreshed"]) {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -237,6 +249,7 @@
             }
             
             NSString *replyStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+          //  NSLog(@"replyStr is : %@",replyStr);
             
             if ([replyStr containsString:@"token_expired"]) {
                 NSLog(@"Thread--httpResponseGET--token_expired");
@@ -885,6 +898,25 @@
     NSString *urll=[NSString stringWithFormat:@"%@&api_key=%@&ip=%@&token=%@&user_id=%@",url,API_KEY,IP,[_userDefaults objectForKey:@"token"],uid];
     
     [self httpResponseGET:urll parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            block(error,json,msg);
+        });
+        
+    }];
+    
+}
+
+-(void)getNextPageURLProblemsList:(NSString*)url pageNo:(NSString*)pageInt callbackHandler:(callbackHandler)block{
+    
+    _userDefaults=[NSUserDefaults standardUserDefaults];
+    globalVariables=[GlobalVariables sharedInstance];
+    
+    NSLog(@"page isssss : %@",pageInt);
+
+    NSString *urlNew= [NSString stringWithFormat:@"%@?token=%@&page=%@",url,[_userDefaults objectForKey:@"token"],pageInt];
+    
+    
+    [self httpResponseGET:urlNew parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
         dispatch_async(dispatch_get_main_queue(), ^{
             block(error,json,msg);
         });

@@ -67,7 +67,7 @@
     
     [self addUIRefresh];
     
-    self.titles = @[NSLocalizedString(@"All users", nil),NSLocalizedString(@"Agent users", nil) , NSLocalizedString(@"Active users", nil),NSLocalizedString(@"Client users", nil) , NSLocalizedString(@"Banned users", nil),NSLocalizedString(@"Inactive users", nil),NSLocalizedString(@"Deactivated users",nil)];
+    self.titles = @[NSLocalizedString(@"All users", nil),NSLocalizedString(@"Agent users", nil) , NSLocalizedString(@"Active users", nil),NSLocalizedString(@"Banned users", nil),NSLocalizedString(@"Inactive users", nil),NSLocalizedString(@"Deactivated users",nil)];
     
     self.menuItem = [[AWNavigationMenuItem alloc] init];
     self.menuItem.dataSource = self;
@@ -147,12 +147,14 @@
             tempString=[NSString stringWithFormat:@"%i",1];
             url= [NSString stringWithFormat:@"%@api/v2/helpdesk/user/filter?api_key=%@&token=%@&active=%@",[userDefaults objectForKey:@"baseURL"],API_KEY,[userDefaults objectForKey:@"token"],tempString];
             
-        }else  if([globalVariables.userFilterId isEqualToString:@"CLIENTUSERS"])
-        {
-            tempString=@"user";
-            url= [NSString stringWithFormat:@"%@api/v2/helpdesk/user/filter?api_key=%@&token=%@&role=%@",[userDefaults objectForKey:@"baseURL"],API_KEY,[userDefaults objectForKey:@"token"],tempString];
-            
-        }else  if([globalVariables.userFilterId isEqualToString:@"BANNEDUSERS"])
+        }
+//        else  if([globalVariables.userFilterId isEqualToString:@"CLIENTUSERS"])
+//        {
+//            tempString=@"user";
+//            url= [NSString stringWithFormat:@"%@api/v2/helpdesk/user/filter?api_key=%@&token=%@&role=%@",[userDefaults objectForKey:@"baseURL"],API_KEY,[userDefaults objectForKey:@"token"],tempString];
+//            
+//        }
+        else  if([globalVariables.userFilterId isEqualToString:@"BANNEDUSERS"])
         {
             tempString=[NSString stringWithFormat:@"%i",1];
             url= [NSString stringWithFormat:@"%@api/v2/helpdesk/user/filter?api_key=%@&token=%@&ban=%@",[userDefaults objectForKey:@"baseURL"],API_KEY,[userDefaults objectForKey:@"token"],tempString];

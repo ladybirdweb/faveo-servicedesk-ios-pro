@@ -1,5 +1,6 @@
 PODS:
   - ActionSheetPicker-3.0 (2.3.0)
+  - CNPPopupController (0.3.3)
   - Crashlytics (3.10.0):
     - Fabric (~> 1.7.3)
   - Fabric (1.7.3)
@@ -65,6 +66,7 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
+  - CNPPopupController
   - Crashlytics
   - Fabric
   - Firebase
@@ -79,8 +81,9 @@ DEPENDENCIES:
   - UITextField_AutoSuggestion
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - ActionSheetPicker-3.0
+    - CNPPopupController
     - Crashlytics
     - Fabric
     - Firebase
@@ -105,6 +108,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  CNPPopupController: 59b06290762f68beab5fb0bbfa87eb4dcbefb7de
   Crashlytics: a989ef242b66605577a425733797f810bd2725eb
   Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
@@ -127,6 +131,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   UITextField_AutoSuggestion: dca08de21c8de3f6054dda085087a04b5b326208
 
-PODFILE CHECKSUM: e5b3cb292a640af0aab8199f9d465bad2bec88ed
+PODFILE CHECKSUM: aa2305df934f43d930423fb620fdd6084f94cd5c
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

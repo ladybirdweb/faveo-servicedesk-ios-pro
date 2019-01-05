@@ -11,7 +11,14 @@
 @interface ClientFilter : UIViewController
 
 
+//It is an barItemButton instance used to enable side-menu 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+
+/*!
+ @property page
+ 
+ @brief This integer property used to store page number.
+ */
 @property (nonatomic) NSInteger page;
 @end

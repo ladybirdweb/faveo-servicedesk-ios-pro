@@ -19,6 +19,7 @@
 #import "UIColor+HexColors.h"
 #import "SVProgressHUD.h"
 #import "AppConstanst.h"
+#import "LoginViewController.h"
 
 @interface EditTicketDetails ()<RMessageProtocol>
 {
@@ -102,10 +103,39 @@
     
     [SVProgressHUD showWithStatus:@"Loading details"];
     
+    if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"Invalid credentials"])
+    {
+        NSString *msg=@"";
+        [self showMessageForLogout:@"Access Denied.  Your credentials has been changed. Contact to Admin and try to login again." sendViewController:self];
+        [self->userDefaults setObject:msg forKey:@"msgFromRefreshToken"];
+        
+        [SVProgressHUD dismiss];
+    }
+    else if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"API disabled"])
+    {   NSString *msg=@"";
+        [utils showAlertWithMessage:@"API is disabled in web, please enable it from Admin panel." sendViewController:self];
+        [self->userDefaults setObject:msg forKey:@"msgFromRefreshToken"];
+        [SVProgressHUD dismiss];
+    }
+    else if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"user"])
+    {   NSString *msg=@"";
+        
+        [self showMessageForLogout:@"Your role has beed changed to user. Contact to your Admin and try to login again." sendViewController:self];
+        [self->userDefaults setObject:msg forKey:@"msgFromRefreshToken"];
+        [SVProgressHUD dismiss];
+    }
+    else if([[userDefaults objectForKey:@"msgFromRefreshToken"] isEqualToString:@"Methon not allowed"])
+    {   NSString *msg=@"";
+        [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+        [self->userDefaults setObject:msg forKey:@"msgFromRefreshToken"];
+        [SVProgressHUD dismiss];
+    }
+    else{
+        
     [self reload];
     [self readFromPlist];
     
-   
+    }
     
 }
 
@@ -214,6 +244,15 @@
                     
                     [self reload];
                     NSLog(@"Thread--NO4-call-getDetail");
+                    return;
+                }
+                
+                if ([msg isEqualToString:@"tokenNotRefreshed"]) {
+                    
+                    [self->utils showAlertWithMessage:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    
+                    [SVProgressHUD dismiss];
+                    
                     return;
                 }
                 
@@ -517,11 +556,11 @@
         NSLog(@"Type Array : %@",_typeArray);
         NSLog(@"Assignee Array : %@",assignArray);
         
-        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _sourceArray = [_sourceArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        _typeArray =  [_typeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        
+//        _helptopicsArray = [_helptopicsArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _priorityArray = [_priorityArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _sourceArray = [_sourceArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        _typeArray =  [_typeArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+//        
         //[assignArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         
     }@catch (NSException *exception)
@@ -660,7 +699,7 @@
         [_assigneeTextField resignFirstResponder];
         if (!assignArray||!assignArray.count) {
             _assigneeTextField.text=NSLocalizedString(@"Not Available",nil);
-            source_id=0;
+            staff_id=0;
         }else{
             [ActionSheetStringPicker showPickerWithTitle:NSLocalizedString(@"Select Assignee",nil) rows:assignArray initialSelection:0 target:self successAction:@selector(staffWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:sender];
         }
@@ -730,14 +769,25 @@
 - (IBAction)saveButtonAction:(id)sender {
     
     if (self.messageTextView.text.length==0) {
-       //[RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please enter SUBJECT",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please enter the subject field.", nil) sendViewController:self];
+        
     }else if (self.helptopicsTextField.text.length==0) {
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select HELP-TOPIC",nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select Helptopic.", nil) sendViewController:self];
     }else if (self.priorityTextField.text.length==0){
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select PRIORITY" ,nil) backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select Priority.", nil) sendViewController:self];
     }else  if (self.sourceTextField.text.length==0){
-      //  [RKDropdownAlert title:APP_NAME message:NSLocalizedString(@"Please select SOURCE" ,@"Please select SOURCE") backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
-    }else  {
+        
+        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Source.", nil) sendViewController:self];
+    }
+//    if ([self.typeTextField.text isEqualToString:@"Not Available"]){
+//
+//        [self->utils showAlertWithMessage:NSLocalizedString(@"Alert: Please select the Ticket Type.", nil) sendViewController:self];
+//    }
+    else
+    {
         [self save];
     }
     
@@ -745,6 +795,7 @@
 
 // After clicking on submit/save button below method is called
 -(void)save{
+    
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
         
@@ -767,12 +818,25 @@
         
     }else{
         if (_typeTextField.text.length!=0) {
+            
+            if([_typeTextField.text isEqualToString:@"Not Available"]){
+                type_id=0;
+            }
+            else{
             type_id=[NSNumber numberWithInteger:1+[_typeArray indexOfObject:_typeTextField.text]];
-        }else type_id=0;
+            }
+        }else
+        {
+            type_id=0;
         
+        }
+        
+
         priority_id=[NSNumber numberWithInteger:1+[_priorityArray indexOfObject:_priorityTextField.text]];
         help_topic_id = [NSNumber numberWithInteger:1+[_helptopicsArray indexOfObject:_helptopicsTextField.text]];
+       // sla_id = [NSNumber numberWithInteger:1+[_slaPlansArray indexOfObject:_slaTextField.text]];
         source_id = [NSNumber numberWithInteger:1+[_sourceArray indexOfObject:_sourceTextField.text]];
+      //  status_id = [NSNumber numberWithInteger:1+[_statusArray indexOfObject:_statusTextField.text]];
         
         
         
@@ -806,11 +870,23 @@
             }
         
         
+        NSString *url;
         
-        NSString *url=[NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_type=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,type_id,priority_id,source_id,_messageTextView.text,staffID];
-        
-        NSLog(@"URL is : %@",url);
-        
+        if([_typeTextField.text isEqualToString:@"Not Available"]){
+          
+            url= [NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,priority_id,source_id,_messageTextView.text,staffID];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }
+        else{
+           
+            url= [NSString stringWithFormat:@"%@helpdesk/edit?api_key=%@&ip=%@&token=%@&ticket_id=%@&help_topic=%@&ticket_type=%@&ticket_priority=%@&ticket_source=%@&subject=%@&assigned=%@",[userDefaults objectForKey:@"companyURL"],API_KEY,IP,[userDefaults objectForKey:@"token"],globalVariables.ticketId,help_topic_id,type_id,priority_id,source_id,_messageTextView.text,staffID];
+            
+            NSLog(@"URL is : %@",url);
+            
+        }
+       
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
             
@@ -992,7 +1068,8 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
-    if(textView == _messageTextView)
+    
+    
     {
         
         if([text isEqualToString:@" "])
@@ -1014,18 +1091,98 @@
             return NO;
         }
         
-        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "];
+        NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ./;@#$%&*,<-_"];
         
         
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)
         {
             return NO;
         }
+        
     }
-    
     
     return YES;
 }
 
+
+//below 3 methods are used to logout a agent or admin when his login creadentials will change or there role will be changed or HELPDESL URL will change in these scenarious we have to move our from app so these 3 methods are used to achieve it.
+-(void)showMessageForLogout:(NSString*)message sendViewController:(UIViewController *)viewController
+{
+    UIAlertController *alertController = [UIAlertController   alertControllerWithTitle:APP_NAME message:message  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction  actionWithTitle:@"Logout"
+                                                            style:UIAlertActionStyleCancel
+                                                          handler:^(UIAlertAction *action)
+                                   {
+                                       [self logout];
+                                       
+                                       if (self.navigationController.navigationBarHidden) {
+                                           [self.navigationController setNavigationBarHidden:NO];
+                                       }
+                                       
+                                       [RMessage showNotificationInViewController:self.navigationController
+                                                                            title:NSLocalizedString(@" Faveo Helpdesk ", nil)
+                                                                         subtitle:NSLocalizedString(@"You've logged out, successfully...!", nil)
+                                                                        iconImage:nil
+                                                                             type:RMessageTypeSuccess
+                                                                   customTypeName:nil
+                                                                         duration:RMessageDurationAutomatic
+                                                                         callback:nil
+                                                                      buttonTitle:nil
+                                                                   buttonCallback:nil
+                                                                       atPosition:RMessagePositionNavBarOverlay
+                                                             canBeDismissedByUser:YES];
+                                       
+                                       LoginViewController *login=[self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+                                       [self.navigationController pushViewController: login animated:YES];
+                                   }];
+    [alertController addAction:cancelAction];
+    
+    [viewController presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+-(void)logout
+{
+    
+    [self sendDeviceToken];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+    
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        [cookieStorage deleteCookie:each];
+    }
+    
+    
+}
+
+-(void)sendDeviceToken{
+    
+    // NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    NSString *url=[NSString stringWithFormat:@"%@fcmtoken?user_id=%@&fcm_token=%s&os=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"user_id"],"0",@"ios"];
+    
+    
+    MyWebservices *webservices=[MyWebservices sharedInstance];
+    [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
+        if (error || [msg containsString:@"Error"]) {
+            if (msg) {
+                
+                // [utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+            }else if(error)  {
+                //                [utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                NSLog(@"Thread-postAPNS-toserver-error == %@",error.localizedDescription);
+            }
+            return ;
+        }
+        if (json) {
+            
+            NSLog(@"Thread-sendAPNS-token-json-%@",json);
+            //   [[AppDelegate sharedAppdelegate] hideProgressView];
+            [SVProgressHUD dismiss];
+        }
+        
+    }];
+    
+}
 
 @end

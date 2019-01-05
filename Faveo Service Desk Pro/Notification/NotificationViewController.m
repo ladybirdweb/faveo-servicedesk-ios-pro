@@ -4,7 +4,8 @@
 //
 //  Created by Mallikarjun on 11/06/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
-//
+
+
 #import "NotificationViewController.h"
 #import "NotificationTableViewCell.h"
 #import "Reachability.h"
@@ -23,10 +24,7 @@
 #import "UIImageView+Letters.h"
 #import "InboxTickets.h"
 #import "SVProgressHUD.h"
-
-//@import FirebaseInstanceID;
-//@import FirebaseMessaging;
-
+#import "ProblemTableViewCell.h"
 
 
 @interface NotificationViewController ()<RMessageProtocol>
@@ -55,9 +53,7 @@
     [super viewDidLoad];
     NSLog(@"Naa-Inbox");
     
-//    NSString *refreshedToken = [[FIRInstanceID instanceID] token];
-//    NSLog(@"refreshed token  %@",refreshedToken);
-    
+  
     [self setTitle:NSLocalizedString(@"Notifications",nil)];
     [self addUIRefresh];
     
@@ -85,7 +81,7 @@
        
     }
     {
-        [SVProgressHUD showWithStatus:@"Please wait"];
+        [SVProgressHUD showWithStatus:@"Loading data"];
         [self reload];
     }
     
@@ -259,6 +255,7 @@
     return numOfSections;
 }
 
+
 //This method asks the data source to return the number of sections in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.currentPage == self.totalPages
@@ -269,6 +266,7 @@
     
     return _mutableArray.count + 1;
 }
+
 
 //This method tells the delegate the table view is about to draw a cell for a particular row
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -284,7 +282,6 @@
             
         }
         else{
-            // [RKDropdownAlert title:@"" message:@"All Caught Up...!" backgroundColor:[UIColor hx_colorWithHexRGBAString:ALERT_COLOR] textColor:[UIColor whiteColor]];
             
             [RMessage showNotificationInViewController:self
                                                  title:nil
@@ -309,7 +306,8 @@
     
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
-       // [[AppDelegate sharedAppdelegate] hideProgressView];
+        [SVProgressHUD dismiss];
+       
         if (self.navigationController.navigationBarHidden) {
             [self.navigationController setNavigationBarHidden:NO];
         }
@@ -350,15 +348,12 @@
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
                     [self loadMore];
-                    //NSLog(@"Thread--NO4-call-getInbox");
                     return;
                 }
                 
                 if (json) {
                     NSLog(@"Thread-NO4--getNotifictionAPI--%@",json);
                     
-                    //_indexPaths=[[NSArray alloc]init];
-                    //_indexPaths = [json objectForKey:@"data"];
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
                     self->_currentPage=[[json objectForKey:@"current_page"] integerValue];
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
@@ -430,7 +425,7 @@
         }
         
         NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-        NSLog(@"Dict is : %@", finaldic);
+        //   NSLog(@"Dict is : %@", finaldic);
         
         
         @try{
@@ -528,15 +523,21 @@
                 {
                     [cell setUserProfileimage:[profileDict objectForKey:@"profile_pic"]];
                 }
-                else if(![Utils isEmpty:fname])
-                {
-                    [cell.profilePicView setImageWithString:fname color:nil ];
-                }
-                else if( [Utils isEmpty:fname] && [Utils isEmpty:lname] && [Utils isEmpty:userName])//userName
-                {
-                    // [cell setUserProfileimage:@"systemIcon.png"];
-                    cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
-                }
+                else
+                    if(![Utils isEmpty:fname])
+                    {
+                        [cell.profilePicView setImageWithString:fname color:nil ];
+                    }
+                    else
+                        if(![Utils isEmpty:userName])
+                        {
+                            [cell.profilePicView setImageWithString:userName color:nil ];
+                        }
+                        else if( [Utils isEmpty:fname] && [Utils isEmpty:lname] && [Utils isEmpty:userName])//userName
+                        {
+                            // [cell setUserProfileimage:@"systemIcon.png"];
+                            cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
+                        }
                 
             }
             else{
@@ -574,6 +575,7 @@
         return cell;
     }
 }
+
 
 
 // This method tells the delegate that the specified row is now selected.

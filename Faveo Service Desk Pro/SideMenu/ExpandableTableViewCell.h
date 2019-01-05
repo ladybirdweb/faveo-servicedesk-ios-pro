@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class ExpandableTableViewController;
+
 @interface ExpandableTableViewCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UIButton *btnExpand;
 @property (nonatomic, retain) IBOutlet UIImageView *imgMenuItem;

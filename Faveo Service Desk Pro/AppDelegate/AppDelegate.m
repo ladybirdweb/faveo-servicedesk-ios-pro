@@ -16,6 +16,11 @@
 #import <UserNotifications/UserNotifications.h>
 #import "MyWebservices.h"
 #import "UIColor+HexColors.h"
+#import "TicketDetailViewController.h"
+#import "GlobalVariables.h"
+#import "ClientDetailsViewController.h"
+#import "SVProgressHUD.h"
+#import "ClientListViewController.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
@@ -41,9 +46,13 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
 
 @implementation AppDelegate
 
+// It tells the delegate that the launch process is almost done and the app is almost ready to run.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    // to set black background color mask for Progress view
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
     // [[IQKeyboardManager sharedManager] setEnabled:true];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
@@ -84,12 +93,21 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
             // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
            
           
-            UIUserNotificationType allNotificationTypes =
-            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
-            UIUserNotificationSettings *settings =
-            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-            [application registerUserNotificationSettings:settings];
+//            UIUserNotificationType allNotificationTypes =
+//            (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
+//            UIUserNotificationSettings *settings =
+//            [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
+//            [application registerUserNotificationSettings:settings];
+            
+            UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+            [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                if (!granted) {
+                    //Show alert asking to go to settings and allow permission
+                }
+            }];
         }
+        
+        
     } else {
         // Fallback on earlier versions
     }
@@ -153,27 +171,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     return YES;
 }
 
-
-
-//// [START receive_message]
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    // If you are receiving a notification message while your app is in the background,
-//    // this callback will not be fired till the user taps on the notification launching the application.
-//    // TODO: Handle data of notification
-//
-//    // With swizzling disabled you must let Messaging know about the message, for Analytics
-//    // [[FIRMessaging messaging] appDidReceiveMessage:userInfo];
-//
-//    // Print message ID.
-//    if (userInfo[kGCMMessageIDKey]) {
-//        NSLog(@"Message ID: %@", userInfo[kGCMMessageIDKey]);
-//    }
-//
-//    // Print full message.
-//    NSLog(@"%@", userInfo);
-//}
-
-
+// It tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     NSLog(@"APNs device token retrieved: %@", deviceToken);
@@ -193,6 +191,7 @@ NSString *const kGCMMessageIDKey = @"gcm.message_id";
     
 }
 
+// It sent to the delegate when Apple Push Notification service cannot successfully complete the registration process.
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"Failed to register deviceToken:%@",error.localizedDescription);
     
@@ -233,12 +232,112 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
     // my rest code //pending
     
+    TicketDetailViewController *td=[mainStoryboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
+    
+    GlobalVariables *globalVariables=[GlobalVariables sharedInstance];
+    
+    // Utils *utils=[[Utils alloc]init];
+    
+    @try{
+        NSString * scenario=[userInfo objectForKey:@"scenario"];
+        if ([scenario isEqualToString:@"tickets"])  {
+            
+            globalVariables.ticketId=[userInfo objectForKey:@"id"];
+            
+            NSError *error; // by = System;
+            if([[userInfo objectForKey:@"by"] isEqualToString:@"System"])
+            {
+                globalVariables.firstNameFromTicket=@"";
+                globalVariables.lastNameFromTicket=@"";
+            }
+            else{
+                NSData *data = [[userInfo objectForKey:@"requester"] dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *requester = [NSJSONSerialization JSONObjectWithData:data
+                                                                          options:kNilOptions
+                                                                            error:&error];
+                
+                
+                globalVariables.firstNameFromTicket= [requester objectForKey:@"first_name"];
+                globalVariables.lastNameFromTicket= [requester objectForKey:@"last_name"];
+            }
+            
+            globalVariables.ticketStatusBool=@"AppDeledateNotificationView";
+            globalVariables.ticketStatus=@"Open";
+            globalVariables.fromAppDelegateToVC = @"td";
+            
+            //globalVariables.ticket_number=[userInfo objectForKey:@"ticket_number"];
+          //  [(UINavigationController *)self.window.rootViewController pushViewController:td animated:YES];
+            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:td];
+
+            InboxTickets *inbox = (InboxTickets*)[mainStoryboard instantiateViewControllerWithIdentifier:@"inboxId"];
+
+            // Initialize SWRevealViewController and set it as |rootViewController|
+            SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:inbox frontViewController:slide];
+
+           // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+              self.window.rootViewController = vc;
+              [self.window makeKeyAndVisible];
+            
+            ///////////////////////////
+            [SVProgressHUD dismiss];
+        }else {
+            ClientDetailsViewController *cd=[mainStoryboard instantiateViewControllerWithIdentifier:@"clientDetailsViewId"];
+            NSError *error;
+            NSData *data = [[userInfo objectForKey:@"requester"] dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *requester = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:kNilOptions
+                                                                        error:&error];
+            
+            globalVariables.userIDFromUserList=[requester objectForKey:@"id"];
+            globalVariables.First_nameFromUserList= [requester objectForKey:@"first_name"];
+            globalVariables.Last_nameFromUserList= [requester objectForKey:@"last_name"];
+            
+            globalVariables.userNameFromUserList= [requester objectForKey:@"user_name"];
+            globalVariables.emailFromUserList= [requester objectForKey:@"email"];
+            
+            globalVariables.mobilecodeFromUserList= @"";
+            globalVariables.phoneNumberFromUserList= @"";
+            globalVariables.mobileNumberFromUserList= @"";
+            globalVariables.userNameFromUserList=@"";
+            
+             globalVariables.fromAppDelegateToVC = @"cd";
+            
+            SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:cd];
+            
+            ClientListViewController *clientList = (ClientListViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"clientListId"];
+            
+            // Initialize SWRevealViewController and set it as |rootViewController|
+            SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:clientList frontViewController:slide];
+            
+            // self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            self.window.rootViewController = vc;
+            [self.window makeKeyAndVisible];
+            
+          //  [(UINavigationController *)self.window.rootViewController pushViewController:cd animated:YES];
+            ////////////////////
+            [SVProgressHUD dismiss];
+            
+        }
+        
+    }@catch (NSException *exception)
+    {
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        //[utils showAlertWithMessage:exception.name sendViewController:self];
+        //return;
+    }
+    @finally
+    {
+        NSLog( @" I am in cellForAtIndexPath method in Inobx ViewController" );
+        
+    }
+    
     
 }
 // [END ios_10_message_handling]
 
 
-//
+// It tells the app that a remote notification arrived that indicates there is data to be fetched.
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
@@ -300,7 +399,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 //
 //}
 
-
+// It sends the device token to the firebase and we will receive an refreshed token from firebase server.
 -(void)sendDeviceToken:(NSString*)refreshedToken{
     
     NSLog(@"refreshed token  %@",refreshedToken);
@@ -334,10 +433,19 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
         return;
     }
     // Disconnect previous FCM connection if it exists.
-    [[FIRMessaging messaging] disconnect];
+   //   [[FIRMessaging messaging] disconnect]; // preveously : 'disconnect' is deprecated: Please use the shouldEstablishDirectChannel property instead.
+
     
+    FIRMessaging.messaging.shouldEstablishDirectChannel=false;
+    /* //using swift for disconnecting connection
+     func applicationDidEnterBackground(_ application: UIApplication) {
+     Messaging.messaging().shouldEstablishDirectChannel = false
+     print("Disconnected from FCM.")
+     */
     
+
     [[FIRMessaging messaging] connectWithCompletion:^(NSError * _Nullable error) {
+    
         if (error != nil) {
             NSLog(@"Unable to connect to FCM. %@", error);
         } else {
@@ -361,7 +469,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 // [START disconnect_from_fcm]
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
-    [[FIRMessaging messaging] disconnect];
+   // [[FIRMessaging messaging] disconnect];
+     FIRMessaging.messaging.shouldEstablishDirectChannel=false;
     NSLog(@"Disconnected from FCM");
 }
 // [END disconnect_from_fcm]
@@ -390,12 +499,12 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSLog(@"");
 }
 
-
+// It tells the delegate that the app is about to enter the foreground.
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-
+// It tells the delegate when the app is about to terminate.
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }

@@ -99,4 +99,63 @@
 @property (strong, nonatomic) NSMutableArray *idList;
 @property (strong, nonatomic) NSMutableArray *subjectList;
 
+
+//problem
+@property (strong, nonatomic) NSNumber *problemId;
+
+
+// priority color
+@property (strong, nonatomic) NSString *priorityColorLowForProblemsList;
+@property (strong, nonatomic) NSString *priorityColorNormalProblemsList;
+@property (strong, nonatomic) NSString *priorityColorHighProblemsList;
+@property (strong, nonatomic) NSString *priorityColorEmergencyProblemsList;
+
+@property (strong, nonatomic) NSMutableArray *asstArray;
+@property (strong, nonatomic) NSMutableArray *ticketArray;
+
+
+@property (strong, nonatomic) NSString *createProblemConditionforVC;
+@property (strong, nonatomic) NSString *ticketIdForTicketDetail;
+
+//Used in Ticket Details VC
+@property (strong, nonatomic) NSString *problemStatusInTicketDetailVC;
+@property (strong, nonatomic) NSString *assetStatusInTicketDetailVC;
+
+//Used in Problem Details VC
+@property (strong, nonatomic) NSString *ticketStatusInProblemDetailVC;
+@property (strong, nonatomic) NSString *assetStatusInProblemDetailVC;
+
+
+//attached problem dictionary
+@property (strong, nonatomic) NSDictionary *attachedProblemDataDict;
+
+//show left navigation item/button in problem detail after navigating problem pop-up in ticket detail
+@property (strong, nonatomic) NSString *showNavigationItem; //show//hide
+
+@property (strong, nonatomic) NSArray * attachedAssetList;
+
+@property (strong, nonatomic) NSNumber *problemId2;
+
+// This variable stores values of RootCause, Impact, Symptoms and Solution
+@property (strong, nonatomic) NSString *rootCuaseValue;
+@property (strong, nonatomic) NSString *impactValue;
+@property (strong, nonatomic) NSString *symptomsValue;
+@property (strong, nonatomic) NSString *solutionValue;
+
+//This property is used to identify that which button clicked on update modalView for a problem. Values can be rootCause, impact, symptoms and solution.
+@property (strong, nonatomic) NSString *updateProblemValue;
+
+
+//checking is ticket detail, while chnaging ticketr status - where it came from -and where it has to be push back
+@property (strong, nonatomic) NSString *fromVC;
+
+
+// This variable is used to naviagte to the next VC after clicking on the push notification, value can be td - ticket details and cd - client details vc
+@property (strong, nonatomic) NSString *fromAppDelegateToVC;
+
+
+//app url
+@property (strong, nonatomic) NSString *appURL;
+
+
 @end

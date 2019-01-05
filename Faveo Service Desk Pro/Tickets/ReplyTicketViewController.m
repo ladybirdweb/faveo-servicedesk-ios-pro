@@ -20,9 +20,13 @@
 #import "AddCCViewController.h"
 #import "ViewCCViewController.h"
 #import "BIZPopupViewController.h"
+#import "InboxTickets.h"
+#import "SampleNavigation.h"
+#import "SWRevealViewController.h"
+#import "ExpandableTableViewController.h"
+#import "IQKeyboardManager.h"
 
-
-@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,HSAttachmentPickerDelegate>
+@interface ReplyTicketViewController ()<RMessageProtocol,UITextViewDelegate,HSAttachmentPickerDelegate>
 {
     Utils *utils;
     NSUserDefaults *userDefaults;
@@ -32,12 +36,16 @@
     
     NSArray  * ccListArray;
     
-     HSAttachmentPicker *_menu;
+    HSAttachmentPicker *_menu;
     
     NSData *attachNSData;
     NSString *file123;
     NSString *base64Encoded;
     NSString *typeMime;
+    
+    UIToolbar *toolBar;
+    
+    NSDictionary *jsonData;
     
 }
 @end
@@ -47,7 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title=@"Reply Ticket";
+ //   self.title=@"Reply Ticket";
     
     self.tableview.separatorColor=[UIColor clearColor];
     
@@ -55,6 +63,9 @@
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
     
+ //   _messageTextView.delegate=self;
+    
+     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:false];
     
     UIButton *attachmentButton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [attachmentButton setImage:[UIImage imageNamed:@"attach1"] forState:UIControlStateNormal];
@@ -71,7 +82,7 @@
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    
+
     //giving action to lables
     _addCCLabel.userInteractionEnabled=YES;
     _viewCCLabel.userInteractionEnabled=YES;
@@ -97,39 +108,47 @@
     _addCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     _viewCCLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
     _msgLabel.textColor= [UIColor colorFromHexString:@"00AEEF"];
-    
-    
-    UIToolbar *toolBar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIBarButtonItem *removeBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(removeKeyBoard)];
-    
-    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    [toolBar setItems:[NSArray arrayWithObjects:space,removeBtn, nil]];
-    [self.messageTextView setInputAccessoryView:toolBar];
-    
     _submitButtonOutlet.backgroundColor= [UIColor colorFromHexString:@"00AEEF"];
 
+
+    //toolbar is uitoolbar object
+    toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIBarButtonItem *btnDone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(btnClickedDone:)];
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    [toolBar setItems:[NSArray arrayWithObjects:space,btnDone, nil]];
     
 }
 
--(void)removeKeyBoard
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    [_messageTextView resignFirstResponder];
+    [textView setInputAccessoryView:toolBar];
+    return YES;
 }
+
+-(IBAction)btnClickedDone:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
 //This method is called before the view controller's view is about to be added to a view hierarchy and before any animations are configured for showing the view.
 -(void)viewWillAppear:(BOOL)animated
 {
     [self viewDidLoad];
     [self FetchCollaboratorAssociatedwithTicket];
-    
-    
+
 }
+
+
 
 // After clcking this method, it will move to add cc view controller
 -(void)clickedOnCCSubButton
@@ -165,7 +184,7 @@
     
     [_messageTextView resignFirstResponder];
     
-    [SVProgressHUD showWithStatus:@"Please wait."];
+    [SVProgressHUD showWithStatus:@"Please wait..."];
     
     if([_messageTextView.text isEqualToString:@""] || [_messageTextView.text length]==0)
     {
@@ -176,10 +195,11 @@
     {
         //  [self replyTicketMethodCall];
         
-        [self performSelector:@selector(replyTicketMethodCall) withObject:self afterDelay:5.0];
+        [self performSelector:@selector(replyTicketMethodCall) withObject:self afterDelay:2.0];
     }
     
 }
+
 
 // This method fetch the cc list
 -(void)FetchCollaboratorAssociatedwithTicket
@@ -260,31 +280,24 @@
     
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
-    return NO;
-}
+
 
 //Asks the delegate whether the specified text should be replaced in the text view.
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    
-    
+     
+//
+
     if (range.length == 0) {
         if ([text isEqualToString:@"\n"]) {
             _messageTextView.text = [NSString stringWithFormat:@"%@\n\t",_messageTextView.text];
             return NO;
         }
     }
-    else
-    {
-        [_messageTextView resignFirstResponder];
-    }
-    
-    
-    
+
     if(textView == _messageTextView)
     {
-        
+
         if([text isEqualToString:@" "])
         {
             if(!textView.text.length)
@@ -292,30 +305,31 @@
                 return NO;
             }
         }
-        
+
         if([textView.text stringByReplacingCharactersInRange:range withString:text].length < textView.text.length)
         {
-            
+
             return  YES;
         }
-        
+
         if([textView.text stringByReplacingCharactersInRange:range withString:text].length >500)
         {
             return NO;
         }
-        
+
         NSCharacterSet *set=[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.1234567890!@#$^&*()--=+/?:;{}[]| "];
-        
-        
+
+
         if([text rangeOfCharacterFromSet:set].location == NSNotFound)
         {
             return NO;
         }
     }
-    
+
     
     return YES;
 }
+
 
 // Here attachment picker will initialize
 -(void)addAttachmentPickerButton
@@ -345,6 +359,8 @@
 
 // here actaul picker called, here it will show picker view and we can select attachment and after selecting file it will print file name and with its size
 - (void)attachmentPickerMenu:(HSAttachmentPicker * _Nonnull)menu upload:(NSData * _Nonnull)data filename:(NSString * _Nonnull)filename image:(UIImage * _Nullable)image {
+    
+//    NSLog(@"Data is is : %@",data);
     
     NSLog(@"File Name : %@", filename);
     NSLog(@"File name : %@",filename);
@@ -544,6 +560,9 @@
 -(void)replyTicketMethodCall
 {
     
+//    NSLog(@"FIle is %@",file123);
+//    NSLog(@"FIle is %@",file123);
+//
     if ([[Reachability reachabilityForInternetConnection]currentReachabilityStatus]==NotReachable)
     {
         //connection unavailable
@@ -567,137 +586,371 @@
                               canBeDismissedByUser:YES];
         
     }else{
-        
+    
         
         @try{
             
-            NSString *urlString=[NSString stringWithFormat:@"%@helpdesk/reply?token=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:[NSURL URLWithString:urlString]];
-            [request setHTTPMethod:@"POST"];
-            
-            NSMutableData *body = [NSMutableData data];
-            
-            NSString *boundary = @"---------------------------14737809831466499882746641449";
-            NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-            [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-            
-            // attachment parameter
-            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"media_attachment[]\"; filename=\"%@\"\r\n", file123] dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", typeMime] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[NSData dataWithData:attachNSData]];
-            [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            
-            // reply content parameter
-            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"reply_content\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[_messageTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            
-            NSString * tickerId=[NSString stringWithFormat:@"%@",globalVariables.ticketId];
-            // ticket id parameter
-            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"ticket_id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[tickerId dataUsingEncoding:NSUTF8StringEncoding]];
-            [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            // close form
-            [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-            
-            // set request body
-            [request setHTTPBody:body];
-            
-            NSLog(@"Request is : %@",request);
-            
-            //return and test
-            NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-            NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-            
-            NSLog(@"ReturnString : %@", returnString);
-            
-            NSError *error=nil;
-            NSDictionary *jsonData=[NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:&error];
-            if (error) {
-                return;
+            if([file123 isKindOfClass:[NSNull class]] ||[file123 isEqualToString:@"(null)"]|| file123==nil || [file123 isEqualToString:@"<null>"] || [file123 isEqualToString:@""])
+            {
+                //no data
+                
+                NSString *url=[NSString stringWithFormat:@"%@helpdesk/reply?reply_content=%@&token=%@&ticket_id=%@",[userDefaults objectForKey:@"companyURL"],_messageTextView.text,[userDefaults objectForKey:@"token"],globalVariables.ticketId];
+                NSLog(@"URL is : %@",url);
+                
+    
+                    MyWebservices *webservices=[MyWebservices sharedInstance];
+                    
+                    [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+                        
+                        
+                        
+                       [SVProgressHUD dismiss];
+                        
+                        if (error || [msg containsString:@"Error"]) {
+                            
+                            if (msg) {
+                                
+                                [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                                
+                            }else if(error)  {
+                                [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                                NSLog(@"Thread-NO4-getInbox-Refresh-error == %@",error.localizedDescription);
+                            }
+                            
+                            return ;
+                        }
+                        
+                        if ([msg isEqualToString:@"tokenRefreshed"]) {
+                            
+                            [self replyTicketMethodCall];
+                            NSLog(@"Thread--NO4-call-postCreateTicket");
+                            return;
+                        }
+                        
+                        
+                        if(json){
+                            
+                            
+                            NSLog(@"Dictionary is : %@",json);
+                          //  NSLog(@"Dictionary is : %@",json);
+                            // "message": "Successfully replied"
+               
+                            if ([json objectForKey:@"message"]){
+                                
+                                NSString * msg=[json objectForKey:@"message"];
+                                
+                                
+                                if([msg isEqualToString:@"Successfully replied"])
+                                {
+                                    
+                                    [SVProgressHUD dismiss];
+                                    
+                                    if (self.navigationController.navigationBarHidden) {
+                                        [self.navigationController setNavigationBarHidden:NO];
+                                    }
+                                    
+                                    [RMessage showNotificationInViewController:self.navigationController
+                                                                         title:NSLocalizedString(@"Success",nil)
+                                                                      subtitle:NSLocalizedString(@"Posted your reply.",nil)
+                                                                     iconImage:nil
+                                                                          type:RMessageTypeSuccess
+                                                                customTypeName:nil
+                                                                      duration:RMessageDurationAutomatic
+                                                                      callback:nil
+                                                                   buttonTitle:nil
+                                                                buttonCallback:nil
+                                                                    atPosition:RMessagePositionNavBarOverlay
+                                                          canBeDismissedByUser:YES];
+                                    
+                                    //
+                                    //                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+                                    //
+                                    //                    [self.view setNeedsDisplay];
+                                    //                    [self.navigationController popViewControllerAnimated:YES];
+                                    
+                                    InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                                    
+                                    SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                                    
+                                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                                    
+                                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+                                    
+                                    [self presentViewController:vc animated:YES completion:nil];
+                                    
+                                }
+                                
+                                else if ([json objectForKey:@"message"])
+                                {
+                                    
+                                    NSString *str=[json objectForKey:@"message"];
+                                    
+                                    if([str isEqualToString:@"Token expired"])
+                                    {
+                                        MyWebservices *web=[[MyWebservices alloc]init];
+                                        [web refreshToken];
+                                        [self replyTicketMethodCall];
+                                        
+                                    }
+                                }
+                                else
+                                {
+                                    [self->utils showAlertWithMessage:@"Something went wrong. Please try again." sendViewController:self];
+                                    [SVProgressHUD dismiss];
+                                }
+                                NSLog(@"Thread-Ticket-Reply-closed");
+                                
+                            }
+                            else if ([json objectForKey:@"result"]){
+                                
+                                NSDictionary *resultDict=[json objectForKey:@"result"];
+                                
+                                if([[resultDict objectForKey:@"fails"] isEqualToString:@"Access denied"])
+                                {
+                                    [self->utils showAlertWithMessage:@"Access Denied - You role or login credentials has been changed." sendViewController:self];
+                                    [SVProgressHUD dismiss];
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                        
+                    }];
+               
             }
-            
-            NSLog(@"Dictionary is : %@",jsonData);
-            // "message": "Successfully replied"
-            
-            
-            
-            if ([jsonData objectForKey:@"message"]){
+            else{
                 
-                NSString * msg=[jsonData objectForKey:@"message"];
+                //data present
+                NSString *urlString=[NSString stringWithFormat:@"%@helpdesk/reply?token=%@",[userDefaults objectForKey:@"companyURL"],[userDefaults objectForKey:@"token"]];
+                
+                NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+                [request setURL:[NSURL URLWithString:urlString]];
+                [request setHTTPMethod:@"POST"];
+                
+                NSMutableData *body = [NSMutableData data];
+                
+                NSString *boundary = @"---------------------------14737809831466499882746641449";
+                NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+                [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+                
+                // attachment parameter
+                [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"media_attachment[]\"; filename=\"%@\"\r\n", file123] dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", typeMime] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[NSData dataWithData:attachNSData]];
+                [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                NSLog(@"File name is: %@",file123);
+                 NSLog(@"MEME type is: %@",typeMime);
+                 NSLog(@"Attached data is : %@",attachNSData);
                 
                 
-                if([msg isEqualToString:@"Successfully replied"])
-                {
-                    
-                    [SVProgressHUD dismiss];
-                    
-                    if (self.navigationController.navigationBarHidden) {
-                        [self.navigationController setNavigationBarHidden:NO];
-                    }
-                    
-                    [RMessage showNotificationInViewController:self.navigationController
-                                                         title:NSLocalizedString(@"success.",nil)
-                                                      subtitle:NSLocalizedString(@"Posted your reply.",nil)
-                                                     iconImage:nil
-                                                          type:RMessageTypeSuccess
-                                                customTypeName:nil
-                                                      duration:RMessageDurationAutomatic
-                                                      callback:nil
-                                                   buttonTitle:nil
-                                                buttonCallback:nil
-                                                    atPosition:RMessagePositionNavBarOverlay
-                                          canBeDismissedByUser:YES];
-                    
-                    
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
-                    
-                    [self.view setNeedsDisplay];
-                    [self.navigationController popViewControllerAnimated:YES];
-                    
+                // reply content parameter
+                [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"reply_content\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[_messageTextView.text dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                
+                NSString * tickerId=[NSString stringWithFormat:@"%@",globalVariables.ticketId];
+                // ticket id parameter
+                [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"ticket_id\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[tickerId dataUsingEncoding:NSUTF8StringEncoding]];
+                [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                // close form
+                [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                // set request body
+                [request setHTTPBody:body];
+                
+                NSLog(@"Request is : %@",request);
+                
+                //return and test
+                NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+                
+                NSLog(@"ReturnString : %@", returnString);
+                
+                NSError *error=nil;
+                
+                jsonData=[NSJSONSerialization JSONObjectWithData:returnData options:kNilOptions error:&error];
+                if (error) {
+                    return;
                 }
                 
-                else if ([jsonData objectForKey:@"message"])
-                {
+                
+                
+                NSLog(@"Dictionary is : %@",jsonData);
+        
+                
+                if ([jsonData objectForKey:@"message"]){
                     
-                    NSString *str=[jsonData objectForKey:@"message"];
+                    NSString * msg=[jsonData objectForKey:@"message"];
                     
-                    if([str isEqualToString:@"Token expired"])
+                    
+                    if([msg isEqualToString:@"Successfully replied"])
                     {
-                        MyWebservices *web=[[MyWebservices alloc]init];
-                        [web refreshToken];
-                        [self replyTicketMethodCall];
+                        
+                        [SVProgressHUD dismiss];
+                        
+                        if (self.navigationController.navigationBarHidden) {
+                            [self.navigationController setNavigationBarHidden:NO];
+                        }
+                        
+                        [RMessage showNotificationInViewController:self.navigationController
+                                                             title:NSLocalizedString(@"Success",nil)
+                                                          subtitle:NSLocalizedString(@"Posted your reply.",nil)
+                                                         iconImage:nil
+                                                              type:RMessageTypeSuccess
+                                                    customTypeName:nil
+                                                          duration:RMessageDurationAutomatic
+                                                          callback:nil
+                                                       buttonTitle:nil
+                                                    buttonCallback:nil
+                                                        atPosition:RMessagePositionNavBarOverlay
+                                              canBeDismissedByUser:YES];
+                        
+                        //
+                        //                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+                        //
+                        //                    [self.view setNeedsDisplay];
+                        //                    [self.navigationController popViewControllerAnimated:YES];
+                        
+                        InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+                        
+                        SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+                        
+                        ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                        
+                        SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+                        
+                        [self presentViewController:vc animated:YES completion:nil];
                         
                     }
+                    
+                    else if ([jsonData objectForKey:@"message"])
+                    {
+                        
+                        NSString *str=[jsonData objectForKey:@"message"];
+                        
+                        if([str isEqualToString:@"Token expired"])
+                        {
+                            MyWebservices *web=[[MyWebservices alloc]init];
+                            [web refreshToken];
+                            [self replyTicketMethodCall];
+                            
+                        }
+                    }
+                    else
+                    {
+                        [self->utils showAlertWithMessage:@"Something went wrong. Please try again." sendViewController:self];
+                        [SVProgressHUD dismiss];
+                    }
+                    NSLog(@"Thread-Ticket-Reply-closed");
+                    
                 }
-                else
-                {
-                    [self->utils showAlertWithMessage:@"Something went wrong. Please try again." sendViewController:self];
-                    [SVProgressHUD dismiss];
+                else if ([jsonData objectForKey:@"result"]){
+                    
+                    NSDictionary *resultDict=[jsonData objectForKey:@"result"];
+                    
+                    if([[resultDict objectForKey:@"fails"] isEqualToString:@"Access denied"])
+                    {
+                        [self->utils showAlertWithMessage:@"Access Denied - You role or login credentials has been changed." sendViewController:self];
+                        [SVProgressHUD dismiss];
+                    }
+                    
                 }
-                NSLog(@"Thread-Ticket-Reply-closed");
-                
             }
-            if ([jsonData objectForKey:@"result"]){
-                
-                NSDictionary *resultDict=[jsonData objectForKey:@"result"];
-                
-                if([[resultDict objectForKey:@"fails"] isEqualToString:@"Access denied"])
-                {
-                    [self->utils showAlertWithMessage:@"Access Denied - You role or login credentials has been changed." sendViewController:self];
-                    [SVProgressHUD dismiss];
-                }
-                
-            }
+            
+
+//
+//             NSLog(@"Dictionary is : %@",jsonData);
+//             NSLog(@"Dictionary is : %@",jsonData);
+//            // "message": "Successfully replied"
+//
+//
+//
+//            if ([jsonData objectForKey:@"message"]){
+//
+//                NSString * msg=[jsonData objectForKey:@"message"];
+//
+//
+//                if([msg isEqualToString:@"Successfully replied"])
+//                {
+//
+//                    [SVProgressHUD dismiss];
+//
+//                    if (self.navigationController.navigationBarHidden) {
+//                        [self.navigationController setNavigationBarHidden:NO];
+//                    }
+//
+//                    [RMessage showNotificationInViewController:self.navigationController
+//                                                         title:NSLocalizedString(@"Success",nil)
+//                                                      subtitle:NSLocalizedString(@"Posted your reply.",nil)
+//                                                     iconImage:nil
+//                                                          type:RMessageTypeSuccess
+//                                                customTypeName:nil
+//                                                      duration:RMessageDurationAutomatic
+//                                                      callback:nil
+//                                                   buttonTitle:nil
+//                                                buttonCallback:nil
+//                                                    atPosition:RMessagePositionNavBarOverlay
+//                                          canBeDismissedByUser:YES];
+//
+////
+////                    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload_data" object:self];
+////
+////                    [self.view setNeedsDisplay];
+////                    [self.navigationController popViewControllerAnimated:YES];
+//
+//                    InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
+//
+//                    SampleNavigation *navigation = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
+//
+//                    ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+//
+//                    SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:navigation];
+//
+//                    [self presentViewController:vc animated:YES completion:nil];
+//
+//                }
+//
+//                else if ([jsonData objectForKey:@"message"])
+//                {
+//
+//                    NSString *str=[jsonData objectForKey:@"message"];
+//
+//                    if([str isEqualToString:@"Token expired"])
+//                    {
+//                        MyWebservices *web=[[MyWebservices alloc]init];
+//                        [web refreshToken];
+//                        [self replyTicketMethodCall];
+//
+//                    }
+//                }
+//                else
+//                {
+//                    [self->utils showAlertWithMessage:@"Something went wrong. Please try again." sendViewController:self];
+//                    [SVProgressHUD dismiss];
+//                }
+//                NSLog(@"Thread-Ticket-Reply-closed");
+//
+//            }
+//           else if ([jsonData objectForKey:@"result"]){
+//
+//                NSDictionary *resultDict=[jsonData objectForKey:@"result"];
+//
+//                if([[resultDict objectForKey:@"fails"] isEqualToString:@"Access denied"])
+//                {
+//                    [self->utils showAlertWithMessage:@"Access Denied - You role or login credentials has been changed." sendViewController:self];
+//                    [SVProgressHUD dismiss];
+//                }
+//
+//            }
             
         }@catch (NSException *exception)
         {
@@ -709,7 +962,7 @@
         }
         @finally
         {
-            NSLog( @" I am in replytTicket method in TicketDetail ViewController" );
+            NSLog( @" I am in replytTicket method in Ticket Reply ViewController" );
             
         }
         

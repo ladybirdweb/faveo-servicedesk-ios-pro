@@ -376,6 +376,8 @@
 ////This method tells the delegate the table view is about to draw a cell for a particular row
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     if(tableView==_tableview1){
         if (indexPath.row == [_filteredSampleDataArray count] - 1 ) {
             NSLog(@"nextURL111  %@",_nextPageUrl);

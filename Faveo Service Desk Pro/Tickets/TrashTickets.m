@@ -74,6 +74,7 @@
 
 @implementation TrashTickets
 
+//It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -215,6 +216,7 @@
     
 }
 
+// Your app never calls this method directly. Instead, this method is called when the system determines that the amount of available memory is low.
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -492,7 +494,7 @@
                 
                 if (json) {
                     //NSError *error;
-                    NSLog(@"Thread-NO4--getInboxAPI--%@",json);
+                   // NSLog(@"Thread-NO4--getInboxAPI--%@",json);
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
@@ -507,9 +509,8 @@
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            [self reloadTableView];
                             [self->refresh endRefreshing];
-                           //[[AppDelegate sharedAppdelegate] hideProgressView];
+                            [self reloadTableView];
                             [SVProgressHUD dismiss];
                             
                             
@@ -1251,12 +1252,13 @@
             NSString *attachment1= [NSString stringWithFormat:@"%@",[finaldic objectForKey:@"attachment_count"]];
             //countcollaborator
             
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            NSLog(@"CC is %@ named",cc);
-            //
-            NSLog(@"attachment is %@ named",attachment1);
-            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            NSLog(@"CC is %@ named",cc);
+//            //
+//            NSLog(@"attachment is %@ named",attachment1);
+//            NSLog(@"attachment is %@ named",attachment1);
+//
             
             if(![cc isEqualToString:@"<null>"])
             {
@@ -1276,8 +1278,7 @@
                 }
                 
             }
-            
-            
+        
             
             //priority color
             NSDictionary *priorityDict=[finaldic objectForKey:@"priority"];
@@ -1357,7 +1358,7 @@
         globalVariables.lastNameFromTicket=[customerDict objectForKey:@"last_name"];
         globalVariables.userIdFromTicket=[customerDict objectForKey:@"id"];
         
-        
+        globalVariables.fromVC = @"fromTrashTickets";
         [self.navigationController pushViewController:td animated:YES];
         
         

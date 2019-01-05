@@ -14,7 +14,6 @@
 #import "MyWebservices.h"
 #import "HexColors.h"
 #import "GlobalVariables.h"
-//#import "NotificationViewController.h"
 #import "RMessage.h"
 #import "RMessageView.h"
 #import "UIImageView+Letters.h"
@@ -63,6 +62,7 @@
     attachmentArray=[[NSMutableArray alloc]init];
     
     self.tableView.tableFooterView=[[UIView alloc] initWithFrame:CGRectZero];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadd) name:@"reload_data" object:nil];
     
     [self reload];
@@ -183,7 +183,7 @@
                 
                 if ([msg isEqualToString:@"tokenNotRefreshed"]) {
                     
-//                    [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
+                    [self showMessageForLogout:@"Your HELPDESK URL or Your Login credentials were changed, contact to Admin and please log back in." sendViewController:self];
                     
                     //[[AppDelegate sharedAppdelegate] hideProgressView];
                     [SVProgressHUD dismiss];
@@ -207,9 +207,7 @@
                             [self.tableView reloadData];
                             [self.refreshControl endRefreshing];
                             [SVProgressHUD dismiss];
-                           // [[AppDelegate sharedAppdelegate] hideProgressView];
-                            
-                            
+                           
                         });
                     });
                 }
@@ -566,19 +564,6 @@
     
     [self sendDeviceToken];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
-    // get documents path
-    NSString *documentsPath = [paths objectAtIndex:0];
-    // get the path to our Data/plist file
-    NSString *plistPath = [documentsPath stringByAppendingPathComponent:@"faveoData.plist"];
-    NSError *error;
-    
-    if(![[NSFileManager defaultManager] removeItemAtPath:plistPath error:&error])
-    {
-        NSLog(@"Error while removing the plist %@", error.localizedDescription);
-        //TODO: Handle/Log error
-    }
     
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *each in cookieStorage.cookies) {
