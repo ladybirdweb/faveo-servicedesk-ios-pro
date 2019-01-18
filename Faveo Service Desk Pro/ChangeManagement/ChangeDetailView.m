@@ -358,8 +358,8 @@
     else if(item.tag == 4) {
         
         NSLog(@"Clicked on delete change");
-        [SVProgressHUD showWithStatus:@"Deleting Change"];
-        [self deleteChangeAPICalled];
+        [self askConfirmationForDeletingChange];
+        
     }
     else if(item.tag == 5) {
         
@@ -371,6 +371,48 @@
         
     }
 }
+
+-(void)askConfirmationForDeletingChange
+{
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Deleting Change"
+                                 message:@"Are you sure you want to delete change?"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add Buttons
+    
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Yes"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                    
+                                    NSLog(@"Clicked on Yes");
+                                   
+                                    [SVProgressHUD showWithStatus:@"Deleting Change"];
+                                    [self deleteChangeAPICalled];
+                                    
+                                }];
+    
+    UIAlertAction* noButton = [UIAlertAction
+                               actionWithTitle:@"No"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   //Handle no, thanks button
+                                   
+                                 NSLog(@"Clicked on No");
+                                   
+                               }];
+    
+    //Add your buttons to alert controller
+    
+     [alert addAction:noButton];
+     [alert addAction:yesButton];
+   
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 -(void)deleteChangeAPICalled{
     
