@@ -25,8 +25,13 @@
 #import "ProblemList.h"
 #import "CNPPopupController.h"
 #import "AppConstanst.h"
-#import "TicketDetailViewController.h"
+#import "ViewAttachedChange.h"
+#import "BIZPopupViewController.h"
+#import "ChangeList.h"
+#import "CreateChanges.h"
 #import "SampleNavigation.h"
+#import "ExpandableTableViewController.h"
+#import "SWRevealViewController.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -467,12 +472,31 @@
 
 -(void)newChangeMethod{
     
-    NSLog(@"new change clicked");
+    NSLog(@"new change with problem clicked");
+    
+    globalVariables.createChangeConditionforVC = @"newWithProblem";
+    globalVariables.problemId=globalVariables.problemId;
+    
+    CreateChanges *createChangeWithProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateChangesId"];
+    
+    [self.navigationController pushViewController:createChangeWithProblem animated:YES];
+    
+    [self.normalModalView3 close];
 }
 
 -(void)existingChangeMethod{
     
-     NSLog(@"existing change clicked");
+    NSLog(@"existing change clicked");
+    
+    globalVariables.problemId=globalVariables.problemId;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChangeList *vc = [storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
+    
+    BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 500)];
+    [self presentViewController:popupViewController animated:YES completion:nil];
+    
+    [self.normalModalView3 close];
     
 }
 
@@ -1135,12 +1159,12 @@
         });
         }
     }
-//    else if(item.tag == 3) {
-//        //your code for tab item 3
-//        NSLog(@"clicked on 3");
-//        
-//        [self.normalModalView3 open];
-//    }
+    else if(item.tag == 3) {
+        //your code for tab item 3
+        NSLog(@"clicked on 3");
+        
+        [self.normalModalView3 open];
+    }
     else if(item.tag == 4) {
         //your code for tab item 4
         NSLog(@"clicked on 4");
