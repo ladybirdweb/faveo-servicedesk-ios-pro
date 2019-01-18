@@ -7226,8 +7226,7 @@
                                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-6"/>
                                     </tabBarItem>
                                     <tabBarItem tag="2" title="Release" image="release" id="h69-so-eTI">
-                                        <inset key="imageInsets" minX="-4" minY="124" maxX="0.0" maxY="122"/>
-                                        <inset key="landscapeImageInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                         <inset key="largeContentSizeImageInsets" minX="10" minY="-1" maxX="0.0" maxY="0.0"/>
                                     </tabBarItem>
                                     <tabBarItem tag="3" title="Update" image="tabBar4" id="EJd-hA-MKs">
@@ -9499,7 +9498,7 @@
         <image name="note3" width="24" height="24"/>
         <image name="pencileEdit" width="24" height="24"/>
         <image name="problemLogo" width="26" height="26"/>
-        <image name="release" width="512" height="512"/>
+        <image name="release" width="32" height="32"/>
         <image name="reply1" width="24" height="24"/>
         <image name="save22" width="25" height="25"/>
         <image name="servicdeskPro.png" width="1024" height="1024"/>
