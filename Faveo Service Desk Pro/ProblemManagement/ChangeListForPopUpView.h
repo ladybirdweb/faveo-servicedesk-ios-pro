@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface ChangeListForPopUpView : UIViewController
 
-@end
+@property (weak, nonatomic) IBOutlet UITableView * sampleTableView;
 
-NS_ASSUME_NONNULL_END
+@property (nonatomic) NSInteger page;
+
+- (IBAction)closeButtonClicked:(id)sender;
+
+- (IBAction)saveButtonClicked:(id)sender;
+
+
+@end

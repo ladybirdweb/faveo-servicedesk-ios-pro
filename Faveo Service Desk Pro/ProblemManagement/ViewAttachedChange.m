@@ -109,7 +109,7 @@
         requesterName = [NSString stringWithFormat:@"%@ %@",[requesterObject objectForKey:@"first_name"],[requesterObject objectForKey:@"last_name"]];
     }
     
-    cell.changeNameLabel.text = [NSString stringWithFormat:@"%@",changeName];
+    cell.changeNameLabel1.text = [NSString stringWithFormat:@"%@",changeName];
     cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",requesterName]; //from;
     cell.changeNumber.text = [NSString stringWithFormat:@"#CHN-%@",id];
     

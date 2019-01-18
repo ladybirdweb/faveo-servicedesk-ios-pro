@@ -9249,10 +9249,10 @@
             </objects>
             <point key="canvasLocation" x="6287" y="2860"/>
         </scene>
-        <!--View Controller-->
+        <!--View Attached Change-->
         <scene sceneID="1hI-X4-h6q">
             <objects>
-                <viewController id="ZSW-Dy-KpP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewAttachedChangeId" id="ZSW-Dy-KpP" customClass="ViewAttachedChange" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fo-MC-8me"/>
                         <viewControllerLayoutGuide type="bottom" id="Yst-LP-59P"/>
@@ -9267,6 +9267,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="cA8-GC-hau"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZSW-Dy-KpP" id="lcN-3V-oWo"/>
+                                    <outlet property="delegate" destination="ZSW-Dy-KpP" id="Mbq-ou-NG6"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associated Change" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxC-FB-q8B">
                                 <rect key="frame" x="130" y="20" width="176" height="21"/>
@@ -9288,6 +9292,9 @@
                                 <state key="normal" title="View">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewButtonClicked:" destination="ZSW-Dy-KpP" eventType="touchUpInside" id="Ig2-in-Z1Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huI-Ut-Kb6">
                                 <rect key="frame" x="267" y="158" width="74" height="30"/>
@@ -9299,6 +9306,9 @@
                                 <state key="normal" title="Detach">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="detachButtonClicked:" destination="ZSW-Dy-KpP" eventType="touchUpInside" id="FSM-sG-2Z8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -9317,15 +9327,20 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="200"/>
+                    <connections>
+                        <outlet property="detachButtonOutlet" destination="huI-Ut-Kb6" id="YVu-iV-JTy"/>
+                        <outlet property="tableview" destination="fJI-3f-N4s" id="hGf-Vl-3lt"/>
+                        <outlet property="viewButtonOutlet" destination="xAr-gE-vSD" id="sGu-Kr-w6J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52s-px-abA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7066" y="2641"/>
         </scene>
-        <!--View Controller-->
+        <!--Change List For Pop Up View-->
         <scene sceneID="9KD-ft-cAq">
             <objects>
-                <viewController id="0k3-b8-oG2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeListForPopUpViewId" id="0k3-b8-oG2" customClass="ChangeListForPopUpView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Alw-d3-str"/>
                         <viewControllerLayoutGuide type="bottom" id="viw-BG-rCS"/>
@@ -9354,6 +9369,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x1k-aa-jbP">
                                 <rect key="frame" x="0.0" y="46" width="375" height="394"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0k3-b8-oG2" id="raQ-NS-uMQ"/>
+                                    <outlet property="delegate" destination="0k3-b8-oG2" id="9nt-sw-hME"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iF6-Z7-hIL">
                                 <rect key="frame" x="26" y="454" width="80" height="32"/>
@@ -9366,6 +9385,9 @@
                                 <state key="normal" title="close" image="close22">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeButtonClicked:" destination="0k3-b8-oG2" eventType="touchUpInside" id="lqM-pT-9yk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad4-Cz-NUv">
                                 <rect key="frame" x="265" y="454" width="84" height="32"/>
@@ -9378,6 +9400,9 @@
                                 <state key="normal" title="save" image="save22">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="0k3-b8-oG2" eventType="touchUpInside" id="1m3-NU-nOC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -9397,6 +9422,9 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="375" height="500"/>
+                    <connections>
+                        <outlet property="sampleTableView" destination="x1k-aa-jbP" id="dpA-Sf-bcH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1J3-Qw-31p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
