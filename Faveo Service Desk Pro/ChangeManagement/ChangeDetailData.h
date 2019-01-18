@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface ChangeDetailData : UITableViewController
 
-@end
 
-NS_ASSUME_NONNULL_END
+@property (weak, nonatomic) IBOutlet UITextView *subjectTextView;
+
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+
+@property (weak, nonatomic) IBOutlet UITextField *requesterTextField;
+@property (weak, nonatomic) IBOutlet UITextField *statusTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *changeTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *locationTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *impactTextField;
+
+@end

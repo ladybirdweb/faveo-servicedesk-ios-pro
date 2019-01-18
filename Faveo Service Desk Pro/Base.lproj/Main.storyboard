@@ -7498,10 +7498,10 @@
             </objects>
             <point key="canvasLocation" x="3928" y="2860"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Change Detail Data-->
         <scene sceneID="vfC-vO-Mu0">
             <objects>
-                <tableViewController id="igD-AO-jog" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChangeDetailDataId" id="igD-AO-jog" customClass="ChangeDetailData" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="hOy-mc-4oM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
