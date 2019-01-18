@@ -39,6 +39,7 @@
 		062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A820CA9B7F00257395 /* ConversationTableViewCell.m */; };
 		062380AC20CA9B8000257395 /* ConversationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */; };
 		0623C2AA20B52AA700A52087 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0623C2A920B52AA700A52087 /* logo.png */; };
+		0627993221F1C06400CAA4A6 /* ChangeDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0627993121F1C06400CAA4A6 /* ChangeDetailData.m */; };
 		0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95020C66E1800191A7D /* AboutUsViewController.m */; };
 		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
 		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
@@ -237,6 +238,8 @@
 		062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationTableViewCell.xib; sourceTree = "<group>"; };
 		0623C2A920B52AA700A52087 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0623C2AB20B5513100A52087 /* AppConstanst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstanst.h; sourceTree = "<group>"; };
+		0627993021F1C06400CAA4A6 /* ChangeDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailData.h; sourceTree = "<group>"; };
+		0627993121F1C06400CAA4A6 /* ChangeDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailData.m; sourceTree = "<group>"; };
 		0630D94F20C66E1800191A7D /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		0630D95020C66E1800191A7D /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		0630D95320C6754A00191A7D /* ClientListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientListViewController.h; sourceTree = "<group>"; };
@@ -822,6 +825,8 @@
 				06D2134321F1B361006FF9AF /* ChangeDetailView.m */,
 				06D2134521F1B889006FF9AF /* ChangeAnalysisView.h */,
 				06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */,
+				0627993021F1C06400CAA4A6 /* ChangeDetailData.h */,
+				0627993121F1C06400CAA4A6 /* ChangeDetailData.m */,
 			);
 			path = ChangeManagement;
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
+				0627993221F1C06400CAA4A6 /* ChangeDetailData.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
 				06D2134721F1B889006FF9AF /* ChangeAnalysisView.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
