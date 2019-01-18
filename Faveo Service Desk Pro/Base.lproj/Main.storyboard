@@ -7271,10 +7271,10 @@
             </objects>
             <point key="canvasLocation" x="3013" y="2860"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Change Analysis View-->
         <scene sceneID="hdu-Dr-T2T">
             <objects>
-                <tableViewController id="Mpg-ds-ykZ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChangeAnalysisViewId" id="Mpg-ds-ykZ" customClass="ChangeAnalysisView" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ddf-H0-uEx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7300,6 +7300,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Mpg-ds-ykZ" id="9XA-2Y-ChK"/>
+                                                            </connections>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-Lz-c9F">
                                                             <rect key="frame" x="8" y="32" width="85" height="17"/>
@@ -7347,6 +7350,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Mpg-ds-ykZ" id="RK2-u5-XRc"/>
+                                                            </connections>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rA4-bk-UhC">
                                                             <rect key="frame" x="8" y="32" width="85" height="17"/>
@@ -7404,6 +7410,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Mpg-ds-ykZ" id="fxg-Bg-Lzw"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
@@ -7451,6 +7460,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="Mpg-ds-ykZ" id="QHI-ew-oBE"/>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>
@@ -7474,6 +7486,13 @@
                             </tableViewSection>
                         </sections>
                     </tableView>
+                    <connections>
+                        <outlet property="backoutPlanTextView" destination="ai4-so-DC1" id="A5q-b1-Zwt"/>
+                        <outlet property="impactTextView" destination="9cQ-YR-j7U" id="5c0-lo-I4f"/>
+                        <outlet property="reasonTextView" destination="H9X-ct-Mp5" id="pX4-pM-Uuz"/>
+                        <outlet property="rolloutPlanTextView" destination="mkg-s6-ymO" id="cop-0C-a6b"/>
+                        <outlet property="sampleTableview" destination="Ddf-H0-uEx" id="Awz-lN-XYH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pug-TI-IxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
