@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060EDF6221E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */; };
 		060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */; };
 		060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460520C9273500EDA6B8 /* LoadingTableViewCell.m */; };
 		060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F460620C9273500EDA6B8 /* LoadingTableViewCell.xib */; };
@@ -25,7 +26,6 @@
 		0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9020B2E234004CFDC9 /* Assets.xcassets */; };
 		0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */; };
 		0619CF9720B2E234004CFDC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF9620B2E234004CFDC9 /* main.m */; };
-		0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */; };
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
 		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
 		0623809120CA3BE000257395 /* CreateTicketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623809020CA3BE000257395 /* CreateTicketView.m */; };
@@ -156,14 +156,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */ = {
+		060EDF6421E9C5E200228037 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0619CF7C20B2E233004CFDC9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0619CF8320B2E233004CFDC9;
 			remoteInfo = "Faveo Service Desk Pro";
 		};
-		0619CFA820B2E234004CFDC9 /* PBXContainerItemProxy */ = {
+		0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0619CF7C20B2E233004CFDC9 /* Project object */;
 			proxyType = 1;
@@ -173,6 +173,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
+		060EDF6321E9C5E200228037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		060F460020C91D3400EDA6B8 /* AWNavigationMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWNavigationMenuItem.h; sourceTree = "<group>"; };
 		060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWNavigationMenuItem.m; sourceTree = "<group>"; };
 		060F460420C9273500EDA6B8 /* LoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingTableViewCell.h; sourceTree = "<group>"; };
@@ -204,9 +207,6 @@
 		0619CF9620B2E234004CFDC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CFA220B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
-		0619CFAD20B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = servicdeskPro.png; sourceTree = "<group>"; };
 		0619CFBF20B31064004CFDC9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0619CFC020B31064004CFDC9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -404,6 +404,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		060EDF5C21E9C5E200228037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8120B2E233004CFDC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,16 +437,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0619CFA420B2E234004CFDC9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060EDF6021E9C5E200228037 /* Faveo Service Desk ProUITests */ = {
+			isa = PBXGroup;
+			children = (
+				060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */,
+				060EDF6321E9C5E200228037 /* Info.plist */,
+			);
+			path = "Faveo Service Desk ProUITests";
+			sourceTree = "<group>";
+		};
 		060F460320C91D4800EDA6B8 /* NavigationMenuItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +481,7 @@
 			children = (
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
-				0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
+				060EDF6021E9C5E200228037 /* Faveo Service Desk ProUITests */,
 				0619CF8520B2E233004CFDC9 /* Products */,
 				061051FB2199898B7BA13F2B /* Pods */,
 				E75D6D508A14F90D4C829D76 /* Frameworks */,
@@ -484,7 +493,7 @@
 			children = (
 				0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */,
 				0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */,
-				0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */,
+				060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -528,15 +537,6 @@
 				06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */,
 			);
 			path = "Faveo Service Desk ProTests";
-			sourceTree = "<group>";
-		};
-		0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */,
-				0619CFAD20B2E234004CFDC9 /* Info.plist */,
-			);
-			path = "Faveo Service Desk ProUITests";
 			sourceTree = "<group>";
 		};
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
@@ -902,6 +902,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		060EDF5E21E9C5E200228037 /* Faveo Service Desk ProUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 060EDF6621E9C5E200228037 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */;
+			buildPhases = (
+				060EDF5B21E9C5E200228037 /* Sources */,
+				060EDF5C21E9C5E200228037 /* Frameworks */,
+				060EDF5D21E9C5E200228037 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				060EDF6521E9C5E200228037 /* PBXTargetDependency */,
+			);
+			name = "Faveo Service Desk ProUITests";
+			productName = "Faveo Service Desk ProUITests";
+			productReference = 060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0619CFB020B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk Pro" */;
@@ -940,24 +958,6 @@
 			productReference = 0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0619CFA620B2E234004CFDC9 /* Faveo Service Desk ProUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0619CFB620B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */;
-			buildPhases = (
-				0619CFA320B2E234004CFDC9 /* Sources */,
-				0619CFA420B2E234004CFDC9 /* Frameworks */,
-				0619CFA520B2E234004CFDC9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0619CFA920B2E234004CFDC9 /* PBXTargetDependency */,
-			);
-			name = "Faveo Service Desk ProUITests";
-			productName = "Faveo Service Desk ProUITests";
-			productReference = 0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -967,6 +967,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Ladybird Web Solution Pvt Ltd.";
 				TargetAttributes = {
+					060EDF5E21E9C5E200228037 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 0619CF8320B2E233004CFDC9;
+					};
 					0619CF8320B2E233004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
@@ -982,10 +986,6 @@
 						};
 					};
 					0619CF9B20B2E234004CFDC9 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = 0619CF8320B2E233004CFDC9;
-					};
-					0619CFA620B2E234004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
 						TestTargetID = 0619CF8320B2E233004CFDC9;
 					};
@@ -1015,12 +1015,19 @@
 			targets = (
 				0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CF9B20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
-				0619CFA620B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
+				060EDF5E21E9C5E200228037 /* Faveo Service Desk ProUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		060EDF5D21E9C5E200228037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8220B2E233004CFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1077,13 +1084,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0619CF9A20B2E234004CFDC9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0619CFA520B2E234004CFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1168,6 +1168,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		060EDF5B21E9C5E200228037 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				060EDF6221E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8020B2E233004CFDC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1267,26 +1275,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0619CFA320B2E234004CFDC9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		060EDF6521E9C5E200228037 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
+			targetProxy = 060EDF6421E9C5E200228037 /* PBXContainerItemProxy */;
+		};
 		0619CF9E20B2E234004CFDC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
 			targetProxy = 0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */;
-		};
-		0619CFA920B2E234004CFDC9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
-			targetProxy = 0619CFA820B2E234004CFDC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1310,6 +1310,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		060EDF6721E9C5E200228037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VY8B59STG;
+				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladybirdwebsolutions.Faveo-Service-Desk-ProUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Faveo Service Desk Pro";
+			};
+			name = Debug;
+		};
+		060EDF6821E9C5E200228037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VY8B59STG;
+				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladybirdwebsolutions.Faveo-Service-Desk-ProUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Faveo Service Desk Pro";
+			};
+			name = Release;
+		};
 		0619CFAE20B2E234004CFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1505,6 +1549,7 @@
 		};
 		0619CFB420B2E234004CFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1541,45 +1586,18 @@
 			};
 			name = Release;
 		};
-		0619CFB720B2E234004CFDC9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CTCM9YM55B;
-				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ladybirdwebsolution.Faveo-Service-Desk-ProUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Faveo Service Desk Pro";
-			};
-			name = Debug;
-		};
-		0619CFB820B2E234004CFDC9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CTCM9YM55B;
-				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ladybirdwebsolution.Faveo-Service-Desk-ProUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Faveo Service Desk Pro";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		060EDF6621E9C5E200228037 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				060EDF6721E9C5E200228037 /* Debug */,
+				060EDF6821E9C5E200228037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0619CF7F20B2E233004CFDC9 /* Build configuration list for PBXProject "Faveo Service Desk Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1603,15 +1621,6 @@
 			buildConfigurations = (
 				0619CFB420B2E234004CFDC9 /* Debug */,
 				0619CFB520B2E234004CFDC9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0619CFB620B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0619CFB720B2E234004CFDC9 /* Debug */,
-				0619CFB820B2E234004CFDC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

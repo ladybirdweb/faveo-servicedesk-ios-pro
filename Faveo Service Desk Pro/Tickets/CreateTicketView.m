@@ -791,7 +791,7 @@
                 }
                 else {
                 
-                    [self performSelector:@selector(postTicketCreate) withObject:self afterDelay:5.0];    //[self postTicketCreate]; //[self createTicket];
+               //     [self performSelector:@selector(postTicketCreate) withObject:self afterDelay:5.0];    //[self postTicketCreate]; //[self createTicket];
                     
                 }
         
