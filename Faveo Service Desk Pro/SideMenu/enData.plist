@@ -112,6 +112,39 @@
 		</dict>
 		<dict>
 			<key>Name</key>
+			<string>Changes</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>id</key>
+			<string>changeLevel0</string>
+			<key>image</key>
+			<string>tabBar3</string>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>All Changes</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>changeSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>New Change</string>
+					<key>level</key>
+					<integer>1</integer>
+					<key>id</key>
+					<string>newChangeSubLevel1</string>
+					<key>image</key>
+					<string>all-list</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
 			<string>Users List</string>
 			<key>level</key>
 			<integer>0</integer>

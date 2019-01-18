@@ -127,6 +127,12 @@
 		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
 		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
 		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
+		06D2133421F1A08B006FF9AF /* ChangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133321F1A08B006FF9AF /* ChangeList.m */; };
+		06D2133721F1A1F2006FF9AF /* ChangesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */; };
+		06D2133A21F1A3A9006FF9AF /* CreateChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133921F1A3A9006FF9AF /* CreateChanges.m */; };
+		06D2134121F1B17E006FF9AF /* ChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */; };
+		06D2134421F1B361006FF9AF /* ChangeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134321F1B361006FF9AF /* ChangeDetailView.m */; };
+		06D2134721F1B889006FF9AF /* ChangeAnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */; };
 		06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */; };
 		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
 		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
@@ -366,6 +372,17 @@
 		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
 		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
 		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
+		06D2133221F1A08B006FF9AF /* ChangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeList.h; sourceTree = "<group>"; };
+		06D2133321F1A08B006FF9AF /* ChangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeList.m; sourceTree = "<group>"; };
+		06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangesTableViewCell.xib; sourceTree = "<group>"; };
+		06D2133621F1A1F2006FF9AF /* ChangesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangesTableViewCell.h; sourceTree = "<group>"; };
+		06D2133821F1A3A9006FF9AF /* CreateChanges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChanges.h; sourceTree = "<group>"; };
+		06D2133921F1A3A9006FF9AF /* CreateChanges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChanges.m; sourceTree = "<group>"; };
+		06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangesTableViewCell.m; sourceTree = "<group>"; };
+		06D2134221F1B361006FF9AF /* ChangeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailView.h; sourceTree = "<group>"; };
+		06D2134321F1B361006FF9AF /* ChangeDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailView.m; sourceTree = "<group>"; };
+		06D2134521F1B889006FF9AF /* ChangeAnalysisView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAnalysisView.h; sourceTree = "<group>"; };
+		06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAnalysisView.m; sourceTree = "<group>"; };
 		06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedProblems.h; sourceTree = "<group>"; };
 		06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedProblems.m; sourceTree = "<group>"; };
 		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
@@ -507,7 +524,8 @@
 				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
-				06E8451A213EB15B00786CEB /* Problem */,
+				06E8451A213EB15B00786CEB /* ProblemManagement */,
+				06D2133121F19F40006FF9AF /* ChangeManagement */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
@@ -661,6 +679,9 @@
 				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
 				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
 				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
+				06D2133621F1A1F2006FF9AF /* ChangesTableViewCell.h */,
+				06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */,
+				06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */,
 				0667370B215A362A0088719E /* AssetCell.h */,
 				0667370C215A362A0088719E /* AssetCell.m */,
 				0653B9D821551CEB00DE5C5E /* AssetCell.xib */,
@@ -790,6 +811,21 @@
 			path = TestFile;
 			sourceTree = "<group>";
 		};
+		06D2133121F19F40006FF9AF /* ChangeManagement */ = {
+			isa = PBXGroup;
+			children = (
+				06D2133221F1A08B006FF9AF /* ChangeList.h */,
+				06D2133321F1A08B006FF9AF /* ChangeList.m */,
+				06D2133821F1A3A9006FF9AF /* CreateChanges.h */,
+				06D2133921F1A3A9006FF9AF /* CreateChanges.m */,
+				06D2134221F1B361006FF9AF /* ChangeDetailView.h */,
+				06D2134321F1B361006FF9AF /* ChangeDetailView.m */,
+				06D2134521F1B889006FF9AF /* ChangeAnalysisView.h */,
+				06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */,
+			);
+			path = ChangeManagement;
+			sourceTree = "<group>";
+		};
 		06D6477F20C56BE8000783C8 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,7 +893,7 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		06E8451A213EB15B00786CEB /* Problem */ = {
+		06E8451A213EB15B00786CEB /* ProblemManagement */ = {
 			isa = PBXGroup;
 			children = (
 				06B3D99E21400102004D548E /* CreateProblem.h */,
@@ -877,7 +913,7 @@
 				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
 				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
 			);
-			path = Problem;
+			path = ProblemManagement;
 			sourceTree = "<group>";
 		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
@@ -1044,6 +1080,7 @@
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
+				06D2133721F1A1F2006FF9AF /* ChangesTableViewCell.xib in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
 				065029B520BFFD51007E90E2 /* Starred@2x.png in Resources */,
 				0632102620C7E26200F9235D /* ClientListTableViewCell.xib in Resources */,
@@ -1187,6 +1224,7 @@
 				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
+				06D2134721F1B889006FF9AF /* ChangeAnalysisView.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
@@ -1197,6 +1235,7 @@
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				06D6B64121B8F42100B71700 /* Card.m in Sources */,
+				06D2134421F1B361006FF9AF /* ChangeDetailView.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				06D6B63D21B8F42100B71700 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
@@ -1219,6 +1258,7 @@
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
 				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
 				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
+				06D2133421F1A08B006FF9AF /* ChangeList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
 				06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */,
 				06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */,
@@ -1248,12 +1288,14 @@
 				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
+				06D2133A21F1A3A9006FF9AF /* CreateChanges.m in Sources */,
 				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */,
 				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
 				06D6B63F21B8F42100B71700 /* Deck.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
+				06D2134121F1B17E006FF9AF /* ChangesTableViewCell.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);

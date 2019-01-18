@@ -29,6 +29,8 @@
 #import "UIImageView+Letters.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "GlobalVariables.h"
+#import "ChangeList.h"
+#import "CreateChanges.h"
 
 @interface ExpandableTableViewController ()<RMessageProtocol>
 {
@@ -359,6 +361,34 @@ NSUInteger g_ExpandedCellIndex = 0;
                      globalVariables.createProblemConditionforVC = @"newAlone";
                      
                      CreateProblem * controller = (CreateProblem *)[storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+        
+                 else if([strId isEqualToString:@"changeSubLevel1"])
+                 {
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     
+                     ChangeList * controller = (ChangeList *)[storyboard instantiateViewControllerWithIdentifier:@"ChangeListId"];
+                     
+                     navController = [[UINavigationController alloc] initWithRootViewController: controller];
+                     
+                     [navController setViewControllers: @[controller] animated: YES];
+                     
+                 }
+                 else if([strId isEqualToString:@"newChangeSubLevel1"])
+                 {
+                     
+                     globalVariables.createChangeConditionforVC = @"newChangeAlone";
+                     
+                     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                     
+                     
+                     CreateChanges * controller = (CreateChanges *)[storyboard instantiateViewControllerWithIdentifier:@"CreateChangesId"];
                      
                      navController = [[UINavigationController alloc] initWithRootViewController: controller];
                      

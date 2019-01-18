@@ -146,16 +146,49 @@
 @property (strong, nonatomic) NSString *updateProblemValue;
 
 
-//checking is ticket detail, while chnaging ticketr status - where it came from -and where it has to be push back
+//used this condition while creating a change
+@property (strong, nonatomic) NSString *createChangeConditionforVC;
+
+//change id passing to chnage list to change details
+@property (strong, nonatomic) NSString *changeId;
+
+// This variable stores values of Reason, Impact, Roll-out and Back-out plan
+@property (strong, nonatomic) NSString *reasonForChangeValue;
+@property (strong, nonatomic) NSString *impactValueForChange;
+@property (strong, nonatomic) NSString *rollOutValueForChange;
+@property (strong, nonatomic) NSString *backOutValueForChange;
+
+
+//This property is used to identify that which button clicked on update modalView for a change. Values can be reason, impact, rollout and backout plan.
+@property (strong, nonatomic) NSString *updateChangeValue;
+
+
+// used this condition while creating/adding a change
+@property (strong, nonatomic) NSString *changeStatusInTicketDetailVC;
+
+//attached change dictionary
+@property (strong, nonatomic) NSDictionary *attachedChangeDataDict;
+
+//attached assets array asssociated with the change
+@property (strong, nonatomic) NSArray *associatedAssetsWithTheChangeArray;
+
+//it used to check wheather asset is present or not in change details
+@property (strong, nonatomic) NSString *assetStatusInChangeDetailVC;
+
+
+
+//Release id
+@property (strong, nonatomic) NSString *releaseId;
+
+//It used to to check wheather this release is creating fresh or with the problem.
+@property (strong, nonatomic) NSString *createReleaseConditionforVC;
+
+
+//test
+@property (strong, nonatomic) NSString *test121;
+
 @property (strong, nonatomic) NSString *fromVC;
-
-
-// This variable is used to naviagte to the next VC after clicking on the push notification, value can be td - ticket details and cd - client details vc
 @property (strong, nonatomic) NSString *fromAppDelegateToVC;
-
-
-//app url
 @property (strong, nonatomic) NSString *appURL;
-
 
 @end
