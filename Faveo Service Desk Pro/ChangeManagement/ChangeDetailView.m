@@ -23,7 +23,7 @@
 #import "ChangeList.h"
 #import "CNPPopupController.h"
 #import "AppConstanst.h" 
-//#import "EditChangeDetails.h"
+#import "EditChangeDetails.h"
 
 @interface ChangeDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -248,9 +248,9 @@
 
 
 -(void)editChange{
-  /*
+  
     EditChangeDetails *edit=[self.storyboard instantiateViewControllerWithIdentifier:@"EditChangeDetailsId"];
-    [self.navigationController pushViewController:edit animated:YES]; */
+    [self.navigationController pushViewController:edit animated:YES];
     
 }
 
