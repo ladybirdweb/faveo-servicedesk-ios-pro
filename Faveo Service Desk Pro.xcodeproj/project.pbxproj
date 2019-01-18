@@ -129,6 +129,8 @@
 		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
 		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
 		06C9B83021F1D22D002C4538 /* EditChangeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B82F21F1D22D002C4538 /* EditChangeDetails.m */; };
+		06C9B83321F1DC2C002C4538 /* ViewAttachedChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */; };
+		06C9B83621F1DCCD002C4538 /* ChangeListForPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */; };
 		06D2133421F1A08B006FF9AF /* ChangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133321F1A08B006FF9AF /* ChangeList.m */; };
 		06D2133721F1A1F2006FF9AF /* ChangesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */; };
 		06D2133A21F1A3A9006FF9AF /* CreateChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133921F1A3A9006FF9AF /* CreateChanges.m */; };
@@ -378,6 +380,10 @@
 		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
 		06C9B82E21F1D22D002C4538 /* EditChangeDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditChangeDetails.h; sourceTree = "<group>"; };
 		06C9B82F21F1D22D002C4538 /* EditChangeDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditChangeDetails.m; sourceTree = "<group>"; };
+		06C9B83121F1DC2C002C4538 /* ViewAttachedChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedChange.h; sourceTree = "<group>"; };
+		06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedChange.m; sourceTree = "<group>"; };
+		06C9B83421F1DCCD002C4538 /* ChangeListForPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeListForPopUpView.h; sourceTree = "<group>"; };
+		06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeListForPopUpView.m; sourceTree = "<group>"; };
 		06D2133221F1A08B006FF9AF /* ChangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeList.h; sourceTree = "<group>"; };
 		06D2133321F1A08B006FF9AF /* ChangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeList.m; sourceTree = "<group>"; };
 		06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangesTableViewCell.xib; sourceTree = "<group>"; };
@@ -922,6 +928,10 @@
 				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
 				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
 				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
+				06C9B83121F1DC2C002C4538 /* ViewAttachedChange.h */,
+				06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */,
+				06C9B83421F1DCCD002C4538 /* ChangeListForPopUpView.h */,
+				06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */,
 			);
 			path = ProblemManagement;
 			sourceTree = "<group>";
@@ -1253,6 +1263,7 @@
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
 				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
+				06C9B83621F1DCCD002C4538 /* ChangeListForPopUpView.m in Sources */,
 				06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */,
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
@@ -1273,6 +1284,7 @@
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
 				06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */,
 				06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */,
+				06C9B83321F1DC2C002C4538 /* ViewAttachedChange.m in Sources */,
 				06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,

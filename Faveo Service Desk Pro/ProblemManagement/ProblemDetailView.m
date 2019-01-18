@@ -32,6 +32,7 @@
 #import "SampleNavigation.h"
 #import "ExpandableTableViewController.h"
 #import "SWRevealViewController.h"
+#import "TicketDetailViewController.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
