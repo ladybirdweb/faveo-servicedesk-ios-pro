@@ -60,7 +60,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //self.title
+    self.title = @"Details";
     
     self.segmentedControl.tintColor=[UIColor hx_colorWithHexRGBAString:@"#00aeef"];
     

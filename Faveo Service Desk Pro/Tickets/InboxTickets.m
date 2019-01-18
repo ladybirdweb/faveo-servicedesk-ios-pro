@@ -833,7 +833,7 @@
         }
         @finally
         {
-            NSLog( @" I am in reload method in Inbox ViewController" );
+          //  NSLog( @" I am in reload method in Inbox ViewController" );
             
             
         }
@@ -1000,7 +1000,7 @@
         }
         @finally
         {
-            NSLog( @" I am in getDependencies method in Inbox ViewController" );
+          //  NSLog( @" I am in getDependencies method in Inbox ViewController" );
             
             
         }

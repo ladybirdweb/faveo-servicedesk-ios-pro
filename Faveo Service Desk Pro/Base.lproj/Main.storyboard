@@ -7239,6 +7239,9 @@
                                     </tabBarItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2O6-Ct-6y0" id="KQp-3f-SHZ"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -9496,7 +9499,7 @@
         <image name="note3" width="24" height="24"/>
         <image name="pencileEdit" width="24" height="24"/>
         <image name="problemLogo" width="26" height="26"/>
-        <image name="release" width="16" height="16"/>
+        <image name="release" width="512" height="512"/>
         <image name="reply1" width="24" height="24"/>
         <image name="save22" width="25" height="25"/>
         <image name="servicdeskPro.png" width="1024" height="1024"/>
