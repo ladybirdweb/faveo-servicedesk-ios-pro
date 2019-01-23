@@ -23,6 +23,7 @@
 #import "ExpandableTableViewController.h"
 #import "SWRevealViewController.h"
 #import "ChangesTableViewCell.h"
+#import "ProblemList.h"
 
 @interface ProblemListForPopUpView ()<RMessageProtocol,UITableViewDataSource,UITableViewDelegate>
 {
@@ -765,12 +766,7 @@
                                                             atPosition:RMessagePositionNavBarOverlay
                                                   canBeDismissedByUser:YES];
                             
-                           
-//                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-//                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
-//
-//                            [self presentViewController:objNav animated:YES completion:nil];
-//
+
                             InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
                             
                             SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
@@ -816,6 +812,121 @@
 }
 
 -(void)attachExistingChangeToProblemAPICall{
+    
+    
+    NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/change/attach/%@?@&token=%@&change=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],globalVariables.changeId];
+    
+    
+    @try{
+        MyWebservices *webservices=[MyWebservices sharedInstance];
+        
+        [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            
+            
+            if (error || [msg containsString:@"Error"]) {
+                
+                [SVProgressHUD dismiss];
+                
+                if (msg) {
+                    
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                    
+                }else if(error)  {
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                
+                }
+                
+                return ;
+            }
+            
+            if ([msg isEqualToString:@"tokenRefreshed"]) {
+                
+                [self attachExistingProblemToTicketAPICall];
+                NSLog(@"Thread-call-attachExistingProblemToTicket");
+                return;
+            }
+            
+            if (json) {
+                
+           //     NSLog(@"JSON is : %@",json);
+                
+                if([[json objectForKey:@"data"] isKindOfClass:[NSDictionary class]]){
+                    
+                    NSDictionary * dict = [json objectForKey:@"data"];
+                    NSString * msg = [dict objectForKey:@"success"];
+                    
+                    if ([msg isEqualToString:@"Changes Updated Successfully"]) {
+                        
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                
+                                if (self.navigationController.navigationBarHidden) {
+                                    [self.navigationController setNavigationBarHidden:NO];
+                                }
+                                
+                                [RMessage showNotificationInViewController:self.navigationController
+                                                                     title:NSLocalizedString(@"success", nil)
+                                                                  subtitle:NSLocalizedString(@"Problem attached Successfully", nil)
+                                                                 iconImage:nil
+                                                                      type:RMessageTypeSuccess
+                                                            customTypeName:nil
+                                                                  duration:RMessageDurationAutomatic
+                                                                  callback:nil
+                                                               buttonTitle:nil
+                                                            buttonCallback:nil
+                                                                atPosition:RMessagePositionNavBarOverlay
+                                                      canBeDismissedByUser:YES];
+                                
+                                        ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemListId"];
+                                 
+                                 SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
+                                 
+                                 
+                                 ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                                 
+                                 // Initialize SWRevealViewController and set it as |rootViewController|
+                                 SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+                                 
+                                 [self presentViewController: vc animated:YES completion:nil];
+
+                                
+                                [SVProgressHUD dismiss];
+                                
+                            });
+                        });
+                                
+                    }
+                    else{
+                        
+                        [self->utils showAlertWithMessage:@"Something Went Wrong." sendViewController:self];
+                        [SVProgressHUD dismiss];
+                        
+                    }
+                    
+                }
+                else if([[json objectForKey:@"data"] isKindOfClass:[NSString class]]){
+                    
+                    [self->utils showAlertWithMessage:@"Wrong Input Data." sendViewController:self];
+                    [SVProgressHUD dismiss];
+                }
+                
+                
+            }
+            NSLog(@"Thread-attachExistingChangeToProblem-closed");
+            
+        }];
+    }@catch (NSException *exception)
+    {
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        return;
+    }
+    @finally
+    {
+        //   NSLog( @" I am in attachExistingProblemToTicket ViewController" );
+        
+    }
     
     
 }
