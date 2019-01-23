@@ -215,9 +215,10 @@
                         
                         self->_requesterTextField.text = @"No Requester Found";
                     }
-                    else if([requesterName isKindOfClass:[NSDictionary class]]){
+                    else if([requesterName isKindOfClass:[NSArray class]]){
                         
-                        NSDictionary *requesterDict= [problemList objectForKey:@"requester"];
+                        NSArray * requesterArray = [problemList objectForKey:@"requester"];
+                        NSDictionary * requesterDict = [requesterArray objectAtIndex:0];
                         
                         self->_requesterTextField.text = [NSString stringWithFormat:@"%@ %@",[requesterDict objectForKey:@"first_name"], [requesterDict objectForKey:@"last_name"]];
                         
