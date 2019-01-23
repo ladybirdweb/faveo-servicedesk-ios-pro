@@ -6739,7 +6739,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zar-pD-fcl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Existing Problems" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-pV-yaP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2W-pV-yaP">
                                         <rect key="frame" x="80" y="15" width="166" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="166" id="46C-us-08Y"/>
@@ -6779,6 +6779,7 @@
                     <size key="freeformSize" width="375" height="500"/>
                     <connections>
                         <outlet property="sampleTableView" destination="KnM-Us-Gge" id="l6P-QU-dEf"/>
+                        <outlet property="vcTitleNameLabel" destination="C2W-pV-yaP" id="acW-Ts-v5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3W-XZ-dfB" userLabel="First Responder" sceneMemberID="firstResponder"/>

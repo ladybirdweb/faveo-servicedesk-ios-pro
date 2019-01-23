@@ -191,4 +191,10 @@
 @property (strong, nonatomic) NSString *fromAppDelegateToVC;
 @property (strong, nonatomic) NSString *appURL;
 
+
+//From Tickets/Problem Details -to - Showing existing list of problems/change - PopUp VC
+//values - Ticket to  Problems List -  problemListPopUp
+//values - Problems to Change List - changeListPopUp
+@property (strong, nonatomic) NSString *fromVCTpPopUpView; 
+
 @end
