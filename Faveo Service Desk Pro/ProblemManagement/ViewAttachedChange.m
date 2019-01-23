@@ -88,30 +88,39 @@
     }
     
     
-    NSDictionary *finaldic= globalvariable.attachedChangeDataDict;
+    NSDictionary *finaldic = globalvariable.attachedChangesDataDict;
     
     NSString *changeName= [finaldic objectForKey:@"subject"];
-    NSString *id= [finaldic objectForKey:@"id"];
+    NSString *id2= [finaldic objectForKey:@"id"];
     NSArray * requesterArray= [finaldic objectForKey:@"requester"];
     
     NSObject *requesterObject = [requesterArray objectAtIndex:0];
     
     NSString *requesterName;
     
-    if([requesterObject isKindOfClass:[NSArray class]]){
+    if(![requesterObject isKindOfClass:[NSNull class]] || requesterObject != nil)
+    {
+        
+        if([requesterObject isKindOfClass:[NSArray class]]){
+            
+            requesterName = @"No Requester";
+        }
+        else if([requesterObject isKindOfClass:[NSDictionary class]]){
+            
+            NSDictionary *requesterObject = [requesterArray objectAtIndex:0];
+            
+            requesterName = [NSString stringWithFormat:@"%@ %@",[requesterObject objectForKey:@"first_name"],[requesterObject objectForKey:@"last_name"]];
+        }
+
+    }else{
         
         requesterName = @"No Requester";
     }
-    else if([requesterObject isKindOfClass:[NSDictionary class]]){
-        
-        NSDictionary *requesterObject = [requesterArray objectAtIndex:0];
-        
-        requesterName = [NSString stringWithFormat:@"%@ %@",[requesterObject objectForKey:@"first_name"],[requesterObject objectForKey:@"last_name"]];
-    }
+    
     
     cell.changeNameLabel1.text = [NSString stringWithFormat:@"%@",changeName];
     cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",requesterName]; //from;
-    cell.changeNumber.text = [NSString stringWithFormat:@"#CHN-%@",id];
+    cell.changeNumber.text = [NSString stringWithFormat:@"#CHN-%@",id2];
     
     cell.createdDateLabel.text = @"";
     cell.indicationView.layer.backgroundColor=[[UIColor clearColor] CGColor];
@@ -127,7 +136,7 @@
     
     NSLog(@"Clicked on view button");
     
-    NSDictionary *finaldic= globalvariable.attachedChangeDataDict;
+    NSDictionary *finaldic= globalvariable.attachedChangesDataDict;
     
     globalvariable.changeId=[finaldic objectForKey:@"id"];
     globalvariable.showNavigationItem=@"show2";

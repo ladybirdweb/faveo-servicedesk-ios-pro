@@ -197,4 +197,10 @@
 //values - Problems to Change List - changeListPopUp
 @property (strong, nonatomic) NSString *fromVCTpPopUpView; 
 
+
+//Checking change is is accociated with the problem or not
+@property (strong, nonatomic) NSString *changeStatusInProblemDetailsVC;
+
+@property (strong, nonatomic) NSDictionary *attachedChangesDataDict;
+
 @end

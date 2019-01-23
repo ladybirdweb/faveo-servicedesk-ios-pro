@@ -34,6 +34,7 @@
 #import "SWRevealViewController.h"
 #import "TicketDetailViewController.h"
 #import "ProblemListForPopUpView.h"
+#import "ViewAttachedChange.h"
 
 @interface ProblemDetailView ()<CNPPopupControllerDelegate,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -45,7 +46,6 @@
     
     UITextView *customTextView;
     UILabel *errorMessage;
-    
 
 }
 
@@ -91,6 +91,7 @@
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
     globalVariables=[GlobalVariables sharedInstance];
+    
     
     _problemIdLabel.text=[NSString stringWithFormat:@"#PRB-%@",globalVariables.problemId];
    
@@ -1114,7 +1115,7 @@
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if(item.tag == 1) {
         //your code for tab item 1
-        NSLog(@"clicked on 1");
+        NSLog(@"clicked on 1 - Tickets");
         
         self.normalModalView1.backgroundColor = [UIColor whiteColor];
         self.normalModalView2.backgroundColor = [UIColor whiteColor];
@@ -1144,7 +1145,7 @@
     }
     else if(item.tag == 2) {
         //your code for tab item 2
-        NSLog(@"clicked on 2");
+        NSLog(@"clicked on 2 - Assets");
         
         self.normalModalView1.backgroundColor = [UIColor whiteColor];
         self.normalModalView2.backgroundColor = [UIColor whiteColor];
@@ -1171,9 +1172,27 @@
     }
     else if(item.tag == 3) {
         //your code for tab item 3
-        NSLog(@"clicked on 3");
+        NSLog(@"clicked on 3 - Change");
         
-        [self.normalModalView3 open];
+        if([globalVariables.changeStatusInProblemDetailsVC isEqualToString:@"notFound"]){
+            
+            NSLog(@"Change Not Found");
+            [self.normalModalView3 open];
+        }
+        else if([globalVariables.changeStatusInProblemDetailsVC isEqualToString:@"Found"]){
+            
+            NSLog(@"Change Found");
+            
+            globalVariables.problemId=globalVariables.problemId;
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewAttachedChange *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewAttachedChangeId"];
+            
+            BIZPopupViewController *popupViewController = [[BIZPopupViewController alloc] initWithContentViewController:vc contentSize:CGSizeMake(300, 200)];
+            [self presentViewController:popupViewController animated:YES completion:nil];
+    
+        }
+        
     }
     else if(item.tag == 4) {
         //your code for tab item 4
@@ -1491,15 +1510,14 @@
         
     }else{
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/attached/problem/details/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.ticketId,API_KEY,[userDefaults objectForKey:@"token"]];
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/get/attached/change/%@?api_key=%@&token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,API_KEY,[userDefaults objectForKey:@"token"]];
         
-        NSLog(@"URL is : %@",url);
+        NSLog(@"Get Changes Associated with the Problem - URL is : %@",url);
         
         @try{
             
             MyWebservices *webservices=[MyWebservices sharedInstance];
             [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg){
-                //   NSLog(@"Thread-NO3-getDependencies-start-error-%@-json-%@-msg-%@",error,json,msg);
                 
                 if (error || [msg containsString:@"Error"]) {
                     
@@ -1536,31 +1554,31 @@
                 
                 if ([msg isEqualToString:@"tokenRefreshed"]) {
                     
-                    [self getProblemAssociatedWithTicket];
+                    [self getChangesAssociatedWithProblem];
                     NSLog(@"Thread-getProblemAssociatedWithTicket-call");
                     return;
                 }
                 
                 if (json) {
                     
-                    NSLog(@"JSON is : %@",json);
-                    
-                    self->dataDict = [json objectForKey:@"data"];
-                    
-                    if([[json objectForKey:@"data"] isKindOfClass:[NSDictionary class]]){
+                //    NSLog(@"Associated Change with the Problem JSON is : %@",json);
+            
+
+                    if([[json objectForKey:@"data"] isKindOfClass:[NSArray class]]){
                         
+                        NSMutableArray * changeDataArray1 = [json objectForKey:@"data"];
+                    //    NSLog(@"Change Array Dictionary is : %@",changeDataArray1);
+                        
+                        NSDictionary * changeDataDict= [changeDataArray1 objectAtIndex:0];
+                     //   NSLog(@"Change Data Dictionary is : %@",dict);
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
-                            NSLog(@"Problem is found");
-                            self->globalVariables.problemStatusInTicketDetailVC = @"Found";
+                            NSLog(@"Change is found");
+                            self->globalVariables.changeStatusInProblemDetailsVC = @"Found";
                             // data vailable
                             
-                            self->dataDict = [json objectForKey:@"data"];
-                            //     NSLog(@"Problem Details : %@",self->dataDict);
-                            
-                            self->globalVariables.attachedProblemDataDict = self->dataDict;
-                            
+                            self->globalVariables.attachedChangesDataDict = changeDataDict;
                             
                             //update UI here
                             self->_changeTabBarItem.badgeValue=@"1";
@@ -1570,16 +1588,15 @@
                         
                     }else{
                         
-                        NSLog(@"Problem is not found");
+                        NSLog(@"Change is not found");
                         // data is not available
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
                             //update UI here
                             
-                            self->globalVariables.problemStatusInTicketDetailVC = @"notFound";
+                            self->globalVariables.changeStatusInProblemDetailsVC = @"notFound";
                             
-                            self->globalVariables.attachedProblemDataDict = NULL;
-                            
+                            self->globalVariables.attachedChangesDataDict = NULL;
                             
                             self->_changeTabBarItem.badgeValue=@"0";
                         });
@@ -1595,7 +1612,7 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
-            //  [SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
             return;
         }
         

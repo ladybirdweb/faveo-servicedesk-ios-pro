@@ -170,7 +170,7 @@
                   moduleName = "Faveo Service Desk Pro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/Users/ClientDetailsViewController.m"
-                  timestampString = "569847399.989511"
+                  timestampString = "569931387.2679369"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "341"
@@ -185,7 +185,7 @@
                   moduleName = "Faveo Service Desk Pro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/Users/ClientDetailsViewController.m"
-                  timestampString = "569847399.992409"
+                  timestampString = "569931387.271207"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "344"
@@ -200,7 +200,7 @@
                   moduleName = "Faveo Service Desk Pro"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/Users/ClientDetailsViewController.m"
-                  timestampString = "569847399.9954979"
+                  timestampString = "569931387.274363"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "341"
@@ -4432,6 +4432,261 @@
             endingLineNumber = "751"
             landmarkName = "-replyTicketMethodCall"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.655302"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1565"
+            endingLineNumber = "1565"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.655393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.656006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.656377"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.656724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.657079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.657449"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ViewAttachedChange.m"
+            timestampString = "569931769.657795"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.658143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1568"
+            endingLineNumber = "1568"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.65821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1570"
+            endingLineNumber = "1570"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.658273"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1569"
+            endingLineNumber = "1569"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.658337"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1573"
+            endingLineNumber = "1573"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Faveo Service Desk Pro/ProblemManagement/ProblemDetailView.m"
+            timestampString = "569931769.658401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1574"
+            endingLineNumber = "1574"
+            landmarkName = "-getChangesAssociatedWithProblem"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[ProblemDetailView getChangesAssociatedWithProblem]_block_invoke"
+                  moduleName = "Faveo Service Desk Pro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/ProblemManagement/ProblemDetailView.m"
+                  timestampString = "569931388.249243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1575"
+                  endingLineNumber = "1575"
+                  offsetFromSymbolStart = "1244">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__52-[ProblemDetailView getChangesAssociatedWithProblem]_block_invoke_2"
+                  moduleName = "Faveo Service Desk Pro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/ProblemManagement/ProblemDetailView.m"
+                  timestampString = "569931388.252349"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1575"
+                  endingLineNumber = "1575"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.796"
+                  moduleName = "Faveo Service Desk Pro"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mallikarjun/Desktop/iOS%20Apps%20GitHub/faveo-servicedesk-ios-pro/Faveo%20Service%20Desk%20Pro/ProblemManagement/ProblemDetailView.m"
+                  timestampString = "569931388.2553999"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1575"
+                  endingLineNumber = "1575"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
