@@ -28,6 +28,8 @@
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
     
+    int requesterId;
+    
     NSNumber *requester_id;
     NSNumber *impact_id;
     NSNumber *status_id;
@@ -258,6 +260,8 @@
 - (void)requesterWasSelected:(NSNumber *)selectedIndex element:(id)element{
     
     requester_id=(requester_idArray)[(NSUInteger) [selectedIndex intValue]];
+    globalVariables.requesterIdInChangeDetailsEdit = requester_id;
+    
     self.requesterTextField.text = (_requesterArray)[(NSUInteger) [selectedIndex intValue]];
     
     NSLog(@"Id is: %@",requester_id); // it is getting email e.g  Id is: alokjena@gmail.com
@@ -407,6 +411,8 @@
                 
                 if (json) {
                     
+                  //  NSLog(@"Details are : %@",json);
+                    
                     NSDictionary *problemList=[json objectForKey:@"data"];
                     
                     //subject data
@@ -436,14 +442,23 @@
                         
                         self->_requesterTextField.text = @"No Requester Found";
                     }
-                    else if([requesterName isKindOfClass:[NSDictionary class]]){
+                    else if([requesterName isKindOfClass:[NSArray class]]){
                         
-                        NSDictionary *requesterDict= [problemList objectForKey:@"requester"];
-                        
-                        self->_requesterTextField.text = [NSString stringWithFormat:@"%@ %@",[requesterDict objectForKey:@"first_name"], [requesterDict objectForKey:@"last_name"]];
+                        NSArray *requesterArray= [problemList objectForKey:@"requester"];
+                        if(requesterArray.count == 0 ){
+                            self->_requesterTextField.text = @"No Requester Found";
+                        }else{
+                            NSDictionary *requesterDict = [requesterArray objectAtIndex:0];
+                            
+                            self->_requesterTextField.text = [NSString stringWithFormat:@"%@ %@",[requesterDict objectForKey:@"first_name"], [requesterDict objectForKey:@"last_name"]];
+                         //   self->requester_id = [requesterDict objectForKey:@"id"];
+                            
+                            self->globalVariables.requesterIdInChangeDetailsEdit = [requesterDict objectForKey:@"id"];
+                        }
+                       
                         
                     }
-                    else self->_requesterTextField.text = @"Not Found";
+                    else self->_requesterTextField.text =  @"No Requester Found";
                     
                     
                     
@@ -636,6 +651,7 @@
                 }
                 if (json) {
                     
+                    
                     //NSLog(@"Thread-getproblems-dependency : %@",json);
                     NSArray *requesterArray1 = [json objectForKey:@"requester"];
                     NSArray *impactArray1 = [json objectForKey:@"sd_impact_types"];
@@ -670,9 +686,7 @@
                     self->changeType_idArray =[[NSMutableArray alloc]init];
                     self->asset_idArray =[[NSMutableArray alloc]init];
                     
-                    
-                    
-                    
+                
                     
                     // Requester
                     for (NSMutableDictionary *dicc in requesterArray1) {
@@ -695,7 +709,7 @@
                                 [requesterMU addObject:userName];
                             }
                             
-                            [self->requester_idArray addObject:[dicc objectForKey:@"email"]];
+                            [self->requester_idArray addObject:[dicc objectForKey:@"id"]];
                             
                         }
                         
@@ -900,21 +914,19 @@
             assetIds = @"";
         }//end checking assets
         
-        //api/v1/servicedesk/change/{changeid} subject description status_id priority_id change_type_id
-        // impact_id //location_id //requester //approval_id //asset [ ]
-        // PATCH API call
+
         
-        NSString *requesterName;
-        if([_requesterTextField.text isEqualToString:@"Not Found"])
-        {
-            requesterName = @"";
-        }
-        else{
-            
-            requesterName = [NSString stringWithFormat:@"%@",_requesterTextField.text];
-        }
+      //  NSString *requesterName;
+//        if([_requesterTextField.text isEqualToString:@"Not Found"])
+//        {
+//            requesterName = @"";
+//        }
+//        else{
+//
+//            requesterName = [NSString stringWithFormat:@"%@",requester_id];
+//        }
         
-        NSString *url=[NSString stringWithFormat:@"%@servicedesk/change/%@?token=%@&subject=%@&description=%@&requester=%@&status_id=%@&impact_id=%@&priority_id=%@&change_type_id=%@&location_id=%@&%@",[userDefaults objectForKey:@"companyURL"],globalVariables.changeId,[userDefaults objectForKey:@"token"],subjectData,descriptionData,requesterName,status_id,impact_id,priority_id,changeType_id,locatioinID,assetIds];
+        NSString *url=[NSString stringWithFormat:@"%@servicedesk/change/%@?token=%@&subject=%@&description=%@&requester=%@&status_id=%@&impact_id=%@&priority_id=%@&change_type_id=%@&location_id=%@&%@",[userDefaults objectForKey:@"companyURL"],globalVariables.changeId,[userDefaults objectForKey:@"token"],subjectData,descriptionData,globalVariables.requesterIdInChangeDetailsEdit,status_id,impact_id,priority_id,changeType_id,locatioinID,assetIds];
         
         NSLog(@"URL is : %@",url);
         
@@ -979,8 +991,8 @@
                     
                     
                     NSLog(@"JSON-EditChangeAPICall-%@",json);
-                    NSLog(@"JSON-EditChangeAPICall-%@",json);
-                    NSLog(@"JSON-EditChangeAPICall-%@",json);
+                 //   NSLog(@"JSON-EditChangeAPICall-%@",json);
+                 //   NSLog(@"JSON-EditChangeAPICall-%@",json);
                     
                     
                     NSDictionary * resultDict = [json objectForKey:@"data"];

@@ -633,6 +633,7 @@
     if([globalVariables.createChangeConditionforVC isEqualToString:@"newWithProblem"])
     {
         
+        globalVariables.showNavigationItem = @"show";
         urlString=[NSString stringWithFormat:@"%@servicedesk/problem/change/%@?token=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"]];
         
     }

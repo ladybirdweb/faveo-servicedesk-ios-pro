@@ -364,6 +364,9 @@
     else if(item.tag == 5) {
         
         NSLog(@"Clicked on edit change");
+        
+        EditChangeDetails *edit=[self.storyboard instantiateViewControllerWithIdentifier:@"EditChangeDetailsId"];
+        [self.navigationController pushViewController:edit animated:YES];
     }
     else{
         

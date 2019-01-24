@@ -877,7 +877,7 @@
                                                                 atPosition:RMessagePositionNavBarOverlay
                                                       canBeDismissedByUser:YES];
                                 
-                                        ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemListId"];
+                                        ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
                                  
                                  SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
                                  

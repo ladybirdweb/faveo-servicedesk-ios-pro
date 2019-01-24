@@ -203,4 +203,7 @@
 
 @property (strong, nonatomic) NSDictionary *attachedChangesDataDict;
 
+//Requester Id used in edit change
+@property (strong, nonatomic) NSNumber *requesterIdInChangeDetailsEdit;
+
 @end

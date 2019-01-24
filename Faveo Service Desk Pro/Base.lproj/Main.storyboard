@@ -8003,7 +8003,7 @@
                                                     <rect key="frame" x="32" y="24.000000000000004" width="351" height="34.333333333333343"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" smartDashesType="no" smartQuotesType="no" textContentType="name"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" smartDashesType="no" smartQuotesType="no"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="ybg-Ye-Du6" id="YeJ-gU-WIt"/>
                                                     </connections>

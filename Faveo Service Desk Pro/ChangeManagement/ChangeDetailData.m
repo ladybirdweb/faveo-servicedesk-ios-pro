@@ -186,6 +186,8 @@
                 
                 if (json) {
                     
+                 //   NSLog(@"Change Details JSON : %@",json);
+                    
                     NSDictionary *problemList=[json objectForKey:@"data"];
                     
                     //subject data
@@ -218,9 +220,19 @@
                     else if([requesterName isKindOfClass:[NSArray class]]){
                         
                         NSArray * requesterArray = [problemList objectForKey:@"requester"];
-                        NSDictionary * requesterDict = [requesterArray objectAtIndex:0];
                         
-                        self->_requesterTextField.text = [NSString stringWithFormat:@"%@ %@",[requesterDict objectForKey:@"first_name"], [requesterDict objectForKey:@"last_name"]];
+                        if(requesterArray.count == 0){
+                            
+                            self->_requesterTextField.text =  @"No Requester Found";
+                            
+                        }
+                        else{
+                            NSDictionary * requesterDict = [requesterArray objectAtIndex:0];
+                            
+                            self->_requesterTextField.text = [NSString stringWithFormat:@"%@ %@",[requesterDict objectForKey:@"first_name"], [requesterDict objectForKey:@"last_name"]];
+                            
+                        }
+                        
                         
                     }
                     else self->_requesterTextField.text = @"No Requester Found";

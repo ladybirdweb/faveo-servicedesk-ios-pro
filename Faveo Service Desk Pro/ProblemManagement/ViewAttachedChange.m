@@ -230,14 +230,7 @@
                                                             atPosition:RMessagePositionNavBarOverlay
                                                   canBeDismissedByUser:YES];
                             
-                            //   [self dismissViewControllerAnimated:YES completion:nil];
-                            
-                            //                            TicketDetailViewController *td=[self.storyboard instantiateViewControllerWithIdentifier:@"ticketDetailViewId"];
-                            //
-                            //                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-                            //                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
-                            //                            [self presentViewController:objNav animated:YES completion:nil];
-                            //
+                          
                             ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
                             
                             SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
