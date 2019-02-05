@@ -545,7 +545,8 @@
                 if([[finaldic objectForKey:@"by"] isEqualToString:@"System"])
                 {
                     // [cell setUserProfileimage:@"systemIcon.png"];
-                    cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
+                   // cell.profilePicView.image=[UIImage imageNamed:@"robot"];
+                    cell.profilePicView.image=[UIImage imageNamed:@"robot"];
                     cell.name.text= NSLocalizedString(@"System",nil);//robot
                 }
                 else{

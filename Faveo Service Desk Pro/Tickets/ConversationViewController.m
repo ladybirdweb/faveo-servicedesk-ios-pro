@@ -197,7 +197,7 @@
                     self->mutableArray=[[NSMutableArray alloc]initWithCapacity:10];
                     
                     NSDictionary *dataConversationDict=[json objectForKey:@"data"];
-                    // NSLog(@"DIct11111 is : %@",dataConversationDict);
+                   // NSLog(@"DIct11111 is : %@",dataConversationDict);
                     
                     self->mutableArray=[dataConversationDict objectForKey:@"threads"];
                     
@@ -412,7 +412,7 @@
         }
         
         
-        
+    
         if([userProfilePic hasSuffix:@"system.png"] || [userProfilePic hasSuffix:@".jpg"] || [userProfilePic hasSuffix:@".jpeg"] || [userProfilePic hasSuffix:@".png"] )
         {
             [cell setUserProfileimage:userProfilePic];
@@ -427,11 +427,12 @@
         }
         
         
+        
     }
     else
     {
         cell.clientNameLabel.text=@"System";
-        cell.profilePicView.image=[UIImage imageNamed:@"systemIcon.png"];
+        cell.profilePicView.image=[UIImage imageNamed:@"robot"];
         // [cell.profilePicView setImageWithString:@"System" color:nil ];
     }
     

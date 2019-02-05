@@ -219,6 +219,8 @@
                 
                 if (json) {
                     
+                  //  NSLog(@"JSON is : %@",json);
+                    
                     self->_mutableArray=[json objectForKey:@"data"];
                     
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
@@ -227,13 +229,7 @@
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
                     self->_totalPages=[[json objectForKey:@"last_page"] integerValue];
                     
-                    
-                    
-                    
-                    //         self->_mutableArray = [problemList objectForKey:@"problems"];
-                    
-                    
-                    
+                
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
@@ -394,32 +390,61 @@
         NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
         
         NSString *changeName= [finaldic objectForKey:@"subject"];
-        //  NSString *from= [finaldic objectForKey:@"from"];
+        NSString *requesterName= [finaldic objectForKey:@"requester"];
         NSString *id1= [finaldic objectForKey:@"id"];
         NSString *createdDate= [finaldic objectForKey:@"created_at"];
         // NSString *prio= [finaldic objectForKey:@"created_at"];
         
+       if(![Utils isEmpty:changeName]){
+            cell.changeNameLabel1.text = changeName;
+        }
+       else{
+           cell.changeNameLabel1.text = @"Title Not Available";
+       }
         
-        cell.changeNameLabel1.text = changeName;
-        // cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+       if(![Utils isEmpty:requesterName]){
+           cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",requesterName];
+       }
+       else{
+            cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: Not Available"];
+       }
+        
+       
         cell.changeNumber.text = [NSString stringWithFormat:@"#CNG-%@",id1];
         cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
         
         if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
             
+            if( globalVariables.priorityColorLowForProblemsList == nil || [globalVariables.priorityColorLowForProblemsList isEqualToString:@""] || [globalVariables.priorityColorLowForProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00a65a"] CGColor];
+            }else{
             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
+            }
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
-            
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+           
+            if(globalVariables.priorityColorNormalProblemsList == nil || [globalVariables.priorityColorNormalProblemsList isEqualToString:@""] || [globalVariables.priorityColorNormalProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00a65a"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            }
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            if( globalVariables.priorityColorHighProblemsList == nil ||[globalVariables.priorityColorHighProblemsList isEqualToString:@""] || [globalVariables.priorityColorHighProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00a65a"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            }
+            
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            if(globalVariables.priorityColorEmergencyProblemsList == nil || [globalVariables.priorityColorEmergencyProblemsList isEqualToString:@""] || [globalVariables.priorityColorEmergencyProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00a65a"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            }
         }
         return cell;
     }

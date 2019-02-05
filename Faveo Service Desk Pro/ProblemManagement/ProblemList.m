@@ -217,6 +217,8 @@
                 
                 if (json) {
                     
+                   // NSLog(@"JSON is : %@",json);
+                    
                     self->_mutableArray=[json objectForKey:@"data"];
                     
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
@@ -382,37 +384,65 @@
             
         }
         
-        //created_at priority
-        
+       
         NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
         
         NSString *problemName= [finaldic objectForKey:@"subject"];
         NSString *from= [finaldic objectForKey:@"from"];
         NSString *id= [finaldic objectForKey:@"id"];
         NSString *createdDate= [finaldic objectForKey:@"created_at"];
-       // NSString *prio= [finaldic objectForKey:@"created_at"];
+       
+        //title
+        if(![Utils isEmpty:problemName]){
+            
+            cell.problemNameLabel.text = problemName;
+        }
+        else{
+            cell.problemNameLabel.text = @"Subject Not Avaiable";
+        }
         
+        //requester name
+        if(![Utils isEmpty:from]){
+             cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+        }
+        else{
+            cell.fromLabel.text = [NSString stringWithFormat:@"Requester: Not Available"];
+        }
         
-        cell.problemNameLabel.text = problemName;
-        cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
         cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
         cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
         
         if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
           
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
+            if([globalVariables.priorityColorLowForProblemsList isEqualToString:@""] || [globalVariables.priorityColorLowForProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00bfef"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
+            }
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
         
-             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            if([globalVariables.priorityColorNormalProblemsList isEqualToString:@""] || [globalVariables.priorityColorNormalProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00bfef"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            }
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            if([globalVariables.priorityColorHighProblemsList isEqualToString:@""] || [globalVariables.priorityColorHighProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00bfef"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            }
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            if([globalVariables.priorityColorEmergencyProblemsList isEqualToString:@""] || [globalVariables.priorityColorEmergencyProblemsList isKindOfClass:[NSNull class]]){
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:@"#00bfef"] CGColor];
+            }else{
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            }
         }
         return cell;
     }

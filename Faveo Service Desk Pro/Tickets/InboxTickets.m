@@ -719,8 +719,8 @@
             [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
                 
                 
-                NSLog(@"Reload Method Inbox Error is : %@",error );
-                NSLog(@"Reload Method Inbox Message is : %@",msg );
+              //  NSLog(@"Reload Method Inbox Error is : %@",error );
+              //  NSLog(@"Reload Method Inbox Message is : %@",msg );
              //   NSLog(@"Reload Method Inbox JSON is: %@",json);
                 
                 if (error || [msg containsString:@"Error"]) {
@@ -797,6 +797,8 @@
                 
                 
                 if (json) {
+                    
+                 //   NSLog(@"JSON is : %@",json);
                     
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                         

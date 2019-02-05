@@ -490,7 +490,7 @@
                                 [requesterMU addObject:userName];
                             }
                             
-                            [self->requester_idArray addObject:[dicc objectForKey:@"email"]];
+                            [self->requester_idArray addObject:[dicc objectForKey:@"id"]];
                             
                         }
                         

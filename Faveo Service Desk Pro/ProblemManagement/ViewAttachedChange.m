@@ -51,6 +51,7 @@
     
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Loading Changes..."];
 }
 
 
@@ -125,6 +126,8 @@
     cell.createdDateLabel.text = @"";
     cell.indicationView.layer.backgroundColor=[[UIColor clearColor] CGColor];
     cell.mainView.backgroundColor = [UIColor colorFromHexString:@"EFEFF4"];
+    
+    [SVProgressHUD dismiss];
     
     return cell;
     
