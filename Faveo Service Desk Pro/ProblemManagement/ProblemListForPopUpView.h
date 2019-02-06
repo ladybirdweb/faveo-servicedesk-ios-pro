@@ -65,5 +65,7 @@
 - (IBAction)saveButtonClicked:(id)sender;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *vcTitleNameLabel;
+
 @end
 

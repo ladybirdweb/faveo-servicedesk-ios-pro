@@ -1150,6 +1150,7 @@
      NSLog(@"Clicked on attach existing problem");
     
     globalVariables.ticketId=globalVariables.ticketId;
+    globalVariables.fromVCTpPopUpView = @"problemListPopUp";
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ProblemListForPopUpView *vc = [storyboard instantiateViewControllerWithIdentifier:@"ProblemListForPopUpViewId"];

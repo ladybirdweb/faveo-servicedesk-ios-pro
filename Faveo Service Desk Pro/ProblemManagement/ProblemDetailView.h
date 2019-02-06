@@ -105,5 +105,7 @@
  */
 - (IBAction)indexChanged:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITabBarItem *changeTabBarItem;
+
 
 @end

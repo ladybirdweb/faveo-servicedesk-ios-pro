@@ -1,37 +1,36 @@
 //
-//  ProblemList.m
+//  ChangeListForPopUpView.m
 //  Faveo Service Desk Pro
 //
-//  Created by Mallikarjun on 04/09/18.
-//  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
+//  Created by Mallikarjun on 18/01/19.
+//  Copyright © 2019 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
-#import "ProblemList.h"
+#import "ChangeListForPopUpView.h"
 #import "Utils.h"
 #import "MyWebservices.h"
 #import "GlobalVariables.h"
-#import "SWRevealViewController.h"
-#import "ProblemTableViewCell.h"
+#import "ChangesTableViewCell.h"
 #import "SVProgressHUD.h"
 #import "RMessage.h"
 #import "RMessageView.h"
 #import "Reachability.h"
 #import "LoadingTableViewCell.h"
-#import "ProblemDetailView.h"
 #import "UIColor+HexColors.h"
-#import "UIColor+HexColors.h"
-#import "CreateProblem.h"
 #import "AppConstanst.h"
+#import "InboxTickets.h"
+#import "ChangesTableViewCell.h"
+#import "SampleNavigation.h"
+#import "ExpandableTableViewController.h"
+#import "SWRevealViewController.h"
 
-
-@interface ProblemList ()<RMessageProtocol>
+@interface ChangeListForPopUpView ()<RMessageProtocol,UITableViewDataSource,UITableViewDelegate>
 {
-    
     Utils *utils;
     UIRefreshControl *refresh;
     NSUserDefaults *userDefaults;
     GlobalVariables *globalVariables;
-    
+    NSIndexPath *selectedIndex;
     
 }
 
@@ -45,16 +44,14 @@
 @property (nonatomic, strong) NSString *path1;
 
 @property (nonatomic) int pageInt;
+
 @end
 
-@implementation ProblemList
+@implementation ChangeListForPopUpView
 
-//It called after the controller's view is loaded into memory.
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:NSLocalizedString(@"All Problems",nil)];
     
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
@@ -62,44 +59,15 @@
     
     _mutableArray=[[NSMutableArray alloc]init];
     
-    //side menu initialization
-    _sidebarButton.target = self.revealViewController;
-    _sidebarButton.action = @selector(revealToggle:);
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
-    
-    // adding button on navigation
-    UIButton *addButton =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [addButton setImage:[UIImage imageNamed:@"add1"] forState:UIControlStateNormal];
-    [addButton addTarget:self action:@selector(addNewProblem) forControlEvents:UIControlEventTouchUpInside];
-    //    [moreButton setFrame:CGRectMake(46, 0, 32, 32)];
-    [addButton setFrame:CGRectMake(46, 0, 32, 32)];
-    
-    UIView *rightBarButtonItems = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 76, 32)];
-    [rightBarButtonItems addSubview:addButton];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButtonItems];
-    
-   
     
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD showWithStatus:@"Loading Problems"];
+    [SVProgressHUD showWithStatus:@"Loading Changes"];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self addUIRefresh];
     [self reload];
-    
-}
-
--(void)addNewProblem{
-    
-    globalVariables.createProblemConditionforVC = @"newAlone";
-    
-    //add lines of code
-    CreateProblem *createProblem=[self.storyboard instantiateViewControllerWithIdentifier:@"CreateProblemId"];
-    
-    [self.navigationController pushViewController:createProblem animated:YES];
     
 }
 
@@ -109,7 +77,6 @@
     {
         [refresh endRefreshing];
         
-        // [[AppDelegate sharedAppdelegate] hideProgressView];
         [SVProgressHUD dismiss];
         
         if (self.navigationController.navigationBarHidden) {
@@ -133,8 +100,8 @@
         
     }else{
         
-       
-        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
+        
+        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/changes?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
         NSLog(@"URL is : %@",url);
         
         @try{
@@ -191,7 +158,7 @@
                         NSLog(@"Error is : %@",error);
                         
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                        NSLog(@"Thread-AllProbelms-Refresh-error == %@",error.localizedDescription);
+                        NSLog(@"Thread-All-Changes-Refresh-error == %@",error.localizedDescription);
                         [SVProgressHUD dismiss];
                     }
                     return ;
@@ -201,7 +168,7 @@
                     
                     
                     [self reload];
-                    NSLog(@"Thread-call-getAllProblems");
+                    NSLog(@"Thread-call-getAllChanges");
                     return;
                 }
                 
@@ -225,7 +192,6 @@
                     self->_totalTickets=[[json objectForKey:@"total"] integerValue];
                     self->_totalPages=[[json objectForKey:@"last_page"] integerValue];
                     
-           //         self->_mutableArray = [problemList objectForKey:@"problems"];
                     
                     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -238,7 +204,6 @@
                     });
                     
                 }
-                NSLog(@"Thread-problems-closed");
                 
             }];
         }@catch (NSException *exception)
@@ -246,11 +211,12 @@
             NSLog( @"Name: %@", exception.name);
             NSLog( @"Reason: %@", exception.reason );
             [utils showAlertWithMessage:exception.name sendViewController:self];
+            [SVProgressHUD dismiss];
             return;
         }
         @finally
         {
-            NSLog( @" I am in reload method in problem list ViewController" );
+            NSLog( @" I am in reload method Change list for pop up ViewController" );
             
             
         }
@@ -263,12 +229,12 @@
 // Handling the tableview even we reload the tablview, edit view will not vanish even we scroll
 - (void)reloadTableView
 {
-    NSArray *indexPaths = [self.sampleTableview indexPathsForSelectedRows];
+    NSArray *indexPaths = [self.sampleTableView indexPathsForSelectedRows];
     
-    [self.sampleTableview reloadData];
+    [self.sampleTableView reloadData];
     
     for (NSIndexPath *path in indexPaths) {
-        [self.sampleTableview selectRowAtIndexPath:path animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [self.sampleTableView selectRowAtIndexPath:path animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
 }
 
@@ -288,7 +254,7 @@
     else{
         
         UILabel *noDataLabel         = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height)];
-        noDataLabel.text             = NSLocalizedString(@"",nil);
+        noDataLabel.text             = NSLocalizedString(@"No Records..!!!",nil);
         noDataLabel.textColor        = [UIColor blackColor];
         noDataLabel.textAlignment    = NSTextAlignmentCenter;
         tableView.backgroundView = noDataLabel;
@@ -319,9 +285,6 @@
 // This method tells the delegate the table view is about to draw a cell for a particular row
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    //  cell.selectionStyle=UITableViewCellSelectionStyleBlue;
     
     if (indexPath.row == [_mutableArray count] - 1 ) {
         NSLog(@"nextURL111  %@",_nextPageUrl);
@@ -357,7 +320,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    
     if (indexPath.row == [_mutableArray count]) {
         
         LoadingTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"LoadingCellID"];
@@ -373,13 +335,30 @@
     }else{
         
         
-        ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
+        ChangesTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ChangesTableViewCellId"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UIButton *newRadioButton = (UIButton *)cell.accessoryView;
         
         if (cell == nil)
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChangesTableViewCell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
             
+            if (!newRadioButton || ![newRadioButton isKindOfClass:[UIButton class]]) {
+                UIButton *newRadioButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                newRadioButton.frame = CGRectMake(30, 0, 15, 14.5);
+                [newRadioButton setImage:[UIImage imageNamed:@"unselect"] forState:UIControlStateNormal];
+                [newRadioButton setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
+                cell.accessoryView = newRadioButton;
+            }
+            
+        }
+        
+        if ([indexPath isEqual:selectedIndex]) {
+            newRadioButton.selected = YES;
+        } else {
+            newRadioButton.selected = NO;
         }
         
         //created_at priority
@@ -387,36 +366,36 @@
         NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
         
         NSString *problemName= [finaldic objectForKey:@"subject"];
-        NSString *from= [finaldic objectForKey:@"from"];
-        NSString *id= [finaldic objectForKey:@"id"];
+        //  NSString *from= [finaldic objectForKey:@"from"];
+        NSString *id1= [finaldic objectForKey:@"id"];
         NSString *createdDate= [finaldic objectForKey:@"created_at"];
-       // NSString *prio= [finaldic objectForKey:@"created_at"];
+        // NSString *prio= [finaldic objectForKey:@"created_at"];
         
         
-        cell.problemNameLabel.text = problemName;
-        cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
-        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
+        cell.changeNameLabel1.text = problemName;
+        // cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+        cell.changeNumber.text = [NSString stringWithFormat:@"#CNG-%@",id1];
         cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
         
         if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
-          
+            
             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
-        
-             cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
         }
         else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
             
-              cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
         }
         return cell;
     }
-        
+    
 }
 
 
@@ -424,15 +403,15 @@
 // This method tells the delegate that the specified row is now selected.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    selectedIndex = indexPath;
     
     NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-    globalVariables.problemId=[finaldic objectForKey:@"id"];
-   
     
-    ProblemDetailView *detail=[self.storyboard instantiateViewControllerWithIdentifier:@"ProblemDetailViewId"];
+    NSLog(@"Selected Change Id is : %@",[finaldic objectForKey:@"id"]);
     
+    globalVariables.changeId=[finaldic objectForKey:@"id"];
     
-    [self.navigationController pushViewController:detail animated:YES];
+    [tableView reloadData];
     
 }
 
@@ -505,7 +484,7 @@
                         
                     }else if(error)  {
                         [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
-                        NSLog(@"Thread-problem-list-Refresh-error == %@",error.localizedDescription);
+                        NSLog(@"Thread-Changes-list-Refresh-error == %@",error.localizedDescription);
                         [SVProgressHUD dismiss];
                     }
                     return ;
@@ -520,7 +499,7 @@
                 
                 if (json) {
                     
-                   // NSDictionary *data1Dict=[json objectForKey:@"data"];
+                    // NSDictionary *data1Dict=[json objectForKey:@"data"];
                     
                     self->_nextPageUrl =[json objectForKey:@"next_page_url"];
                     self->_path1=[json objectForKey:@"path"];
@@ -537,7 +516,7 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             
                             [self reloadTableView];
-                    
+                            
                             [SVProgressHUD dismiss];
                             
                         });
@@ -557,7 +536,7 @@
         }
         @finally
         {
-            NSLog( @" I am in loadMore method in Problem List ViewController" );
+            NSLog( @" I am in loadMore method in Changes List ViewController" );
             
         }
     }
@@ -576,12 +555,10 @@
     
     refresh=[[UIRefreshControl alloc] init];
     refresh.tintColor=[UIColor whiteColor];
-      refresh.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
-   // refresh.backgroundColor = [UIColor colorFromHexString:@"BDBDBD"];
-    // [UIColor hx_colorWithHexRGBAString:@"#BDBDBD"];
+    refresh.backgroundColor = [UIColor colorWithRed:0.46 green:0.8 blue:1.0 alpha:1.0];
     refresh.attributedTitle =refreshing;
     [refresh addTarget:self action:@selector(reloadd) forControlEvents:UIControlEventValueChanged];
-    [_sampleTableview insertSubview:refresh atIndex:0];
+    [_sampleTableView insertSubview:refresh atIndex:0];
     
 }
 
@@ -590,5 +567,26 @@
     [self reload];
     //    [refresh endRefreshing];
 }
+
+
+- (IBAction)closeButtonClicked:(id)sender {
+    
+    NSLog(@"Clicked on close button");
+    [[self presentingViewController] dismissViewControllerAnimated:NO completion:nil];
+    
+}
+
+- (IBAction)saveButtonClicked:(id)sender {
+    
+    NSLog(@"Clicked on save button");
+    
+    [SVProgressHUD showWithStatus:@"Please wait"];
+    
+    //  [self attachExistingProblemToTicketAPICall];
+    
+    
+    
+}
+
 
 @end

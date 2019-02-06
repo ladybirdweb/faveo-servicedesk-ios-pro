@@ -719,8 +719,8 @@
             [webservices httpResponseGET:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
                 
                 
-                NSLog(@"Reload Method Inbox Error is : %@",error );
-                NSLog(@"Reload Method Inbox Message is : %@",msg );
+              //  NSLog(@"Reload Method Inbox Error is : %@",error );
+              //  NSLog(@"Reload Method Inbox Message is : %@",msg );
              //   NSLog(@"Reload Method Inbox JSON is: %@",json);
                 
                 if (error || [msg containsString:@"Error"]) {
@@ -798,6 +798,8 @@
                 
                 if (json) {
                     
+                 //   NSLog(@"JSON is : %@",json);
+                    
                     NSDictionary *data1Dict=[json objectForKey:@"data"];
                         
                     self->_mutableArray = [data1Dict objectForKey:@"data"];
@@ -833,7 +835,7 @@
         }
         @finally
         {
-            NSLog( @" I am in reload method in Inbox ViewController" );
+          //  NSLog( @" I am in reload method in Inbox ViewController" );
             
             
         }
@@ -1000,7 +1002,7 @@
         }
         @finally
         {
-            NSLog( @" I am in getDependencies method in Inbox ViewController" );
+          //  NSLog( @" I am in getDependencies method in Inbox ViewController" );
             
             
         }

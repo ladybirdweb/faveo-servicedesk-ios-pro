@@ -5,7 +5,6 @@
 //  Created by Mallikarjun on 21/05/18.
 //  Copyright © 2018 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 
 /*!
@@ -17,7 +16,7 @@
  In many cases, the methods of the app delegate are the only way to receive these important notifications.
  
  */
-@interface AppDelegate : UIResponder 
+@interface AppDelegate : UIResponder
 
 /*!
  @property window
@@ -36,4 +35,3 @@
 
 
 @end
-

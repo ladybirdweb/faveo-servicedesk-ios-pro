@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060EDF6221E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */; };
 		060F460220C91D3500EDA6B8 /* AWNavigationMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */; };
 		060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 060F460520C9273500EDA6B8 /* LoadingTableViewCell.m */; };
 		060F460820C9273500EDA6B8 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 060F460620C9273500EDA6B8 /* LoadingTableViewCell.xib */; };
@@ -25,7 +26,6 @@
 		0619CF9120B2E234004CFDC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9020B2E234004CFDC9 /* Assets.xcassets */; };
 		0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0619CF9220B2E234004CFDC9 /* LaunchScreen.storyboard */; };
 		0619CF9720B2E234004CFDC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CF9620B2E234004CFDC9 /* main.m */; };
-		0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */; };
 		0619CFBA20B2E5A7004CFDC9 /* servicdeskPro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */; };
 		0619CFC120B31064004CFDC9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0619CFC020B31064004CFDC9 /* LoginViewController.m */; };
 		0623809120CA3BE000257395 /* CreateTicketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0623809020CA3BE000257395 /* CreateTicketView.m */; };
@@ -39,6 +39,7 @@
 		062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 062380A820CA9B7F00257395 /* ConversationTableViewCell.m */; };
 		062380AC20CA9B8000257395 /* ConversationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */; };
 		0623C2AA20B52AA700A52087 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0623C2A920B52AA700A52087 /* logo.png */; };
+		0627993221F1C06400CAA4A6 /* ChangeDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0627993121F1C06400CAA4A6 /* ChangeDetailData.m */; };
 		0630D95120C66E1800191A7D /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95020C66E1800191A7D /* AboutUsViewController.m */; };
 		0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95420C6754A00191A7D /* ClientListViewController.m */; };
 		0630D95820C6755C00191A7D /* ClientDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0630D95720C6755C00191A7D /* ClientDetailsViewController.m */; };
@@ -127,6 +128,15 @@
 		06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99C213FB74F004D548E /* ProblemDetailData.m */; };
 		06B3D9A021400102004D548E /* CreateProblem.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D99F21400102004D548E /* CreateProblem.m */; };
 		06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B3D9A22140013F004D548E /* EditProblemDetails.m */; };
+		06C9B83021F1D22D002C4538 /* EditChangeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B82F21F1D22D002C4538 /* EditChangeDetails.m */; };
+		06C9B83321F1DC2C002C4538 /* ViewAttachedChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */; };
+		06C9B83621F1DCCD002C4538 /* ChangeListForPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */; };
+		06D2133421F1A08B006FF9AF /* ChangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133321F1A08B006FF9AF /* ChangeList.m */; };
+		06D2133721F1A1F2006FF9AF /* ChangesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */; };
+		06D2133A21F1A3A9006FF9AF /* CreateChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2133921F1A3A9006FF9AF /* CreateChanges.m */; };
+		06D2134121F1B17E006FF9AF /* ChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */; };
+		06D2134421F1B361006FF9AF /* ChangeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134321F1B361006FF9AF /* ChangeDetailView.m */; };
+		06D2134721F1B889006FF9AF /* ChangeAnalysisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */; };
 		06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */; };
 		06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */; };
 		06D3AA9A213D04AD0015AACB /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */; };
@@ -156,14 +166,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */ = {
+		060EDF6421E9C5E200228037 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0619CF7C20B2E233004CFDC9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0619CF8320B2E233004CFDC9;
 			remoteInfo = "Faveo Service Desk Pro";
 		};
-		0619CFA820B2E234004CFDC9 /* PBXContainerItemProxy */ = {
+		0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0619CF7C20B2E233004CFDC9 /* Project object */;
 			proxyType = 1;
@@ -173,6 +183,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
+		060EDF6321E9C5E200228037 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		060F460020C91D3400EDA6B8 /* AWNavigationMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWNavigationMenuItem.h; sourceTree = "<group>"; };
 		060F460120C91D3500EDA6B8 /* AWNavigationMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWNavigationMenuItem.m; sourceTree = "<group>"; };
 		060F460420C9273500EDA6B8 /* LoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingTableViewCell.h; sourceTree = "<group>"; };
@@ -204,9 +217,6 @@
 		0619CF9620B2E234004CFDC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0619CFA220B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Faveo Service Desk ProUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Faveo_Service_Desk_ProUITests.m; sourceTree = "<group>"; };
-		0619CFAD20B2E234004CFDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0619CFB920B2E5A7004CFDC9 /* servicdeskPro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = servicdeskPro.png; sourceTree = "<group>"; };
 		0619CFBF20B31064004CFDC9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		0619CFC020B31064004CFDC9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -231,6 +241,8 @@
 		062380AA20CA9B8000257395 /* ConversationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConversationTableViewCell.xib; sourceTree = "<group>"; };
 		0623C2A920B52AA700A52087 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0623C2AB20B5513100A52087 /* AppConstanst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstanst.h; sourceTree = "<group>"; };
+		0627993021F1C06400CAA4A6 /* ChangeDetailData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailData.h; sourceTree = "<group>"; };
+		0627993121F1C06400CAA4A6 /* ChangeDetailData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailData.m; sourceTree = "<group>"; };
 		0630D94F20C66E1800191A7D /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		0630D95020C66E1800191A7D /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		0630D95320C6754A00191A7D /* ClientListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientListViewController.h; sourceTree = "<group>"; };
@@ -366,6 +378,23 @@
 		06B3D99F21400102004D548E /* CreateProblem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateProblem.m; sourceTree = "<group>"; };
 		06B3D9A12140013F004D548E /* EditProblemDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProblemDetails.h; sourceTree = "<group>"; };
 		06B3D9A22140013F004D548E /* EditProblemDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProblemDetails.m; sourceTree = "<group>"; };
+		06C9B82E21F1D22D002C4538 /* EditChangeDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditChangeDetails.h; sourceTree = "<group>"; };
+		06C9B82F21F1D22D002C4538 /* EditChangeDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditChangeDetails.m; sourceTree = "<group>"; };
+		06C9B83121F1DC2C002C4538 /* ViewAttachedChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedChange.h; sourceTree = "<group>"; };
+		06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedChange.m; sourceTree = "<group>"; };
+		06C9B83421F1DCCD002C4538 /* ChangeListForPopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeListForPopUpView.h; sourceTree = "<group>"; };
+		06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeListForPopUpView.m; sourceTree = "<group>"; };
+		06D2133221F1A08B006FF9AF /* ChangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeList.h; sourceTree = "<group>"; };
+		06D2133321F1A08B006FF9AF /* ChangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeList.m; sourceTree = "<group>"; };
+		06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangesTableViewCell.xib; sourceTree = "<group>"; };
+		06D2133621F1A1F2006FF9AF /* ChangesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangesTableViewCell.h; sourceTree = "<group>"; };
+		06D2133821F1A3A9006FF9AF /* CreateChanges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChanges.h; sourceTree = "<group>"; };
+		06D2133921F1A3A9006FF9AF /* CreateChanges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChanges.m; sourceTree = "<group>"; };
+		06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangesTableViewCell.m; sourceTree = "<group>"; };
+		06D2134221F1B361006FF9AF /* ChangeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeDetailView.h; sourceTree = "<group>"; };
+		06D2134321F1B361006FF9AF /* ChangeDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeDetailView.m; sourceTree = "<group>"; };
+		06D2134521F1B889006FF9AF /* ChangeAnalysisView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeAnalysisView.h; sourceTree = "<group>"; };
+		06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeAnalysisView.m; sourceTree = "<group>"; };
 		06D3456E215B6637002EBBCD /* ViewAttachedProblems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewAttachedProblems.h; sourceTree = "<group>"; };
 		06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewAttachedProblems.m; sourceTree = "<group>"; };
 		06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
@@ -404,6 +433,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		060EDF5C21E9C5E200228037 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8120B2E233004CFDC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,16 +466,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0619CFA420B2E234004CFDC9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060EDF6021E9C5E200228037 /* Faveo Service Desk ProUITests */ = {
+			isa = PBXGroup;
+			children = (
+				060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */,
+				060EDF6321E9C5E200228037 /* Info.plist */,
+			);
+			path = "Faveo Service Desk ProUITests";
+			sourceTree = "<group>";
+		};
 		060F460320C91D4800EDA6B8 /* NavigationMenuItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +510,7 @@
 			children = (
 				0619CF8620B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CF9F20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
-				0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
+				060EDF6021E9C5E200228037 /* Faveo Service Desk ProUITests */,
 				0619CF8520B2E233004CFDC9 /* Products */,
 				061051FB2199898B7BA13F2B /* Pods */,
 				E75D6D508A14F90D4C829D76 /* Frameworks */,
@@ -484,7 +522,7 @@
 			children = (
 				0619CF8420B2E233004CFDC9 /* Faveo Service Desk Pro.app */,
 				0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */,
-				0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */,
+				060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,7 +536,8 @@
 				0650290720BFEF96007E90E2 /* SideMenu */,
 				06D6478120C56C18000783C8 /* Login */,
 				06D6477F20C56BE8000783C8 /* Tickets */,
-				06E8451A213EB15B00786CEB /* Problem */,
+				06E8451A213EB15B00786CEB /* ProblemManagement */,
+				06D2133121F19F40006FF9AF /* ChangeManagement */,
 				0630D95220C674F000191A7D /* Users */,
 				0630D94E20C66DFC00191A7D /* About us */,
 				0644093320CE8ECC00A5DB3B /* Notification */,
@@ -528,15 +567,6 @@
 				06D6B64921B8F49900B71700 /* PlayingCardDeckTestCase.m */,
 			);
 			path = "Faveo Service Desk ProTests";
-			sourceTree = "<group>";
-		};
-		0619CFAA20B2E234004CFDC9 /* Faveo Service Desk ProUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0619CFAB20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m */,
-				0619CFAD20B2E234004CFDC9 /* Info.plist */,
-			);
-			path = "Faveo Service Desk ProUITests";
 			sourceTree = "<group>";
 		};
 		0619CFBB20B30FE7004CFDC9 /* Helper Classes */ = {
@@ -661,6 +691,9 @@
 				06D3AA96213D04AD0015AACB /* ProblemTableViewCell.h */,
 				06D3AA97213D04AD0015AACB /* ProblemTableViewCell.m */,
 				06D3AA98213D04AD0015AACB /* ProblemTableViewCell.xib */,
+				06D2133621F1A1F2006FF9AF /* ChangesTableViewCell.h */,
+				06D2134021F1B17D006FF9AF /* ChangesTableViewCell.m */,
+				06D2133521F1A1F2006FF9AF /* ChangesTableViewCell.xib */,
 				0667370B215A362A0088719E /* AssetCell.h */,
 				0667370C215A362A0088719E /* AssetCell.m */,
 				0653B9D821551CEB00DE5C5E /* AssetCell.xib */,
@@ -790,6 +823,25 @@
 			path = TestFile;
 			sourceTree = "<group>";
 		};
+		06D2133121F19F40006FF9AF /* ChangeManagement */ = {
+			isa = PBXGroup;
+			children = (
+				06D2133221F1A08B006FF9AF /* ChangeList.h */,
+				06D2133321F1A08B006FF9AF /* ChangeList.m */,
+				06D2133821F1A3A9006FF9AF /* CreateChanges.h */,
+				06D2133921F1A3A9006FF9AF /* CreateChanges.m */,
+				06D2134221F1B361006FF9AF /* ChangeDetailView.h */,
+				06D2134321F1B361006FF9AF /* ChangeDetailView.m */,
+				06D2134521F1B889006FF9AF /* ChangeAnalysisView.h */,
+				06D2134621F1B889006FF9AF /* ChangeAnalysisView.m */,
+				0627993021F1C06400CAA4A6 /* ChangeDetailData.h */,
+				0627993121F1C06400CAA4A6 /* ChangeDetailData.m */,
+				06C9B82E21F1D22D002C4538 /* EditChangeDetails.h */,
+				06C9B82F21F1D22D002C4538 /* EditChangeDetails.m */,
+			);
+			path = ChangeManagement;
+			sourceTree = "<group>";
+		};
 		06D6477F20C56BE8000783C8 /* Tickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,7 +909,7 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		06E8451A213EB15B00786CEB /* Problem */ = {
+		06E8451A213EB15B00786CEB /* ProblemManagement */ = {
 			isa = PBXGroup;
 			children = (
 				06B3D99E21400102004D548E /* CreateProblem.h */,
@@ -876,8 +928,12 @@
 				06D3456F215B6637002EBBCD /* ViewAttachedProblems.m */,
 				067550C121673A1A00F78C20 /* ProblemListForPopUpView.h */,
 				067550C221673A1A00F78C20 /* ProblemListForPopUpView.m */,
+				06C9B83121F1DC2C002C4538 /* ViewAttachedChange.h */,
+				06C9B83221F1DC2C002C4538 /* ViewAttachedChange.m */,
+				06C9B83421F1DCCD002C4538 /* ChangeListForPopUpView.h */,
+				06C9B83521F1DCCD002C4538 /* ChangeListForPopUpView.m */,
 			);
-			path = Problem;
+			path = ProblemManagement;
 			sourceTree = "<group>";
 		};
 		E75D6D508A14F90D4C829D76 /* Frameworks */ = {
@@ -902,6 +958,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		060EDF5E21E9C5E200228037 /* Faveo Service Desk ProUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 060EDF6621E9C5E200228037 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */;
+			buildPhases = (
+				060EDF5B21E9C5E200228037 /* Sources */,
+				060EDF5C21E9C5E200228037 /* Frameworks */,
+				060EDF5D21E9C5E200228037 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				060EDF6521E9C5E200228037 /* PBXTargetDependency */,
+			);
+			name = "Faveo Service Desk ProUITests";
+			productName = "Faveo Service Desk ProUITests";
+			productReference = 060EDF5F21E9C5E200228037 /* Faveo Service Desk ProUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0619CFB020B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk Pro" */;
@@ -940,24 +1014,6 @@
 			productReference = 0619CF9C20B2E234004CFDC9 /* Faveo Service Desk ProTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0619CFA620B2E234004CFDC9 /* Faveo Service Desk ProUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0619CFB620B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */;
-			buildPhases = (
-				0619CFA320B2E234004CFDC9 /* Sources */,
-				0619CFA420B2E234004CFDC9 /* Frameworks */,
-				0619CFA520B2E234004CFDC9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0619CFA920B2E234004CFDC9 /* PBXTargetDependency */,
-			);
-			name = "Faveo Service Desk ProUITests";
-			productName = "Faveo Service Desk ProUITests";
-			productReference = 0619CFA720B2E234004CFDC9 /* Faveo Service Desk ProUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -967,6 +1023,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Ladybird Web Solution Pvt Ltd.";
 				TargetAttributes = {
+					060EDF5E21E9C5E200228037 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 0619CF8320B2E233004CFDC9;
+					};
 					0619CF8320B2E233004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
@@ -982,10 +1042,6 @@
 						};
 					};
 					0619CF9B20B2E234004CFDC9 = {
-						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = 0619CF8320B2E233004CFDC9;
-					};
-					0619CFA620B2E234004CFDC9 = {
 						CreatedOnToolsVersion = 9.3.1;
 						TestTargetID = 0619CF8320B2E233004CFDC9;
 					};
@@ -1015,12 +1071,19 @@
 			targets = (
 				0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */,
 				0619CF9B20B2E234004CFDC9 /* Faveo Service Desk ProTests */,
-				0619CFA620B2E234004CFDC9 /* Faveo Service Desk ProUITests */,
+				060EDF5E21E9C5E200228037 /* Faveo Service Desk ProUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		060EDF5D21E9C5E200228037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8220B2E233004CFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1037,6 +1100,7 @@
 				0623C2AA20B52AA700A52087 /* logo.png in Resources */,
 				065029A320BFFD51007E90E2 /* Advance.png in Resources */,
 				065029A820BFFD51007E90E2 /* home_menu.png in Resources */,
+				06D2133721F1A1F2006FF9AF /* ChangesTableViewCell.xib in Resources */,
 				0619CF9420B2E234004CFDC9 /* LaunchScreen.storyboard in Resources */,
 				065029B520BFFD51007E90E2 /* Starred@2x.png in Resources */,
 				0632102620C7E26200F9235D /* ClientListTableViewCell.xib in Resources */,
@@ -1077,13 +1141,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0619CF9A20B2E234004CFDC9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0619CFA520B2E234004CFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1168,6 +1225,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		060EDF5B21E9C5E200228037 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				060EDF6221E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0619CF8020B2E233004CFDC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1178,7 +1243,9 @@
 				0623809B20CA636D00257395 /* NSDate+NVTimeAgo.m in Sources */,
 				0667370D215A362A0088719E /* AssetCell.m in Sources */,
 				06D6479920C5724B000783C8 /* InboxTickets.m in Sources */,
+				0627993221F1C06400CAA4A6 /* ChangeDetailData.m in Sources */,
 				060F460720C9273500EDA6B8 /* LoadingTableViewCell.m in Sources */,
+				06D2134721F1B889006FF9AF /* ChangeAnalysisView.m in Sources */,
 				0644093120CE891D00A5DB3B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				06A2543120E63412001F8017 /* SearchViewController.m in Sources */,
 				0632102520C7E26200F9235D /* ClientListTableViewCell.m in Sources */,
@@ -1189,12 +1256,14 @@
 				06D34570215B6637002EBBCD /* ViewAttachedProblems.m in Sources */,
 				0619CF8920B2E233004CFDC9 /* AppDelegate.m in Sources */,
 				06D6B64121B8F42100B71700 /* Card.m in Sources */,
+				06D2134421F1B361006FF9AF /* ChangeDetailView.m in Sources */,
 				065028FB20BFE3C0007E90E2 /* SWRevealViewController.m in Sources */,
 				06D6B63D21B8F42100B71700 /* PlayingCard.m in Sources */,
 				0644093220CE891D00A5DB3B /* UIViewController+BIZChildViewController.m in Sources */,
 				06765DBC20CBA782000D834D /* InternalNoteViewController.m in Sources */,
 				06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */,
 				0644092B20CE891D00A5DB3B /* SampleTable.m in Sources */,
+				06C9B83621F1DCCD002C4538 /* ChangeListForPopUpView.m in Sources */,
 				06D3AA99213D04AD0015AACB /* ProblemTableViewCell.m in Sources */,
 				0644093020CE891D00A5DB3B /* TPKeyboardAvoidingTableView.m in Sources */,
 				06D647A220C5729F000783C8 /* UnApprovedTickets.m in Sources */,
@@ -1211,9 +1280,11 @@
 				064408F920CE5BD900A5DB3B /* AddRequester.m in Sources */,
 				06B3D9A021400102004D548E /* CreateProblem.m in Sources */,
 				06E8451D213EB19000786CEB /* ProblemList.m in Sources */,
+				06D2133421F1A08B006FF9AF /* ChangeList.m in Sources */,
 				0650290520BFEE34007E90E2 /* ExpandableTableAppDelegate.m in Sources */,
 				06B3D99D213FB74F004D548E /* ProblemDetailData.m in Sources */,
 				06B3D9A32140013F004D548E /* EditProblemDetails.m in Sources */,
+				06C9B83321F1DC2C002C4538 /* ViewAttachedChange.m in Sources */,
 				06187533211414E70078A7C5 /* ExpandableTableViewController.m in Sources */,
 				0630D95520C6754A00191A7D /* ClientListViewController.m in Sources */,
 				06D647A820C5733E000783C8 /* TrashTickets.m in Sources */,
@@ -1240,12 +1311,15 @@
 				0644090F20CE827A00A5DB3B /* ViewCCViewController.m in Sources */,
 				062380AB20CA9B8000257395 /* ConversationTableViewCell.m in Sources */,
 				0623809520CA448500257395 /* TicketTableViewCell.m in Sources */,
+				06D2133A21F1A3A9006FF9AF /* CreateChanges.m in Sources */,
 				0644092F20CE891D00A5DB3B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				0644093620CE8F0900A5DB3B /* NotificationViewController.m in Sources */,
 				0644092C20CE891D00A5DB3B /* SampleTableCellTableViewCell.m in Sources */,
 				06D6B63F21B8F42100B71700 /* Deck.m in Sources */,
+				06C9B83021F1D22D002C4538 /* EditChangeDetails.m in Sources */,
 				06D6479C20C5725B000783C8 /* MyTickets.m in Sources */,
 				062380A120CA84D700257395 /* ConversationViewController.m in Sources */,
+				06D2134121F1B17E006FF9AF /* ChangesTableViewCell.m in Sources */,
 				060F461120C9318F00EDA6B8 /* OpenCloseTableViewCell.m in Sources */,
 				0650290320BFEE34007E90E2 /* ExpandableTableViewCell.m in Sources */,
 			);
@@ -1267,26 +1341,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0619CFA320B2E234004CFDC9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0619CFAC20B2E234004CFDC9 /* Faveo_Service_Desk_ProUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		060EDF6521E9C5E200228037 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
+			targetProxy = 060EDF6421E9C5E200228037 /* PBXContainerItemProxy */;
+		};
 		0619CF9E20B2E234004CFDC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
 			targetProxy = 0619CF9D20B2E234004CFDC9 /* PBXContainerItemProxy */;
-		};
-		0619CFA920B2E234004CFDC9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0619CF8320B2E233004CFDC9 /* Faveo Service Desk Pro */;
-			targetProxy = 0619CFA820B2E234004CFDC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1310,6 +1376,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		060EDF6721E9C5E200228037 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VY8B59STG;
+				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladybirdwebsolutions.Faveo-Service-Desk-ProUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Faveo Service Desk Pro";
+			};
+			name = Debug;
+		};
+		060EDF6821E9C5E200228037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8VY8B59STG;
+				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ladybirdwebsolutions.Faveo-Service-Desk-ProUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Faveo Service Desk Pro";
+			};
+			name = Release;
+		};
 		0619CFAE20B2E234004CFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1505,6 +1615,7 @@
 		};
 		0619CFB420B2E234004CFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA97E046A48ABA8482D27986 /* Pods-Faveo Service Desk Pro.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1541,45 +1652,18 @@
 			};
 			name = Release;
 		};
-		0619CFB720B2E234004CFDC9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CTCM9YM55B;
-				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ladybirdwebsolution.Faveo-Service-Desk-ProUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Faveo Service Desk Pro";
-			};
-			name = Debug;
-		};
-		0619CFB820B2E234004CFDC9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CTCM9YM55B;
-				INFOPLIST_FILE = "Faveo Service Desk ProUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ladybirdwebsolution.Faveo-Service-Desk-ProUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Faveo Service Desk Pro";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		060EDF6621E9C5E200228037 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				060EDF6721E9C5E200228037 /* Debug */,
+				060EDF6821E9C5E200228037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0619CF7F20B2E233004CFDC9 /* Build configuration list for PBXProject "Faveo Service Desk Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1603,15 +1687,6 @@
 			buildConfigurations = (
 				0619CFB420B2E234004CFDC9 /* Debug */,
 				0619CFB520B2E234004CFDC9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0619CFB620B2E234004CFDC9 /* Build configuration list for PBXNativeTarget "Faveo Service Desk ProUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0619CFB720B2E234004CFDC9 /* Debug */,
-				0619CFB820B2E234004CFDC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

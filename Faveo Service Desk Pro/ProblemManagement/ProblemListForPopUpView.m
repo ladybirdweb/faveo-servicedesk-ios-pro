@@ -19,10 +19,11 @@
 #import "UIColor+HexColors.h"
 #import "AppConstanst.h"
 #import "InboxTickets.h"
-
 #import "SampleNavigation.h"
 #import "ExpandableTableViewController.h"
 #import "SWRevealViewController.h"
+#import "ChangesTableViewCell.h"
+#import "ProblemList.h"
 
 @interface ProblemListForPopUpView ()<RMessageProtocol,UITableViewDataSource,UITableViewDelegate>
 {
@@ -52,16 +53,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    
     userDefaults=[NSUserDefaults standardUserDefaults];
     utils=[[Utils alloc]init];
     globalVariables=[GlobalVariables sharedInstance];
     
     _mutableArray=[[NSMutableArray alloc]init];
     
+    if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
+        
+        _vcTitleNameLabel.text = @"Existing Problems";
+    }
+    else if ([globalVariables.fromVCTpPopUpView isEqualToString:@"changeListPopUp"]){
+        
+         _vcTitleNameLabel.text = @"Existing Changes";
+    }
     
     // to set black background color mask for Progress view
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD showWithStatus:@"Loading Problems"];
+    
+
+    if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
+        
+       [SVProgressHUD showWithStatus:@"Loading Problems"];
+    }
+    else if ([globalVariables.fromVCTpPopUpView isEqualToString:@"changeListPopUp"]){
+        
+       [SVProgressHUD showWithStatus:@"Loading Changes"];
+    }
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 
@@ -100,9 +119,20 @@
         
     }else{
         
+        NSString * url;
         
-        NSString * url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
-        NSLog(@"URL is : %@",url);
+        if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
+            
+             url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/problems?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
+            NSLog(@"Problem List URL is : %@",url);
+        }
+        else if ([globalVariables.fromVCTpPopUpView isEqualToString:@"changeListPopUp"]){
+            
+             url= [NSString stringWithFormat:@"%@api/v1/servicedesk/all/changes?token=%@&api_key=%@",[userDefaults objectForKey:@"baseURL"],[userDefaults objectForKey:@"token"],API_KEY];
+            NSLog(@"Change List URL is : %@",url);
+        }
+        
+        
         
         @try{
             MyWebservices *webservices=[MyWebservices sharedInstance];
@@ -338,66 +368,132 @@
     }else{
         
         
-        ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        UIButton *newRadioButton = (UIButton *)cell.accessoryView;
-        
-        if (cell == nil)
-        {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
-            cell = [nib objectAtIndex:0];
+        if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
             
-            if (!newRadioButton || ![newRadioButton isKindOfClass:[UIButton class]]) {
-                UIButton *newRadioButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                newRadioButton.frame = CGRectMake(30, 0, 15, 14.5);
-                [newRadioButton setImage:[UIImage imageNamed:@"unselect"] forState:UIControlStateNormal];
-                [newRadioButton setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
-                cell.accessoryView = newRadioButton;
+            ProblemTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"problemCellId"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            UIButton *newRadioButton = (UIButton *)cell.accessoryView;
+            
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProblemTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+                
+                if (!newRadioButton || ![newRadioButton isKindOfClass:[UIButton class]]) {
+                    UIButton *newRadioButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                    newRadioButton.frame = CGRectMake(30, 0, 15, 14.5);
+                    [newRadioButton setImage:[UIImage imageNamed:@"unselect"] forState:UIControlStateNormal];
+                    [newRadioButton setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
+                    cell.accessoryView = newRadioButton;
+                }
+                
             }
             
-        }
-        
-        if ([indexPath isEqual:selectedIndex]) {
-            newRadioButton.selected = YES;
-        } else {
-            newRadioButton.selected = NO;
-        }
-        
-        //created_at priority
-        
-        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-        
-        NSString *problemName= [finaldic objectForKey:@"subject"];
-        NSString *from= [finaldic objectForKey:@"from"];
-        NSString *id= [finaldic objectForKey:@"id"];
-        NSString *createdDate= [finaldic objectForKey:@"created_at"];
-        // NSString *prio= [finaldic objectForKey:@"created_at"];
-        
-        
-        cell.problemNameLabel.text = problemName;
-        cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
-        cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
-        cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
-        
-        if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
+            if ([indexPath isEqual:selectedIndex]) {
+                newRadioButton.selected = YES;
+            } else {
+                newRadioButton.selected = NO;
+            }
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
-        }
-        else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
+            //created_at priority
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
-        }
-        else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
+            NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
-        }
-        else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
+            NSString *problemName= [finaldic objectForKey:@"subject"];
+            NSString *from= [finaldic objectForKey:@"from"];
+            NSString *id= [finaldic objectForKey:@"id"];
+            NSString *createdDate= [finaldic objectForKey:@"created_at"];
+            // NSString *prio= [finaldic objectForKey:@"created_at"];
             
-            cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            
+            cell.problemNameLabel.text = problemName;
+            cell.fromLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+            cell.problemNumber.text = [NSString stringWithFormat:@"#PRB-%@",id];
+            cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
+            
+            if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            }
+            return cell;
         }
-        return cell;
-    }
+        
+       // else if ([globalVariables.fromVCTpPopUpView isEqualToString:@"changeListPopUp"]){
+            
+            ChangesTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"ChangesTableViewCellId"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            UIButton *newRadioButton = (UIButton *)cell.accessoryView;
+            
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChangesTableViewCell" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+                
+                if (!newRadioButton || ![newRadioButton isKindOfClass:[UIButton class]]) {
+                    UIButton *newRadioButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                    newRadioButton.frame = CGRectMake(30, 0, 15, 14.5);
+                    [newRadioButton setImage:[UIImage imageNamed:@"unselect"] forState:UIControlStateNormal];
+                    [newRadioButton setImage:[UIImage imageNamed:@"select"] forState:UIControlStateSelected];
+                    cell.accessoryView = newRadioButton;
+                }
+                
+            }
+            
+            if ([indexPath isEqual:selectedIndex]) {
+                newRadioButton.selected = YES;
+            } else {
+                newRadioButton.selected = NO;
+            }
+            
+            //created_at priority
+            
+            NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
+            
+            NSString *problemName= [finaldic objectForKey:@"subject"];
+            //  NSString *from= [finaldic objectForKey:@"from"];
+            NSString *id1= [finaldic objectForKey:@"id"];
+            NSString *createdDate= [finaldic objectForKey:@"created_at"];
+            // NSString *prio= [finaldic objectForKey:@"created_at"];
+            
+            
+            cell.changeNameLabel1.text = problemName;
+            // cell.requesterLabel.text = [NSString stringWithFormat:@"Requester: %@",from]; //from;
+            cell.changeNumber.text = [NSString stringWithFormat:@"#CNG-%@",id1];
+            cell.createdDateLabel.text = [utils getLocalDateTimeFromUTC:createdDate];
+            
+            if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Low"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorLowForProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Normal"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorNormalProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"High"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorHighProblemsList] CGColor];
+            }
+            else if(([[finaldic objectForKey:@"priority"] isEqualToString:@"Emergency"])){
+                
+                cell.indicationView.layer.backgroundColor=[[UIColor colorFromHexString:globalVariables.priorityColorEmergencyProblemsList] CGColor];
+            }
+            return cell;
+    
+    }//end  if (indexPath.row == [_mutableArray count]) {
     
 }
 
@@ -408,11 +504,23 @@
     
     selectedIndex = indexPath;
    
-    NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
-    NSLog(@"Selected problem Id is : %@",[finaldic objectForKey:@"id"]);
-    
-    globalVariables.problemId2 = [finaldic objectForKey:@"id"];
-    
+    if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
+        
+        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
+        NSLog(@"Selected problem Id is : %@",[finaldic objectForKey:@"id"]);
+        
+        globalVariables.problemId2 = [finaldic objectForKey:@"id"];
+    }
+    else{
+        
+        NSDictionary *finaldic=[_mutableArray objectAtIndex:indexPath.row];
+        
+        NSLog(@"Selected Change Id is : %@",[finaldic objectForKey:@"id"]);
+        
+        globalVariables.changeId=[finaldic objectForKey:@"id"];
+        
+    }
+   
     [tableView reloadData];
     
 }
@@ -584,9 +692,15 @@
     
     [SVProgressHUD showWithStatus:@"Please wait"];
     
-    [self attachExistingProblemToTicketAPICall];
+     if ([globalVariables.fromVCTpPopUpView isEqualToString:@"problemListPopUp"]){
+         
+         [self attachExistingProblemToTicketAPICall];
+     }
+     else{
+         
+         [self attachExistingChangeToProblemAPICall];
+     }
     
-   
     
 }
 
@@ -652,12 +766,7 @@
                                                             atPosition:RMessagePositionNavBarOverlay
                                                   canBeDismissedByUser:YES];
                             
-                           
-//                            InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
-//                            UINavigationController *objNav = [[UINavigationController alloc] initWithRootViewController:inboxVC];
-//
-//                            [self presentViewController:objNav animated:YES completion:nil];
-//
+
                             InboxTickets *inboxVC=[self.storyboard instantiateViewControllerWithIdentifier:@"inboxId"];
                             
                             SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:inboxVC];
@@ -699,7 +808,129 @@
         //   NSLog( @" I am in attachExistingProblemToTicket ViewController" );
         
     }
+
+}
+
+-(void)attachExistingChangeToProblemAPICall{
+    
+    
+    NSString *url=[NSString stringWithFormat:@"%@servicedesk/problem/change/attach/%@?@&token=%@&change=%@",[userDefaults objectForKey:@"companyURL"],globalVariables.problemId,[userDefaults objectForKey:@"token"],globalVariables.changeId];
+    
+    
+    @try{
+        MyWebservices *webservices=[MyWebservices sharedInstance];
+        
+        [webservices httpResponsePOST:url parameter:@"" callbackHandler:^(NSError *error,id json,NSString* msg) {
+            
+            
+            if (error || [msg containsString:@"Error"]) {
+                
+                [SVProgressHUD dismiss];
+                
+                if (msg) {
+                    
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",msg] sendViewController:self];
+                    
+                }else if(error)  {
+                    [self->utils showAlertWithMessage:[NSString stringWithFormat:@"Error-%@",error.localizedDescription] sendViewController:self];
+                
+                }
+                
+                return ;
+            }
+            
+            if ([msg isEqualToString:@"tokenRefreshed"]) {
+                
+                [self attachExistingProblemToTicketAPICall];
+                NSLog(@"Thread-call-attachExistingProblemToTicket");
+                return;
+            }
+            
+            if (json) {
+                
+           //     NSLog(@"JSON is : %@",json);
+                
+                if([[json objectForKey:@"data"] isKindOfClass:[NSDictionary class]]){
+                    
+                    NSDictionary * dict = [json objectForKey:@"data"];
+                    NSString * msg = [dict objectForKey:@"success"];
+                    
+                    if ([msg isEqualToString:@"Changes Updated Successfully"]) {
+                        
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                
+                                if (self.navigationController.navigationBarHidden) {
+                                    [self.navigationController setNavigationBarHidden:NO];
+                                }
+                                
+                                [RMessage showNotificationInViewController:self.navigationController
+                                                                     title:NSLocalizedString(@"success", nil)
+                                                                  subtitle:NSLocalizedString(@"Problem attached Successfully", nil)
+                                                                 iconImage:nil
+                                                                      type:RMessageTypeSuccess
+                                                            customTypeName:nil
+                                                                  duration:RMessageDurationAutomatic
+                                                                  callback:nil
+                                                               buttonTitle:nil
+                                                            buttonCallback:nil
+                                                                atPosition:RMessagePositionNavBarOverlay
+                                                      canBeDismissedByUser:YES];
+                                
+                                        ProblemList *problemVC=[self.storyboard instantiateViewControllerWithIdentifier:@"problemId"];
+                                 
+                                 SampleNavigation *slide = [[SampleNavigation alloc] initWithRootViewController:problemVC];
+                                 
+                                 
+                                 ExpandableTableViewController *sidemenu = (ExpandableTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"sideMenu"];
+                                 
+                                 // Initialize SWRevealViewController and set it as |rootViewController|
+                                 SWRevealViewController * vc= [[SWRevealViewController alloc]initWithRearViewController:sidemenu frontViewController:slide];
+                                 
+                                 [self presentViewController: vc animated:YES completion:nil];
+
+                                
+                                [SVProgressHUD dismiss];
+                                
+                            });
+                        });
+                                
+                    }
+                    else{
+                        
+                        [self->utils showAlertWithMessage:@"Something Went Wrong." sendViewController:self];
+                        [SVProgressHUD dismiss];
+                        
+                    }
+                    
+                }
+                else if([[json objectForKey:@"data"] isKindOfClass:[NSString class]]){
+                    
+                    [self->utils showAlertWithMessage:@"Wrong Input Data." sendViewController:self];
+                    [SVProgressHUD dismiss];
+                }
+                
+                
+            }
+            NSLog(@"Thread-attachExistingChangeToProblem-closed");
+            
+        }];
+    }@catch (NSException *exception)
+    {
+        [utils showAlertWithMessage:exception.name sendViewController:self];
+        NSLog( @"Name: %@", exception.name);
+        NSLog( @"Reason: %@", exception.reason );
+        return;
+    }
+    @finally
+    {
+        //   NSLog( @" I am in attachExistingProblemToTicket ViewController" );
+        
+    }
     
     
 }
+
+
+
 @end
