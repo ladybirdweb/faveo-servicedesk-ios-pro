@@ -20,7 +20,6 @@
 #define IP @""
 #define APP_VERSION @"1.0"
 
-//#define BILLING_API @"https://www.faveohelpdesk.com/billing/public/api/check-url"
 #define BILLING_API @"https://billing.faveohelpdesk.com/api/check-url"
 
 

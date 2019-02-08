@@ -118,6 +118,14 @@
 		0676606520CBBF22000D834D /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 0676606420CBBF22000D834D /* GlobalVariables.m */; };
 		068F424621466C00005CA466 /* problem-ic1.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424521466C00005CA466 /* problem-ic1.png */; };
 		068F424A21466E0C005CA466 /* all-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 068F424921466E0C005CA466 /* all-list.png */; };
+		06987C85220D6AE1007A5346 /* CreateTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C84220D6AE1007A5346 /* CreateTicket.m */; };
+		06987C87220D6B56007A5346 /* Ticket Reply.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C86220D6B56007A5346 /* Ticket Reply.m */; };
+		06987C89220D6B6A007A5346 /* Internal Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C88220D6B6A007A5346 /* Internal Note.m */; };
+		06987C8B220D6B7E007A5346 /* Edit Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C8A220D6B7E007A5346 /* Edit Ticket.m */; };
+		06987C8D220D6BBF007A5346 /* About Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C8C220D6BBF007A5346 /* About Company.m */; };
+		06987C8F220D6BD8007A5346 /* Users List.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C8E220D6BD8007A5346 /* Users List.m */; };
+		06987C91220D6BF5007A5346 /* User Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C90220D6BF5007A5346 /* User Details.m */; };
+		06987C93220D6C14007A5346 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = 06987C92220D6C14007A5346 /* Search.m */; };
 		06A2542B20E60B2F001F8017 /* MultipleTicketAssignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */; };
 		06A2542E20E60B48001F8017 /* TicketMergeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2542D20E60B48001F8017 /* TicketMergeView.m */; };
 		06A2543120E63412001F8017 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A2543020E63412001F8017 /* SearchViewController.m */; };
@@ -359,6 +367,14 @@
 		0676606420CBBF22000D834D /* GlobalVariables.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		068F424521466C00005CA466 /* problem-ic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "problem-ic1.png"; path = "../../../../../Downloads/problem-ic1.png"; sourceTree = "<group>"; };
 		068F424921466E0C005CA466 /* all-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all-list.png"; sourceTree = "<group>"; };
+		06987C84220D6AE1007A5346 /* CreateTicket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateTicket.m; sourceTree = "<group>"; };
+		06987C86220D6B56007A5346 /* Ticket Reply.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Ticket Reply.m"; sourceTree = "<group>"; };
+		06987C88220D6B6A007A5346 /* Internal Note.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Internal Note.m"; sourceTree = "<group>"; };
+		06987C8A220D6B7E007A5346 /* Edit Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Edit Ticket.m"; sourceTree = "<group>"; };
+		06987C8C220D6BBF007A5346 /* About Company.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "About Company.m"; sourceTree = "<group>"; };
+		06987C8E220D6BD8007A5346 /* Users List.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Users List.m"; sourceTree = "<group>"; };
+		06987C90220D6BF5007A5346 /* User Details.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User Details.m"; sourceTree = "<group>"; };
+		06987C92220D6C14007A5346 /* Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		06A2542920E60B2F001F8017 /* MultipleTicketAssignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultipleTicketAssignView.h; sourceTree = "<group>"; };
 		06A2542A20E60B2F001F8017 /* MultipleTicketAssignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipleTicketAssignView.m; sourceTree = "<group>"; };
 		06A2542C20E60B48001F8017 /* TicketMergeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketMergeView.h; sourceTree = "<group>"; };
@@ -472,6 +488,14 @@
 		060EDF6021E9C5E200228037 /* Faveo Service Desk ProUITests */ = {
 			isa = PBXGroup;
 			children = (
+				06987C84220D6AE1007A5346 /* CreateTicket.m */,
+				06987C92220D6C14007A5346 /* Search.m */,
+				06987C86220D6B56007A5346 /* Ticket Reply.m */,
+				06987C88220D6B6A007A5346 /* Internal Note.m */,
+				06987C8A220D6B7E007A5346 /* Edit Ticket.m */,
+				06987C8E220D6BD8007A5346 /* Users List.m */,
+				06987C90220D6BF5007A5346 /* User Details.m */,
+				06987C8C220D6BBF007A5346 /* About Company.m */,
 				060EDF6121E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m */,
 				060EDF6321E9C5E200228037 /* Info.plist */,
 			);
@@ -1229,7 +1253,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06987C93220D6C14007A5346 /* Search.m in Sources */,
+				06987C8B220D6B7E007A5346 /* Edit Ticket.m in Sources */,
 				060EDF6221E9C5E200228037 /* Faveo_Service_Desk_ProUITests.m in Sources */,
+				06987C8F220D6BD8007A5346 /* Users List.m in Sources */,
+				06987C89220D6B6A007A5346 /* Internal Note.m in Sources */,
+				06987C87220D6B56007A5346 /* Ticket Reply.m in Sources */,
+				06987C8D220D6BBF007A5346 /* About Company.m in Sources */,
+				06987C91220D6BF5007A5346 /* User Details.m in Sources */,
+				06987C85220D6AE1007A5346 /* CreateTicket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
