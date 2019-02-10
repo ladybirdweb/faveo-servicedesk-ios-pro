@@ -57,29 +57,6 @@
     
 }
 
-- (void)testUserSearch {
-    
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    XCUIElement *searchNavigationBarButton = app.navigationBars[@"Inbox"].buttons[@"search1"];
-    
-    // Validate Search button present on Naviagtion Bar
-    XCTAssertTrue(searchNavigationBarButton.exists);
-    // Clicked on Search Button
-    [searchNavigationBarButton tap];
-    
-    
-    XCUIElement *searchTextField = app.textFields[@"search here..."];
-    
-    // Validate Search button present on  Search Page
-    XCTAssertTrue(searchTextField.exists);
-    // Clicked on search textfield
-    [searchTextField tap];
-    
-    //type data in text field
-    [searchTextField typeText:@"test data"];
-    
-    // Clicked on tickets option on segemenet control
-    [app.buttons[@"User"] tap];
-}
+
 
 @end

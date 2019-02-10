@@ -1,18 +1,18 @@
 //
-//  CreateTicket.m
+//  TicketCreate.m
 //  Faveo Service Desk ProUITests
 //
-//  Created by Mallikarjun on 08/02/19.
+//  Created by Mallikarjun on 10/02/19.
 //  Copyright © 2019 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface CreateTicket : XCTestCase
+@interface TicketCreate : XCTestCase
 
 @end
 
-@implementation CreateTicket
+@implementation TicketCreate
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,15 +30,8 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testSideMenuOnInbox {
-    
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    [app.navigationBars[@"Inbox"].buttons[@"Item"] tap];
-}
-
-- (void)testCreateTicket {
+- (void)testCreteTicket {
    
-    
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.navigationBars[@"Inbox"].buttons[@"Item"] tap];
     
@@ -81,7 +74,7 @@
     [textView5 typeText:@"This is sample subject for this ticket."];
     
     //[app.alerts[@"Faveo Helpdesk"].buttons[@"OK"] tap];
-   // [textView5 tap];
+    // [textView5 tap];
     
     XCUIElement *textView6 = [[tablesQuery2.cells containingType:XCUIElementTypeStaticText identifier:@"Message*"] childrenMatchingType:XCUIElementTypeTextView].element;
     [textView6 tap];
@@ -101,9 +94,6 @@
     [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"HelpTopics*"]/*[[".cells.staticTexts[@\"HelpTopics*\"]",".staticTexts[@\"HelpTopics*\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ swipeUp];
     
     [tablesQuery/*@START_MENU_TOKEN@*/.buttons[@"Submit"]/*[[".cells.buttons[@\"Submit\"]",".buttons[@\"Submit\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    
-    
-    
 }
 
 @end

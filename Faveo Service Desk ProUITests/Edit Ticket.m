@@ -30,9 +30,16 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testExample {
+- (void)testEdiTicket {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    [app.tables/*@START_MENU_TOKEN@*/.staticTexts[@"Test again (1)"]/*[[".cells.staticTexts[@\"Test again (1)\"]",".staticTexts[@\"Test again (1)\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
+
+  //  [app.navigationBars[@"Inbox"].buttons[@"pencileEdit"] tap];
+   
+    
 }
 
 @end

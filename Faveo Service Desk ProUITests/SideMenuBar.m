@@ -1,18 +1,18 @@
 //
-//  About Company.m
+//  SideMenuBar.m
 //  Faveo Service Desk ProUITests
 //
-//  Created by Mallikarjun on 08/02/19.
+//  Created by Mallikarjun on 10/02/19.
 //  Copyright © 2019 Ladybird Web Solution Pvt Ltd. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface About_Company : XCTestCase
+@interface SideMenuBar : XCTestCase
 
 @end
 
-@implementation About_Company
+@implementation SideMenuBar
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,20 +30,12 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testAboutUs {
+- (void)testSideViewController {
     // Use recording to get started writing UI tests.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.navigationBars[@"Inbox"].buttons[@"Item"] tap];
     
-    XCUIElementQuery *tablesQuery = app.tables;
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"Settings"]/*[[".cells.staticTexts[@\"Settings\"]",".staticTexts[@\"Settings\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    [tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[@"About us"]/*[[".cells.staticTexts[@\"About us\"]",".staticTexts[@\"About us\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    [app.scrollViews.otherElements.buttons[@"Website"] tap];
-    
-  
-    
 }
-
 @end

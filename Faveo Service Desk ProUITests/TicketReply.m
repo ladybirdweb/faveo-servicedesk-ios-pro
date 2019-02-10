@@ -1,5 +1,5 @@
 //
-//  Ticket Reply.m
+//  TicketReply.m
 //  Faveo Service Desk ProUITests
 //
 //  Created by Mallikarjun on 08/02/19.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface Ticket_Reply : XCTestCase
+@interface TicketReply : XCTestCase
 
 @end
 
-@implementation Ticket_Reply
+@implementation TicketReply
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,9 +30,10 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testTicketReply {
-           
-    
+- (void)testReplyTicket {
+    // Use recording to get started writing UI tests.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+
 }
 
 @end
